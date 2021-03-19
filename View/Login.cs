@@ -16,5 +16,17 @@ namespace ClinicSupport
         {
             InitializeComponent();
         }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            usernameTextBox.Text = "";
+            passwordTextBox.Text = "";
+            errorLabel.Text = "";
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
