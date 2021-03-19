@@ -2,6 +2,9 @@
 
 namespace ClinicSupport.DAL
 {
+    /// <summary>
+    /// Class to establish a connection directly to the DB (cs6232-g5)
+    /// </summary>
     class DBConnection
     {
         /// <summary>

@@ -53,7 +53,7 @@ namespace ClinicSupport
             this.tableLayoutPanel1.Controls.Add(this.passwordTextBox, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.clearButton, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.loginButton, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.errorLabel, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.errorLabel, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -126,13 +126,14 @@ namespace ClinicSupport
             // 
             // errorLabel
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 3);
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(172, 193);
+            this.errorLabel.Location = new System.Drawing.Point(73, 193);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(212, 23);
+            this.errorLabel.Size = new System.Drawing.Size(311, 23);
             this.errorLabel.TabIndex = 0;
+            this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LoginForm
             // 

@@ -1,20 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ClinicSupport.Controller;
+using System;
 using System.Windows.Forms;
 
 namespace ClinicSupport
 {
+    /// <summary>
+    /// Class to create a Form to be used to login to the Support controls
+    /// </summary>
     public partial class LoginForm : Form
     {
+        private readonly LoginController loginController;
+
+        /// <summary>
+        /// 0-parameter constructor for the LoginForm class
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
+            loginController = new LoginController();
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -26,7 +29,28 @@ namespace ClinicSupport
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            string user = usernameTextBox.Text;
+            string password = passwordTextBox.Text;
 
+            string privileges = loginController.GetLoginInformation(user, password);
+            privileges.ToUpper();
+
+            if (privileges.Equals("Nurse"))
+            {
+
+            }
+            else if (privileges.Equals("Admin"))
+            {
+
+            }
+            else if (privileges.Equals("Doctor"))
+            {
+                //I'm not sure if we need this one or not...
+            }
+            else
+            {
+                errorLabel.Text = "Sorry, that user isn't registered.";
+            }
         }
     }
 }
