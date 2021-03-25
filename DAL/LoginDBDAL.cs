@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using ClinicSupport.Model;
+using System.Data.SqlClient;
 
 namespace ClinicSupport.DAL
 {
@@ -9,10 +10,10 @@ namespace ClinicSupport.DAL
         { 
         }
 
-        public string GetLoginInformation(string user, string hashedPassword)
+        public User GetLoginInformation(string user, string hashedPassword)
         {
-            string privileges = "";
-            string selectStatement = "SELECT privilege FROM Login where username = @user and password = @password;";
+            User newUser = new User();
+            string selectStatement = "SELECT username, privilege FROM Login where username = @user and password = @password;";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -31,13 +32,14 @@ namespace ClinicSupport.DAL
 
                             while (reader.Read())
                             {
-                                privileges = reader["privilege"].ToString();
+                                newUser.Username = reader["username"].ToString();
+                                newUser.Privileges = reader["privilege"].ToString();
                             }
                     }
                 }
             }
 
-            return privileges;
+            return newUser;
         }
     }
 }

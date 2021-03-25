@@ -1,4 +1,5 @@
 ﻿using ClinicSupport.Controller;
+using ClinicSupport.Model;
 using System;
 using System.Windows.Forms;
 
@@ -32,7 +33,9 @@ namespace ClinicSupport
             string user = usernameTextBox.Text;
             string password = passwordTextBox.Text;
 
-            string privileges = loginController.GetLoginInformation(user, password);
+            User newUser = loginController.GetLoginInformation(user, password);
+
+            string privileges = newUser.Privileges;
 
             if (privileges.Equals("Nurse"))
             {

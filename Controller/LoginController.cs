@@ -1,7 +1,7 @@
 ﻿using ClinicSupport.DAL;
+using ClinicSupport.Model;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System;
-using System.Windows.Forms;
 
 namespace ClinicSupport.Controller
 {
@@ -27,7 +27,7 @@ namespace ClinicSupport.Controller
         /// <param user = "user">the user's given username</param> 
         /// <param password = "password">the users plain-text password</param> 
         /// <returns>A string with the privileges of the user</returns>
-        public String GetLoginInformation(string user, string password)
+        public User GetLoginInformation(string user, string password)
         {
             if (user == null || password == null)
             {
@@ -37,11 +37,8 @@ namespace ClinicSupport.Controller
             string hashedPassword = HashPassword(user, password);
 
             //put the DBDAL here and check it against the DB then return what it says
-            string information = loginDBDAL.GetLoginInformation(user, hashedPassword);
+            User information = loginDBDAL.GetLoginInformation(user, hashedPassword);
             return information;
-
-
-            //return hashedPassword;
         }
 
         /// <summary>
