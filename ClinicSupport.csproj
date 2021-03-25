@@ -57,6 +57,7 @@
     <Compile Include="DAL\LoginDBDAL.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Individual.cs" />
+    <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visit.cs" />
     <Compile Include="View\AdminDashboard.cs">
