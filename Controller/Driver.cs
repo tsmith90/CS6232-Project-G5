@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace ClinicSupport
 {
+    /// <summary>
+    /// Driver class for the ClinicSupport application
+    /// </summary>
     static class Driver
     {
         /// <summary>

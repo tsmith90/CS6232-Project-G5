@@ -92,7 +92,7 @@ namespace ClinicSupport
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(212, 26);
             this.usernameTextBox.TabIndex = 1;
-            this.usernameTextBox.TextChanged += new System.EventHandler(this.UsernameTextBox_TextChanged);
+            this.usernameTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // passwordTextBox
             // 
@@ -103,7 +103,7 @@ namespace ClinicSupport
             this.passwordTextBox.Size = new System.Drawing.Size(212, 26);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.UseSystemPasswordChar = true;
-            this.passwordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // clearButton
             // 

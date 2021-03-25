@@ -2,13 +2,23 @@
 
 namespace ClinicSupport.View
 {
+    /// <summary>
+    /// Class Form to show Admin UserControls and options
+    /// </summary>
     public partial class AdminDashboard : Form
     {
+        /// <summary>
+        /// 0-parameter constructor for the AdminDashboard class
+        /// </summary>
         public AdminDashboard()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Method to set the userLabel upon login
+        /// </summary>
+        /// <param user = "user">the name of the user</param> 
         public void SetUsername(string user)
         {
             nameLabel.Text = user;

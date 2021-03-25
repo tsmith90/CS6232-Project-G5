@@ -3,13 +3,25 @@ using System.Data.SqlClient;
 
 namespace ClinicSupport.DAL
 {
+    /// <summary>
+    /// Class with interact with the Login table of the CS6232-g5 DB
+    /// </summary>
     class LoginDBDAL
     {
 
+        /// <summary>
+        /// 0-parameter constructor for the LoginDBDAL class
+        /// </summary>
         public LoginDBDAL()
         { 
         }
 
+        /// <summary>
+        /// Method to get the login information from CS6232-g5 DB
+        /// </summary>
+        /// <param user = "user">the user's given username</param> 
+        /// <param password = "hashedPassword">the users hashed password</param> 
+        /// <returns>A new User with a username and privileges</returns>
         public User GetLoginInformation(string user, string hashedPassword)
         {
             User newUser = new User();
@@ -29,12 +41,11 @@ namespace ClinicSupport.DAL
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
-                            while (reader.Read())
-                            {
-                                newUser.Username = reader["username"].ToString();
-                                newUser.Privileges = reader["privilege"].ToString();
-                            }
+                        while (reader.Read())
+                        {
+                            newUser.Username = reader["username"].ToString();
+                            newUser.Privileges = reader["privilege"].ToString();
+                        }
                     }
                 }
             }

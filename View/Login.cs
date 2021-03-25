@@ -82,12 +82,7 @@ namespace ClinicSupport
             errorLabel.Text = "";
         }
 
-        private void UsernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            errorLabel.Text = "";
-        }
-
-        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
+        private void TextBox_TextChanged(object sender, EventArgs e)
         {
             errorLabel.Text = "";
         }
