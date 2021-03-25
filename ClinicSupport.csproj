@@ -55,6 +55,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\LoginDBDAL.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="View\Login.cs">
       <SubType>Form</SubType>
     </Compile>

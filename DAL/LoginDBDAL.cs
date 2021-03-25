@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data.SqlClient;
-using System.Windows.Forms;
+﻿using System.Data.SqlClient;
 
 namespace ClinicSupport.DAL
 {
@@ -39,7 +37,7 @@ namespace ClinicSupport.DAL
                 }
             }
 
-                return privileges;
+            return privileges;
         }
     }
 }

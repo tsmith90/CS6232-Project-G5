@@ -11,7 +11,8 @@ namespace ClinicSupport.Controller
     class LoginController
     {
 
-        private LoginDBDAL loginDBDAL;
+        private readonly LoginDBDAL loginDBDAL;
+
         /// <summary>
         /// 0-parameter constructor for the LoginController class
         /// </summary>

@@ -40,7 +40,7 @@ namespace ClinicSupport
             }
             else if (privileges.Equals("Admin"))
             {
-
+                errorLabel.Text = "Admin Logged in";
             }
             else if (privileges.Equals("Doctor"))
             {
