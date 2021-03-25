@@ -32,14 +32,11 @@ namespace ClinicSupport
             string user = usernameTextBox.Text;
             string password = passwordTextBox.Text;
 
-            //Uncomment the following privileges string when 
-            //you finish testing the Dashboard functionalities. And delete the testing variable
-            //string privileges = loginController.GetLoginInformation(user, password);
-            string privileges = "Nurse";
+            string privileges = loginController.GetLoginInformation(user, password);
 
             if (privileges.Equals("Nurse"))
             {
-
+                errorLabel.Text = "Nurse Logged in";
             }
             else if (privileges.Equals("Admin"))
             {
