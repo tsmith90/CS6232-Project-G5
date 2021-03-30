@@ -22,7 +22,7 @@ namespace ClinicSupport.View
         /// <param user = "user">the name of the user</param> 
         public void SetUsername(string user)
         {
-            nameLabel.Text = user;
+            nameLabel.Text = "Welcome nurse " + user + "!";
         }
 
         private void Form_FormClosed(object sender, FormClosedEventArgs e)

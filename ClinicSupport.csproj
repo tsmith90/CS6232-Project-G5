@@ -53,8 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\LoginDBDAL.cs" />
+    <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Individual.cs" />
     <Compile Include="Model\Patient.cs" />
