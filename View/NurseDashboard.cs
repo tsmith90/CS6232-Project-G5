@@ -7,13 +7,14 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class NurseDashboard : Form
     {
-
+        private NewOrEditPatientInformation newOrEditPatientInformation;
         /// <summary>
         /// 0-parameter constructor for the NurseDashboard class
         /// </summary>
         public NurseDashboard()
         {
             InitializeComponent();
+            newOrEditPatientInformation = new NewOrEditPatientInformation();
         }
 
         /// <summary>
@@ -33,6 +34,11 @@ namespace ClinicSupport.View
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
+        }
+
+        private void NewPatientButton_Click(object sender, System.EventArgs e)
+        {
+            newOrEditPatientInformation.ShowDialog();
         }
     }
  

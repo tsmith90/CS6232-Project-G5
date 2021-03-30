@@ -82,6 +82,7 @@ namespace ClinicSupport.View
             this.newPatientButton.TabIndex = 3;
             this.newPatientButton.Text = "New Patient";
             this.newPatientButton.UseVisualStyleBackColor = true;
+            this.newPatientButton.Click += new System.EventHandler(this.NewPatientButton_Click);
             // 
             // NurseDashboard
             // 
