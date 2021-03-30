@@ -32,6 +32,7 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.newPatientButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.tableLayoutPanel1.Controls.Add(this.logoutLinkLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.nameLabel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.newPatientButton, 0, 2);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -72,6 +74,15 @@ namespace ClinicSupport.View
             this.logoutLinkLabel.Text = "Logout";
             this.logoutLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLinkLabel_LinkClicked);
             // 
+            // newPatientButton
+            // 
+            this.newPatientButton.Location = new System.Drawing.Point(3, 49);
+            this.newPatientButton.Name = "newPatientButton";
+            this.newPatientButton.Size = new System.Drawing.Size(114, 35);
+            this.newPatientButton.TabIndex = 3;
+            this.newPatientButton.Text = "New Patient";
+            this.newPatientButton.UseVisualStyleBackColor = true;
+            // 
             // NurseDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,5 +104,6 @@ namespace ClinicSupport.View
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.LinkLabel logoutLinkLabel;
+        private System.Windows.Forms.Button newPatientButton;
     }
 }
