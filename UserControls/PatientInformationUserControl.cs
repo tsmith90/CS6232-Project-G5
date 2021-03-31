@@ -44,5 +44,10 @@ namespace ClinicSupport.UserControls
             stateComboBox.SelectedItem = patient.State;
             zipTextBox.Text = patient.ZipCode.ToString();
         }
+
+        private void CancelButton_Click(object sender, System.EventArgs e)
+        {
+            this.ParentForm.DialogResult = DialogResult.Cancel;
+        }
     }
 }
