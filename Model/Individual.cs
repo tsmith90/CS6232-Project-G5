@@ -5,7 +5,7 @@ namespace ClinicSupport.Model
     /// <summary>
     /// Class to create and populate an Individual object from the DB
     /// </summary>
-    class Individual
+    public class Individual
     {
         public string LastName { get; set; }
 

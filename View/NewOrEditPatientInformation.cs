@@ -16,6 +16,7 @@ namespace ClinicSupport.View
         {
             InitializeComponent();
             patientInformationUserControl1.HideUpdateButton();
+            this.Text = "New Patient";
         }
 
         public NewOrEditPatientInformation(int patientID)
@@ -23,9 +24,10 @@ namespace ClinicSupport.View
             patientController = new PatientController();
             individualController = new IndividualController();
             patientInformationUserControl1.HideNewButton();
+            this.Text = "Edit Paitent Information";
             Patient patient = patientController.GetPatientByID(patientID);
             Individual indivdualPatient = individualController.GetIndividualByID(patient.IndividualID);
-            patientInformationUserControl1.SetPatient(patient);
+            patientInformationUserControl1.SetPatient(indivdualPatient);
         }
     }
 }

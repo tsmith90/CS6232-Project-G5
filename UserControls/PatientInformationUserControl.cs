@@ -20,9 +20,16 @@ namespace ClinicSupport.UserControls
             createPatientButton.Visible = false;
         }
 
-        public void SetPatient(Patient patient)
+        public void SetPatient(Individual patient)
         {
-            
+            firstNameTextBox.Text = patient.FirstName;
+            lastNameTextBox.Text = patient.LastName;
+            dobTextBox.Text = patient.DateOfBirth.ToString();
+            phoneTextBox.Text = patient.PhoneNumber.ToString();
+            addressTextBox.Text = patient.StreetAddress;
+            cityTextBox.Text = patient.City;
+            stateComboBox.SelectedItem = patient.State;
+            zipTextBox.Text = patient.ZipCode.ToString();
         }
     }
 }
