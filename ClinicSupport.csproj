@@ -52,7 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\IndividualController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\PatientController.cs" />
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\LoginDBDAL.cs" />
