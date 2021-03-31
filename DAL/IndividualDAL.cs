@@ -1,6 +1,5 @@
 ﻿using ClinicSupport.Model;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -8,16 +7,11 @@ namespace ClinicSupport.DAL
 {
     class IndividualDAL
     {
-        public IndividualDAL()
-        {
-
-        }
-
         /// <summary>
-        /// Get the Patient object from the data source.
+        /// Get the Individual object from the data source.
         /// </summary>
-        /// <param name="pid">pid</param>
-        /// <returns>the Patient object</returns>
+        /// <param name="iid">iid</param>
+        /// <returns>the Individual object</returns>
         public Individual GeIndividualbyID(int iid)
         {
             Individual _individual = new Individual();
