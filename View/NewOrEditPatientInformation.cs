@@ -36,6 +36,7 @@ namespace ClinicSupport.View
             Patient patient = patientController.GetPatientByID(patientID);
             Individual indivdualPatient = individualController.GetIndividualByID(patient.IndividualID);
             patientInformationUserControl1.SetPatient(indivdualPatient);
-        }
+        }       
+        
     }
 }
