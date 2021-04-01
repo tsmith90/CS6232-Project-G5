@@ -8,7 +8,7 @@ namespace ClinicSupport.DAL
     class DBConnection
     {
         /// <summary>
-        /// Method to establish a connection to the TechSupport DB
+        /// Method to establish a connection to the ClinicSupport DB
         /// </summary>
         /// <returns>The connection to the database</returns>
         public static SqlConnection GetConnection()
