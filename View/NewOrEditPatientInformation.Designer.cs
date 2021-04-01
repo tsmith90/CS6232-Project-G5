@@ -49,7 +49,7 @@
             this.MinimizeBox = false;
             this.Name = "NewOrEditPatientInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NewOrEditPatientInformation";
+            this.Text = "Patient Information";
             this.ResumeLayout(false);
 
         }
