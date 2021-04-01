@@ -33,7 +33,6 @@ namespace ClinicSupport.UserControls
             this.fnameTextBox = new System.Windows.Forms.TextBox();
             this.lnameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.doctorTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.reasonTextBox = new System.Windows.Forms.TextBox();
@@ -44,6 +43,7 @@ namespace ClinicSupport.UserControls
             this.messageLabel = new System.Windows.Forms.Label();
             this.visitInfoButton = new System.Windows.Forms.Button();
             this.apptDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.docComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -83,15 +83,6 @@ namespace ClinicSupport.UserControls
             this.label2.Size = new System.Drawing.Size(275, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Patient\'s Last Name:";
-            // 
-            // doctorTextBox
-            // 
-            this.doctorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.doctorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.doctorTextBox.Location = new System.Drawing.Point(716, 298);
-            this.doctorTextBox.Name = "doctorTextBox";
-            this.doctorTextBox.Size = new System.Drawing.Size(360, 53);
-            this.doctorTextBox.TabIndex = 5;
             // 
             // label3
             // 
@@ -195,11 +186,22 @@ namespace ClinicSupport.UserControls
             this.apptDateTimePicker.Name = "apptDateTimePicker";
             this.apptDateTimePicker.Size = new System.Drawing.Size(360, 45);
             this.apptDateTimePicker.TabIndex = 15;
+            this.apptDateTimePicker.ValueChanged += new System.EventHandler(this.ApptDateTimePicker_ValueChanged);
+            // 
+            // docComboBox
+            // 
+            this.docComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docComboBox.FormattingEnabled = true;
+            this.docComboBox.Location = new System.Drawing.Point(716, 298);
+            this.docComboBox.Name = "docComboBox";
+            this.docComboBox.Size = new System.Drawing.Size(360, 46);
+            this.docComboBox.TabIndex = 16;
             // 
             // NewAppointmentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.docComboBox);
             this.Controls.Add(this.apptDateTimePicker);
             this.Controls.Add(this.visitInfoButton);
             this.Controls.Add(this.messageLabel);
@@ -209,7 +211,6 @@ namespace ClinicSupport.UserControls
             this.Controls.Add(this.label5);
             this.Controls.Add(this.reasonTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.doctorTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lnameTextBox);
             this.Controls.Add(this.label2);
@@ -228,7 +229,6 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.TextBox fnameTextBox;
         private System.Windows.Forms.TextBox lnameTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox doctorTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox reasonTextBox;
@@ -239,5 +239,6 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Button visitInfoButton;
         private System.Windows.Forms.DateTimePicker apptDateTimePicker;
+        private System.Windows.Forms.ComboBox docComboBox;
     }
 }

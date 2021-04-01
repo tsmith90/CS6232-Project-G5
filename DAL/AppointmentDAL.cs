@@ -83,7 +83,7 @@ namespace ClinicSupport.DAL
         /// <summary>
         /// insert a new appointment for the given Appointment into the data source.
         /// </summary>
-        /// <param name="appt">given customerID to insert a new incident</param>
+        /// <param name="appt">given appt to insert a new Appointment</param>
         public bool InsertNewAppointment(Appointment appt)
         {
             string insertStatement =
@@ -106,6 +106,34 @@ namespace ClinicSupport.DAL
                         return false;
                 }
             }
+        }
+
+        /// <summary>
+        /// Get row count if found availability for the given doctorID and apptTime from the data source.
+        /// </summary>
+        /// <param name="doctorID">given doctorID to query Appointment</param>
+        /// <param name="apptDateTime">given apptDateTime to query Appointment</param>
+        /// <returns>a row count of matching query</returns>
+        public int CheckAvailability(int doctorID, DateTime apptDateTime)
+        {
+            int apptAvailable = 0;
+            string selectStatement =
+                 "SELECT COUNT(*) FROM Appointment " +
+                 "WHERE ([did] = @docID and [time] = @apptTime)";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.Add("@docID", SqlDbType.Int);
+                    selectCommand.Parameters["@docID"].Value = doctorID;
+                    selectCommand.Parameters.Add("@apptTime", SqlDbType.DateTime);
+                    selectCommand.Parameters["@apptTime"].Value = apptDateTime;
+                    apptAvailable = (int)selectCommand.ExecuteScalar();
+                }
+            }
+            return apptAvailable;
         }
 
         /// <summary>
