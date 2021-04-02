@@ -18,7 +18,7 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
             this.appointmentController = new AppointmentController();
             this.doctorController = new DoctorController();
-            this.FillDoctorComboBox();
+            //this.FillDoctorComboBox();
         }
 
         private void AddAppointmentButton_Click(object sender, EventArgs e)

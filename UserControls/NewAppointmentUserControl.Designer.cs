@@ -190,11 +190,10 @@ namespace ClinicSupport.UserControls
             // 
             // docComboBox
             // 
-            this.docComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docComboBox.FormattingEnabled = true;
-            this.docComboBox.Location = new System.Drawing.Point(716, 298);
+            this.docComboBox.Location = new System.Drawing.Point(717, 298);
             this.docComboBox.Name = "docComboBox";
-            this.docComboBox.Size = new System.Drawing.Size(360, 46);
+            this.docComboBox.Size = new System.Drawing.Size(359, 39);
             this.docComboBox.TabIndex = 16;
             // 
             // NewAppointmentUserControl

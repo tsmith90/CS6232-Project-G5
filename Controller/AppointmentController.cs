@@ -17,9 +17,9 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Getting row count from registration for given customerID and productCode.
+        /// Insert a new appointment for given Appointment.
         /// </summary>
-        /// <returns>row count</returns>
+        /// <returns>true if sucessful, else false</returns>
         public bool InsertNewAppointment(Appointment appt)
         {
             if (appt == null)
@@ -30,8 +30,25 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Getting row count from registration for given customerID and productCode.
+        /// Update an existing appointment for given Appointment.
         /// </summary>
+        /// <param name="newAppt">newAppt to update</param>
+        /// <param name="oldAppt">oldAppt to compare if has changed</param>
+        /// <returns>true if sucessful, else false</returns>
+        public bool UpdateAppointmentt(Appointment oldAppt, Appointment newAppt)
+        {
+            if (oldAppt == null || newAppt == null)
+            {
+                throw new ArgumentNullException("Appointments cannot be null");
+            }
+            return this.appointmentDAL.UpdateAppointmentt(oldAppt, newAppt);
+        }
+
+        /// <summary>
+        /// Getting row count from Appointment for given doctorID and apptDateTime.
+        /// </summary>
+        /// <param name="apptDateTime">apptDateTime</param>
+        /// <param name="doctorID">doctorID</param>
         /// <returns>row count</returns>
         public int CheckAvailability(int doctorID, DateTime apptDateTime)
         {
