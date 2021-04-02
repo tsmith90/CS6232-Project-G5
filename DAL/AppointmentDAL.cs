@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 
 namespace ClinicSupport.DAL
 {
+    /// <summary>
+    /// Class to interact with the DB to retrieve and manipulate appointments
     class AppointmentDAL
     {
         /// <summary>
@@ -166,7 +168,5 @@ namespace ClinicSupport.DAL
                 }
             }
         }
-
-
     }
 }

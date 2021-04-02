@@ -1,5 +1,4 @@
-﻿
-namespace ClinicSupport.Model
+﻿namespace ClinicSupport.Model
 {
     /// <summary>
     /// Class to create and populate an Administrator object from the DB

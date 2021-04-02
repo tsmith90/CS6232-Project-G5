@@ -7,12 +7,18 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl to interact and create new appointments in the application
+    /// </summary>
     public partial class NewAppointmentUserControl : UserControl
     {
         private readonly AppointmentController appointmentController;
         private readonly DoctorController doctorController;
         private readonly Patient patient;
 
+        /// <summary>
+        /// 0-parameter constructor for NewAppointmentUserControl
+        /// </summary>
         public NewAppointmentUserControl()
         {
             InitializeComponent();

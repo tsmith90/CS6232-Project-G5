@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace ClinicSupport.DAL
 {
+    /// <summary>
+    /// Class to interact and manipulate the DB for Patients
+    /// </summary>
     class PatientDAL
     {
         /// <summary>

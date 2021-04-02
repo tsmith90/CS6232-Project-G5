@@ -10,8 +10,8 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class NurseDashboard : Form
     {
-        private NewOrEditPatientInformation newOrEditPatientInformation;
-        private NurseController nurseController;
+        private readonly NewOrEditPatientInformation newOrEditPatientInformation;
+        private readonly NurseController nurseController;
         private Nurse nurse;
 
         /// <summary>

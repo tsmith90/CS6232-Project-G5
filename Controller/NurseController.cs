@@ -5,12 +5,15 @@ using System;
 namespace ClinicSupport.Controller
 {
     /// <summary>
-    /// Class to interact with the Nurse DAL 
+    /// Class to control flow from the application to the DAL for Nurses
     /// </summary>
     class NurseController
     {
-        private NurseDAL nurseDAL;
+        private readonly NurseDAL nurseDAL;
 
+        /// <summary>
+        /// 0-parameter constructor for the NurseController class
+        /// </summary>
         public NurseController()
         {
             nurseDAL = new NurseDAL();

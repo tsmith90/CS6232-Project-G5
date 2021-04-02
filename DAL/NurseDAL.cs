@@ -9,14 +9,6 @@ namespace ClinicSupport.DAL
     class NurseDAL
     {
         /// <summary>
-        /// 0-parameter constructor for the NurseDAL class
-        /// </summary>
-        public NurseDAL()
-        {
-        }
-
-
-        /// <summary>
         /// Method to get the Nurse information from CS6232-g5 DB
         /// </summary>
         /// <param username = "username">the nurse username</param> 
