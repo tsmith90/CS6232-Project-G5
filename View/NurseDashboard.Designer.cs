@@ -32,12 +32,12 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.nurseDashboardTabControl = new System.Windows.Forms.TabControl();
             this.searchPatientsTabPage = new System.Windows.Forms.TabPage();
             this.addPatientTabPage = new System.Windows.Forms.TabPage();
             this.patientInformationUserControl1 = new ClinicSupport.UserControls.PatientInformationUserControl();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.nurseDashboardTabControl.SuspendLayout();
             this.addPatientTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.tableLayoutPanel1.Controls.Add(this.logoutLinkLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.nameLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.nurseDashboardTabControl, 0, 2);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -79,19 +79,20 @@ namespace ClinicSupport.View
             this.nameLabel.Size = new System.Drawing.Size(251, 29);
             this.nameLabel.TabIndex = 0;
             // 
-            // tabControl1
+            // nurseDashboardTabControl
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.nurseDashboardTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.tabControl1, 3);
-            this.tabControl1.Controls.Add(this.searchPatientsTabPage);
-            this.tabControl1.Controls.Add(this.addPatientTabPage);
-            this.tabControl1.Location = new System.Drawing.Point(3, 49);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(842, 403);
-            this.tabControl1.TabIndex = 3;
+            this.tableLayoutPanel1.SetColumnSpan(this.nurseDashboardTabControl, 3);
+            this.nurseDashboardTabControl.Controls.Add(this.searchPatientsTabPage);
+            this.nurseDashboardTabControl.Controls.Add(this.addPatientTabPage);
+            this.nurseDashboardTabControl.Location = new System.Drawing.Point(3, 49);
+            this.nurseDashboardTabControl.Name = "nurseDashboardTabControl";
+            this.nurseDashboardTabControl.SelectedIndex = 0;
+            this.nurseDashboardTabControl.Size = new System.Drawing.Size(842, 403);
+            this.nurseDashboardTabControl.TabIndex = 3;
+            this.nurseDashboardTabControl.SelectedIndexChanged += new System.EventHandler(this.NurseDashboardTabControl_SelectedIndexChanged);
             // 
             // searchPatientsTabPage
             // 
@@ -138,7 +139,7 @@ namespace ClinicSupport.View
             this.Text = "Nurse Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.nurseDashboardTabControl.ResumeLayout(false);
             this.addPatientTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -149,7 +150,7 @@ namespace ClinicSupport.View
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.LinkLabel logoutLinkLabel;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl nurseDashboardTabControl;
         private System.Windows.Forms.TabPage searchPatientsTabPage;
         private System.Windows.Forms.TabPage addPatientTabPage;
         private UserControls.PatientInformationUserControl patientInformationUserControl1;

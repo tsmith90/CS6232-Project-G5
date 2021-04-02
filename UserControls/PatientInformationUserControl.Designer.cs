@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pationInfoLabel = new System.Windows.Forms.Label();
+            this.patientInfoLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameLabel = new System.Windows.Forms.Label();
@@ -56,16 +56,16 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pationInfoLabel
+            // patientInfoLabel
             // 
-            this.pationInfoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pationInfoLabel.AutoSize = true;
-            this.pationInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pationInfoLabel.Location = new System.Drawing.Point(129, 4);
-            this.pationInfoLabel.Name = "pationInfoLabel";
-            this.pationInfoLabel.Size = new System.Drawing.Size(144, 20);
-            this.pationInfoLabel.TabIndex = 0;
-            this.pationInfoLabel.Text = "Patient Information";
+            this.patientInfoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.patientInfoLabel.AutoSize = true;
+            this.patientInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientInfoLabel.Location = new System.Drawing.Point(129, 4);
+            this.patientInfoLabel.Name = "patientInfoLabel";
+            this.patientInfoLabel.Size = new System.Drawing.Size(144, 20);
+            this.patientInfoLabel.TabIndex = 0;
+            this.patientInfoLabel.Text = "Patient Information";
             // 
             // firstNameLabel
             // 
@@ -234,7 +234,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.pationInfoLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.patientInfoLabel, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -316,7 +316,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label pationInfoLabel;
+        private System.Windows.Forms.Label patientInfoLabel;
         private System.Windows.Forms.Label firstNameLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Label lastNameLabel;

@@ -28,6 +28,7 @@ namespace ClinicSupport.UserControls
         public void HideUpdateButton()
         {
             updateButton.Visible = false;
+            patientInfoLabel.Text = "New Patient";
         }
 
         /// <summary>
@@ -36,6 +37,7 @@ namespace ClinicSupport.UserControls
         public void HideNewButton()
         {
             createPatientButton.Visible = false;
+            patientInfoLabel.Text = "Patient Information";
         }
 
         /// <summary>
