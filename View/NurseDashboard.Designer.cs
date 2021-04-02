@@ -32,7 +32,6 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.newPatientButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.searchPatientsTabPage = new System.Windows.Forms.TabPage();
             this.addPatientTabPage = new System.Windows.Forms.TabPage();
@@ -48,7 +47,6 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.tableLayoutPanel1.Controls.Add(this.logoutLinkLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.nameLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.newPatientButton, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 2);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 2);
@@ -79,16 +77,6 @@ namespace ClinicSupport.View
             this.nameLabel.Size = new System.Drawing.Size(251, 29);
             this.nameLabel.TabIndex = 0;
             // 
-            // newPatientButton
-            // 
-            this.newPatientButton.Location = new System.Drawing.Point(629, 15);
-            this.newPatientButton.Name = "newPatientButton";
-            this.newPatientButton.Size = new System.Drawing.Size(114, 28);
-            this.newPatientButton.TabIndex = 3;
-            this.newPatientButton.Text = "New Patient";
-            this.newPatientButton.UseVisualStyleBackColor = true;
-            this.newPatientButton.Click += new System.EventHandler(this.NewPatientButton_Click);
-            // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -118,7 +106,7 @@ namespace ClinicSupport.View
             this.addPatientTabPage.Location = new System.Drawing.Point(4, 29);
             this.addPatientTabPage.Name = "addPatientTabPage";
             this.addPatientTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.addPatientTabPage.Size = new System.Drawing.Size(824, 364);
+            this.addPatientTabPage.Size = new System.Drawing.Size(834, 370);
             this.addPatientTabPage.TabIndex = 1;
             this.addPatientTabPage.Text = "Add Patient";
             this.addPatientTabPage.UseVisualStyleBackColor = true;
@@ -149,7 +137,6 @@ namespace ClinicSupport.View
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.LinkLabel logoutLinkLabel;
-        private System.Windows.Forms.Button newPatientButton;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage searchPatientsTabPage;
         private System.Windows.Forms.TabPage addPatientTabPage;

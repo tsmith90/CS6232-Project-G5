@@ -44,11 +44,6 @@ namespace ClinicSupport.View
             Hide();
         }
 
-        private void NewPatientButton_Click(object sender, System.EventArgs e)
-        {
-            newOrEditPatientInformation.ShowDialog();
-        }
-
         /// <summary>
         /// Method to set the current Nurse logged into the application
         /// </summary>
