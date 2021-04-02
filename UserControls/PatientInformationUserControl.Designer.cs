@@ -48,13 +48,20 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.createPatientButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pationInfoLabel
             // 
+            this.pationInfoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pationInfoLabel.AutoSize = true;
             this.pationInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pationInfoLabel.Location = new System.Drawing.Point(118, 6);
+            this.pationInfoLabel.Location = new System.Drawing.Point(129, 4);
             this.pationInfoLabel.Name = "pationInfoLabel";
             this.pationInfoLabel.Size = new System.Drawing.Size(144, 20);
             this.pationInfoLabel.TabIndex = 0;
@@ -62,8 +69,9 @@
             // 
             // firstNameLabel
             // 
+            this.firstNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(24, 65);
+            this.firstNameLabel.Location = new System.Drawing.Point(3, 7);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(60, 13);
             this.firstNameLabel.TabIndex = 2;
@@ -71,15 +79,16 @@
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(27, 82);
+            this.firstNameTextBox.Location = new System.Drawing.Point(3, 23);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(148, 20);
             this.firstNameTextBox.TabIndex = 1;
             // 
             // lastNameLabel
             // 
+            this.lastNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(24, 105);
+            this.lastNameLabel.Location = new System.Drawing.Point(3, 47);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(61, 13);
             this.lastNameLabel.TabIndex = 4;
@@ -87,8 +96,9 @@
             // 
             // dobLabel
             // 
+            this.dobLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dobLabel.AutoSize = true;
-            this.dobLabel.Location = new System.Drawing.Point(24, 144);
+            this.dobLabel.Location = new System.Drawing.Point(3, 87);
             this.dobLabel.Name = "dobLabel";
             this.dobLabel.Size = new System.Drawing.Size(69, 13);
             this.dobLabel.TabIndex = 5;
@@ -96,8 +106,8 @@
             // 
             // phoneNumLabel
             // 
-            this.phoneNumLabel.AutoSize = true;
-            this.phoneNumLabel.Location = new System.Drawing.Point(24, 184);
+            this.phoneNumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.phoneNumLabel.Location = new System.Drawing.Point(3, 127);
             this.phoneNumLabel.Name = "phoneNumLabel";
             this.phoneNumLabel.Size = new System.Drawing.Size(41, 13);
             this.phoneNumLabel.TabIndex = 6;
@@ -105,8 +115,9 @@
             // 
             // addressLabel
             // 
+            this.addressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(214, 65);
+            this.addressLabel.Location = new System.Drawing.Point(204, 7);
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(48, 13);
             this.addressLabel.TabIndex = 7;
@@ -114,8 +125,9 @@
             // 
             // cityLabel
             // 
+            this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(214, 105);
+            this.cityLabel.Location = new System.Drawing.Point(204, 47);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(27, 13);
             this.cityLabel.TabIndex = 8;
@@ -123,8 +135,9 @@
             // 
             // stateLabel
             // 
+            this.stateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(214, 144);
+            this.stateLabel.Location = new System.Drawing.Point(204, 87);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(35, 13);
             this.stateLabel.TabIndex = 9;
@@ -132,8 +145,9 @@
             // 
             // zipLabel
             // 
+            this.zipLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(214, 184);
+            this.zipLabel.Location = new System.Drawing.Point(204, 127);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(27, 13);
             this.zipLabel.TabIndex = 10;
@@ -141,35 +155,35 @@
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(27, 121);
+            this.lastNameTextBox.Location = new System.Drawing.Point(3, 63);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(148, 20);
             this.lastNameTextBox.TabIndex = 2;
             // 
             // dobTextBox
             // 
-            this.dobTextBox.Location = new System.Drawing.Point(27, 161);
+            this.dobTextBox.Location = new System.Drawing.Point(3, 103);
             this.dobTextBox.Name = "dobTextBox";
             this.dobTextBox.Size = new System.Drawing.Size(148, 20);
             this.dobTextBox.TabIndex = 3;
             // 
             // phoneTextBox
             // 
-            this.phoneTextBox.Location = new System.Drawing.Point(27, 201);
+            this.phoneTextBox.Location = new System.Drawing.Point(3, 143);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(148, 20);
             this.phoneTextBox.TabIndex = 4;
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(217, 81);
+            this.addressTextBox.Location = new System.Drawing.Point(204, 23);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(151, 20);
             this.addressTextBox.TabIndex = 5;
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(217, 120);
+            this.cityTextBox.Location = new System.Drawing.Point(204, 63);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(151, 20);
             this.cityTextBox.TabIndex = 6;
@@ -177,21 +191,21 @@
             // stateComboBox
             // 
             this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Location = new System.Drawing.Point(217, 159);
+            this.stateComboBox.Location = new System.Drawing.Point(204, 103);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(151, 21);
             this.stateComboBox.TabIndex = 7;
             // 
             // zipTextBox
             // 
-            this.zipTextBox.Location = new System.Drawing.Point(217, 200);
+            this.zipTextBox.Location = new System.Drawing.Point(204, 143);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(151, 20);
             this.zipTextBox.TabIndex = 8;
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(27, 256);
+            this.cancelButton.Location = new System.Drawing.Point(3, 3);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 9;
@@ -200,7 +214,7 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(293, 256);
+            this.updateButton.Location = new System.Drawing.Point(271, 3);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 11;
@@ -209,41 +223,94 @@
             // 
             // createPatientButton
             // 
-            this.createPatientButton.Location = new System.Drawing.Point(166, 256);
+            this.createPatientButton.Location = new System.Drawing.Point(137, 3);
             this.createPatientButton.Name = "createPatientButton";
             this.createPatientButton.Size = new System.Drawing.Size(75, 23);
             this.createPatientButton.TabIndex = 10;
             this.createPatientButton.Text = "Create";
             this.createPatientButton.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.pationInfoLabel, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 28);
+            this.tableLayoutPanel1.TabIndex = 12;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.firstNameLabel, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.firstNameTextBox, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lastNameLabel, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lastNameTextBox, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.dobLabel, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.zipTextBox, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.dobTextBox, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.zipLabel, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.stateComboBox, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.phoneNumLabel, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.cityTextBox, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.phoneTextBox, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.addressLabel, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.addressTextBox, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cityLabel, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.stateLabel, 1, 4);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 8;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(403, 162);
+            this.tableLayoutPanel2.TabIndex = 13;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Controls.Add(this.cancelButton, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.createPatientButton, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.updateButton, 2, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 190);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(403, 32);
+            this.tableLayoutPanel3.TabIndex = 14;
+            // 
             // PatientInformationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.createPatientButton);
-            this.Controls.Add(this.updateButton);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.zipTextBox);
-            this.Controls.Add(this.stateComboBox);
-            this.Controls.Add(this.cityTextBox);
-            this.Controls.Add(this.addressTextBox);
-            this.Controls.Add(this.phoneTextBox);
-            this.Controls.Add(this.dobTextBox);
-            this.Controls.Add(this.lastNameTextBox);
-            this.Controls.Add(this.zipLabel);
-            this.Controls.Add(this.stateLabel);
-            this.Controls.Add(this.cityLabel);
-            this.Controls.Add(this.addressLabel);
-            this.Controls.Add(this.phoneNumLabel);
-            this.Controls.Add(this.dobLabel);
-            this.Controls.Add(this.lastNameLabel);
-            this.Controls.Add(this.firstNameTextBox);
-            this.Controls.Add(this.firstNameLabel);
-            this.Controls.Add(this.pationInfoLabel);
+            this.Controls.Add(this.tableLayoutPanel3);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PatientInformationUserControl";
-            this.Size = new System.Drawing.Size(394, 334);
+            this.Size = new System.Drawing.Size(403, 245);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -269,5 +336,8 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button createPatientButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }
