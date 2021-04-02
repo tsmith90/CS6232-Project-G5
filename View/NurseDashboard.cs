@@ -10,7 +10,6 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class NurseDashboard : Form
     {
-        private readonly NewOrEditPatientInformation newOrEditPatientInformation;
         private readonly NurseController nurseController;
         private Nurse nurse;
 
@@ -20,7 +19,6 @@ namespace ClinicSupport.View
         public NurseDashboard()
         {
             InitializeComponent();
-            newOrEditPatientInformation = new NewOrEditPatientInformation();
             nurseController = new NurseController();
             nurse = new Nurse();
         }
