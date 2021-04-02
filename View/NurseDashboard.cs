@@ -1,4 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using ClinicSupport.Controller;
+using ClinicSupport.Model;
+using System;
+using System.Windows.Forms;
 
 namespace ClinicSupport.View
 {
@@ -7,7 +10,10 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class NurseDashboard : Form
     {
-        private NewOrEditPatientInformation newOrEditPatientInformation;
+        private readonly NewOrEditPatientInformation newOrEditPatientInformation;
+        private readonly NurseController nurseController;
+        private Nurse nurse;
+
         /// <summary>
         /// 0-parameter constructor for the NurseDashboard class
         /// </summary>
@@ -15,6 +21,8 @@ namespace ClinicSupport.View
         {
             InitializeComponent();
             newOrEditPatientInformation = new NewOrEditPatientInformation();
+            nurseController = new NurseController();
+            nurse = new Nurse();
         }
 
         /// <summary>
@@ -39,6 +47,20 @@ namespace ClinicSupport.View
         private void NewPatientButton_Click(object sender, System.EventArgs e)
         {
             newOrEditPatientInformation.ShowDialog();
+        }
+
+        /// <summary>
+        /// Method to set the current Nurse logged into the application
+        /// </summary>
+        /// <param nurseUsername = "nurseUsername">the username of the Nurse</param> 
+        public void SetNurse (string nurseUsername)
+        {
+            if (nurseUsername == null)
+            {
+                throw new ArgumentNullException("Please enter valid credentials");
+            }
+
+            nurse = nurseController.GetNurseByUsername(nurseUsername);
         }
     }
  

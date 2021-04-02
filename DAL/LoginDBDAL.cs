@@ -8,14 +8,6 @@ namespace ClinicSupport.DAL
     /// </summary>
     class LoginDBDAL
     {
-
-        /// <summary>
-        /// 0-parameter constructor for the LoginDBDAL class
-        /// </summary>
-        public LoginDBDAL()
-        { 
-        }
-
         /// <summary>
         /// Method to get the login information from CS6232-g5 DB
         /// </summary>

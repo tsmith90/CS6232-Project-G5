@@ -5,9 +5,12 @@ using ClinicSupport.Model;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl to interact and control patient information in the application
+    /// </summary>
     public partial class PatientInformationUserControl : UserControl
     {
-        Dictionary<string, string> states;
+        private readonly Dictionary<string, string> states;
 
         /// <summary>
         /// 0 parameter contructor

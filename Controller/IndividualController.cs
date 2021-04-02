@@ -8,7 +8,7 @@ namespace ClinicSupport.Controller
     /// </summary>
     class IndividualController
     {
-        private IndividualDAL individualDAL;
+        private readonly IndividualDAL individualDAL;
 
         /// <summary>
         /// 0 parameter constructor for the IndividualController class
