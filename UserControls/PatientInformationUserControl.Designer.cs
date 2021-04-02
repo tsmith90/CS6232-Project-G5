@@ -45,7 +45,7 @@
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.zipTextBox = new System.Windows.Forms.TextBox();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.createPatientButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -204,14 +204,15 @@
             this.zipTextBox.Size = new System.Drawing.Size(151, 20);
             this.zipTextBox.TabIndex = 8;
             // 
-            // cancelButton
+            // clearButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(3, 3);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 9;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.clearButton.Location = new System.Drawing.Point(3, 3);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 9;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // updateButton
             // 
@@ -287,7 +288,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Controls.Add(this.cancelButton, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.clearButton, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.createPatientButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.updateButton, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -345,7 +346,7 @@
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.ComboBox stateComboBox;
         private System.Windows.Forms.TextBox zipTextBox;
-        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button createPatientButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

@@ -219,5 +219,10 @@ namespace ClinicSupport.UserControls
             stateComboBox.SelectedItem = 0;
             zipTextBox.Text = "";
         }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            this.ClearForm();
+        }
     }
 }
