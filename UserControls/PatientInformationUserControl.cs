@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using ClinicSupport.Controller;
 using ClinicSupport.Model;
 
 namespace ClinicSupport.UserControls
@@ -13,6 +14,8 @@ namespace ClinicSupport.UserControls
     public partial class PatientInformationUserControl : UserControl
     {
         private readonly Dictionary<string, string> states;
+        private IndividualController individualController;
+        private PatientController patientController;
 
         /// <summary>
         /// 0 parameter contructor
@@ -20,6 +23,8 @@ namespace ClinicSupport.UserControls
         public PatientInformationUserControl()
         {
             InitializeComponent();
+            this.individualController = new IndividualController();
+            this.patientController = new PatientController();
             states = new Dictionary<string, string>();
             SetStateList();
         }
@@ -165,13 +170,54 @@ namespace ClinicSupport.UserControls
                     this.messageLabel.Text = message;
                     this.messageLabel.ForeColor = Color.Red;
                 }
+                else
+                {
+                    this.messageLabel.Text = "";
+                    var fname = this.firstNameTextBox.Text;
+                    var lname = this.lastNameTextBox.Text;
+                    var dob = Convert.ToDateTime(this.dobTextBox.Text);
+                    var phone = int.Parse(this.phoneTextBox.Text);
+                    var address = this.addressTextBox.Text;
+                    var city = this.cityTextBox.Text;
+                    var state = this.stateComboBox.SelectedValue.ToString();
+                    var zip = int.Parse(this.zipTextBox.Text);
+                    
+                    Individual newIndividual = new Individual();
+                    newIndividual.FirstName = fname;
+                    newIndividual.LastName = lname;
+                    newIndividual.DateOfBirth = dob;
+                    newIndividual.PhoneNumber = phone;
+                    newIndividual.StreetAddress = address;
+                    newIndividual.City = city;
+                    newIndividual.State = state;
+                    newIndividual.ZipCode = zip;
 
+                    //this.individualController.InsertNewIndividual(newIndividual);
+                    /// need to figure out what i can pass in as a parameter here
+                    /// I believe what i need to have the new individual id be returned upon creation so i can utilize it here
+                    //this.patientController.InsertNewPatient();
+                    this.ClearForm();
+                    this.messageLabel.Text = "Appointment is added!";
+                    this.messageLabel.ForeColor = Color.Black;
+                }
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Something is wrong with the input!!!!" + Environment.NewLine + ex.Message,
                     "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ClearForm()
+        {
+            firstNameTextBox.Text = "";
+            lastNameTextBox.Text = "";
+            dobTextBox.Text = "";
+            phoneTextBox.Text = "";
+            addressTextBox.Text = "";
+            cityTextBox.Text = "";
+            stateComboBox.SelectedItem = 0;
+            zipTextBox.Text = "";
         }
     }
 }
