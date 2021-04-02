@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pationInfoLabel = new System.Windows.Forms.Label();
-            this.generalInfoLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameLabel = new System.Windows.Forms.Label();
@@ -61,16 +60,6 @@
             this.pationInfoLabel.TabIndex = 0;
             this.pationInfoLabel.Text = "Patient Information";
             // 
-            // generalInfoLabel
-            // 
-            this.generalInfoLabel.AutoSize = true;
-            this.generalInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.generalInfoLabel.Location = new System.Drawing.Point(21, 37);
-            this.generalInfoLabel.Name = "generalInfoLabel";
-            this.generalInfoLabel.Size = new System.Drawing.Size(137, 17);
-            this.generalInfoLabel.TabIndex = 1;
-            this.generalInfoLabel.Text = "General Information:";
-            // 
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
@@ -85,7 +74,7 @@
             this.firstNameTextBox.Location = new System.Drawing.Point(27, 82);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.firstNameTextBox.TabIndex = 3;
+            this.firstNameTextBox.TabIndex = 1;
             // 
             // lastNameLabel
             // 
@@ -155,35 +144,35 @@
             this.lastNameTextBox.Location = new System.Drawing.Point(27, 121);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.lastNameTextBox.TabIndex = 11;
+            this.lastNameTextBox.TabIndex = 2;
             // 
             // dobTextBox
             // 
             this.dobTextBox.Location = new System.Drawing.Point(27, 161);
             this.dobTextBox.Name = "dobTextBox";
             this.dobTextBox.Size = new System.Drawing.Size(148, 20);
-            this.dobTextBox.TabIndex = 12;
+            this.dobTextBox.TabIndex = 3;
             // 
             // phoneTextBox
             // 
             this.phoneTextBox.Location = new System.Drawing.Point(27, 201);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(148, 20);
-            this.phoneTextBox.TabIndex = 13;
+            this.phoneTextBox.TabIndex = 4;
             // 
             // addressTextBox
             // 
             this.addressTextBox.Location = new System.Drawing.Point(217, 81);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(151, 20);
-            this.addressTextBox.TabIndex = 14;
+            this.addressTextBox.TabIndex = 5;
             // 
             // cityTextBox
             // 
             this.cityTextBox.Location = new System.Drawing.Point(217, 120);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(151, 20);
-            this.cityTextBox.TabIndex = 15;
+            this.cityTextBox.TabIndex = 6;
             // 
             // stateComboBox
             // 
@@ -191,21 +180,21 @@
             this.stateComboBox.Location = new System.Drawing.Point(217, 159);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(151, 21);
-            this.stateComboBox.TabIndex = 16;
+            this.stateComboBox.TabIndex = 7;
             // 
             // zipTextBox
             // 
             this.zipTextBox.Location = new System.Drawing.Point(217, 200);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(151, 20);
-            this.zipTextBox.TabIndex = 17;
+            this.zipTextBox.TabIndex = 8;
             // 
             // cancelButton
             // 
             this.cancelButton.Location = new System.Drawing.Point(27, 256);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 18;
+            this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
@@ -214,7 +203,7 @@
             this.updateButton.Location = new System.Drawing.Point(293, 256);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
-            this.updateButton.TabIndex = 19;
+            this.updateButton.TabIndex = 11;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
             // 
@@ -223,7 +212,7 @@
             this.createPatientButton.Location = new System.Drawing.Point(166, 256);
             this.createPatientButton.Name = "createPatientButton";
             this.createPatientButton.Size = new System.Drawing.Size(75, 23);
-            this.createPatientButton.TabIndex = 20;
+            this.createPatientButton.TabIndex = 10;
             this.createPatientButton.Text = "Create";
             this.createPatientButton.UseVisualStyleBackColor = true;
             // 
@@ -250,7 +239,6 @@
             this.Controls.Add(this.lastNameLabel);
             this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.firstNameLabel);
-            this.Controls.Add(this.generalInfoLabel);
             this.Controls.Add(this.pationInfoLabel);
             this.Name = "PatientInformationUserControl";
             this.Size = new System.Drawing.Size(394, 334);
@@ -262,7 +250,6 @@
         #endregion
 
         private System.Windows.Forms.Label pationInfoLabel;
-        private System.Windows.Forms.Label generalInfoLabel;
         private System.Windows.Forms.Label firstNameLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Label lastNameLabel;
