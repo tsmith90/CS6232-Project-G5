@@ -57,7 +57,7 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(848, 455);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(848, 579);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // logoutLinkLabel
@@ -90,7 +90,7 @@ namespace ClinicSupport.View
             this.nurseDashboardTabControl.Location = new System.Drawing.Point(3, 49);
             this.nurseDashboardTabControl.Name = "nurseDashboardTabControl";
             this.nurseDashboardTabControl.SelectedIndex = 0;
-            this.nurseDashboardTabControl.Size = new System.Drawing.Size(842, 403);
+            this.nurseDashboardTabControl.Size = new System.Drawing.Size(842, 527);
             this.nurseDashboardTabControl.TabIndex = 3;
             this.nurseDashboardTabControl.SelectedIndexChanged += new System.EventHandler(this.NurseDashboardTabControl_SelectedIndexChanged);
             // 
@@ -99,7 +99,7 @@ namespace ClinicSupport.View
             this.searchPatientsTabPage.Location = new System.Drawing.Point(4, 29);
             this.searchPatientsTabPage.Name = "searchPatientsTabPage";
             this.searchPatientsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.searchPatientsTabPage.Size = new System.Drawing.Size(834, 370);
+            this.searchPatientsTabPage.Size = new System.Drawing.Size(834, 541);
             this.searchPatientsTabPage.TabIndex = 0;
             this.searchPatientsTabPage.Text = "Search Patients";
             this.searchPatientsTabPage.UseVisualStyleBackColor = true;
@@ -110,17 +110,17 @@ namespace ClinicSupport.View
             this.addPatientTabPage.Location = new System.Drawing.Point(4, 29);
             this.addPatientTabPage.Name = "addPatientTabPage";
             this.addPatientTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.addPatientTabPage.Size = new System.Drawing.Size(834, 370);
+            this.addPatientTabPage.Size = new System.Drawing.Size(834, 494);
             this.addPatientTabPage.TabIndex = 1;
             this.addPatientTabPage.Text = "Add Patient";
             this.addPatientTabPage.UseVisualStyleBackColor = true;
             // 
             // patientInformationUserControl1
             // 
-            this.patientInformationUserControl1.Location = new System.Drawing.Point(151, 8);
+            this.patientInformationUserControl1.Location = new System.Drawing.Point(187, 8);
             this.patientInformationUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.patientInformationUserControl1.Name = "patientInformationUserControl1";
-            this.patientInformationUserControl1.Size = new System.Drawing.Size(517, 354);
+            this.patientInformationUserControl1.Size = new System.Drawing.Size(472, 474);
             this.patientInformationUserControl1.TabIndex = 0;
             // 
             // NurseDashboard
@@ -129,7 +129,7 @@ namespace ClinicSupport.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(850, 460);
+            this.ClientSize = new System.Drawing.Size(850, 586);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
