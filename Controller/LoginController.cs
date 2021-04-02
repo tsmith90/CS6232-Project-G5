@@ -10,7 +10,6 @@ namespace ClinicSupport.Controller
     /// </summary>
     class LoginController
     {
-
         private readonly LoginDBDAL loginDBDAL;
 
         /// <summary>

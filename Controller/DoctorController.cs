@@ -4,9 +4,12 @@ using System.Collections.Generic;
 
 namespace ClinicSupport.Controller
 {
+    /// <summary>
+    /// Class to control flow from the application to the DAL for Doctors
+    /// </summary>
     class DoctorController
     {
-        private DoctorDAL doctorDAL;
+        private readonly DoctorDAL doctorDAL;
 
         /// <summary>
         /// 0 parameter constructor for the DoctorController class

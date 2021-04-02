@@ -4,6 +4,9 @@ using System;
 
 namespace ClinicSupport.Controller
 {
+    /// <summary>
+    /// Class to control flow from the application to the DAL for appointments
+    /// </summary>
     class AppointmentController
     {
         private AppointmentDAL appointmentDAL;

@@ -10,8 +10,8 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class NewOrEditPatientInformation : Form
     {
-        private PatientController patientController;
-        private IndividualController individualController;
+        private readonly PatientController patientController;
+        private readonly IndividualController individualController;
 
         /// <summary>
         /// 0 parameter constructor that is used for a new patient

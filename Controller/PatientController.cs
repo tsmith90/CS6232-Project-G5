@@ -8,7 +8,7 @@ namespace ClinicSupport.Controller
     /// </summary>
     class PatientController
     {
-        private PatientDAL patientDAL;
+        private readonly PatientDAL patientDAL;
 
         /// <summary>
         /// 0 parameter constructor for the PatientController class
