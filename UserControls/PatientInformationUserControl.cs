@@ -195,7 +195,7 @@ namespace ClinicSupport.UserControls
                     //this.individualController.InsertNewIndividual(newIndividual);
                     /// need to figure out what i can pass in as a parameter here
                     /// I believe what i need to have the new individual id be returned upon creation so i can utilize it here
-                    //this.patientController.InsertNewPatient();
+                    //this.patientController.InsertNewPatient(individualID);
                     this.ClearForm();
                     this.messageLabel.Text = "Appointment is added!";
                     this.messageLabel.ForeColor = Color.Black;
