@@ -2,20 +2,20 @@
 using ClinicSupport.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl to retrieve information about visits by a given patient
+    /// </summary>
     public partial class VisitInformationUserControl : UserControl
     {
         private readonly VisitController visitController;
 
+        /// <summary>
+        /// 0-parameter constructor for the VisitInformationUserControl
+        /// </summary>
         public VisitInformationUserControl()
         {
             InitializeComponent();

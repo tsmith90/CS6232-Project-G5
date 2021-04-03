@@ -8,6 +8,7 @@ namespace ClinicSupport.DAL
 {
     /// <summary>
     /// Class to interact with the DB to retrieve and manipulate appointments
+    /// </summary>
     class AppointmentDAL
     {
         /// <summary>

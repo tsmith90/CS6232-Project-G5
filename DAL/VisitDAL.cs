@@ -5,8 +5,16 @@ using System.Data.SqlClient;
 
 namespace ClinicSupport.DAL
 {
+    /// <summary>
+    /// Class to interact with DB Visit table
+    /// </summary>
     class VisitDAL
     {
+        /// <summary>
+        /// Method to retrieve information about visits from the Visit table
+        /// </summary>
+        /// <param name="id">the Patient id</param>
+        /// <returns>a list of visits according to the patient id</returns>
         public List<Visit> GetVisitsByID(int id)
         {
             List<Visit> visitList = new List<Visit>();
@@ -15,7 +23,6 @@ namespace ClinicSupport.DAL
             "SELECT time, nid, weight, systolic, diastolic, temperature, pulse,  symptoms,  initialDiagnosis, finalDiagnosis " +
             "FROM Visit " +
             "Where pid = @id;";
-
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
