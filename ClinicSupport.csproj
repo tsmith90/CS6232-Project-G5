@@ -58,6 +58,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\NurseController.cs" />
     <Compile Include="Controller\PatientController.cs" />
+    <Compile Include="Controller\VisitController.cs" />
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="DAL\LoginDBDAL.cs" />
     <Compile Include="DAL\NurseDAL.cs" />
     <Compile Include="DAL\PatientDAL.cs" />
+    <Compile Include="DAL\VisitDAL.cs" />
     <Compile Include="Model\Administrator.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
@@ -84,6 +86,12 @@
     </Compile>
     <Compile Include="UserControls\PatientInformationUserControl.Designer.cs">
       <DependentUpon>PatientInformationUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VisitInformationUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\VisitInformationUserControl.Designer.cs">
+      <DependentUpon>VisitInformationUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminDashboard.cs">
       <SubType>Form</SubType>
@@ -131,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PatientInformationUserControl.resx">
       <DependentUpon>PatientInformationUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\VisitInformationUserControl.resx">
+      <DependentUpon>VisitInformationUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
