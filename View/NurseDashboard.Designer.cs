@@ -29,6 +29,7 @@ namespace ClinicSupport.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NurseDashboard));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -37,8 +38,8 @@ namespace ClinicSupport.View
             this.addPatientTabPage = new System.Windows.Forms.TabPage();
             this.patientInformationUserControl1 = new ClinicSupport.UserControls.PatientInformationUserControl();
             this.visitInformationTabPage = new System.Windows.Forms.TabPage();
-            this.visitInformationUserControl1 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.visitInformationUserControl2 = new ClinicSupport.UserControls.VisitInformationUserControl();
+            this.visitInformationUserControl1 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.nurseDashboardTabControl.SuspendLayout();
             this.addPatientTabPage.SuspendLayout();
@@ -140,6 +141,13 @@ namespace ClinicSupport.View
             this.visitInformationTabPage.Text = "Visit Information";
             this.visitInformationTabPage.UseVisualStyleBackColor = true;
             // 
+            // visitInformationUserControl2
+            // 
+            this.visitInformationUserControl2.Location = new System.Drawing.Point(5, 0);
+            this.visitInformationUserControl2.Name = "visitInformationUserControl2";
+            this.visitInformationUserControl2.Size = new System.Drawing.Size(833, 498);
+            this.visitInformationUserControl2.TabIndex = 1;
+            // 
             // visitInformationUserControl1
             // 
             this.visitInformationUserControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -151,13 +159,6 @@ namespace ClinicSupport.View
             this.visitInformationUserControl1.Size = new System.Drawing.Size(0, 0);
             this.visitInformationUserControl1.TabIndex = 0;
             // 
-            // visitInformationUserControl2
-            // 
-            this.visitInformationUserControl2.Location = new System.Drawing.Point(5, 0);
-            this.visitInformationUserControl2.Name = "visitInformationUserControl2";
-            this.visitInformationUserControl2.Size = new System.Drawing.Size(833, 498);
-            this.visitInformationUserControl2.TabIndex = 1;
-            // 
             // NurseDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,6 +168,7 @@ namespace ClinicSupport.View
             this.ClientSize = new System.Drawing.Size(850, 586);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NurseDashboard";

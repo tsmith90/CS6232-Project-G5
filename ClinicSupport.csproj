@@ -172,5 +172,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\blood_icon.ico" />
+    <Content Include="Images\cross_icon.ico" />
+    <Content Include="Images\medical_icon.ico" />
+    <Content Include="Images\pills_icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
