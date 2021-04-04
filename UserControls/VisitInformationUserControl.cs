@@ -78,7 +78,11 @@ namespace ClinicSupport.UserControls
                 {
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
                 }
-            }  
+            } 
+            else
+            {
+                errorLabel.Text = "Please enter a valid ID";
+            }
         }
 
         private int ParseID()

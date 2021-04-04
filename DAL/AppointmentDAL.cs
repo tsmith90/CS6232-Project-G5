@@ -50,7 +50,7 @@ namespace ClinicSupport.DAL
         /// <param name="apptTime">apptTime</param>
         /// <param name="did">did</param>
         /// <returns>the Appointment object</returns>
-        public Appointment GetAppointmentByPid(int pid, int did, DateTime apptTime)
+        public Appointment GetAppointment(int pid, int did, DateTime apptTime)
         {
             Appointment _appointment = new Appointment();
             string selectStatement =
@@ -168,6 +168,46 @@ namespace ClinicSupport.DAL
                         return false;
                 }
             }
+        }
+
+        /// <summary>
+        /// Method to return all appointments with a given pID from the DB
+        /// </summary>
+        /// <param name="pID">The patient id of the appointments</param>
+        /// <returns>a list of appointments</returns> 
+        public List<Appointment> GetAppointmentsByPID(int pID)
+        {
+            List<Appointment> appointmentsList = new List<Appointment>();
+
+            string selectStatement = "SELECT pid, time, did FROM Appointment WHERE pid = @pID;";
+
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.Add("@pID", System.Data.SqlDbType.Int);
+                    selectCommand.Parameters["@pID"].Value = pID;
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Appointment appointment = new Appointment();
+
+                            appointment.PatientID = (int)reader["pid"];
+                            appointment.Time = (DateTime)reader["time"];
+                            appointment.DoctorID = (int)reader["did"];
+
+                            appointmentsList.Add(appointment);
+                        }
+                    }
+                }
+            }
+
+            return appointmentsList;
         }
     }
 }

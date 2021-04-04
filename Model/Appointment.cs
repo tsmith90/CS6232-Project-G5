@@ -12,5 +12,7 @@ namespace ClinicSupport.Model
         public DateTime Time { get; set; }
 
         public int DoctorID { get; set; }
+
+        public string Reason { get; set; }
     }
 }
