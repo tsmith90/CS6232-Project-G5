@@ -46,6 +46,7 @@ namespace ClinicSupport.UserControls
             this.patientIDLabel = new System.Windows.Forms.Label();
             this.bannerLabel = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.enterInformationButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.Controls.Add(this.patientIDLabel, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.bannerLabel, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.errorLabel, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.enterInformationButton, 5, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -196,6 +198,16 @@ namespace ClinicSupport.UserControls
             this.errorLabel.TabIndex = 5;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // enterInformationButton
+            // 
+            this.enterInformationButton.Location = new System.Drawing.Point(614, 92);
+            this.enterInformationButton.Name = "enterInformationButton";
+            this.enterInformationButton.Size = new System.Drawing.Size(187, 26);
+            this.enterInformationButton.TabIndex = 6;
+            this.enterInformationButton.Text = "Enter Checkup Information";
+            this.enterInformationButton.UseVisualStyleBackColor = true;
+            this.enterInformationButton.Click += new System.EventHandler(this.EnterInformationButton_Click);
+            // 
             // VisitInformationUserControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -227,5 +239,6 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.ColumnHeader symptomsColumn;
         private System.Windows.Forms.ColumnHeader initialDiagnosisColumn;
         private System.Windows.Forms.ColumnHeader finalDiagnosisColumn;
+        private System.Windows.Forms.Button enterInformationButton;
     }
 }

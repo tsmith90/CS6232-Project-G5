@@ -3,7 +3,7 @@
     /// <summary>
     /// Class to create and populate a Nurse object from the DB
     /// </summary>
-    class Nurse
+    public class Nurse
     {
         public int ID { get; set; }
 

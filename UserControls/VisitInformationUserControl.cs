@@ -1,5 +1,6 @@
 ﻿using ClinicSupport.Controller;
 using ClinicSupport.Model;
+using ClinicSupport.View;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace ClinicSupport.UserControls
     public partial class VisitInformationUserControl : UserControl
     {
         private readonly VisitController visitController;
+        private readonly CheckupForm checkupForm;
 
         /// <summary>
         /// 0-parameter constructor for the VisitInformationUserControl
@@ -20,6 +22,7 @@ namespace ClinicSupport.UserControls
         {
             InitializeComponent();
             visitController = new VisitController();
+            checkupForm = new CheckupForm();
         }
 
         private void PatientIDTextBox_TextChanged(object sender, EventArgs e)
@@ -92,6 +95,11 @@ namespace ClinicSupport.UserControls
             }
 
             return id;
+        }
+
+        private void EnterInformationButton_Click(object sender, EventArgs e)
+        {
+            checkupForm.ShowDialog();
         }
     }
 }
