@@ -10,7 +10,7 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class NurseDashboard : Form
     {
-        private readonly NurseController nurseController;
+        private NurseController nurseController;
         private Nurse nurse;
 
         /// <summary>
@@ -20,16 +20,22 @@ namespace ClinicSupport.View
         {
             InitializeComponent();
             nurseController = new NurseController();
-            nurse = new Nurse();
         }
 
         /// <summary>
         /// Method to set the userLabel upon login
         /// </summary>
-        /// <param user = "user">the name of the user</param> 
+        /// <param name = "user">the name of the user</param> 
         public void SetUsername(string user)
         {
-            nameLabel.Text = "Welcome nurse " + user + "!";
+            nameLabel.Text = "Welcome Nurse " + user + "!";
+        }
+
+        public void SetNurse(string user)
+        {
+            nurse = nurseController.GetNurseByUsername(user);
+            this.visitInformationUserControl1.Nurse = nurse;
+            this.visitInformationUserControl2.Nurse = nurse;
         }
 
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
@@ -40,20 +46,6 @@ namespace ClinicSupport.View
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-        }
-
-        /// <summary>
-        /// Method to set the current Nurse logged into the application
-        /// </summary>
-        /// <param nurseUsername = "nurseUsername">the username of the Nurse</param> 
-        public void SetNurse (string nurseUsername)
-        {
-            if (nurseUsername == null)
-            {
-                throw new ArgumentNullException("Please enter valid credentials");
-            }
-
-            nurse = nurseController.GetNurseByUsername(nurseUsername);
         }
 
         private void NurseDashboardTabControl_SelectedIndexChanged(object sender, EventArgs e)

@@ -79,7 +79,7 @@ namespace ClinicSupport.UserControls
             states.Add("Georgia", "GA");
             states.Add("Guam", "GU");
             states.Add("Hawaii", "HI");
-            states.Add("Idaho", "ID");
+            states.Add("Idaho", "NurseID");
             states.Add("Illinois", "IL");
             states.Add("Indiana", "IN");
             states.Add("Iowa", "IA");

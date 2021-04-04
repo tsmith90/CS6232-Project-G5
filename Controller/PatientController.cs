@@ -21,7 +21,7 @@ namespace ClinicSupport.Controller
         /// <summary>
         /// Method to retrieve a patient from the PatientDAL
         /// </summary>
-        /// <param name="patientID">ID of the patient to be returned</param>
+        /// <param name="patientID">NurseID of the patient to be returned</param>
         /// <returns>Returns the patient with the specified patientID</returns>
         public Patient GetPatientByID(int patientID)
         {

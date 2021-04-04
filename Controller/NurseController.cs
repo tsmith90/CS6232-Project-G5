@@ -22,7 +22,7 @@ namespace ClinicSupport.Controller
         /// <summary>
         /// Method to get the Nurse information from CS6232-g5 DB
         /// </summary>
-        /// <param username = "username">the nurse username</param> 
+        /// <param username = "username">the Nurse username</param> 
         /// <returns>A new Nurse object</returns>
         public Nurse GetNurseByUsername(string username)
         {

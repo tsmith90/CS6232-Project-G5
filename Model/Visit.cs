@@ -5,7 +5,7 @@ namespace ClinicSupport.Model
     /// <summary>
     /// Class to create and populate a Visit object from the DB
     /// </summary>
-    class Visit
+    public class Visit
     {
         public int PatientID { get; set; }
 

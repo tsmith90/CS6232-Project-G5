@@ -1,6 +1,7 @@
 ﻿using ClinicSupport.DAL;
 using ClinicSupport.Model;
 using System;
+using System.Collections.Generic;
 
 namespace ClinicSupport.Controller
 {
@@ -62,5 +63,20 @@ namespace ClinicSupport.Controller
             return this.appointmentDAL.CheckAvailability(doctorID, apptDateTime);
         }
 
+
+        /// <summary>
+        /// Method to return all appointments with a given pID from the DAL
+        /// </summary>
+        /// <param name="pID">The patient id of the appointments</param>
+        /// <returns>a list of appointments</returns> 
+        public List<Appointment> GetAppointmentsByPID(int pID)
+        {
+            if (pID < 0)
+            {
+                throw new ArgumentNullException("Please enter a valid pID.");
+            }
+
+            return this.appointmentDAL.GetAppointmentsByPID(pID);
+        }
     }
 }
