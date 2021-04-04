@@ -50,14 +50,7 @@ namespace ClinicSupport.View
 
         private void NurseDashboardTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (nurseDashboardTabControl.SelectedTab.Text == "Search Patients")
-            {
-                this.patientInformationUserControl1.HideNewButton();
-            }
-            if (nurseDashboardTabControl.SelectedTab.Text == "Add Patient")
-            {
-                this.patientInformationUserControl1.HideUpdateButton();
-            }
+
         }
     }
  

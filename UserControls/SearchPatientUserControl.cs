@@ -16,6 +16,8 @@ namespace ClinicSupport.UserControls
         {
             InitializeComponent();
             searchCriteriaTableLayout.Hide();
+           //patientInformationUserControl1.Hide();
+            patientInformationUserControl1.HideNewButton();
         }
 
         private void SearchDOBRadioButton_CheckedChanged(object sender, EventArgs e)

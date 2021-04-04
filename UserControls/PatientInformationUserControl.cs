@@ -134,41 +134,40 @@ namespace ClinicSupport.UserControls
                 if (this.firstNameTextBox.Text == String.Empty || this.lastNameTextBox.Text == String.Empty || this.dobTextBox.Text == String.Empty || this.phoneTextBox.Text == String.Empty || 
                     this.addressTextBox.Text == String.Empty || this.cityTextBox.Text == String.Empty || this.stateComboBox.SelectedIndex == 0 || this.zipTextBox.Text == String.Empty)
                 {
-                    string message = "Please enter the required values!!";
+                    string message = "Please enter the required values:";
                     if (this.firstNameTextBox.Text == String.Empty)
                     {
                         message += "\n-First name is missing";
-                    }
-                    if (this.addressTextBox.Text == String.Empty)
-                    {
-                        message += "                      -Address is missing";
                     }
                     if (this.lastNameTextBox.Text == String.Empty)
                     {
                         message += "\n-Last name is missing";
                     }
-                    if (this.cityTextBox.Text == String.Empty)
-                    {
-                        message += "                      -City is missing";
-                    }
                     if (this.dobTextBox.Text == String.Empty)
                     {
                         message += "\n-Date of Birth is missing";
-                    }
-                    if (stateComboBox.SelectedIndex == 0)
-                    {
-                        message += "                  -State is not selected";
                     }
                     if (this.phoneTextBox.Text == String.Empty)
                     {
                         message += "\n-Phone number is missing";
                     }
+                    if (this.addressTextBox.Text == String.Empty)
+                    {
+                        message += "\n-Address is missing";
+                    }
+                    if (this.cityTextBox.Text == String.Empty)
+                    {
+                        message += "\n-City is missing";
+                    }
+                    if (stateComboBox.SelectedIndex == 0)
+                    {
+                        message += "\n-State is not selected";
+                    }
                     if (this.zipTextBox.Text == String.Empty)
                     {
-                        message += "               -Zip is missing";
+                        message += "\n-Zip is missing";
                     }
-                    this.messageLabel.Text = message;
-                    this.messageLabel.ForeColor = Color.Red;
+                    MessageBox.Show(message, "Missing Information");
                 }
                 else
                 {
