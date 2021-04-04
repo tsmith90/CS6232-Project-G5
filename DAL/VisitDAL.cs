@@ -58,5 +58,52 @@ namespace ClinicSupport.DAL
 
             return visitList;
         }
+
+        /// <summary>
+        /// Method to get visit information from the DAL by patient ID and datetime
+        /// </summary>
+        /// <param name="time">the datetime of the appointment</param> 
+        /// <param name="pID">the patient ID</param>
+        /// <returns>a visit object</returns>
+        public Visit GetVisitByKeys(DateTime time, int pID)
+        {
+            Visit visit = new Visit();
+
+            string selectStatement =
+            "SELECT time, nid, weight, systolic, diastolic, temperature, pulse,  symptoms,  initialDiagnosis, finalDiagnosis " +
+            "FROM Visit " +
+            "Where pid = @id and time = @time;";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                    selectCommand.Parameters["@id"].Value = pID;
+
+                    selectCommand.Parameters.Add("@time", System.Data.SqlDbType.DateTime);
+                    selectCommand.Parameters["@time"].Value = time;
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            visit.NurseID = (int)reader["nid"];
+                            visit.Weight = (decimal)reader["weight"];
+                            visit.Systolic = (int)reader["systolic"];
+                            visit.Diastolic = (int)reader["diastolic"];
+                            visit.Temperature = (decimal)reader["temperature"];
+                            visit.Pulse = (int)reader["pulse"];
+                            visit.Symptoms = reader["symptoms"].ToString();
+                            visit.InitialDiagnosis = reader["initialDiagnosis"].ToString();
+                            visit.FinalDiagnosis = reader["finalDiagnosis"].ToString();
+                        }
+                    }
+                }
+            }
+                return visit;
+        }
     }
 }

@@ -34,5 +34,21 @@ namespace ClinicSupport.Controller
 
             return visitDAL.GetVisitsByID(id);
         }
+
+        /// <summary>
+        /// Method to get visit information from the DAL by patient ID and datetime
+        /// </summary>
+        /// <param name="time">the datetime of the appointment</param> 
+        /// <param name="pID">the patient ID</param>
+        /// <returns>a visit object</returns>
+        public Visit GetVisitByKeys(DateTime time, int pID)
+        {
+            if (time == null || pID < 0)
+            {
+                throw new ArgumentOutOfRangeException("Please enter a valid paramers for keys.");
+            }
+            
+            return visitDAL.GetVisitByKeys(time, pID);
+        }
     }
 }
