@@ -138,6 +138,7 @@
             this.searchDOBLastNameRadioButton.TabStop = true;
             this.searchDOBLastNameRadioButton.Text = "DOB and Last Name";
             this.searchDOBLastNameRadioButton.UseVisualStyleBackColor = true;
+            this.searchDOBLastNameRadioButton.CheckedChanged += new System.EventHandler(this.SearchDOBLastNameRadioButton_CheckedChanged);
             // 
             // searchCriteriaTableLayout
             // 

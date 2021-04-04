@@ -39,5 +39,16 @@ namespace ClinicSupport.UserControls
             dobLastNameTextBox.Hide();
             searchDOBAndLastNameButton.Hide();
         }
+
+        private void SearchDOBLastNameRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            searchCriteriaTableLayout.Show();
+            dobTextField.Hide();
+            searchDOBButton.Hide();
+            firstLastNameTextBox.Hide();
+            searchNameButton.Hide();
+            dobLastNameTextBox.Show();
+            searchDOBAndLastNameButton.Show();
+        }
     }
 }
