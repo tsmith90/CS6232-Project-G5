@@ -108,7 +108,7 @@ namespace ClinicSupport.UserControls
             // 
             // nurseColumn
             // 
-            this.nurseColumn.Text = "Nurse ID";
+            this.nurseColumn.Text = "Nurse NurseID";
             this.nurseColumn.Width = 54;
             // 
             // weightColumn
@@ -173,7 +173,7 @@ namespace ClinicSupport.UserControls
             this.patientIDLabel.Name = "patientIDLabel";
             this.patientIDLabel.Size = new System.Drawing.Size(99, 29);
             this.patientIDLabel.TabIndex = 0;
-            this.patientIDLabel.Text = "Patient ID:";
+            this.patientIDLabel.Text = "Patient NurseID:";
             this.patientIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bannerLabel

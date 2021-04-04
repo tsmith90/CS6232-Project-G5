@@ -10,8 +10,8 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class NurseDashboard : Form
     {
-        private readonly NurseController nurseController;
-        public Nurse Nurse { get; set; }
+        private NurseController nurseController;
+        private Nurse nurse;
 
         /// <summary>
         /// 0-parameter constructor for the NurseDashboard class
@@ -19,17 +19,23 @@ namespace ClinicSupport.View
         public NurseDashboard()
         {
             InitializeComponent();
-            Nurse = new Nurse();
             nurseController = new NurseController();
         }
 
         /// <summary>
         /// Method to set the userLabel upon login
         /// </summary>
-        /// <param user = "user">the name of the user</param> 
+        /// <param name = "user">the name of the user</param> 
         public void SetUsername(string user)
         {
             nameLabel.Text = "Welcome Nurse " + user + "!";
+        }
+
+        public void SetNurse(string user)
+        {
+            nurse = nurseController.GetNurseByUsername(user);
+            this.visitInformationUserControl1.Nurse = nurse;
+            this.visitInformationUserControl2.Nurse = nurse;
         }
 
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
@@ -40,20 +46,6 @@ namespace ClinicSupport.View
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-        }
-
-        /// <summary>
-        /// Method to set the current Nurse logged into the application
-        /// </summary>
-        /// <param name = "nurseUsername">the username of the Nurse</param> 
-        public void NurseInformation (string nurseUsername)
-        {
-            if (nurseUsername == null)
-            {
-                throw new ArgumentNullException("Please enter valid credentials");
-            }
-
-            Nurse = nurseController.GetNurseByUsername(nurseUsername);
         }
 
         private void NurseDashboardTabControl_SelectedIndexChanged(object sender, EventArgs e)

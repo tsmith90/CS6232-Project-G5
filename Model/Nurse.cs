@@ -5,7 +5,7 @@
     /// </summary>
     public class Nurse
     {
-        public int ID { get; set; }
+        public int NurseID { get; set; }
 
         public string Username { get; set; }
 

@@ -12,6 +12,7 @@ namespace ClinicSupport.UserControls
     /// </summary>
     public partial class VisitInformationUserControl : UserControl
     {
+        public Nurse Nurse { get; set; }
         private readonly VisitController visitController;
         private readonly CheckupForm checkupForm;
 
@@ -103,6 +104,7 @@ namespace ClinicSupport.UserControls
 
         private void EnterInformationButton_Click(object sender, EventArgs e)
         {
+            checkupForm.SetNurse(Nurse.Username);
             checkupForm.ShowDialog();
         }
     }

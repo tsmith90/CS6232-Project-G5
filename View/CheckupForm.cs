@@ -12,7 +12,9 @@ namespace ClinicSupport.View
     public partial class CheckupForm : Form
     {
         private readonly AppointmentController appointmentController;
+        private readonly NurseController nurseController;
         private readonly VisitController visitController;
+        private Nurse nurse;
         private Visit visit;
         private int patientID;
 
@@ -24,8 +26,11 @@ namespace ClinicSupport.View
             InitializeComponent();
             patientID = -1;
             appointmentController = new AppointmentController();
+            nurseController = new NurseController();
             visitController = new VisitController();
             visit = new Visit();
+            nurse = new Nurse();
+            checkupButton.Enabled = false;
             SetControls();
         }
 
@@ -34,18 +39,28 @@ namespace ClinicSupport.View
             Hide();
         }
 
+        public void SetNurse(string name)
+        {
+            nurse = nurseController.GetNurseByUsername(name);
+        }
+
         private void GetPatientButton_Click(object sender, EventArgs e)
         {
             patientID = ParseID();
 
             if (patientID > -1)
             {
+                SetControls();
+                ClearControls();
+                checkupButton.Enabled = true;
                 PopulateComboBox();
             }
             else
             {
                 errorLabel.Text = "Please enter a valid ID";
+                SetControls();
                 ClearControls();
+                appointmentComboBox.DataSource = null;
                 checkupButton.Enabled = false;
             }
         }
@@ -59,6 +74,8 @@ namespace ClinicSupport.View
                 if (appointmentsList.Count == 0)
                 {
                     errorLabel.Text = "There are no appointments for that Patient ID";
+                    appointmentComboBox.DataSource = null;
+                    checkupButton.Enabled = false;
                     ClearControls();
                 } 
                 else
@@ -95,9 +112,7 @@ namespace ClinicSupport.View
         }
 
         private void CheckupButton_Click(object sender, EventArgs e)
-        {
-            
-
+        {    
             try
             {
                 DateTime dateTime = DateTime.Parse(appointmentComboBox.Text);
@@ -120,12 +135,13 @@ namespace ClinicSupport.View
         private void ClearButton_Click(object sender, EventArgs e)
         {
             ClearControls();
+            appointmentComboBox.DataSource = null;
+            checkupButton.Enabled = false;
             patientIDTextBox.Text = "";
         }
 
         private void ClearControls()
         {
-            appointmentComboBox.DataSource = null;
             checkupButton.Enabled = false;
             nurseTextBox.Text = "";
             weightTextBox.Text = "";
@@ -141,7 +157,6 @@ namespace ClinicSupport.View
 
         private void SetControls()
         {
-            checkupButton.Enabled = false;
             nurseTextBox.ReadOnly = true;
             weightTextBox.ReadOnly = true;
             temperatureTextBox.ReadOnly = true;
@@ -168,24 +183,41 @@ namespace ClinicSupport.View
 
         private void PopulateControls()
         {
-            if (visit.NurseID != 0)
+            if (visit.NurseID == nurse.NurseID)
             {
-                nurseTextBox.Text = visit.NurseID.ToString();
-                weightTextBox.Text = visit.Weight.ToString();
-                temperatureTextBox.Text = visit.Temperature.ToString();
-                systolicTextBox.Text = visit.Systolic.ToString();
-                diastolicTextBox.Text = visit.Diastolic.ToString();
-                pulseTextBox.Text = visit.Pulse.ToString();
-                symptomsTextBox.Text = visit.Symptoms;
-                initialDiagnosisTextBox.Text = visit.InitialDiagnosis;
-                finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
+                ClearControls();
+                SetTexts();
                 OpenControls();
             } 
+            else if (visit.NurseID == 0)
+            {
+                ClearControls();
+                OpenControls();
+                nurseTextBox.Text = nurse.NurseID.ToString();
+                nurseTextBox.Enabled = false;
+                errorLabel.Text = "Enter new visit patient checkup information";
+            }
             else
             {
-                errorLabel.Text = "Please enter new visit information";
-                OpenControls();
+                ClearControls();
+                SetTexts();
+                SetControls();
+                checkupButton.Enabled = true;
+                errorLabel.Text = "Only the assigned nurse may make changes.";
             }
+        }
+
+        private void SetTexts()
+        {
+            nurseTextBox.Text = visit.NurseID.ToString();
+            weightTextBox.Text = visit.Weight.ToString();
+            temperatureTextBox.Text = visit.Temperature.ToString();
+            systolicTextBox.Text = visit.Systolic.ToString();
+            diastolicTextBox.Text = visit.Diastolic.ToString();
+            pulseTextBox.Text = visit.Pulse.ToString();
+            symptomsTextBox.Text = visit.Symptoms;
+            initialDiagnosisTextBox.Text = visit.InitialDiagnosis;
+            finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
         }
     }
 }

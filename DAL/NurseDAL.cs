@@ -32,7 +32,7 @@ namespace ClinicSupport.DAL
                     {
                         while (reader.Read())
                         {
-                            nurse.ID = (int)reader["nid"];
+                            nurse.NurseID = (int)reader["nid"];
                             nurse.Username = reader["username"].ToString();
                             nurse.IndividualID= (int)reader["iid"];
                         }

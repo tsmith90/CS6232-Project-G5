@@ -60,10 +60,10 @@ namespace ClinicSupport.DAL
         }
 
         /// <summary>
-        /// Method to get visit information from the DAL by patient ID and datetime
+        /// Method to get visit information from the DAL by patient NurseID and datetime
         /// </summary>
         /// <param name="time">the datetime of the appointment</param> 
-        /// <param name="pID">the patient ID</param>
+        /// <param name="pID">the patient NurseID</param>
         /// <returns>a visit object</returns>
         public Visit GetVisitByKeys(DateTime time, int pID)
         {

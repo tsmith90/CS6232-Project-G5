@@ -51,7 +51,7 @@ namespace ClinicSupport
             if (privileges.Equals("Nurse"))
             {
                 nurseDashboard.SetUsername(newUser.Username);
-                nurseDashboard.NurseInformation(newUser.Username);
+                nurseDashboard.SetNurse(newUser.Username);
                 Hide();
                 nurseDashboard.ShowDialog();
                 ClearForm();

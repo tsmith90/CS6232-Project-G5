@@ -88,7 +88,7 @@ namespace ClinicSupport.View
             this.patientIDLabel.Name = "patientIDLabel";
             this.patientIDLabel.Size = new System.Drawing.Size(88, 29);
             this.patientIDLabel.TabIndex = 2;
-            this.patientIDLabel.Text = "Patient ID:";
+            this.patientIDLabel.Text = "Patient NurseID:";
             this.patientIDLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // bannerLabel
@@ -176,7 +176,7 @@ namespace ClinicSupport.View
             this.nurseIDLabel.Name = "nurseIDLabel";
             this.nurseIDLabel.Size = new System.Drawing.Size(88, 29);
             this.nurseIDLabel.TabIndex = 8;
-            this.nurseIDLabel.Text = "Nurse ID:";
+            this.nurseIDLabel.Text = "Nurse NurseID:";
             this.nurseIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // weightLabel
