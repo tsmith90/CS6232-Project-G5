@@ -125,6 +125,7 @@
             this.searchFirstLastNameRadioButton.TabStop = true;
             this.searchFirstLastNameRadioButton.Text = "First and Last Name";
             this.searchFirstLastNameRadioButton.UseVisualStyleBackColor = true;
+            this.searchFirstLastNameRadioButton.CheckedChanged += new System.EventHandler(this.SearchFirstLastNameRadioButton_CheckedChanged);
             // 
             // searchDOBLastNameRadioButton
             // 

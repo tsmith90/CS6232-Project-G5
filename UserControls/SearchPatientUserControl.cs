@@ -20,9 +20,22 @@ namespace ClinicSupport.UserControls
 
         private void SearchDOBRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            searchCriteriaTableLayout.Visible = true;
+            searchCriteriaTableLayout.Show();
+            dobTextField.Show();
+            searchDOBButton.Show();
             firstLastNameTextBox.Hide();
             searchNameButton.Hide();
+            dobLastNameTextBox.Hide();
+            searchDOBAndLastNameButton.Hide();
+        }
+
+        private void SearchFirstLastNameRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            searchCriteriaTableLayout.Show();
+            dobTextField.Hide();
+            searchDOBButton.Hide();
+            firstLastNameTextBox.Show();
+            searchNameButton.Show();
             dobLastNameTextBox.Hide();
             searchDOBAndLastNameButton.Hide();
         }
