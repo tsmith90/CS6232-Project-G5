@@ -34,14 +34,23 @@ namespace ClinicSupport.View
             SetControls();
         }
 
+        /// <summary>
+        /// Method to set the Nurse object across forms
+        /// </summary>
+        /// <param name="name">The name of the Nurse</param>
+        public void SetNurse(string name)
+        {
+            if (name == null)
+            {
+                throw new ArgumentNullException("Please enter a valid nurse name");
+            }
+
+            nurse = nurseController.GetNurseByUsername(name);
+        }
+
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
         {
             Hide();
-        }
-
-        public void SetNurse(string name)
-        {
-            nurse = nurseController.GetNurseByUsername(name);
         }
 
         private void GetPatientButton_Click(object sender, EventArgs e)
@@ -118,8 +127,9 @@ namespace ClinicSupport.View
                 DateTime dateTime = DateTime.Parse(appointmentComboBox.Text);
 
                 visit = this.visitController.GetVisitByKeys(dateTime, patientID);
-
+                
                 PopulateControls();
+                checkupButton.Enabled = true;
             }
             catch (Exception)
             {

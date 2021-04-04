@@ -75,7 +75,7 @@ namespace ClinicSupport.View
             // patientIDTextBox
             // 
             this.patientIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientIDTextBox.Location = new System.Drawing.Point(105, 88);
+            this.patientIDTextBox.Location = new System.Drawing.Point(102, 88);
             this.patientIDTextBox.Name = "patientIDTextBox";
             this.patientIDTextBox.Size = new System.Drawing.Size(84, 26);
             this.patientIDTextBox.TabIndex = 3;
@@ -86,9 +86,9 @@ namespace ClinicSupport.View
             this.patientIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientIDLabel.Location = new System.Drawing.Point(11, 85);
             this.patientIDLabel.Name = "patientIDLabel";
-            this.patientIDLabel.Size = new System.Drawing.Size(88, 29);
+            this.patientIDLabel.Size = new System.Drawing.Size(85, 29);
             this.patientIDLabel.TabIndex = 2;
-            this.patientIDLabel.Text = "Patient NurseID:";
+            this.patientIDLabel.Text = "Patient ID:";
             this.patientIDLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // bannerLabel
@@ -117,8 +117,8 @@ namespace ClinicSupport.View
             // 
             this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
@@ -174,9 +174,9 @@ namespace ClinicSupport.View
             this.nurseIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nurseIDLabel.Location = new System.Drawing.Point(11, 164);
             this.nurseIDLabel.Name = "nurseIDLabel";
-            this.nurseIDLabel.Size = new System.Drawing.Size(88, 29);
+            this.nurseIDLabel.Size = new System.Drawing.Size(85, 29);
             this.nurseIDLabel.TabIndex = 8;
-            this.nurseIDLabel.Text = "Nurse NurseID:";
+            this.nurseIDLabel.Text = "NurseID:";
             this.nurseIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // weightLabel
@@ -204,7 +204,7 @@ namespace ClinicSupport.View
             this.systolicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systolicLabel.Location = new System.Drawing.Point(11, 209);
             this.systolicLabel.Name = "systolicLabel";
-            this.systolicLabel.Size = new System.Drawing.Size(88, 29);
+            this.systolicLabel.Size = new System.Drawing.Size(85, 29);
             this.systolicLabel.TabIndex = 11;
             this.systolicLabel.Text = "Systolic:";
             this.systolicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -232,7 +232,7 @@ namespace ClinicSupport.View
             // nurseTextBox
             // 
             this.nurseTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nurseTextBox.Location = new System.Drawing.Point(105, 167);
+            this.nurseTextBox.Location = new System.Drawing.Point(102, 167);
             this.nurseTextBox.Name = "nurseTextBox";
             this.nurseTextBox.Size = new System.Drawing.Size(84, 26);
             this.nurseTextBox.TabIndex = 14;
@@ -257,7 +257,7 @@ namespace ClinicSupport.View
             // 
             // systolicTextBox
             // 
-            this.systolicTextBox.Location = new System.Drawing.Point(105, 212);
+            this.systolicTextBox.Location = new System.Drawing.Point(102, 212);
             this.systolicTextBox.Name = "systolicTextBox";
             this.systolicTextBox.Size = new System.Drawing.Size(84, 26);
             this.systolicTextBox.TabIndex = 17;
@@ -283,7 +283,7 @@ namespace ClinicSupport.View
             // 
             this.symptomsLabel.Location = new System.Drawing.Point(11, 257);
             this.symptomsLabel.Name = "symptomsLabel";
-            this.symptomsLabel.Size = new System.Drawing.Size(88, 32);
+            this.symptomsLabel.Size = new System.Drawing.Size(85, 32);
             this.symptomsLabel.TabIndex = 20;
             this.symptomsLabel.Text = "Symptoms:";
             // 
