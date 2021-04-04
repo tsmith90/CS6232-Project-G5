@@ -219,10 +219,10 @@
             // 
             // patientInformationUserControl1
             // 
-            this.patientInformationUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientInformationUserControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.patientInformationUserControl1.Location = new System.Drawing.Point(0, 101);
             this.patientInformationUserControl1.Name = "patientInformationUserControl1";
-            this.patientInformationUserControl1.Size = new System.Drawing.Size(833, 373);
+            this.patientInformationUserControl1.Size = new System.Drawing.Size(505, 314);
             this.patientInformationUserControl1.TabIndex = 3;
             // 
             // SearchPatientUserControl
@@ -234,7 +234,7 @@
             this.Controls.Add(this.radioButtonTableLayout);
             this.Controls.Add(this.searchPatientLblTableLayout);
             this.Name = "SearchPatientUserControl";
-            this.Size = new System.Drawing.Size(833, 493);
+            this.Size = new System.Drawing.Size(833, 415);
             this.searchPatientLblTableLayout.ResumeLayout(false);
             this.searchPatientLblTableLayout.PerformLayout();
             this.radioButtonTableLayout.ResumeLayout(false);

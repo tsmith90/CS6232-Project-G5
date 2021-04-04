@@ -75,6 +75,12 @@
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visit.cs" />
+    <Compile Include="UserControls\AddPatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddPatientUserControl.Designer.cs">
+      <DependentUpon>AddPatientUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\NewAppointmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AddPatientUserControl.resx">
+      <DependentUpon>AddPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NewAppointmentUserControl.resx">
       <DependentUpon>NewAppointmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
