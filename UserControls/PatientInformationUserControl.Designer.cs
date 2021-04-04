@@ -52,9 +52,13 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.messageLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.patientAppointmentsButton = new System.Windows.Forms.Button();
+            this.newAppointmentButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // patientInfoLabel
@@ -62,7 +66,7 @@
             this.patientInfoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.patientInfoLabel.AutoSize = true;
             this.patientInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientInfoLabel.Location = new System.Drawing.Point(129, 4);
+            this.patientInfoLabel.Location = new System.Drawing.Point(217, 4);
             this.patientInfoLabel.Name = "patientInfoLabel";
             this.patientInfoLabel.Size = new System.Drawing.Size(144, 20);
             this.patientInfoLabel.TabIndex = 0;
@@ -118,7 +122,7 @@
             // 
             this.addressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(204, 7);
+            this.addressLabel.Location = new System.Drawing.Point(226, 7);
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(48, 13);
             this.addressLabel.TabIndex = 7;
@@ -128,7 +132,7 @@
             // 
             this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(204, 47);
+            this.cityLabel.Location = new System.Drawing.Point(226, 47);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(27, 13);
             this.cityLabel.TabIndex = 8;
@@ -138,7 +142,7 @@
             // 
             this.stateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(204, 87);
+            this.stateLabel.Location = new System.Drawing.Point(226, 87);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(35, 13);
             this.stateLabel.TabIndex = 9;
@@ -148,7 +152,7 @@
             // 
             this.zipLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(204, 127);
+            this.zipLabel.Location = new System.Drawing.Point(226, 127);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(27, 13);
             this.zipLabel.TabIndex = 10;
@@ -177,14 +181,14 @@
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(204, 23);
+            this.addressTextBox.Location = new System.Drawing.Point(226, 23);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(151, 20);
             this.addressTextBox.TabIndex = 5;
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(204, 63);
+            this.cityTextBox.Location = new System.Drawing.Point(226, 63);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(151, 20);
             this.cityTextBox.TabIndex = 6;
@@ -192,14 +196,14 @@
             // stateComboBox
             // 
             this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Location = new System.Drawing.Point(204, 103);
+            this.stateComboBox.Location = new System.Drawing.Point(226, 103);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(151, 21);
             this.stateComboBox.TabIndex = 7;
             // 
             // zipTextBox
             // 
-            this.zipTextBox.Location = new System.Drawing.Point(204, 143);
+            this.zipTextBox.Location = new System.Drawing.Point(226, 143);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(151, 20);
             this.zipTextBox.TabIndex = 8;
@@ -216,7 +220,7 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(271, 3);
+            this.updateButton.Location = new System.Drawing.Point(299, 3);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 11;
@@ -225,7 +229,7 @@
             // 
             // createPatientButton
             // 
-            this.createPatientButton.Location = new System.Drawing.Point(137, 3);
+            this.createPatientButton.Location = new System.Drawing.Point(151, 3);
             this.createPatientButton.Name = "createPatientButton";
             this.createPatientButton.Size = new System.Drawing.Size(75, 23);
             this.createPatientButton.TabIndex = 10;
@@ -243,7 +247,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 28);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(578, 28);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // tableLayoutPanel2
@@ -267,7 +271,6 @@
             this.tableLayoutPanel2.Controls.Add(this.addressTextBox, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.cityLabel, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.stateLabel, 1, 4);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 8;
@@ -279,7 +282,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(403, 162);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(447, 162);
             this.tableLayoutPanel2.TabIndex = 13;
             // 
             // tableLayoutPanel3
@@ -291,12 +294,11 @@
             this.tableLayoutPanel3.Controls.Add(this.clearButton, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.createPatientButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.updateButton, 2, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 190);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(403, 32);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(444, 32);
             this.tableLayoutPanel3.TabIndex = 14;
             // 
             // messageLabel
@@ -307,21 +309,57 @@
             this.messageLabel.Size = new System.Drawing.Size(0, 13);
             this.messageLabel.TabIndex = 15;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.patientAppointmentsButton, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.newAppointmentButton, 0, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(450, 28);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.49062F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.50938F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(128, 345);
+            this.tableLayoutPanel4.TabIndex = 16;
+            // 
+            // patientAppointmentsButton
+            // 
+            this.patientAppointmentsButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.patientAppointmentsButton.Location = new System.Drawing.Point(3, 75);
+            this.patientAppointmentsButton.Name = "patientAppointmentsButton";
+            this.patientAppointmentsButton.Size = new System.Drawing.Size(122, 23);
+            this.patientAppointmentsButton.TabIndex = 0;
+            this.patientAppointmentsButton.Text = "Patient Appointments";
+            this.patientAppointmentsButton.UseVisualStyleBackColor = true;
+            // 
+            // newAppointmentButton
+            // 
+            this.newAppointmentButton.Location = new System.Drawing.Point(3, 104);
+            this.newAppointmentButton.Name = "newAppointmentButton";
+            this.newAppointmentButton.Size = new System.Drawing.Size(122, 23);
+            this.newAppointmentButton.TabIndex = 1;
+            this.newAppointmentButton.Text = "New Appointment";
+            this.newAppointmentButton.UseVisualStyleBackColor = true;
+            // 
             // PatientInformationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PatientInformationUserControl";
-            this.Size = new System.Drawing.Size(403, 373);
+            this.Size = new System.Drawing.Size(578, 373);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,5 +391,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button patientAppointmentsButton;
+        private System.Windows.Forms.Button newAppointmentButton;
     }
 }

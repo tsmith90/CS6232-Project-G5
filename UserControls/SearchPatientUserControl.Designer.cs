@@ -222,7 +222,7 @@
             this.patientInformationUserControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.patientInformationUserControl1.Location = new System.Drawing.Point(0, 101);
             this.patientInformationUserControl1.Name = "patientInformationUserControl1";
-            this.patientInformationUserControl1.Size = new System.Drawing.Size(505, 314);
+            this.patientInformationUserControl1.Size = new System.Drawing.Size(544, 314);
             this.patientInformationUserControl1.TabIndex = 3;
             // 
             // SearchPatientUserControl
