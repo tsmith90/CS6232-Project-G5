@@ -42,6 +42,7 @@
             this.searchDOBButton = new System.Windows.Forms.Button();
             this.searchNameButton = new System.Windows.Forms.Button();
             this.searchDOBAndLastNameButton = new System.Windows.Forms.Button();
+            this.patientInformationUserControl1 = new ClinicSupport.UserControls.PatientInformationUserControl();
             this.searchPatientLblTableLayout.SuspendLayout();
             this.radioButtonTableLayout.SuspendLayout();
             this.searchCriteriaTableLayout.SuspendLayout();
@@ -57,7 +58,7 @@
             this.searchPatientLblTableLayout.Name = "searchPatientLblTableLayout";
             this.searchPatientLblTableLayout.RowCount = 1;
             this.searchPatientLblTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.searchPatientLblTableLayout.Size = new System.Drawing.Size(749, 30);
+            this.searchPatientLblTableLayout.Size = new System.Drawing.Size(833, 30);
             this.searchPatientLblTableLayout.TabIndex = 0;
             // 
             // searchPatientLabel
@@ -65,7 +66,7 @@
             this.searchPatientLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchPatientLabel.AutoSize = true;
             this.searchPatientLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPatientLabel.Location = new System.Drawing.Point(310, 4);
+            this.searchPatientLabel.Location = new System.Drawing.Point(352, 4);
             this.searchPatientLabel.Name = "searchPatientLabel";
             this.searchPatientLabel.Size = new System.Drawing.Size(128, 22);
             this.searchPatientLabel.TabIndex = 0;
@@ -87,14 +88,14 @@
             this.radioButtonTableLayout.Name = "radioButtonTableLayout";
             this.radioButtonTableLayout.RowCount = 1;
             this.radioButtonTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.radioButtonTableLayout.Size = new System.Drawing.Size(749, 30);
+            this.radioButtonTableLayout.Size = new System.Drawing.Size(833, 30);
             this.radioButtonTableLayout.TabIndex = 1;
             // 
             // searchByLabel
             // 
             this.searchByLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchByLabel.AutoSize = true;
-            this.searchByLabel.Location = new System.Drawing.Point(23, 8);
+            this.searchByLabel.Location = new System.Drawing.Point(29, 8);
             this.searchByLabel.Name = "searchByLabel";
             this.searchByLabel.Size = new System.Drawing.Size(59, 13);
             this.searchByLabel.TabIndex = 0;
@@ -104,19 +105,20 @@
             // 
             this.searchDOBRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchDOBRadioButton.AutoSize = true;
-            this.searchDOBRadioButton.Location = new System.Drawing.Point(149, 6);
+            this.searchDOBRadioButton.Location = new System.Drawing.Point(168, 6);
             this.searchDOBRadioButton.Name = "searchDOBRadioButton";
             this.searchDOBRadioButton.Size = new System.Drawing.Size(48, 17);
             this.searchDOBRadioButton.TabIndex = 1;
             this.searchDOBRadioButton.TabStop = true;
             this.searchDOBRadioButton.Text = "DOB";
             this.searchDOBRadioButton.UseVisualStyleBackColor = true;
+            this.searchDOBRadioButton.CheckedChanged += new System.EventHandler(this.SearchDOBRadioButton_CheckedChanged);
             // 
             // searchFirstLastNameRadioButton
             // 
             this.searchFirstLastNameRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchFirstLastNameRadioButton.AutoSize = true;
-            this.searchFirstLastNameRadioButton.Location = new System.Drawing.Point(299, 6);
+            this.searchFirstLastNameRadioButton.Location = new System.Drawing.Point(339, 6);
             this.searchFirstLastNameRadioButton.Name = "searchFirstLastNameRadioButton";
             this.searchFirstLastNameRadioButton.Size = new System.Drawing.Size(119, 17);
             this.searchFirstLastNameRadioButton.TabIndex = 2;
@@ -128,7 +130,7 @@
             // 
             this.searchDOBLastNameRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchDOBLastNameRadioButton.AutoSize = true;
-            this.searchDOBLastNameRadioButton.Location = new System.Drawing.Point(551, 6);
+            this.searchDOBLastNameRadioButton.Location = new System.Drawing.Point(620, 6);
             this.searchDOBLastNameRadioButton.Name = "searchDOBLastNameRadioButton";
             this.searchDOBLastNameRadioButton.Size = new System.Drawing.Size(123, 17);
             this.searchDOBLastNameRadioButton.TabIndex = 3;
@@ -156,37 +158,37 @@
             this.searchCriteriaTableLayout.Name = "searchCriteriaTableLayout";
             this.searchCriteriaTableLayout.RowCount = 1;
             this.searchCriteriaTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchCriteriaTableLayout.Size = new System.Drawing.Size(749, 41);
+            this.searchCriteriaTableLayout.Size = new System.Drawing.Size(833, 41);
             this.searchCriteriaTableLayout.TabIndex = 2;
             // 
             // dobTextField
             // 
             this.dobTextField.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dobTextField.Location = new System.Drawing.Point(12, 10);
+            this.dobTextField.Location = new System.Drawing.Point(7, 10);
             this.dobTextField.Name = "dobTextField";
-            this.dobTextField.Size = new System.Drawing.Size(100, 20);
+            this.dobTextField.Size = new System.Drawing.Size(124, 20);
             this.dobTextField.TabIndex = 0;
             // 
             // firstLastNameTextBox
             // 
             this.firstLastNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.firstLastNameTextBox.Location = new System.Drawing.Point(260, 10);
+            this.firstLastNameTextBox.Location = new System.Drawing.Point(280, 10);
             this.firstLastNameTextBox.Name = "firstLastNameTextBox";
-            this.firstLastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.firstLastNameTextBox.Size = new System.Drawing.Size(130, 20);
             this.firstLastNameTextBox.TabIndex = 1;
             // 
             // dobLastNameTextBox
             // 
             this.dobLastNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dobLastNameTextBox.Location = new System.Drawing.Point(508, 10);
+            this.dobLastNameTextBox.Location = new System.Drawing.Point(559, 10);
             this.dobLastNameTextBox.Name = "dobLastNameTextBox";
-            this.dobLastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.dobLastNameTextBox.Size = new System.Drawing.Size(123, 20);
             this.dobLastNameTextBox.TabIndex = 2;
             // 
             // searchDOBButton
             // 
             this.searchDOBButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchDOBButton.Location = new System.Drawing.Point(140, 9);
+            this.searchDOBButton.Location = new System.Drawing.Point(161, 9);
             this.searchDOBButton.Name = "searchDOBButton";
             this.searchDOBButton.Size = new System.Drawing.Size(91, 23);
             this.searchDOBButton.TabIndex = 3;
@@ -196,9 +198,9 @@
             // searchNameButton
             // 
             this.searchNameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchNameButton.Location = new System.Drawing.Point(382, 9);
+            this.searchNameButton.Location = new System.Drawing.Point(422, 9);
             this.searchNameButton.Name = "searchNameButton";
-            this.searchNameButton.Size = new System.Drawing.Size(104, 23);
+            this.searchNameButton.Size = new System.Drawing.Size(122, 23);
             this.searchNameButton.TabIndex = 4;
             this.searchNameButton.Text = "Search by Name";
             this.searchNameButton.UseVisualStyleBackColor = true;
@@ -206,22 +208,31 @@
             // searchDOBAndLastNameButton
             // 
             this.searchDOBAndLastNameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchDOBAndLastNameButton.Location = new System.Drawing.Point(623, 3);
+            this.searchDOBAndLastNameButton.Location = new System.Drawing.Point(695, 3);
             this.searchDOBAndLastNameButton.Name = "searchDOBAndLastNameButton";
-            this.searchDOBAndLastNameButton.Size = new System.Drawing.Size(123, 35);
+            this.searchDOBAndLastNameButton.Size = new System.Drawing.Size(133, 35);
             this.searchDOBAndLastNameButton.TabIndex = 5;
             this.searchDOBAndLastNameButton.Text = "Search by DOB and Last Name";
             this.searchDOBAndLastNameButton.UseVisualStyleBackColor = true;
+            // 
+            // patientInformationUserControl1
+            // 
+            this.patientInformationUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientInformationUserControl1.Location = new System.Drawing.Point(0, 101);
+            this.patientInformationUserControl1.Name = "patientInformationUserControl1";
+            this.patientInformationUserControl1.Size = new System.Drawing.Size(833, 373);
+            this.patientInformationUserControl1.TabIndex = 3;
             // 
             // SearchPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.patientInformationUserControl1);
             this.Controls.Add(this.searchCriteriaTableLayout);
             this.Controls.Add(this.radioButtonTableLayout);
             this.Controls.Add(this.searchPatientLblTableLayout);
             this.Name = "SearchPatientUserControl";
-            this.Size = new System.Drawing.Size(749, 330);
+            this.Size = new System.Drawing.Size(833, 493);
             this.searchPatientLblTableLayout.ResumeLayout(false);
             this.searchPatientLblTableLayout.PerformLayout();
             this.radioButtonTableLayout.ResumeLayout(false);
@@ -248,5 +259,6 @@
         private System.Windows.Forms.Button searchDOBButton;
         private System.Windows.Forms.Button searchNameButton;
         private System.Windows.Forms.Button searchDOBAndLastNameButton;
+        private PatientInformationUserControl patientInformationUserControl1;
     }
 }
