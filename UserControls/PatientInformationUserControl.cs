@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ClinicSupport.Controller;
 using ClinicSupport.Model;
+using ClinicSupport.View;
 
 namespace ClinicSupport.UserControls
 {
@@ -16,6 +17,7 @@ namespace ClinicSupport.UserControls
         private readonly Dictionary<string, string> states;
         private IndividualController individualController;
         private PatientController patientController;
+        private int patientID;
 
         /// <summary>
         /// 0 parameter contructor
@@ -196,7 +198,7 @@ namespace ClinicSupport.UserControls
                     newIndividual.ZipCode = zip;
 
                     var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
-                    //this.patientController.InsertNewPatient(newIndividualID);
+                    //patientID = this.patientController.InsertNewPatient(newIndividualID);
                     this.ClearForm();
                     this.messageLabel.Text = "Patient has been added!";
                     this.messageLabel.ForeColor = Color.Black;
@@ -234,6 +236,12 @@ namespace ClinicSupport.UserControls
                 myState = this.states[stateName];
             }
             return myState;
+        }
+
+        private void NewAppointmentButton_Click(object sender, EventArgs e)
+        {
+            //NewAppointmentForm newAppointment = new NewAppointmentForm(patientID);
+            //DialogResult result = newAppointment.ShowDialog();
         }
     }
 }

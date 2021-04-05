@@ -34,20 +34,23 @@ namespace ClinicSupport.View
             // 
             // newAppointmentUserControl1
             // 
-            this.newAppointmentUserControl1.Location = new System.Drawing.Point(2, 0);
+            this.newAppointmentUserControl1.Location = new System.Drawing.Point(1, 0);
+            this.newAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(0);
             this.newAppointmentUserControl1.Name = "newAppointmentUserControl1";
-            this.newAppointmentUserControl1.Size = new System.Drawing.Size(1167, 962);
+            this.newAppointmentUserControl1.Size = new System.Drawing.Size(438, 403);
             this.newAppointmentUserControl1.TabIndex = 0;
             // 
             // NewAppointmentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 1000);
+            this.ClientSize = new System.Drawing.Size(441, 419);
             this.Controls.Add(this.newAppointmentUserControl1);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewAppointmentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Appointment Form";
             this.ResumeLayout(false);
 

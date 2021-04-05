@@ -343,6 +343,7 @@
             this.newAppointmentButton.TabIndex = 1;
             this.newAppointmentButton.Text = "New Appointment";
             this.newAppointmentButton.UseVisualStyleBackColor = true;
+            this.newAppointmentButton.Click += new System.EventHandler(this.NewAppointmentButton_Click);
             // 
             // PatientInformationUserControl
             // 
