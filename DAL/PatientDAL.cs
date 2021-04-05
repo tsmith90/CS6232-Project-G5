@@ -145,5 +145,37 @@ namespace ClinicSupport.DAL
             }
             return _patient;
         }
+
+        /// <summary>
+        /// Retrieves list of patients that have a DOB equal to the dob passed in
+        /// </summary>
+        /// <param name="dob">Date to search patients by</param>
+        /// <returns>Returns list of patients that have a DOB equal to the dob passed in</returns>
+        public List<Patient> GetPatientsByDOB(DateTime dob)
+        {
+
+        }
+
+        /// <summary>
+        /// Retrieves list of patients that have a first and last name equal to the ones passed in
+        /// </summary>
+        /// <param name="fname">First name of patient</param>
+        /// <param name="lname">Last name of patient</param>
+        /// <returns>Returns list of patients that have a first and last name equal to the ones passed in</returns>
+        public List<Patient> GetPatientsByFirstAndLastName(string fname, string lname)
+        {
+            
+        }
+
+        /// <summary>
+        /// Retrieves list of patients that have a last name and DOB equal to the last name and dob passed in
+        /// </summary>
+        /// <param name="lname">Last name of patient</param>
+        /// <param name="dob">Date of birth of the patient</param>
+        /// <returns>Returns list of patients that have a last name and DOB equal to the last name and dob passed in</returns>
+        public List<Patient> GetPatientsByLastNameAndDOB(string lname, DateTime dob)
+        {
+
+        }
     }
 }

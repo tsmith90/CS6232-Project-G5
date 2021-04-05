@@ -137,12 +137,6 @@
     <Compile Include="View\NewAppointmentForm.Designer.cs">
       <DependentUpon>NewAppointmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NewOrEditPatientInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\NewOrEditPatientInformation.Designer.cs">
-      <DependentUpon>NewOrEditPatientInformation.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\NurseDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,9 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewAppointmentForm.resx">
       <DependentUpon>NewAppointmentForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\NewOrEditPatientInformation.resx">
-      <DependentUpon>NewOrEditPatientInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NurseDashboard.resx">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
