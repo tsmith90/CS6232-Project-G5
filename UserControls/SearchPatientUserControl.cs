@@ -65,6 +65,11 @@ namespace ClinicSupport.UserControls
             {
                 DateTime dob = Convert.ToDateTime(dobTextField.Text);
                 patients = this.patientController.GetPatientsByDOB(dob);
+
+                if (patients.Count == 0)
+                {
+                    MessageBox.Show("No patient found with the date of birth entered", "No Patient Found");
+                }
             }
             catch (ArgumentNullException ane)
             {
@@ -85,6 +90,11 @@ namespace ClinicSupport.UserControls
                 string fname = firstLastNameTextBox.Text.Split(' ')[0];
                 string lname = firstLastNameTextBox.Text.Split(' ')[1];
                 patients = this.patientController.GetPatientsByFirstAndLastName(fname, lname);
+
+                if (patients.Count == 0)
+                {
+                    MessageBox.Show("No patient found with the first and last name entered", "No Patient Found");
+                }
             }
             catch (ArgumentNullException ane)
             {
@@ -102,6 +112,11 @@ namespace ClinicSupport.UserControls
                 string dobString = dobLastNameTextBox.Text.Split(' ')[1];
                 DateTime dob = Convert.ToDateTime(dobString);
                 patients = this.patientController.GetPatientsByLastNameAndDOB(lname, dob);
+                
+                if (patients.Count == 0)
+                {
+                    MessageBox.Show("No patient found with the last name and date of birth entered", "No Patient Found");
+                }
             }
             catch (ArgumentNullException ane)
             {
