@@ -174,5 +174,75 @@ namespace ClinicSupport.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// Method to update a Visit entry in the DB
+        /// </summary>
+        /// <param name="visit">the visit entry for the DB</param> 
+        /// <returns>true if the visit object was successfully updated</returns>
+        public bool UpdateVisit(Visit visit)
+        {
+            string updateStatement = "UPDATE Visit " +
+                "SET nid = @nid, weight = @weight, systolic = @systolic, diastolic = @diastolic, temperature = @temperature, " +
+                "pulse = @pulse, symptoms = @symptoms, initialDiagnosis = @initialDiagnosis, finalDiagnosis = @finalDiagnosis " +
+                "WHERE pid = @pid AND time = @time;";
+     
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(updateStatement, connection))
+                {
+                    cmd.Parameters.Add("@pid", System.Data.SqlDbType.Int);
+                    cmd.Parameters["@pid"].Value = visit.PatientID;
+
+                    cmd.Parameters.Add("@time", System.Data.SqlDbType.DateTime);
+                    cmd.Parameters["@time"].Value = visit.DateTime;
+
+                    cmd.Parameters.Add("@nid", System.Data.SqlDbType.Int);
+                    cmd.Parameters["@nid"].Value = visit.NurseID;
+
+                    cmd.Parameters.Add("@weight", System.Data.SqlDbType.Decimal);
+                    cmd.Parameters["@weight"].Value = visit.Weight;
+
+                    cmd.Parameters.Add("@systolic", System.Data.SqlDbType.Int);
+                    cmd.Parameters["@systolic"].Value = visit.Systolic;
+
+                    cmd.Parameters.Add("@diastolic", System.Data.SqlDbType.Int);
+                    cmd.Parameters["@diastolic"].Value = visit.Diastolic;
+
+                    cmd.Parameters.Add("@temperature", System.Data.SqlDbType.Decimal);
+                    cmd.Parameters["@temperature"].Value = visit.Temperature;
+
+                    cmd.Parameters.Add("@pulse", System.Data.SqlDbType.Int);
+                    cmd.Parameters["@pulse"].Value = visit.Pulse;
+
+                    cmd.Parameters.Add("@symptoms", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@symptoms"].Value = visit.Symptoms;
+
+                    cmd.Parameters.Add("@initialDiagnosis", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@initialDiagnosis"].Value = visit.InitialDiagnosis;
+
+
+                    cmd.Parameters.Add("@finalDiagnosis", System.Data.SqlDbType.VarChar);
+
+                    if (String.IsNullOrEmpty(visit.FinalDiagnosis))
+                    {
+                        cmd.Parameters["@finalDiagnosis"].Value = DBNull.Value;
+                    }
+                    else
+                    {
+                        cmd.Parameters["@finalDiagnosis"].Value = visit.FinalDiagnosis;
+                    }
+
+
+                    int count = cmd.ExecuteNonQuery();
+                    if (count > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
     }
 }

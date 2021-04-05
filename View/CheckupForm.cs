@@ -165,7 +165,7 @@ namespace ClinicSupport.View
                     }
                     else
                     {
-                        errorLabel.Text = "The check wasn't entered. There is a problem with the data.";
+                        errorLabel.Text = "The checkup wasn't entered. There was an error.";
                     }
                 }
                 catch (Exception ex)
@@ -178,6 +178,16 @@ namespace ClinicSupport.View
                 try
                 {
                     Visit updateVisit = ParseVisit();
+
+                    if (visitController.UpdateVisit(updateVisit))
+                    {
+                        errorLabel.Text = "The checkup has been successfully updated";
+                    }
+                    else
+                    {
+                        errorLabel.Text = "The checkup wasn't updated. There was an error.";
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -215,6 +225,10 @@ namespace ClinicSupport.View
                     {
                         throw new Exception();
                     }
+                } 
+                else if (String.IsNullOrEmpty(symptomsTextBox.Text))
+                {
+                    newVisit.Symptoms = visit.Symptoms;
                 }
                 else
                 {
@@ -235,6 +249,10 @@ namespace ClinicSupport.View
                     {
                         throw new Exception();
                     }
+                }
+                else if (String.IsNullOrEmpty(initialDiagnosisTextBox.Text))
+                {
+                    newVisit.InitialDiagnosis = visit.InitialDiagnosis;
                 }
                 else
                 {

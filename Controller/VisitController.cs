@@ -65,5 +65,20 @@ namespace ClinicSupport.Controller
 
             return visitDAL.EnterVisit(visit);
         }
+
+        /// <summary>
+        /// Method to update a Visit entry
+        /// </summary>
+        /// <param name="visit">the visit object for the DAL</param> 
+        /// <returns>true if the visit object was successfully updated</returns>
+        public bool UpdateVisit(Visit visit)
+        {
+            if (visit == null)
+            {
+                throw new ArgumentNullException("Please enter a valid visit object.");
+            }
+
+            return visitDAL.UpdateVisit(visit);
+        }
     }
 }
