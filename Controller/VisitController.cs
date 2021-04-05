@@ -50,5 +50,20 @@ namespace ClinicSupport.Controller
             
             return visitDAL.GetVisitByKeys(time, pID);
         }
+
+        /// <summary>
+        /// Method to pass a new Visit object to the DAL
+        /// </summary>
+        /// <param name="visit">the visit object for the DAL</param> 
+        /// <returns>true if the visit object was successfully entered</returns>
+        public bool EnterVisit(Visit visit)
+        {
+            if (visit == null)
+            {
+                throw new ArgumentNullException("Please enter a valid visit object.");
+            }
+
+            return visitDAL.EnterVisit(visit);
+        }
     }
 }
