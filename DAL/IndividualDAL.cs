@@ -40,13 +40,45 @@ namespace ClinicSupport.DAL
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
                             _individual.ZipCode = (int)reader["zip"];
-                            _individual.PhoneNumber = (int)reader["phone"];
+                            _individual.PhoneNumber = (string)reader["phone"];
                             _individual.DateOfBirth = Convert.ToDateTime(reader["dob"]);
                         }
                     }
                 }
             }
             return _individual;
+        }
+
+        public int AddIndividual(Individual newIndividual)
+        {
+            string insertStatement =
+                "INSERT INTO Individual (lname, fname, dob, streetAddress, city, state, zip, phone) " +
+                "VALUES (@LastName, @FirstName, @DOB, @Address, @City, @State, @Zip, @Phone);";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                {
+                    insertCommand.Parameters.AddWithValue("@LastName", newIndividual.LastName);
+                    insertCommand.Parameters.AddWithValue("@FirstName", newIndividual.FirstName);
+                    insertCommand.Parameters.AddWithValue("@DOB", newIndividual.DateOfBirth);
+                    insertCommand.Parameters.AddWithValue("@Address", newIndividual.StreetAddress);
+                    insertCommand.Parameters.AddWithValue("@City", newIndividual.City);
+                    insertCommand.Parameters.AddWithValue("@State", newIndividual.State);
+                    insertCommand.Parameters.AddWithValue("@Zip", newIndividual.ZipCode);
+                    insertCommand.Parameters.AddWithValue("@Phone", newIndividual.PhoneNumber);
+
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                string selectStatement = "SELECT IDENT_CURRENT('Individual') FROM Individual;";
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    int indivdualID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                    return indivdualID;
+                }
+            }
         }
     }
 }

@@ -28,5 +28,11 @@ namespace ClinicSupport.Controller
             Individual individual = individualDAL.GeIndividualbyID(iid);
             return individual;
         }
+
+        public int InsertNewIndividual(Individual newIndividual)
+        {
+            int newIndividualID = individualDAL.AddIndividual(newIndividual);
+            return newIndividualID;
+        }
     }
 }

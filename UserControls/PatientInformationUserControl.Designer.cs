@@ -171,6 +171,7 @@
             this.dobTextBox.Name = "dobTextBox";
             this.dobTextBox.Size = new System.Drawing.Size(148, 20);
             this.dobTextBox.TabIndex = 3;
+            this.dobTextBox.Text = "MM-DD-YYYY";
             // 
             // phoneTextBox
             // 
@@ -195,6 +196,7 @@
             // 
             // stateComboBox
             // 
+            this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.FormattingEnabled = true;
             this.stateComboBox.Location = new System.Drawing.Point(226, 103);
             this.stateComboBox.Name = "stateComboBox";

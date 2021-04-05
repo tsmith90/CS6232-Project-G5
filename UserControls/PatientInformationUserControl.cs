@@ -175,10 +175,10 @@ namespace ClinicSupport.UserControls
                     var fname = this.firstNameTextBox.Text;
                     var lname = this.lastNameTextBox.Text;
                     var dob = Convert.ToDateTime(this.dobTextBox.Text);
-                    var phone = int.Parse(this.phoneTextBox.Text);
+                    var phone = this.phoneTextBox.Text;
                     var address = this.addressTextBox.Text;
                     var city = this.cityTextBox.Text;
-                    var state = this.stateComboBox.SelectedValue.ToString();
+                    var state = this.GetSelectedState(this.stateComboBox.SelectedValue.ToString());
                     var zip = int.Parse(this.zipTextBox.Text);
                     
                     Individual newIndividual = new Individual();
@@ -191,12 +191,12 @@ namespace ClinicSupport.UserControls
                     newIndividual.State = state;
                     newIndividual.ZipCode = zip;
 
-                    //this.individualController.InsertNewIndividual(newIndividual);
+                    var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
                     /// need to figure out what i can pass in as a parameter here
                     /// I believe what i need to have the new individual id be returned upon creation so i can utilize it here
-                    //this.patientController.InsertNewPatient(individualID);
+                    //this.patientController.InsertNewPatient(newIndividualID);
                     this.ClearForm();
-                    this.messageLabel.Text = "Appointment is added!";
+                    this.messageLabel.Text = "Patient has been added!";
                     this.messageLabel.ForeColor = Color.Black;
                 }
             }
@@ -222,6 +222,16 @@ namespace ClinicSupport.UserControls
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.ClearForm();
+        }
+
+        private string GetSelectedState(string stateName)
+        {
+            string myState = "";
+            if (this.states.ContainsKey(stateName))
+            {
+                myState = this.states[stateName];
+            }
+            return myState;
         }
     }
 }
