@@ -14,7 +14,10 @@ namespace ClinicSupport.UserControls
     {
         private readonly AppointmentController appointmentController;
         private readonly DoctorController doctorController;
+        private readonly PatientController patientController;
+        private readonly IndividualController individualController;
         private readonly Patient patient;
+        private readonly Individual individual;
 
         /// <summary>
         /// 0-parameter constructor for NewAppointmentUserControl
@@ -24,14 +27,37 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
             this.appointmentController = new AppointmentController();
             this.doctorController = new DoctorController();
-            //this.FillDoctorComboBox();
+            this.patientController = new PatientController();
+            this.FillDoctorComboBox();
+            this.datePortionDateTimePicker.Format = DateTimePickerFormat.Custom;
+            this.datePortionDateTimePicker.CustomFormat = "MM/dd/yyyy";
+            this.timePortionDateTimePicker.Format = DateTimePickerFormat.Custom;
+            this.timePortionDateTimePicker.CustomFormat = "hh':'mm tt";
+            this.timePortionDateTimePicker.ShowUpDown = true;
+
+            //TODO: Placeholder to get patentID
+            int pid = 0;
+            if(pid > 0)
+            {
+                this.patient = this.patientController.GetPatientByID(pid);
+                if(this.patient.IndividualID > 0)
+                {
+                    this.individual = this.individualController.GetIndividualByID(this.patient.IndividualID);
+                    if(this.individual != null)
+                    {
+                        this.lnameTextBox.Text = this.individual.LastName;
+                        this.fnameTextBox.Text = this.individual.FirstName;
+                    }
+                }
+            }
+
         }
 
         private void AddAppointmentButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (this.fnameTextBox.Text == String.Empty || this.lnameTextBox.Text == String.Empty || this.docComboBox.SelectedIndex == 0 || this.apptDateTimePicker.Value == null)
+                if (this.fnameTextBox.Text == String.Empty || this.lnameTextBox.Text == String.Empty || this.docComboBox.SelectedIndex == 0 || this.datePortionDateTimePicker.Value == null)
                 {
                     string message = "Please enter the required values!!";
                     if (this.fnameTextBox.Text == String.Empty)
@@ -46,7 +72,7 @@ namespace ClinicSupport.UserControls
                     {
                         message += "\n-Doctor is not selected";
                     }
-                    if (apptDateTimePicker.Value == null)
+                    if (datePortionDateTimePicker.Value == null)
                     {
                         message += "\n-DateTime is not selected";
                     }
@@ -59,18 +85,27 @@ namespace ClinicSupport.UserControls
                     var fname = this.fnameTextBox.Text;
                     var lname = this.lnameTextBox.Text;
                     var doctorID = int.Parse(this.docComboBox.SelectedValue.ToString());
-                    var apptDateTime = Convert.ToDateTime(this.apptDateTimePicker.Value.ToString());
+                    DateTime apptDateTime = this.datePortionDateTimePicker.Value.Date + this.timePortionDateTimePicker.Value.TimeOfDay;
                     int apptAvailable = this.appointmentController.CheckAvailability(doctorID, apptDateTime);
-                    if (apptAvailable > 0)
+                    if (apptAvailable == 0)
                     {
                         Appointment newAppointment = new Appointment();
                         newAppointment.PatientID = this.patient.PatientID;
                         newAppointment.DoctorID = doctorID;
                         newAppointment.Time = apptDateTime;
-                        this.appointmentController.InsertNewAppointment(newAppointment);
-                        this.ClearForm();
-                        this.messageLabel.Text = "Appointment is added!";
-                        this.messageLabel.ForeColor = Color.Black;
+                        //bool apptAdded = this.appointmentController.InsertNewAppointment(newAppointment);
+                        bool apptAdded = false;
+                        if (apptAdded)
+                        {
+                            this.ClearForm();
+                            this.messageLabel.Text = "Appointment is added!";
+                            this.messageLabel.ForeColor = Color.Black;
+                        }
+                        else
+                        {
+                            this.messageLabel.Text = "Unable to add the Appointment at this time!";
+                            this.messageLabel.ForeColor = Color.Red;
+                        }
                     }
                     else
                     {
@@ -107,7 +142,7 @@ namespace ClinicSupport.UserControls
             //Setup data binding
             this.docComboBox.DataSource = doctorList;
             this.docComboBox.DisplayMember = "Name";
-            this.docComboBox.ValueMember = "did";
+            this.docComboBox.ValueMember = "DoctorID";
         }
 
         private void ClearForm()
@@ -116,20 +151,25 @@ namespace ClinicSupport.UserControls
             this.lnameTextBox.Text = "";
             this.reasonTextBox.Text = "";
             this.docComboBox.SelectedIndex = 0;
-            this.apptDateTimePicker.Value = DateTimePicker.MinimumDateTime;
+            this.datePortionDateTimePicker.Value = DateTimePicker.MinimumDateTime;
         }
 
         private void ApptDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (apptDateTimePicker.Value == DateTimePicker.MinimumDateTime)
+            var diff = this.timePortionDateTimePicker.Value.TimeOfDay.Minutes % 15;
+            if (diff != 0)
             {
-                apptDateTimePicker.Value = DateTime.Now;
-                apptDateTimePicker.Format = DateTimePickerFormat.Custom;
-                apptDateTimePicker.CustomFormat = " ";
+                this.timePortionDateTimePicker.Value = this.timePortionDateTimePicker.Value.AddMinutes(15 - diff);
+            }
+            if (datePortionDateTimePicker.Value == DateTimePicker.MinimumDateTime)
+            {
+                datePortionDateTimePicker.Value = DateTime.Now;
+                datePortionDateTimePicker.Format = DateTimePickerFormat.Custom;
+                datePortionDateTimePicker.CustomFormat = " ";
             }
             else
             {
-                apptDateTimePicker.Format = DateTimePickerFormat.Short;
+                datePortionDateTimePicker.Format = DateTimePickerFormat.Short;
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using ClinicSupport.DAL;
 using ClinicSupport.Model;
+using System;
 
 namespace ClinicSupport.Controller
 {
@@ -38,6 +39,22 @@ namespace ClinicSupport.Controller
         {
             int patientID = patientDAL.AddPatient(individualID);
             return patientID;
+        }
+
+        /// <summary>
+        /// Method to retrieve a patient from the PatientDAL
+        /// </summary>
+        /// <param name="fname">fname</param>
+        /// <param name="lname">lname</param>
+        /// <param name="dob">dob</param>
+        /// <returns>Returns the patient with the specified patientID</returns>
+        public Patient GetPatientbyNameAndDOB(string fname, string lname, DateTime dob)
+        {
+            if (fname == string.Empty || lname == string.Empty || dob == DateTime.MinValue)
+            {
+                throw new ArgumentNullException("fname, lname cannot be an empty string or dob cannot be an DateTime.MinValue");
+            }
+            return patientDAL.GetPatientbyNameAndDOB(fname, lname, dob);
         }
     }
 }

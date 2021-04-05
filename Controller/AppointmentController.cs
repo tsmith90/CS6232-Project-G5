@@ -63,20 +63,18 @@ namespace ClinicSupport.Controller
             return this.appointmentDAL.CheckAvailability(doctorID, apptDateTime);
         }
 
-
         /// <summary>
-        /// Method to return all appointments with a given pID from the DAL
+        /// Getting list of Appointments for given patientID.
         /// </summary>
-        /// <param name="pID">The patient id of the appointments</param>
-        /// <returns>a list of appointments</returns> 
-        public List<Appointment> GetAppointmentsByPID(int pID)
+        /// <param name="patientID">patientID</param>
+        /// <returns>list of Appointments</returns>
+        public List<Appointment> GetAppointmentsByPID(int patientID)
         {
-            if (pID < 0)
+            if (patientID < 0)
             {
-                throw new ArgumentNullException("Please enter a valid pID.");
+                throw new ArgumentNullException("patientID cannot be a negative number");
             }
-
-            return this.appointmentDAL.GetAppointmentsByPID(pID);
+            return this.appointmentDAL.GetAppointmentsByPID(patientID);
         }
     }
 }

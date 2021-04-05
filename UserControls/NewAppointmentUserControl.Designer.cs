@@ -42,8 +42,10 @@ namespace ClinicSupport.UserControls
             this.label6 = new System.Windows.Forms.Label();
             this.messageLabel = new System.Windows.Forms.Label();
             this.visitInfoButton = new System.Windows.Forms.Button();
-            this.apptDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.datePortionDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.docComboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.timePortionDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -62,6 +64,7 @@ namespace ClinicSupport.UserControls
             this.fnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.fnameTextBox.Location = new System.Drawing.Point(85, 165);
             this.fnameTextBox.Name = "fnameTextBox";
+            this.fnameTextBox.ReadOnly = true;
             this.fnameTextBox.Size = new System.Drawing.Size(360, 53);
             this.fnameTextBox.TabIndex = 1;
             // 
@@ -71,6 +74,7 @@ namespace ClinicSupport.UserControls
             this.lnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lnameTextBox.Location = new System.Drawing.Point(85, 298);
             this.lnameTextBox.Name = "lnameTextBox";
+            this.lnameTextBox.ReadOnly = true;
             this.lnameTextBox.Size = new System.Drawing.Size(360, 53);
             this.lnameTextBox.TabIndex = 3;
             // 
@@ -88,7 +92,7 @@ namespace ClinicSupport.UserControls
             // 
             this.label3.AutoSize = true;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(710, 253);
+            this.label3.Location = new System.Drawing.Point(592, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 32);
             this.label3.TabIndex = 4;
@@ -98,7 +102,7 @@ namespace ClinicSupport.UserControls
             // 
             this.label4.AutoSize = true;
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(710, 120);
+            this.label4.Location = new System.Drawing.Point(592, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(251, 32);
             this.label4.TabIndex = 6;
@@ -178,30 +182,51 @@ namespace ClinicSupport.UserControls
             this.visitInfoButton.UseVisualStyleBackColor = true;
             this.visitInfoButton.Click += new System.EventHandler(this.VisitInfoButton_Click);
             // 
-            // apptDateTimePicker
+            // datePortionDateTimePicker
             // 
-            this.apptDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apptDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.apptDateTimePicker.Location = new System.Drawing.Point(716, 165);
-            this.apptDateTimePicker.Name = "apptDateTimePicker";
-            this.apptDateTimePicker.Size = new System.Drawing.Size(360, 45);
-            this.apptDateTimePicker.TabIndex = 15;
-            this.apptDateTimePicker.ValueChanged += new System.EventHandler(this.ApptDateTimePicker_ValueChanged);
+            this.datePortionDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePortionDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePortionDateTimePicker.Location = new System.Drawing.Point(598, 165);
+            this.datePortionDateTimePicker.Name = "datePortionDateTimePicker";
+            this.datePortionDateTimePicker.Size = new System.Drawing.Size(255, 45);
+            this.datePortionDateTimePicker.TabIndex = 15;
+            this.datePortionDateTimePicker.ValueChanged += new System.EventHandler(this.ApptDateTimePicker_ValueChanged);
             // 
             // docComboBox
             // 
             this.docComboBox.FormattingEnabled = true;
-            this.docComboBox.Location = new System.Drawing.Point(717, 298);
+            this.docComboBox.Location = new System.Drawing.Point(598, 298);
             this.docComboBox.Name = "docComboBox";
-            this.docComboBox.Size = new System.Drawing.Size(359, 39);
+            this.docComboBox.Size = new System.Drawing.Size(371, 39);
             this.docComboBox.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label7.Location = new System.Drawing.Point(876, 120);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 32);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Time:";
+            // 
+            // timePortionDateTimePicker
+            // 
+            this.timePortionDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timePortionDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timePortionDateTimePicker.Location = new System.Drawing.Point(882, 165);
+            this.timePortionDateTimePicker.Name = "timePortionDateTimePicker";
+            this.timePortionDateTimePicker.Size = new System.Drawing.Size(206, 45);
+            this.timePortionDateTimePicker.TabIndex = 18;
             // 
             // NewAppointmentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.timePortionDateTimePicker);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.docComboBox);
-            this.Controls.Add(this.apptDateTimePicker);
+            this.Controls.Add(this.datePortionDateTimePicker);
             this.Controls.Add(this.visitInfoButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.label6);
@@ -216,7 +241,7 @@ namespace ClinicSupport.UserControls
             this.Controls.Add(this.fnameTextBox);
             this.Controls.Add(this.label1);
             this.Name = "NewAppointmentUserControl";
-            this.Size = new System.Drawing.Size(1167, 962);
+            this.Size = new System.Drawing.Size(1142, 1125);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,7 +262,9 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Button visitInfoButton;
-        private System.Windows.Forms.DateTimePicker apptDateTimePicker;
+        private System.Windows.Forms.DateTimePicker datePortionDateTimePicker;
         private System.Windows.Forms.ComboBox docComboBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker timePortionDateTimePicker;
     }
 }

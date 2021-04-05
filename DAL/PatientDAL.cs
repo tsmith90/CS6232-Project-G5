@@ -104,5 +104,46 @@ namespace ClinicSupport.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// Get the Patient object from the data source.
+        /// </summary>
+        /// <param name="fname">fname</param>
+        /// <param name="lname">lname</param>
+        /// <param name="dob">dob</param>
+        /// <returns>the Patient object</returns>
+        public Patient GetPatientbyNameAndDOB(string fname, string lname, DateTime dob)
+        {
+            Patient _patient = new Patient();
+            string selectStatement =
+                "SELECT pid, p.iid " +
+                 "FROM Patient p " +
+                 "INNER JOIN Individual i " +
+                 "ON i.iid = p.iid " +
+                 "WHERE fname = @fname AND lname = @lname AND dob = @dob";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.Add("@fname", SqlDbType.VarChar);
+                    selectCommand.Parameters["@fname"].Value = fname;
+                    selectCommand.Parameters.Add("@lname", SqlDbType.VarChar);
+                    selectCommand.Parameters["@lname"].Value = lname;
+                    selectCommand.Parameters.Add("@dob", SqlDbType.Date);
+                    selectCommand.Parameters["@dob"].Value = dob.ToString("yyyy-MM-dd"); ;
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            _patient.PatientID = (int)reader["pid"];
+                            _patient.IndividualID = (int)reader["iid"];
+                        }
+                    }
+                }
+            }
+            return _patient;
+        }
     }
 }

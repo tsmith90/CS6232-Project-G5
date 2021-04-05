@@ -8,7 +8,6 @@ namespace ClinicSupport.DAL
 {
     /// <summary>
     /// Class to interact with the DB to retrieve and manipulate appointments
-    /// </summary>
     class AppointmentDAL
     {
         /// <summary>
@@ -19,7 +18,7 @@ namespace ClinicSupport.DAL
         {
             List<Appointment> _appointments = new List<Appointment>();
             string selectStatement =
-                "SELECT pid, did, time " +
+                "SELECT pid, did, time, reason " +
                  "FROM Appointment";
 
             using (SqlConnection connection = DBConnection.GetConnection())
@@ -35,6 +34,7 @@ namespace ClinicSupport.DAL
                             appointment.PatientID = (int)reader["pid"];
                             appointment.DoctorID = (int)reader["did"];
                             appointment.Time = (DateTime)reader["time"];
+                            appointment.Reason = reader["reason"].ToString();
                             _appointments.Add(appointment);
                         }
                     }
@@ -50,7 +50,7 @@ namespace ClinicSupport.DAL
         /// <param name="apptTime">apptTime</param>
         /// <param name="did">did</param>
         /// <returns>the Appointment object</returns>
-        public Appointment GetAppointment(int pid, int did, DateTime apptTime)
+        public Appointment GetAppointmentByPid(int pid, int did, DateTime apptTime)
         {
             Appointment _appointment = new Appointment();
             string selectStatement =
@@ -90,8 +90,8 @@ namespace ClinicSupport.DAL
         public bool InsertNewAppointment(Appointment appt)
         {
             string insertStatement =
-                 "INSERT INTO dbo.Appointment (DoctorID, PatientID, Time) " +
-                 "VALUES (@DoctorID, @PatientID @Time)";
+                 "INSERT INTO dbo.Appointment (did, pid, time, reason) " +
+                 "VALUES (@docID, @patientID, @time, @reason)";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -99,9 +99,10 @@ namespace ClinicSupport.DAL
                 using (SqlCommand cmd = new SqlCommand(insertStatement, connection))
                 {
                     // define parameters and their values
-                    cmd.Parameters.Add("@DoctorID", SqlDbType.Int).Value = appt.DoctorID;
-                    cmd.Parameters.Add("@PatientID", SqlDbType.VarChar, 10).Value = appt.PatientID;
-                    cmd.Parameters.Add("@Time", SqlDbType.VarChar, 50).Value = appt.Time;
+                    cmd.Parameters.Add("@docID", SqlDbType.Int).Value = appt.DoctorID;
+                    cmd.Parameters.Add("@patientID", SqlDbType.VarChar, 10).Value = appt.PatientID;
+                    cmd.Parameters.Add("@time", SqlDbType.VarChar, 50).Value = appt.Time;
+                    cmd.Parameters.Add("@reason", SqlDbType.VarChar, 250).Value = appt.Reason;
                     int count = cmd.ExecuteNonQuery();
                     if (count > 0)
                         return true;
@@ -170,44 +171,44 @@ namespace ClinicSupport.DAL
             }
         }
 
+
         /// <summary>
-        /// Method to return all appointments with a given pID from the DB
+        /// Get all the Appointment objects from the data source for the given patientID.
         /// </summary>
-        /// <param name="pID">The patient id of the appointments</param>
-        /// <returns>a list of appointments</returns> 
-        public List<Appointment> GetAppointmentsByPID(int pID)
+        /// <param name="patientID">Given patientID</param>
+        /// <returns>a list of Appointment objects</returns>
+        public List<Appointment> GetAppointmentsByPID(int patientID)
         {
-            List<Appointment> appointmentsList = new List<Appointment>();
-
-            string selectStatement = "SELECT pid, time, did FROM Appointment WHERE pid = @pID;";
-
+            List<Appointment> _appointments = new List<Appointment>();
+            string selectStatement =
+                "SELECT pid, did, time, reason " +
+                 "FROM Appointment " +
+                 "WHERE pid = @patientID";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
-
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    selectCommand.Parameters.Add("@pID", System.Data.SqlDbType.Int);
-                    selectCommand.Parameters["@pID"].Value = pID;
+                    // define parameters and their values
+                    selectCommand.Parameters.Add("@patientID", SqlDbType.Int);
+                    selectCommand.Parameters["@patientID"].Value = patientID;
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             Appointment appointment = new Appointment();
-
                             appointment.PatientID = (int)reader["pid"];
-                            appointment.Time = (DateTime)reader["time"];
                             appointment.DoctorID = (int)reader["did"];
-
-                            appointmentsList.Add(appointment);
+                            appointment.Time = (DateTime)reader["time"];
+                            appointment.Reason = reader["reason"].ToString();
+                            _appointments.Add(appointment);
                         }
                     }
                 }
             }
-
-            return appointmentsList;
+            return _appointments;
         }
     }
 }
