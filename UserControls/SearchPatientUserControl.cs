@@ -58,7 +58,7 @@ namespace ClinicSupport.UserControls
         }
 
         private void SearchDOBButton_Click(object sender, EventArgs e)
-        {           
+        {
             List<Individual> patients = new List<Individual>();
             try
             {
@@ -78,9 +78,17 @@ namespace ClinicSupport.UserControls
 
         private void SearchNameButton_Click(object sender, EventArgs e)
         {
-            string fname = firstLastNameTextBox.Text.Split(' ')[0];
-            string lname = firstLastNameTextBox.Text.Split(' ')[1];
-            List<Individual> patients = this.patientController.GetPatientsByFirstAndLastName(fname, lname);
+            List<Individual> patients = new List<Individual>();
+            try
+            {
+                string fname = firstLastNameTextBox.Text.Split(' ')[0];
+                string lname = firstLastNameTextBox.Text.Split(' ')[1];
+                patients = this.patientController.GetPatientsByFirstAndLastName(fname, lname);
+            }
+            catch (ArgumentNullException ane)
+            {
+                MessageBox.Show(ane.Message);
+            }
             patientsDataGridView.DataSource = patients;
         }
     }

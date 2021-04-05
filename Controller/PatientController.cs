@@ -71,7 +71,7 @@ namespace ClinicSupport.Controller
         {
             if (fname == string.Empty || lname == string.Empty)
             {
-                throw new ArgumentNullException("First name and last name cannot be an empty string");
+                throw new ArgumentNullException("Please make sure that the first name and last name of the patient are present");
             }
             return patientDAL.GetPatientsByFirstAndLastName(fname, lname);
         }
