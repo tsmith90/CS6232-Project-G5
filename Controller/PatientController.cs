@@ -28,5 +28,16 @@ namespace ClinicSupport.Controller
             Patient patient = patientDAL.GetPatientbyID(patientID);
             return patient;
         }
+
+        /// <summary>
+        /// Adds passed in individualID to the Patient table
+        /// </summary>
+        /// <param name="individualID">ID of individual recently added to Individual table and to be added to the Patient table</param>
+        /// <returns>Returns the new patientID for the patient that was just created</returns>
+        public int InsertNewPatient(int individualID)
+        {
+            int patientID = patientDAL.AddPatient(individualID);
+            return patientID;
+        }
     }
 }

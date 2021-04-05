@@ -116,7 +116,7 @@
             this.phoneNumLabel.Name = "phoneNumLabel";
             this.phoneNumLabel.Size = new System.Drawing.Size(148, 13);
             this.phoneNumLabel.TabIndex = 6;
-            this.phoneNumLabel.Text = "Phone (XXX-XXX-XXXX):";
+            this.phoneNumLabel.Text = "Phone (XXXXXXXXXX):";
             // 
             // addressLabel
             // 
