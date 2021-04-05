@@ -58,6 +58,7 @@ namespace ClinicSupport.View
             this.finalFiagnosisLabel = new System.Windows.Forms.Label();
             this.finalDiagnosisTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
+            this.enterButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +151,8 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.Controls.Add(this.initialDiagnosisTextBox, 3, 9);
             this.tableLayoutPanel1.Controls.Add(this.finalFiagnosisLabel, 5, 8);
             this.tableLayoutPanel1.Controls.Add(this.finalDiagnosisTextBox, 5, 9);
-            this.tableLayoutPanel1.Controls.Add(this.clearButton, 5, 10);
+            this.tableLayoutPanel1.Controls.Add(this.clearButton, 3, 10);
+            this.tableLayoutPanel1.Controls.Add(this.enterButton, 5, 10);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -367,18 +369,29 @@ namespace ClinicSupport.View
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(457, 443);
+            this.clearButton.Location = new System.Drawing.Point(195, 443);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(142, 50);
+            this.clearButton.Size = new System.Drawing.Size(126, 50);
             this.clearButton.TabIndex = 26;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
+            // enterButton
+            // 
+            this.enterButton.Location = new System.Drawing.Point(457, 443);
+            this.enterButton.Name = "enterButton";
+            this.enterButton.Size = new System.Drawing.Size(140, 50);
+            this.enterButton.TabIndex = 27;
+            this.enterButton.Text = "Enter";
+            this.enterButton.UseVisualStyleBackColor = true;
+            this.enterButton.Click += new System.EventHandler(this.EnterButton_Click);
+            // 
             // CheckupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(815, 536);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -425,5 +438,6 @@ namespace ClinicSupport.View
         private System.Windows.Forms.Label finalFiagnosisLabel;
         private System.Windows.Forms.TextBox finalDiagnosisTextBox;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button enterButton;
     }
 }

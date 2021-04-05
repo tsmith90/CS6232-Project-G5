@@ -150,6 +150,11 @@ namespace ClinicSupport.View
             patientIDTextBox.Text = "";
         }
 
+        private void EnterButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void ClearControls()
         {
             checkupButton.Enabled = false;
@@ -176,6 +181,7 @@ namespace ClinicSupport.View
             symptomsTextBox.ReadOnly = true;
             initialDiagnosisTextBox.ReadOnly = true;
             finalDiagnosisTextBox.ReadOnly = true;
+            enterButton.Enabled = false;
         }
 
         private void OpenControls()
@@ -198,6 +204,7 @@ namespace ClinicSupport.View
                 ClearControls();
                 SetTexts();
                 OpenControls();
+                enterButton.Enabled = true;
             } 
             else if (visit.NurseID == 0)
             {
@@ -205,6 +212,7 @@ namespace ClinicSupport.View
                 OpenControls();
                 nurseTextBox.Text = nurse.NurseID.ToString();
                 nurseTextBox.Enabled = false;
+                enterButton.Enabled = true;
                 errorLabel.Text = "Enter new visit patient checkup information";
             }
             else
@@ -228,6 +236,6 @@ namespace ClinicSupport.View
             symptomsTextBox.Text = visit.Symptoms;
             initialDiagnosisTextBox.Text = visit.InitialDiagnosis;
             finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
-        }
+        } 
     }
 }

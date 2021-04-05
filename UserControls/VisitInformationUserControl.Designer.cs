@@ -54,21 +54,21 @@ namespace ClinicSupport.UserControls
             // 
             this.tableLayoutPanel1.ColumnCount = 6;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.visitListView, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.findPatientButton, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.patientIDTextBox, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.patientIDLabel, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.bannerLabel, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.errorLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.enterInformationButton, 5, 2);
+            this.tableLayoutPanel1.Controls.Add(this.patientIDLabel, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.patientIDTextBox, 2, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -77,7 +77,7 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(804, 478);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(892, 492);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // visitListView
@@ -97,7 +97,7 @@ namespace ClinicSupport.UserControls
             this.visitListView.HideSelection = false;
             this.visitListView.Location = new System.Drawing.Point(3, 132);
             this.visitListView.Name = "visitListView";
-            this.visitListView.Size = new System.Drawing.Size(798, 343);
+            this.visitListView.Size = new System.Drawing.Size(886, 357);
             this.visitListView.TabIndex = 3;
             this.visitListView.UseCompatibleStateImageBehavior = false;
             this.visitListView.View = System.Windows.Forms.View.Details;
@@ -108,7 +108,7 @@ namespace ClinicSupport.UserControls
             // 
             // nurseColumn
             // 
-            this.nurseColumn.Text = "Nurse NurseID";
+            this.nurseColumn.Text = "NurseID";
             this.nurseColumn.Width = 54;
             // 
             // weightColumn
@@ -149,7 +149,7 @@ namespace ClinicSupport.UserControls
             // 
             // findPatientButton
             // 
-            this.findPatientButton.Location = new System.Drawing.Point(457, 92);
+            this.findPatientButton.Location = new System.Drawing.Point(466, 92);
             this.findPatientButton.Name = "findPatientButton";
             this.findPatientButton.Size = new System.Drawing.Size(133, 26);
             this.findPatientButton.TabIndex = 2;
@@ -159,8 +159,9 @@ namespace ClinicSupport.UserControls
             // 
             // patientIDTextBox
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.patientIDTextBox, 2);
             this.patientIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientIDTextBox.Location = new System.Drawing.Point(304, 92);
+            this.patientIDTextBox.Location = new System.Drawing.Point(296, 92);
             this.patientIDTextBox.Name = "patientIDTextBox";
             this.patientIDTextBox.Size = new System.Drawing.Size(147, 26);
             this.patientIDTextBox.TabIndex = 1;
@@ -169,20 +170,20 @@ namespace ClinicSupport.UserControls
             // patientIDLabel
             // 
             this.patientIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientIDLabel.Location = new System.Drawing.Point(186, 89);
+            this.patientIDLabel.Location = new System.Drawing.Point(108, 89);
             this.patientIDLabel.Name = "patientIDLabel";
-            this.patientIDLabel.Size = new System.Drawing.Size(99, 29);
+            this.patientIDLabel.Size = new System.Drawing.Size(178, 29);
             this.patientIDLabel.TabIndex = 0;
-            this.patientIDLabel.Text = "Patient NurseID:";
-            this.patientIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.patientIDLabel.Text = "Patient ID:";
+            this.patientIDLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // bannerLabel
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.bannerLabel, 3);
             this.bannerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bannerLabel.Location = new System.Drawing.Point(186, 0);
+            this.bannerLabel.Location = new System.Drawing.Point(296, 0);
             this.bannerLabel.Name = "bannerLabel";
-            this.bannerLabel.Size = new System.Drawing.Size(422, 51);
+            this.bannerLabel.Size = new System.Drawing.Size(312, 51);
             this.bannerLabel.TabIndex = 4;
             this.bannerLabel.Text = "Patient Visit Information";
             this.bannerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -192,9 +193,9 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 3);
             this.errorLabel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(186, 51);
+            this.errorLabel.Location = new System.Drawing.Point(296, 51);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(422, 38);
+            this.errorLabel.Size = new System.Drawing.Size(312, 38);
             this.errorLabel.TabIndex = 5;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -213,7 +214,7 @@ namespace ClinicSupport.UserControls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "VisitInformationUserControl";
-            this.Size = new System.Drawing.Size(807, 481);
+            this.Size = new System.Drawing.Size(893, 494);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
