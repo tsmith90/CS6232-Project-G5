@@ -87,6 +87,7 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(fe.Message);
             }
             patientsDataGridView.DataSource = patients;
+            AddEditColumnToGV();
         }
 
         private void SearchNameButton_Click(object sender, EventArgs e)
@@ -112,6 +113,7 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show("Please make sure all values are entered", "Not all values entered");
             }
             patientsDataGridView.DataSource = patients;
+            AddEditColumnToGV();
         }
 
         private void SearchDOBAndLastNameButton_Click(object sender, EventArgs e)
@@ -142,6 +144,49 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(fe.Message);
             }
             patientsDataGridView.DataSource = patients;
+            AddEditColumnToGV();
+        }
+
+        private void AddEditColumnToGV()
+        {
+            DataGridViewLinkColumn Editlink = new DataGridViewLinkColumn();
+            Editlink.UseColumnTextForLinkValue = true;
+            Editlink.DataPropertyName = "lnkColumn";
+            Editlink.LinkBehavior = LinkBehavior.SystemDefault;
+            Editlink.Text = "Edit";
+            Editlink.Width = 60;
+            patientsDataGridView.Columns.Add(Editlink);
+        }
+
+        private void PatientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Edit column 
+            if (e.ColumnIndex == 8)
+            {               
+                var lname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                var fname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                var dob = Convert.ToDateTime(patientsDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                var address = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[3].Value);
+                var city = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[4].Value);
+                var state = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[5].Value);
+                var zip = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[6].Value);
+                var phone = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[7].Value);
+                Individual patient = new Individual();
+                patient.FirstName = fname;
+                patient.LastName = lname;
+                patient.DateOfBirth = dob;
+                patient.PhoneNumber = phone;
+                patient.StreetAddress = address;
+                patient.City = city;
+                patient.State = state;
+                patient.ZipCode = zip;
+                MessageBox.Show(patient.StreetAddress);
+                /*
+                ViewPatientInformationForm infoForm = new ViewPatientInformationForm();
+                infoForm.SetPatient(patient);
+                DialogResult result = infoForm.ShowDialog();
+                patientsDataGridView.Refresh();*/
+            }
         }
     }
 }

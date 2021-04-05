@@ -229,8 +229,9 @@
             this.patientsDataGridView.Location = new System.Drawing.Point(3, 107);
             this.patientsDataGridView.Name = "patientsDataGridView";
             this.patientsDataGridView.ReadOnly = true;
-            this.patientsDataGridView.Size = new System.Drawing.Size(583, 233);
+            this.patientsDataGridView.Size = new System.Drawing.Size(600, 233);
             this.patientsDataGridView.TabIndex = 3;
+            this.patientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsDataGridView_CellContentClick);
             // 
             // SearchPatientUserControl
             // 
