@@ -29,6 +29,7 @@ namespace ClinicSupport.UserControls
         {
             searchCriteriaTableLayout.Show();
             dobTextField.Show();
+            dobTextField.Text = "";
             searchDOBButton.Show();
             firstLastNameTextBox.Hide();
             searchNameButton.Hide();
@@ -42,6 +43,7 @@ namespace ClinicSupport.UserControls
             dobTextField.Hide();
             searchDOBButton.Hide();
             firstLastNameTextBox.Show();
+            firstLastNameTextBox.Text = "";
             searchNameButton.Show();
             dobLastNameTextBox.Hide();
             searchDOBAndLastNameButton.Hide();
@@ -55,6 +57,7 @@ namespace ClinicSupport.UserControls
             firstLastNameTextBox.Hide();
             searchNameButton.Hide();
             dobLastNameTextBox.Show();
+            dobLastNameTextBox.Text = "";
             searchDOBAndLastNameButton.Show();
         }
 
@@ -74,6 +77,10 @@ namespace ClinicSupport.UserControls
             catch (ArgumentNullException ane)
             {
                 MessageBox.Show(ane.Message);
+            }
+            catch (IndexOutOfRangeException ioore)
+            {
+                MessageBox.Show("Please make sure all values are entered", "Not all values entered");
             }
             catch (FormatException fe)
             {
@@ -100,6 +107,10 @@ namespace ClinicSupport.UserControls
             {
                 MessageBox.Show(ane.Message);
             }
+            catch (IndexOutOfRangeException ioore)
+            {
+                MessageBox.Show("Please make sure all values are entered", "Not all values entered");
+            }
             patientsDataGridView.DataSource = patients;
         }
 
@@ -121,6 +132,10 @@ namespace ClinicSupport.UserControls
             catch (ArgumentNullException ane)
             {
                 MessageBox.Show(ane.Message);
+            }
+            catch (IndexOutOfRangeException ioore)
+            {
+                MessageBox.Show("Please make sure all values are entered", "Not all values entered");
             }
             catch (FormatException fe)
             {
