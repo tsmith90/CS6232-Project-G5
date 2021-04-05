@@ -49,6 +49,11 @@ namespace ClinicSupport.DAL
             return _individual;
         }
 
+        /// <summary>
+        /// Adds passed in individual to the Individual table
+        /// </summary>
+        /// <param name="newIndividual">New indivisual to be added</param>
+        /// <returns>Returns the new individualID for the individual that was just created</returns>
         public int AddIndividual(Individual newIndividual)
         {
             string insertStatement =
