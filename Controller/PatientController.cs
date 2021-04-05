@@ -75,5 +75,14 @@ namespace ClinicSupport.Controller
             }
             return patientDAL.GetPatientsByFirstAndLastName(fname, lname);
         }
+
+        public List<Individual> GetPatientsByLastNameAndDOB(string lname, DateTime dob)
+        {
+            if (lname == string.Empty || dob == null)
+            {
+                throw new ArgumentNullException("Please make sure that the last name and date of birth of the patient are present and accurate");
+            }
+            return patientDAL.GetPatientsByLastNameAndDOB(lname, dob);
+        }
     }
 }

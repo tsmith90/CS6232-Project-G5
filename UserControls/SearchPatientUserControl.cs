@@ -2,6 +2,7 @@
 using ClinicSupport.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
@@ -88,6 +89,27 @@ namespace ClinicSupport.UserControls
             catch (ArgumentNullException ane)
             {
                 MessageBox.Show(ane.Message);
+            }
+            patientsDataGridView.DataSource = patients;
+        }
+
+        private void SearchDOBAndLastNameButton_Click(object sender, EventArgs e)
+        {
+            List<Individual> patients = new List<Individual>();
+            try
+            {
+                string lname = dobLastNameTextBox.Text.Split(' ')[0];
+                string dobString = dobLastNameTextBox.Text.Split(' ')[1];
+                DateTime dob = Convert.ToDateTime(dobString);
+                patients = this.patientController.GetPatientsByLastNameAndDOB(lname, dob);
+            }
+            catch (ArgumentNullException ane)
+            {
+                MessageBox.Show(ane.Message);
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show(fe.Message);
             }
             patientsDataGridView.DataSource = patients;
         }

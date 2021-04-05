@@ -137,7 +137,7 @@
             this.searchDOBLastNameRadioButton.Size = new System.Drawing.Size(123, 17);
             this.searchDOBLastNameRadioButton.TabIndex = 3;
             this.searchDOBLastNameRadioButton.TabStop = true;
-            this.searchDOBLastNameRadioButton.Text = "DOB and Last Name";
+            this.searchDOBLastNameRadioButton.Text = "Last Name and DOB";
             this.searchDOBLastNameRadioButton.UseVisualStyleBackColor = true;
             this.searchDOBLastNameRadioButton.CheckedChanged += new System.EventHandler(this.SearchDOBLastNameRadioButton_CheckedChanged);
             // 
@@ -217,8 +217,9 @@
             this.searchDOBAndLastNameButton.Name = "searchDOBAndLastNameButton";
             this.searchDOBAndLastNameButton.Size = new System.Drawing.Size(133, 35);
             this.searchDOBAndLastNameButton.TabIndex = 5;
-            this.searchDOBAndLastNameButton.Text = "Search by DOB and Last Name";
+            this.searchDOBAndLastNameButton.Text = "Search by Last Name and DOB";
             this.searchDOBAndLastNameButton.UseVisualStyleBackColor = true;
+            this.searchDOBAndLastNameButton.Click += new System.EventHandler(this.SearchDOBAndLastNameButton_Click);
             // 
             // patientsDataGridView
             // 
