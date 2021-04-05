@@ -226,7 +226,8 @@
             this.patientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientsDataGridView.Location = new System.Drawing.Point(3, 107);
             this.patientsDataGridView.Name = "patientsDataGridView";
-            this.patientsDataGridView.Size = new System.Drawing.Size(562, 233);
+            this.patientsDataGridView.ReadOnly = true;
+            this.patientsDataGridView.Size = new System.Drawing.Size(583, 233);
             this.patientsDataGridView.TabIndex = 3;
             // 
             // SearchPatientUserControl
