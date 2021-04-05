@@ -8,6 +8,7 @@ namespace ClinicSupport.DAL
 {
     /// <summary>
     /// Class to interact with the DB to retrieve and manipulate appointments
+    /// </summary>
     class AppointmentDAL
     {
         /// <summary>
@@ -145,6 +146,7 @@ namespace ClinicSupport.DAL
         /// </summary>
         /// <param name="oldAppointment">given oldAppointment to update a Appointment</param>
         /// <param name="newAppointment">given newAppointment to update a Appointment</param>
+        /// <returns>true if appoint is successfully updated</returns>
         public bool UpdateAppointmentt(Appointment oldAppointment, Appointment newAppointment)
         {
             string updateStatement =

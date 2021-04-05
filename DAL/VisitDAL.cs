@@ -165,7 +165,6 @@ namespace ClinicSupport.DAL
                         cmd.Parameters["@finalDiagnosis"].Value = visit.FinalDiagnosis;
                     }
                     
-
                     int count = cmd.ExecuteNonQuery();
                     if (count > 0)
                         return true;
@@ -186,7 +185,6 @@ namespace ClinicSupport.DAL
                 "SET nid = @nid, weight = @weight, systolic = @systolic, diastolic = @diastolic, temperature = @temperature, " +
                 "pulse = @pulse, symptoms = @symptoms, initialDiagnosis = @initialDiagnosis, finalDiagnosis = @finalDiagnosis " +
                 "WHERE pid = @pid AND time = @time;";
-     
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -234,7 +232,6 @@ namespace ClinicSupport.DAL
                     {
                         cmd.Parameters["@finalDiagnosis"].Value = visit.FinalDiagnosis;
                     }
-
 
                     int count = cmd.ExecuteNonQuery();
                     if (count > 0)

@@ -45,7 +45,7 @@ namespace ClinicSupport.DAL
         /// <summary>
         /// Get the Patient object from the data source.
         /// </summary>
-        /// <param name="pid">pid</param>
+        /// <param name="pid">the patient id</param>
         /// <returns>the Patient object</returns>
         public Patient GetPatientbyID(int pid)
         {

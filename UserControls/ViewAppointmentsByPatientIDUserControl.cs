@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// Usercontrol to View Appointments by a given Patient ID in the Nurse Dashboard
+    /// </summary>
     public partial class ViewAppointmentsByPatientIDUserControl : UserControl
     {
         private Patient patient;
@@ -16,12 +19,16 @@ namespace ClinicSupport.UserControls
         private readonly PatientController patientController;
         private NewAppointmentForm _patientAppointmentForm;
 
+        /// <summary>
+        /// 0-parameter constructor for the ViewAppointmentByPatientIDUserControl
+        /// </summary>
         public ViewAppointmentsByPatientIDUserControl()
         {
             InitializeComponent();
             this.appointmentController = new AppointmentController();
             this.patientController = new PatientController();
         }
+
         private void ViewAppointmentsByPatientIDUserControl_Load(object sender, System.EventArgs e)
         {
             //this.GetPatientData();
@@ -46,7 +53,8 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
-        private void appointmentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void AppointmentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //edit column 
             if (e.ColumnIndex == 0)
@@ -140,6 +148,10 @@ namespace ClinicSupport.UserControls
 
         }
 
+        /// <summary>
+        /// Method to retrieve the current Patient ID
+        /// </summary>
+        /// <returns>the current Patient ID</returns>
         public int GetCurrentPatientID()
         {
             if (this.patient != null)

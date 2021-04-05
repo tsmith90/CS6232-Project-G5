@@ -11,7 +11,7 @@ namespace ClinicSupport.DAL
         /// <summary>
         /// Method to get the Nurse information from CS6232-g5 DB
         /// </summary>
-        /// <param name = "username">the Nurse username</param> 
+        /// <param name = "username">the Nurse's username</param> 
         /// <returns>A new Nurse object</returns>
         public Nurse GetNurseByUsername(string username)
         {

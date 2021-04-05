@@ -172,6 +172,5 @@ namespace ClinicSupport.UserControls
                 datePortionDateTimePicker.Format = DateTimePickerFormat.Short;
             }
         }
-
     }
 }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace ClinicSupport.View
 {
     /// <summary>
-    /// Class Form to show Nurse UserControls and options
+    /// Form to show Nurse UserControls and options
     /// </summary>
     public partial class NurseDashboard : Form
     {
@@ -14,7 +14,7 @@ namespace ClinicSupport.View
         private Nurse nurse;
 
         /// <summary>
-        /// 0-parameter constructor for the NurseDashboard class
+        /// 0-parameter constructor for the NurseDashboard Form
         /// </summary>
         public NurseDashboard()
         {
@@ -31,6 +31,10 @@ namespace ClinicSupport.View
             nameLabel.Text = "Welcome Nurse " + user + "!";
         }
 
+        /// <summary>
+        /// Method to set the User to a nurse object
+        /// </summary>
+        /// <param name="user">The currently logged in user</param>
         public void SetNurse(string user)
         {
             nurse = nurseController.GetNurseByUsername(user);

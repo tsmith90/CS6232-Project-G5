@@ -11,8 +11,8 @@ namespace ClinicSupport.DAL
         /// <summary>
         /// Method to get the login information from CS6232-g5 DB
         /// </summary>
-        /// <param user = "user">the user's given username</param> 
-        /// <param password = "hashedPassword">the users hashed password</param> 
+        /// <param name = "user">the user's given username</param> 
+        /// <param name = "hashedPassword">the users hashed password</param> 
         /// <returns>A new User with a username and privileges</returns>
         public User GetLoginInformation(string user, string hashedPassword)
         {

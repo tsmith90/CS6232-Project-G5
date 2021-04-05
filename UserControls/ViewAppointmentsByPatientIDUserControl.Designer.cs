@@ -57,7 +57,7 @@ namespace ClinicSupport.UserControls
             this.appointmentDataGridView.Size = new System.Drawing.Size(1246, 514);
             this.appointmentDataGridView.TabIndex = 0;
             this.appointmentDataGridView.Visible = false;
-            this.appointmentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.appointmentDataGridView_CellContentClick);
+            this.appointmentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentDataGridView_CellContentClick);
             // 
             // searchApptButton
             // 

@@ -13,7 +13,7 @@ namespace ClinicSupport.DAL
         /// <summary>
         /// Get the Individual object from the data source.
         /// </summary>
-        /// <param name="iid">iid</param>
+        /// <param name="iid">the individual's id</param>
         /// <returns>the Individual object</returns>
         public Individual GeIndividualbyID(int iid)
         {

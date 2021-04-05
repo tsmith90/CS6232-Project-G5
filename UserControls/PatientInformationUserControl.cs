@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows.Forms;
 using ClinicSupport.Controller;
 using ClinicSupport.Model;
-using ClinicSupport.View;
 
 namespace ClinicSupport.UserControls
 {

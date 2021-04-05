@@ -3,8 +3,14 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// Usercontrol to search patient information in the Nurse Dashboard
+    /// </summary>
     public partial class SearchPatientUserControl : UserControl
     {
+        /// <summary>
+        /// 0-parameter constructor for the SearchPatientUserControl
+        /// </summary>
         public SearchPatientUserControl()
         {
             InitializeComponent();
