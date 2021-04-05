@@ -195,9 +195,43 @@ namespace ClinicSupport.DAL
         /// <param name="fname">First name of patient</param>
         /// <param name="lname">Last name of patient</param>
         /// <returns>Returns list of patients that have a first and last name equal to the ones passed in</returns>
-        public List<Patient> GetPatientsByFirstAndLastName(string fname, string lname)
+        public List<Individual> GetPatientsByFirstAndLastName(string fname, string lname)
         {
-            List<Patient> _patients = new List<Patient>();
+            List<Individual> _patients = new List<Individual>();
+            string selectStatement =
+                "SELECT p.pid, fname, lname, streetAddress, dob, city, state, zip, phone " +
+                "FROM Individual i INNER JOIN Patient p ON " +
+                "i.iid = p.iid " +
+                "WHERE fname = @FirstName " +
+                "AND lname = @LastName";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@FirstName", fname);
+                    selectCommand.Parameters.AddWithValue("@LastName", lname);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Patient _patient = new Patient();
+                            Individual _individual = new Individual();
+                            _patient.PatientID = (int)reader["pid"];
+                            _individual.FirstName = (string)reader["fname"];
+                            _individual.LastName = (string)reader["lname"];
+                            _individual.DateOfBirth = Convert.ToDateTime(reader["dob"]);
+                            _individual.StreetAddress = (string)reader["streetAddress"];
+                            _individual.City = (string)reader["city"];
+                            _individual.State = (string)reader["state"];
+                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
+                            _individual.PhoneNumber = (string)reader["phone"];
+                            _patients.Add(_individual);
+                        }
+                    }
+                }
+            }
             return _patients;
         }
 
@@ -207,9 +241,9 @@ namespace ClinicSupport.DAL
         /// <param name="lname">Last name of patient</param>
         /// <param name="dob">Date of birth of the patient</param>
         /// <returns>Returns list of patients that have a last name and DOB equal to the last name and dob passed in</returns>
-        public List<Patient> GetPatientsByLastNameAndDOB(string lname, DateTime dob)
+        public List<Individual> GetPatientsByLastNameAndDOB(string lname, DateTime dob)
         {
-            List<Patient> _patients = new List<Patient>();
+            List<Individual> _patients = new List<Individual>();
             return _patients;
         }
     }

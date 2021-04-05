@@ -58,9 +58,29 @@ namespace ClinicSupport.UserControls
         }
 
         private void SearchDOBButton_Click(object sender, EventArgs e)
+        {           
+            List<Individual> patients = new List<Individual>();
+            try
+            {
+                DateTime dob = Convert.ToDateTime(dobTextField.Text);
+                patients = this.patientController.GetPatientsByDOB(dob);
+            }
+            catch (ArgumentNullException ane)
+            {
+                MessageBox.Show(ane.Message);
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show(fe.Message);
+            }
+            patientsDataGridView.DataSource = patients;
+        }
+
+        private void SearchNameButton_Click(object sender, EventArgs e)
         {
-            DateTime dob = Convert.ToDateTime(dobTextField.Text);
-            List<Individual> patients = this.patientController.GetPatientsByDOB(dob);
+            string fname = firstLastNameTextBox.Text.Split(' ')[0];
+            string lname = firstLastNameTextBox.Text.Split(' ')[1];
+            List<Individual> patients = this.patientController.GetPatientsByFirstAndLastName(fname, lname);
             patientsDataGridView.DataSource = patients;
         }
     }

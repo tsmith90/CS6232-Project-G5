@@ -64,8 +64,16 @@ namespace ClinicSupport.Controller
             {
                 throw new ArgumentNullException("DOB cannot be null");
             }
-            List<Individual> _patients = patientDAL.GetPatientsByDOB(dob);
-            return _patients;
+            return patientDAL.GetPatientsByDOB(dob); ;
+        }
+
+        public List<Individual> GetPatientsByFirstAndLastName(string fname, string lname)
+        {
+            if (fname == string.Empty || lname == string.Empty)
+            {
+                throw new ArgumentNullException("First name and last name cannot be an empty string");
+            }
+            return patientDAL.GetPatientsByFirstAndLastName(fname, lname);
         }
     }
 }

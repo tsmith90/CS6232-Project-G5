@@ -208,6 +208,7 @@
             this.searchNameButton.TabIndex = 4;
             this.searchNameButton.Text = "Search by Name";
             this.searchNameButton.UseVisualStyleBackColor = true;
+            this.searchNameButton.Click += new System.EventHandler(this.SearchNameButton_Click);
             // 
             // searchDOBAndLastNameButton
             // 
