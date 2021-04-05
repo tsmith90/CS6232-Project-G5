@@ -1,6 +1,7 @@
 ﻿using ClinicSupport.DAL;
 using ClinicSupport.Model;
 using System;
+using System.Collections.Generic;
 
 namespace ClinicSupport.Controller
 {
@@ -55,6 +56,16 @@ namespace ClinicSupport.Controller
                 throw new ArgumentNullException("fname, lname cannot be an empty string or dob cannot be an DateTime.MinValue");
             }
             return patientDAL.GetPatientbyNameAndDOB(fname, lname, dob);
+        }
+
+        public List<Individual> GetPatientsByDOB(DateTime dob)
+        {
+            if (dob == DateTime.MinValue || dob == null)
+            {
+                throw new ArgumentNullException("DOB cannot be null");
+            }
+            List<Individual> _patients = patientDAL.GetPatientsByDOB(dob);
+            return _patients;
         }
     }
 }
