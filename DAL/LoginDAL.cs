@@ -6,7 +6,7 @@ namespace ClinicSupport.DAL
     /// <summary>
     /// Class with interact with the Login table of the CS6232-g5 DB
     /// </summary>
-    class LoginDBDAL
+    class LoginDAL
     {
         /// <summary>
         /// Method to get the login information from CS6232-g5 DB
