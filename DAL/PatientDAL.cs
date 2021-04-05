@@ -1,4 +1,5 @@
 ﻿using ClinicSupport.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -72,6 +73,36 @@ namespace ClinicSupport.DAL
                 }
             }
             return _patient;
+        }
+
+        /// <summary>
+        /// Adds passed in individualID to the Patient table
+        /// </summary>
+        /// <param name="individualID">ID of individual recently added to Individual table and to be added to the Patient table</param>
+        /// <returns>Returns the new patientID for the patient that was just created</returns>
+        public int AddPatient(int individualID)
+        {
+            string insertStatement =
+                "INSERT INTO Patient (iid) " +
+                "VALUES (@IndividualID);";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                {
+                    insertCommand.Parameters.AddWithValue("@IndividualID", individualID);
+
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                string selectStatement = "SELECT IDENT_CURRENT('Patient') FROM Patient;";
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    int patientID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                    return patientID;
+                }
+            }
         }
     }
 }

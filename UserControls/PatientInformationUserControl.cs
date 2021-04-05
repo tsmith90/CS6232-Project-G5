@@ -155,7 +155,7 @@ namespace ClinicSupport.UserControls
                     }
                     if (this.phoneTextBox.Text.Length < 10)
                     {
-                        message += "\n-Phone number must contain 10 numbers (XXX-XXX-XXXX)";
+                        message += "\n-Phone number must contain 10 numbers (XXXXXXXXXX)";
                     }
                     if (this.addressTextBox.Text == String.Empty)
                     {
@@ -198,7 +198,7 @@ namespace ClinicSupport.UserControls
                     newIndividual.ZipCode = zip;
 
                     var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
-                    //patientID = this.patientController.InsertNewPatient(newIndividualID);
+                    patientID = this.patientController.InsertNewPatient(newIndividualID);
                     this.ClearForm();
                     this.messageLabel.Text = "Patient has been added!";
                     this.messageLabel.ForeColor = Color.Black;
