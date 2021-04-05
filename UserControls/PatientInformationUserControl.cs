@@ -151,6 +151,10 @@ namespace ClinicSupport.UserControls
                     {
                         message += "\n-Phone number is missing";
                     }
+                    if (this.phoneTextBox.Text.Length < 10)
+                    {
+                        message += "\n-Phone number must contain 10 numbers (XXX-XXX-XXXX)";
+                    }
                     if (this.addressTextBox.Text == String.Empty)
                     {
                         message += "\n-Address is missing";
@@ -192,8 +196,6 @@ namespace ClinicSupport.UserControls
                     newIndividual.ZipCode = zip;
 
                     var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
-                    /// need to figure out what i can pass in as a parameter here
-                    /// I believe what i need to have the new individual id be returned upon creation so i can utilize it here
                     //this.patientController.InsertNewPatient(newIndividualID);
                     this.ClearForm();
                     this.messageLabel.Text = "Patient has been added!";
@@ -215,7 +217,7 @@ namespace ClinicSupport.UserControls
             phoneTextBox.Text = "";
             addressTextBox.Text = "";
             cityTextBox.Text = "";
-            stateComboBox.SelectedItem = 0;
+            stateComboBox.SelectedIndex = 0;
             zipTextBox.Text = "";
         }
 

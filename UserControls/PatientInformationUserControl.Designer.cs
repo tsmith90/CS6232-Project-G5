@@ -105,18 +105,18 @@
             this.dobLabel.AutoSize = true;
             this.dobLabel.Location = new System.Drawing.Point(3, 87);
             this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(69, 13);
+            this.dobLabel.Size = new System.Drawing.Size(146, 13);
             this.dobLabel.TabIndex = 5;
-            this.dobLabel.Text = "Date of Birth:";
+            this.dobLabel.Text = "Date of Birth: (MM-DD-YYYY)";
             // 
             // phoneNumLabel
             // 
             this.phoneNumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.phoneNumLabel.Location = new System.Drawing.Point(3, 127);
             this.phoneNumLabel.Name = "phoneNumLabel";
-            this.phoneNumLabel.Size = new System.Drawing.Size(41, 13);
+            this.phoneNumLabel.Size = new System.Drawing.Size(148, 13);
             this.phoneNumLabel.TabIndex = 6;
-            this.phoneNumLabel.Text = "Phone:";
+            this.phoneNumLabel.Text = "Phone (XXX-XXX-XXXX):";
             // 
             // addressLabel
             // 
@@ -171,7 +171,6 @@
             this.dobTextBox.Name = "dobTextBox";
             this.dobTextBox.Size = new System.Drawing.Size(148, 20);
             this.dobTextBox.TabIndex = 3;
-            this.dobTextBox.Text = "MM-DD-YYYY";
             // 
             // phoneTextBox
             // 
