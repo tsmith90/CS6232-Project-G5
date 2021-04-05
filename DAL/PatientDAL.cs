@@ -168,10 +168,10 @@ namespace ClinicSupport.DAL
                     selectCommand.Parameters.AddWithValue("@DOB", dob.ToString("yyyy-MM-dd"));
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-                        Patient _patient = new Patient();
-                        Individual _individual = new Individual();
                         while (reader.Read())
                         {
+                            Patient _patient = new Patient();
+                            Individual _individual = new Individual();
                             _patient.PatientID = (int)reader["pid"];
                             _individual.FirstName = (string)reader["fname"];
                             _individual.LastName = (string)reader["lname"];
