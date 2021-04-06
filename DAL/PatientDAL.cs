@@ -299,10 +299,9 @@ namespace ClinicSupport.DAL
                  "state = @NewState, " +
                  "zip = @NewZip, " +
                  "phone = @NewPhone " +
-                 "WHERE iid = @OldIndividualID " +
-                 "AND lname = @OldLastName " +
+                 "WHERE lname = @OldLastName " +
                  "AND fname = @OldFirstName " +
-                 "AND dob = @OldDOB " +
+                 "AND dob LIKE @OldDOB " +
                  "AND streetAddress = @OldAddress " +
                  "AND city = @OldCity " +
                  "AND state = @OldState " +
@@ -316,17 +315,19 @@ namespace ClinicSupport.DAL
                 {
                     updateCommand.Parameters.AddWithValue("@NewLastName", newPatient.LastName);
                     updateCommand.Parameters.AddWithValue("@NewFirstName", newPatient.FirstName);
-                    updateCommand.Parameters.AddWithValue("@NewDOB", newPatient.DateOfBirth.ToString("yyyy-MM-dd"));
+                    updateCommand.Parameters.AddWithValue("@NewDOB", newPatient.DateOfBirth);
                     updateCommand.Parameters.AddWithValue("@NewAddress", newPatient.StreetAddress);
                     updateCommand.Parameters.AddWithValue("@NewCity", newPatient.City);
                     updateCommand.Parameters.AddWithValue("@NewState", newPatient.State);
                     updateCommand.Parameters.AddWithValue("@NewZip", newPatient.ZipCode);
                     updateCommand.Parameters.AddWithValue("@NewPhone", newPatient.PhoneNumber);
 
-                    updateCommand.Parameters.AddWithValue("@OldIndividualID", oldPatient.IndividualID);
                     updateCommand.Parameters.AddWithValue("@OldLastName", oldPatient.LastName);
                     updateCommand.Parameters.AddWithValue("@OldFirstName", oldPatient.FirstName);
-                    updateCommand.Parameters.AddWithValue("@OldDOB", oldPatient.DateOfBirth.ToString("yyyy-MM-dd"));
+
+                    var escapedForlike = oldPatient.DateOfBirth.ToString("yyyy-MM-dd");
+                    string searchTerm = string.Format("{0}%", escapedForlike);
+                    updateCommand.Parameters.AddWithValue("@OldDOB", searchTerm);
                     updateCommand.Parameters.AddWithValue("@OldAddress", oldPatient.StreetAddress);
                     updateCommand.Parameters.AddWithValue("@OldCity", oldPatient.City);
                     updateCommand.Parameters.AddWithValue("@OldState", oldPatient.State);

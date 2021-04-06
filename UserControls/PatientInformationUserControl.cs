@@ -57,7 +57,7 @@ namespace ClinicSupport.UserControls
         {
             firstNameTextBox.Text = patient.FirstName;
             lastNameTextBox.Text = patient.LastName;
-            dobTextBox.Text = patient.DateOfBirth.ToString("yyyy-MM-dd");
+            dobTextBox.Text = patient.DateOfBirth.ToString("MM-dd-yyyy");
             phoneTextBox.Text = patient.PhoneNumber.ToString();
             addressTextBox.Text = patient.StreetAddress;
             cityTextBox.Text = patient.City;
