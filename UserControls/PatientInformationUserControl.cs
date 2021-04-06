@@ -262,6 +262,10 @@ namespace ClinicSupport.UserControls
             }
         }
 
+        /// <summary>
+        /// Assigns current values within the input fields to the individual object passsed in
+        /// </summary>
+        /// <param name="individual">Individual object passed in to assign values within the input fields at the time of the method call</param>
         public void PutIndividualData(Individual individual)
         {
             var fname = this.firstNameTextBox.Text;
@@ -283,6 +287,9 @@ namespace ClinicSupport.UserControls
             individual.ZipCode = zip;
         }
 
+        /// <summary>
+        /// Sets the instance variable individual to the current values of the input fields when called upon
+        /// </summary>
         public void SetIndividualData()
         {
             var fname = this.firstNameTextBox.Text;
