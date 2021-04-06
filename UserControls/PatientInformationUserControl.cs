@@ -16,7 +16,7 @@ namespace ClinicSupport.UserControls
         private readonly Dictionary<string, string> states;
         private IndividualController individualController;
         private PatientController patientController;
-        private int patientID;
+        private Individual individual;
 
         /// <summary>
         /// 0 parameter contructor
@@ -26,6 +26,7 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
             this.individualController = new IndividualController();
             this.patientController = new PatientController();
+            this.individual = new Individual();
             states = new Dictionary<string, string>();
             SetStateList();
         }
@@ -56,7 +57,7 @@ namespace ClinicSupport.UserControls
         {
             firstNameTextBox.Text = patient.FirstName;
             lastNameTextBox.Text = patient.LastName;
-            dobTextBox.Text = patient.DateOfBirth.ToString();
+            dobTextBox.Text = patient.DateOfBirth.ToString("MM-dd-yyyy");
             phoneTextBox.Text = patient.PhoneNumber.ToString();
             addressTextBox.Text = patient.StreetAddress;
             cityTextBox.Text = patient.City;
@@ -177,27 +178,11 @@ namespace ClinicSupport.UserControls
                 else
                 {
                     this.messageLabel.Text = "";
-                    var fname = this.firstNameTextBox.Text;
-                    var lname = this.lastNameTextBox.Text;
-                    var dob = Convert.ToDateTime(this.dobTextBox.Text);
-                    var phone = this.phoneTextBox.Text;
-                    var address = this.addressTextBox.Text;
-                    var city = this.cityTextBox.Text;
-                    var state = this.GetSelectedState(this.stateComboBox.SelectedValue.ToString());
-                    var zip = int.Parse(this.zipTextBox.Text);
-                    
                     Individual newIndividual = new Individual();
-                    newIndividual.FirstName = fname;
-                    newIndividual.LastName = lname;
-                    newIndividual.DateOfBirth = dob;
-                    newIndividual.PhoneNumber = phone;
-                    newIndividual.StreetAddress = address;
-                    newIndividual.City = city;
-                    newIndividual.State = state;
-                    newIndividual.ZipCode = zip;
+                    this.PutIndividualData(newIndividual);
 
                     var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
-                    patientID = this.patientController.InsertNewPatient(newIndividualID);
+                    int patientID = this.patientController.InsertNewPatient(newIndividualID);
                     this.ClearForm();
                     this.messageLabel.Text = "Patient has been added!";
                     this.messageLabel.ForeColor = Color.Black;
@@ -251,6 +236,79 @@ namespace ClinicSupport.UserControls
         {
             //NewAppointmentForm newAppointment = new NewAppointmentForm(patientID);
             //DialogResult result = newAppointment.ShowDialog();
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            Individual newIndividual = new Individual();
+            newIndividual.IndividualID = individual.IndividualID;
+            this.PutIndividualData(newIndividual);
+
+            try
+            {
+                if (!patientController.UpdatePatient(individual, newIndividual))
+                {
+                    MessageBox.Show("Cannot update patient", "Database Error");
+                }
+                else
+                {
+                    individual = newIndividual;
+                    MessageBox.Show("Patient was successfulle updated!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        /// <summary>
+        /// Assigns current values within the input fields to the individual object passsed in
+        /// </summary>
+        /// <param name="individual">Individual object passed in to assign values within the input fields at the time of the method call</param>
+        public void PutIndividualData(Individual individual)
+        {
+            var fname = this.firstNameTextBox.Text;
+            var lname = this.lastNameTextBox.Text;
+            var dob = Convert.ToDateTime(this.dobTextBox.Text);
+            var phone = this.phoneTextBox.Text;
+            var address = this.addressTextBox.Text;
+            var city = this.cityTextBox.Text;
+            var state = this.GetSelectedState(this.stateComboBox.SelectedValue.ToString());
+            var zip = int.Parse(this.zipTextBox.Text);
+
+            individual.FirstName = fname;
+            individual.LastName = lname;
+            individual.DateOfBirth = dob;
+            individual.PhoneNumber = phone;
+            individual.StreetAddress = address;
+            individual.City = city;
+            individual.State = state;
+            individual.ZipCode = zip;
+        }
+
+        /// <summary>
+        /// Sets the instance variable individual to the current values of the input fields when called upon
+        /// </summary>
+        public void SetIndividualData()
+        {
+            var fname = this.firstNameTextBox.Text;
+            var lname = this.lastNameTextBox.Text;
+            var dob = Convert.ToDateTime(this.dobTextBox.Text);
+            var phone = this.phoneTextBox.Text;
+            var address = this.addressTextBox.Text;
+            var city = this.cityTextBox.Text;
+            var state = this.GetSelectedState(this.stateComboBox.SelectedValue.ToString());
+            var zip = int.Parse(this.zipTextBox.Text);
+
+            this.individual.FirstName = fname;
+            this.individual.LastName = lname;
+            this.individual.DateOfBirth = dob;
+            this.individual.PhoneNumber = phone;
+            this.individual.StreetAddress = address;
+            this.individual.City = city;
+            this.individual.State = state;
+            this.individual.ZipCode = zip;
         }
     }
 }

@@ -280,5 +280,74 @@ namespace ClinicSupport.DAL
             }
             return _patients;
         }
+
+        /// <summary>
+        /// Update an individual patient for the given individual patient into the data source.
+        /// </summary>
+        /// <param name="oldPatient">given oldPatient to update an Individual</param>
+        /// <param name="newPatient">given newPatient to update an Individual</param>
+        /// <returns>True if individual is successfully updated</returns>
+        public bool UpdatePatient(Individual oldPatient, Individual newPatient)
+        {
+            string updateStatement =
+                 "UPDATE Individual " +
+                 "SET lname = @NewLastName, " +
+                 "fname = @NewFirstName, " +
+                 "dob = @NewDOB, " +
+                 "streetAddress = @NewAddress, " +
+                 "city = @NewCity, " +
+                 "state = @NewState, " +
+                 "zip = @NewZip, " +
+                 "phone = @NewPhone " +
+                 "WHERE lname = @OldLastName " +
+                 "AND fname = @OldFirstName " +
+                 "AND dob LIKE @OldDOB " +
+                 "AND streetAddress = @OldAddress " +
+                 "AND city = @OldCity " +
+                 "AND state = @OldState " +
+                 "AND zip = @OldZip " +
+                 "AND phone = @OldPhone";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@NewLastName", newPatient.LastName);
+                    updateCommand.Parameters.AddWithValue("@NewFirstName", newPatient.FirstName);
+                    updateCommand.Parameters.AddWithValue("@NewDOB", newPatient.DateOfBirth);
+                    updateCommand.Parameters.AddWithValue("@NewAddress", newPatient.StreetAddress);
+                    updateCommand.Parameters.AddWithValue("@NewCity", newPatient.City);
+                    updateCommand.Parameters.AddWithValue("@NewState", newPatient.State);
+                    updateCommand.Parameters.AddWithValue("@NewZip", newPatient.ZipCode);
+                    updateCommand.Parameters.AddWithValue("@NewPhone", newPatient.PhoneNumber);
+
+                    updateCommand.Parameters.AddWithValue("@OldLastName", oldPatient.LastName);
+                    updateCommand.Parameters.AddWithValue("@OldFirstName", oldPatient.FirstName);
+
+                    var escapedForlike = oldPatient.DateOfBirth.ToString("yyyy-MM-dd");
+                    string searchTerm = string.Format("{0}%", escapedForlike);
+                    updateCommand.Parameters.AddWithValue("@OldDOB", searchTerm);
+                    updateCommand.Parameters.AddWithValue("@OldAddress", oldPatient.StreetAddress);
+                    updateCommand.Parameters.AddWithValue("@OldCity", oldPatient.City);
+                    updateCommand.Parameters.AddWithValue("@OldState", oldPatient.State);
+                    updateCommand.Parameters.AddWithValue("@OldZip", oldPatient.ZipCode);
+                    updateCommand.Parameters.AddWithValue("@OldPhone", oldPatient.PhoneNumber);
+
+                    try
+                    {
+                        int count = updateCommand.ExecuteNonQuery();
+                        if (count > 0)
+                            return true;
+                        else
+                            return false;
+                    }
+                    catch(SqlException ex)
+                    {
+                        throw ex;
+                    }
+                }
+            }
+        }
     }
 }

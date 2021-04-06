@@ -7,6 +7,8 @@ namespace ClinicSupport.Model
     /// </summary>
     public class Individual
     {
+        public int IndividualID { get; set; }
+
         public string LastName { get; set; }
 
         public string FirstName { get; set; }
