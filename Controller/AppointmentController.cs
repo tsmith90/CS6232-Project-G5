@@ -10,7 +10,7 @@ namespace ClinicSupport.Controller
     /// </summary>
     class AppointmentController
     {
-        private AppointmentDAL appointmentDAL;
+        private readonly AppointmentDAL appointmentDAL;
 
         /// <summary>
         /// Create a IncidentController object.

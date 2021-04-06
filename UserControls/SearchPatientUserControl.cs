@@ -3,7 +3,6 @@ using ClinicSupport.Model;
 using ClinicSupport.View;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
@@ -13,7 +12,8 @@ namespace ClinicSupport.UserControls
     /// </summary>
     public partial class SearchPatientUserControl : UserControl
     {
-        private PatientController patientController;
+        private readonly PatientController patientController;
+
         /// <summary>
         /// 0-parameter constructor for the SearchPatientUserControl
         /// </summary>

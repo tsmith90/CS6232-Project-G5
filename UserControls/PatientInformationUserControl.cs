@@ -14,8 +14,8 @@ namespace ClinicSupport.UserControls
     public partial class PatientInformationUserControl : UserControl
     {
         private readonly Dictionary<string, string> states;
-        private IndividualController individualController;
-        private PatientController patientController;
+        private readonly IndividualController individualController;
+        private readonly PatientController patientController;
         private Individual individual;
 
         /// <summary>
