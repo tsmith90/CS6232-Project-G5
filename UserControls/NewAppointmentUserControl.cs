@@ -146,10 +146,6 @@ namespace ClinicSupport.UserControls
             this.ClearForm();
         }
 
-        private void VisitInfoButton_Click(object sender, EventArgs e)
-        {
-        }
-
         private void FillDoctorComboBox()
         {
             List<Doctor> doctorList = new List<Doctor>();
@@ -158,7 +154,6 @@ namespace ClinicSupport.UserControls
             notDoc.Name = "--Select One--";
             notDoc.DoctorID = 0;
             doctorList.Insert(0, notDoc);
-            //Setup data binding
             this.docComboBox.DataSource = doctorList;
             this.docComboBox.DisplayMember = "Name";
             this.docComboBox.ValueMember = "DoctorID";

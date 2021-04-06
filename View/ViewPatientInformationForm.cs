@@ -3,8 +3,14 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.View
 {
+    /// <summary>
+    /// Form to view patient information
+    /// </summary>
     public partial class ViewPatientInformationForm : Form
     {
+        /// <summary>
+        /// 0-parameter constructor for ViewPatientInformationForm
+        /// </summary>
         public ViewPatientInformationForm()
         {
             InitializeComponent();

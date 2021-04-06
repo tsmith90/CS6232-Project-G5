@@ -182,7 +182,6 @@ namespace ClinicSupport.UserControls
 
         private void PatientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Edit column 
             if (e.ColumnIndex == 8)
             {               
                 var lname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[0].Value);

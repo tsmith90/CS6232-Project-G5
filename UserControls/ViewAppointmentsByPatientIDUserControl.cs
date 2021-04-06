@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// Usercontrol to view appointments by Patient id
+    /// </summary>
     public partial class ViewAppointmentsByPatientIDUserControl : UserControl
     {
         private Patient patient;
@@ -17,12 +20,16 @@ namespace ClinicSupport.UserControls
         private readonly PatientController patientController;
         private NewAppointmentForm _patientAppointmentForm;
 
+        /// <summary>
+        /// 0-parameter constructor for ViewAppointmentsByPatientIDUserControl
+        /// </summary>
         public ViewAppointmentsByPatientIDUserControl()
         {
             InitializeComponent();
             this.appointmentController = new AppointmentController();
             this.patientController = new PatientController();
         }
+
         private void ViewAppointmentsByPatientIDUserControl_Load(object sender, System.EventArgs e)
         {
             this.dobDateTimePicker.Checked = false;
@@ -37,8 +44,6 @@ namespace ClinicSupport.UserControls
 
             try
             {
-                // Get the list of Appointment objects
-                // and bind the DataGridView control to the list
                 appointmentList = this.appointmentController.GetAppointmentsByPID(patientID);
                 appointmentDataGridView.DataSource = this.GetAppointmentTable();
             }
@@ -149,6 +154,10 @@ namespace ClinicSupport.UserControls
             this.lnameTextBox.Text = "";
         }
 
+        /// <summary>
+        /// Method to get current patient by their pid
+        /// </summary>
+        /// <returns>an int of the patient id</returns>
         public int GetCurrentPatientID()
         {
             if (this.patient != null)
