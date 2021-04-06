@@ -110,7 +110,7 @@ namespace ClinicSupport.View
             this.searchPatientsTabPage.Controls.Add(this.searchPatientUserControl1);
             this.searchPatientsTabPage.Location = new System.Drawing.Point(4, 29);
             this.searchPatientsTabPage.Name = "searchPatientsTabPage";
-            this.searchPatientsTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.searchPatientsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.searchPatientsTabPage.Size = new System.Drawing.Size(906, 537);
             this.searchPatientsTabPage.TabIndex = 0;
             this.searchPatientsTabPage.Text = "Search Patients";
@@ -129,7 +129,7 @@ namespace ClinicSupport.View
             this.addPatientTabPage.Controls.Add(this.addPatientUserControl1);
             this.addPatientTabPage.Location = new System.Drawing.Point(4, 29);
             this.addPatientTabPage.Name = "addPatientTabPage";
-            this.addPatientTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.addPatientTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.addPatientTabPage.Size = new System.Drawing.Size(906, 537);
             this.addPatientTabPage.TabIndex = 1;
             this.addPatientTabPage.Text = "Add Patient";
@@ -137,17 +137,17 @@ namespace ClinicSupport.View
             // 
             // addPatientUserControl1
             // 
-            this.addPatientUserControl1.Location = new System.Drawing.Point(64, 18);
+            this.addPatientUserControl1.Location = new System.Drawing.Point(189, 17);
             this.addPatientUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addPatientUserControl1.Name = "addPatientUserControl1";
-            this.addPatientUserControl1.Size = new System.Drawing.Size(799, 376);
+            this.addPatientUserControl1.Size = new System.Drawing.Size(582, 376);
             this.addPatientUserControl1.TabIndex = 0;
             // 
             // appointmentTabPage
             // 
             this.appointmentTabPage.Controls.Add(this.viewAppointmentsByPatientIDUserControl1);
             this.appointmentTabPage.Location = new System.Drawing.Point(4, 29);
-            this.appointmentTabPage.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.appointmentTabPage.Margin = new System.Windows.Forms.Padding(1);
             this.appointmentTabPage.Name = "appointmentTabPage";
             this.appointmentTabPage.Size = new System.Drawing.Size(906, 537);
             this.appointmentTabPage.TabIndex = 3;
@@ -157,7 +157,7 @@ namespace ClinicSupport.View
             // viewAppointmentsByPatientIDUserControl1
             // 
             this.viewAppointmentsByPatientIDUserControl1.Location = new System.Drawing.Point(5, 7);
-            this.viewAppointmentsByPatientIDUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewAppointmentsByPatientIDUserControl1.Margin = new System.Windows.Forms.Padding(2);
             this.viewAppointmentsByPatientIDUserControl1.Name = "viewAppointmentsByPatientIDUserControl1";
             this.viewAppointmentsByPatientIDUserControl1.Size = new System.Drawing.Size(778, 539);
             this.viewAppointmentsByPatientIDUserControl1.TabIndex = 0;
