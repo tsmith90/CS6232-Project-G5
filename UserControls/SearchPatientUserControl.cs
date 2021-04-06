@@ -1,5 +1,6 @@
 ﻿using ClinicSupport.Controller;
 using ClinicSupport.Model;
+using ClinicSupport.View;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -21,8 +22,6 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
             searchCriteriaTableLayout.Hide();
             this.patientController = new PatientController();
-           //patientInformationUserControl1.Hide();
-            //patientInformationUserControl1.HideNewButton();
         }
 
         private void SearchDOBRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -63,6 +62,11 @@ namespace ClinicSupport.UserControls
 
         private void SearchDOBButton_Click(object sender, EventArgs e)
         {
+            if (patientsDataGridView.Columns.Count > 0)
+            {
+                RemoveEditColumnToGV();
+                patientsDataGridView.DataSource = null;
+            }
             List<Individual> patients = new List<Individual>();
             try
             {
@@ -92,6 +96,11 @@ namespace ClinicSupport.UserControls
 
         private void SearchNameButton_Click(object sender, EventArgs e)
         {
+            if (patientsDataGridView.Columns.Count > 0)
+            {
+                RemoveEditColumnToGV();
+                patientsDataGridView.DataSource = null;
+            }
             List<Individual> patients = new List<Individual>();
             try
             {
@@ -118,7 +127,12 @@ namespace ClinicSupport.UserControls
 
         private void SearchDOBAndLastNameButton_Click(object sender, EventArgs e)
         {
-            List<Individual> patients = new List<Individual>();
+            if (patientsDataGridView.Columns.Count > 0)
+            {
+                RemoveEditColumnToGV();
+                patientsDataGridView.DataSource = null;
+            }
+            List <Individual> patients = new List<Individual>();
             try
             {
                 string lname = dobLastNameTextBox.Text.Split(' ')[0];
@@ -158,6 +172,11 @@ namespace ClinicSupport.UserControls
             patientsDataGridView.Columns.Add(Editlink);
         }
 
+        private void RemoveEditColumnToGV()
+        {
+            patientsDataGridView.Columns.RemoveAt(8);
+        }
+
         private void PatientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Edit column 
@@ -180,12 +199,11 @@ namespace ClinicSupport.UserControls
                 patient.City = city;
                 patient.State = state;
                 patient.ZipCode = zip;
-                MessageBox.Show(patient.StreetAddress);
-                /*
+                
                 ViewPatientInformationForm infoForm = new ViewPatientInformationForm();
                 infoForm.SetPatient(patient);
                 DialogResult result = infoForm.ShowDialog();
-                patientsDataGridView.Refresh();*/
+                patientsDataGridView.Refresh();
             }
         }
     }

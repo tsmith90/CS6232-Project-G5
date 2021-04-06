@@ -60,7 +60,7 @@ namespace ClinicSupport.UserControls
             phoneTextBox.Text = patient.PhoneNumber.ToString();
             addressTextBox.Text = patient.StreetAddress;
             cityTextBox.Text = patient.City;
-            stateComboBox.SelectedItem = patient.State;
+            stateComboBox.SelectedItem = GetSelectedState(patient.State);
             zipTextBox.Text = patient.ZipCode.ToString();
         }
 
@@ -230,9 +230,19 @@ namespace ClinicSupport.UserControls
         private string GetSelectedState(string stateName)
         {
             string myState = "";
-            if (this.states.ContainsKey(stateName))
+            if (stateName.Length == 2)
             {
-                myState = this.states[stateName];
+                if (this.states.ContainsValue(stateName))
+                {
+                    myState = this.states.FirstOrDefault(x => x.Value == stateName).Key;
+                }
+            }
+            else
+            {
+                if (this.states.ContainsKey(stateName))
+                {
+                    myState = this.states[stateName];
+                }
             }
             return myState;
         }
