@@ -1,6 +1,5 @@
 ﻿using ClinicSupport.Controller;
 using ClinicSupport.Model;
-using System;
 using System.Windows.Forms;
 
 namespace ClinicSupport.View
@@ -51,11 +50,5 @@ namespace ClinicSupport.View
         {
             Hide();
         }
-
-        private void NurseDashboardTabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
- 
 }

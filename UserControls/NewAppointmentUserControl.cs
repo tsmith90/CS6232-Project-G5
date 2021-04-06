@@ -36,6 +36,7 @@ namespace ClinicSupport.UserControls
             this.timePortionDateTimePicker.Format = DateTimePickerFormat.Custom;
             this.timePortionDateTimePicker.CustomFormat = "hh':'mm tt";
             this.timePortionDateTimePicker.ShowUpDown = true;
+            patient = new Patient();
         }
 
         /// <summary>
@@ -113,7 +114,6 @@ namespace ClinicSupport.UserControls
                         newAppointment.PatientID = this.patient.PatientID;
                         newAppointment.DoctorID = doctorID;
                         newAppointment.Time = apptDateTime;
-                        //bool apptAdded = this.appointmentController.InsertNewAppointment(newAppointment);
                         bool apptAdded = false;
                         if (apptAdded)
                         {
@@ -148,7 +148,6 @@ namespace ClinicSupport.UserControls
 
         private void VisitInfoButton_Click(object sender, EventArgs e)
         {
-
         }
 
         private void FillDoctorComboBox()
