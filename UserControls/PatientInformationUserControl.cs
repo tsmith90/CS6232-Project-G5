@@ -232,12 +232,6 @@ namespace ClinicSupport.UserControls
             return myState;
         }
 
-        private void NewAppointmentButton_Click(object sender, EventArgs e)
-        {
-            //NewAppointmentForm newAppointment = new NewAppointmentForm(patientID);
-            //DialogResult result = newAppointment.ShowDialog();
-        }
-
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             Individual newIndividual = new Individual();
