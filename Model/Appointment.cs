@@ -5,7 +5,7 @@ namespace ClinicSupport.Model
     /// <summary>
     /// Class to create and populate an Appointment object from the DB
     /// </summary>
-    class Appointment
+    public class Appointment
     {
         public int PatientID { get; set; }
 

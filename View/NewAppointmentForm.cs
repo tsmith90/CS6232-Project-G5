@@ -1,20 +1,24 @@
-﻿using System.Windows.Forms;
+﻿
+using ClinicSupport.Model;
+using System.Windows.Forms;
 
 namespace ClinicSupport.View
 {
-    /// <summary>
-    /// Form to create new Appointments in the Nurse Dashboard
-    /// </summary>
     public partial class NewAppointmentForm : Form
     {
-        public int _currentPatientID { get; set; }
 
-        /// <summary>
-        /// 0-parameter constructor for the NewAppointmentForm
-        /// </summary>
         public NewAppointmentForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Sets the patient information to the various input fields of the form
+        /// </summary>
+        /// <param name="patient">Patient whose information is to be displayed on the user control input fields</param>
+        public void SetAppointment(Appointment appt)
+        {
+            newAppointmentUserControl1.SetAppointment(appt);
         }
     }
 }

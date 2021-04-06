@@ -17,7 +17,8 @@ namespace ClinicSupport.UserControls
         private readonly PatientController patientController;
         private readonly IndividualController individualController;
         private readonly Patient patient;
-        private readonly Individual individual;
+
+        public int CurrentPatientID { get; set; }
 
         /// <summary>
         /// 0-parameter constructor for NewAppointmentUserControl
@@ -28,29 +29,48 @@ namespace ClinicSupport.UserControls
             this.appointmentController = new AppointmentController();
             this.doctorController = new DoctorController();
             this.patientController = new PatientController();
+            this.individualController = new IndividualController();
             this.FillDoctorComboBox();
             this.datePortionDateTimePicker.Format = DateTimePickerFormat.Custom;
             this.datePortionDateTimePicker.CustomFormat = "MM/dd/yyyy";
             this.timePortionDateTimePicker.Format = DateTimePickerFormat.Custom;
             this.timePortionDateTimePicker.CustomFormat = "hh':'mm tt";
             this.timePortionDateTimePicker.ShowUpDown = true;
+        }
 
-            //TODO: Placeholder to get patentID
-            int pid = 0;
-            if(pid > 0)
+        /// <summary>
+        /// Sets the patient information to the various input fields of the form
+        /// </summary>
+        /// <param name="patient">Patient whose information is to be displayed on the user control input fields</param>
+        public void SetAppointment(Appointment _appt)
+        {
+            if (_appt.PatientID > 0)
             {
-                this.patient = this.patientController.GetPatientByID(pid);
-                if(this.patient.IndividualID > 0)
+                Patient _patient = this.patientController.GetPatientByID(_appt.PatientID);
+                if (_patient.IndividualID > 0)
                 {
-                    this.individual = this.individualController.GetIndividualByID(this.patient.IndividualID);
-                    if(this.individual != null)
+                    Individual _individual = this.individualController.GetIndividualByID(_patient.IndividualID);
+                    if (_individual != null)
                     {
-                        this.lnameTextBox.Text = this.individual.LastName;
-                        this.fnameTextBox.Text = this.individual.FirstName;
+                        this.lnameTextBox.Text = _individual.LastName;
+                        this.fnameTextBox.Text = _individual.FirstName;
                     }
                 }
-            }
 
+                this.reasonTextBox.Text = _appt.Reason;
+                this.docComboBox.SelectedValue = _appt.DoctorID;
+                if (_appt.Time != DateTime.MinValue)
+                {
+                    this.datePortionDateTimePicker.Value = _appt.Time;
+                    this.titleLabel.Text = "Update Appointment";
+                    this.addAppointmentButton.Text = "Update";
+                }
+                else
+                {
+                    this.titleLabel.Text = "New Appointment";
+                    this.addAppointmentButton.Text = "Add";
+                }
+            }
         }
 
         private void AddAppointmentButton_Click(object sender, EventArgs e)

@@ -39,7 +39,7 @@ namespace ClinicSupport.DAL
                             _individual.StreetAddress = (string)reader["streetAddress"];
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
-                            _individual.ZipCode = (int)reader["zip"];
+                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
                             _individual.PhoneNumber = (string)reader["phone"];
                             _individual.DateOfBirth = Convert.ToDateTime(reader["dob"]);
                         }

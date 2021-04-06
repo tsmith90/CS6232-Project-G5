@@ -39,7 +39,7 @@ namespace ClinicSupport.UserControls
             this.label5 = new System.Windows.Forms.Label();
             this.addAppointmentButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.messageLabel = new System.Windows.Forms.Label();
             this.visitInfoButton = new System.Windows.Forms.Button();
             this.datePortionDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -130,11 +130,11 @@ namespace ClinicSupport.UserControls
             // 
             this.addAppointmentButton.AutoSize = true;
             this.addAppointmentButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.addAppointmentButton.Location = new System.Drawing.Point(262, 779);
+            this.addAppointmentButton.Location = new System.Drawing.Point(270, 779);
             this.addAppointmentButton.Name = "addAppointmentButton";
             this.addAppointmentButton.Size = new System.Drawing.Size(245, 68);
             this.addAppointmentButton.TabIndex = 10;
-            this.addAppointmentButton.Text = "Add Appointment";
+            this.addAppointmentButton.Text = "Add";
             this.addAppointmentButton.UseVisualStyleBackColor = true;
             this.addAppointmentButton.Click += new System.EventHandler(this.AddAppointmentButton_Click);
             // 
@@ -150,16 +150,16 @@ namespace ClinicSupport.UserControls
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // label6
+            // titleLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(371, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(406, 54);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "New Appointment";
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.titleLabel.Location = new System.Drawing.Point(371, 32);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(406, 54);
+            this.titleLabel.TabIndex = 12;
+            this.titleLabel.Text = "New Appointment";
             // 
             // messageLabel
             // 
@@ -174,7 +174,7 @@ namespace ClinicSupport.UserControls
             // 
             this.visitInfoButton.AutoSize = true;
             this.visitInfoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.visitInfoButton.Location = new System.Drawing.Point(554, 779);
+            this.visitInfoButton.Location = new System.Drawing.Point(558, 779);
             this.visitInfoButton.Name = "visitInfoButton";
             this.visitInfoButton.Size = new System.Drawing.Size(245, 68);
             this.visitInfoButton.TabIndex = 14;
@@ -229,7 +229,7 @@ namespace ClinicSupport.UserControls
             this.Controls.Add(this.datePortionDateTimePicker);
             this.Controls.Add(this.visitInfoButton);
             this.Controls.Add(this.messageLabel);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addAppointmentButton);
             this.Controls.Add(this.label5);
@@ -259,7 +259,7 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button addAppointmentButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Button visitInfoButton;
         private System.Windows.Forms.DateTimePicker datePortionDateTimePicker;
