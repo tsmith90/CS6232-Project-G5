@@ -84,7 +84,7 @@ namespace ClinicSupport.UserControls
             }
             catch (IndexOutOfRangeException ioore)
             {
-                MessageBox.Show("Please make sure all values are entered", "Not all values entered");
+                MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
             }
             catch (FormatException fe)
             {
@@ -119,7 +119,7 @@ namespace ClinicSupport.UserControls
             }
             catch (IndexOutOfRangeException ioore)
             {
-                MessageBox.Show("Please make sure all values are entered", "Not all values entered");
+                MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
             }
             patientsDataGridView.DataSource = patients;
             AddEditColumnToGV();
@@ -151,7 +151,7 @@ namespace ClinicSupport.UserControls
             }
             catch (IndexOutOfRangeException ioore)
             {
-                MessageBox.Show("Please make sure all values are entered", "Not all values entered");
+                MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
             }
             catch (FormatException fe)
             {

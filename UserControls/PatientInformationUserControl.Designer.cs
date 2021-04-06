@@ -52,13 +52,9 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.patientAppointmentsButton = new System.Windows.Forms.Button();
-            this.newAppointmentButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // patientInfoLabel
@@ -66,7 +62,7 @@
             this.patientInfoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.patientInfoLabel.AutoSize = true;
             this.patientInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientInfoLabel.Location = new System.Drawing.Point(217, 4);
+            this.patientInfoLabel.Location = new System.Drawing.Point(151, 4);
             this.patientInfoLabel.Name = "patientInfoLabel";
             this.patientInfoLabel.Size = new System.Drawing.Size(144, 20);
             this.patientInfoLabel.TabIndex = 0;
@@ -248,7 +244,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(578, 28);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 28);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // tableLayoutPanel2
@@ -310,58 +306,21 @@
             this.messageLabel.Size = new System.Drawing.Size(0, 13);
             this.messageLabel.TabIndex = 15;
             // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.patientAppointmentsButton, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.newAppointmentButton, 0, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(450, 28);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.49062F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.50938F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(128, 345);
-            this.tableLayoutPanel4.TabIndex = 16;
-            // 
-            // patientAppointmentsButton
-            // 
-            this.patientAppointmentsButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.patientAppointmentsButton.Location = new System.Drawing.Point(3, 75);
-            this.patientAppointmentsButton.Name = "patientAppointmentsButton";
-            this.patientAppointmentsButton.Size = new System.Drawing.Size(122, 23);
-            this.patientAppointmentsButton.TabIndex = 0;
-            this.patientAppointmentsButton.Text = "Patient Appointments";
-            this.patientAppointmentsButton.UseVisualStyleBackColor = true;
-            // 
-            // newAppointmentButton
-            // 
-            this.newAppointmentButton.Location = new System.Drawing.Point(3, 104);
-            this.newAppointmentButton.Name = "newAppointmentButton";
-            this.newAppointmentButton.Size = new System.Drawing.Size(122, 23);
-            this.newAppointmentButton.TabIndex = 1;
-            this.newAppointmentButton.Text = "New Appointment";
-            this.newAppointmentButton.UseVisualStyleBackColor = true;
-            this.newAppointmentButton.Click += new System.EventHandler(this.NewAppointmentButton_Click);
-            // 
             // PatientInformationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PatientInformationUserControl";
-            this.Size = new System.Drawing.Size(578, 373);
+            this.Size = new System.Drawing.Size(446, 373);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,8 +352,5 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label messageLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button patientAppointmentsButton;
-        private System.Windows.Forms.Button newAppointmentButton;
     }
 }
