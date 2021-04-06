@@ -64,7 +64,7 @@ namespace ClinicSupport.UserControls
         {
             if (patientsDataGridView.Columns.Count > 0)
             {
-                RemoveEditColumnToGV();
+                RemoveColumnFromGridView(8);
                 patientsDataGridView.DataSource = null;
             }
             List<Individual> patients = new List<Individual>();
@@ -91,6 +91,7 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(fe.Message);
             }
             patientsDataGridView.DataSource = patients;
+            RemoveColumnFromGridView(0);
             AddEditColumnToGV();
         }
 
@@ -98,7 +99,7 @@ namespace ClinicSupport.UserControls
         {
             if (patientsDataGridView.Columns.Count > 0)
             {
-                RemoveEditColumnToGV();
+                RemoveColumnFromGridView(8);
                 patientsDataGridView.DataSource = null;
             }
             List<Individual> patients = new List<Individual>();
@@ -122,6 +123,7 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
             }
             patientsDataGridView.DataSource = patients;
+            RemoveColumnFromGridView(0);
             AddEditColumnToGV();
         }
 
@@ -129,7 +131,7 @@ namespace ClinicSupport.UserControls
         {
             if (patientsDataGridView.Columns.Count > 0)
             {
-                RemoveEditColumnToGV();
+                RemoveColumnFromGridView(8);
                 patientsDataGridView.DataSource = null;
             }
             List <Individual> patients = new List<Individual>();
@@ -158,6 +160,7 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(fe.Message);
             }
             patientsDataGridView.DataSource = patients;
+            RemoveColumnFromGridView(0);
             AddEditColumnToGV();
         }
 
@@ -172,9 +175,9 @@ namespace ClinicSupport.UserControls
             patientsDataGridView.Columns.Add(Editlink);
         }
 
-        private void RemoveEditColumnToGV()
+        private void RemoveColumnFromGridView(int columnIndex)
         {
-            patientsDataGridView.Columns.RemoveAt(8);
+            patientsDataGridView.Columns.RemoveAt(columnIndex);
         }
 
         private void PatientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -202,6 +205,8 @@ namespace ClinicSupport.UserControls
                 
                 ViewPatientInformationForm infoForm = new ViewPatientInformationForm();
                 infoForm.SetPatient(patient);
+                infoForm.PutIndividualData(patient);
+                infoForm.SetIndividualData();
                 DialogResult result = infoForm.ShowDialog();
                 patientsDataGridView.Refresh();
             }

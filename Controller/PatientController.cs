@@ -101,5 +101,20 @@ namespace ClinicSupport.Controller
             }
             return patientDAL.GetPatientsByLastNameAndDOB(lname, dob);
         }
+
+        /// <summary>
+        /// Update an individual patient for the given individual patient into the data source.
+        /// </summary>
+        /// <param name="oldPatient">given oldPatient to update an Individual</param>
+        /// <param name="newPatient">given newPatient to update an Individual</param>
+        /// <returns>True if individual is successfully updated</returns>
+        public bool UpdatePatient(Individual oldPatient, Individual newPatient)
+        {
+            if (oldPatient == null || newPatient == null)
+            {
+                throw new ArgumentNullException("Please make sure all information is entered");
+            }
+            return patientDAL.UpdatePatient(oldPatient, newPatient);
+        }
     }
 }
