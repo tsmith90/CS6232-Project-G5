@@ -1,7 +1,7 @@
 ﻿
 namespace ClinicSupport.UserControls
 {
-    partial class EmployeePrivilegesUserControl
+    partial class NursePrivilegesUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -46,7 +46,7 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 248F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
             this.tableLayoutPanel1.Controls.Add(this.usernameLabel, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.usernameTextBox, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.findUserButton, 3, 1);
@@ -80,6 +80,7 @@ namespace ClinicSupport.UserControls
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(242, 26);
             this.usernameTextBox.TabIndex = 1;
+            this.usernameTextBox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // findUserButton
             // 
@@ -108,6 +109,7 @@ namespace ClinicSupport.UserControls
             this.privilegesComboBox.Name = "privilegesComboBox";
             this.privilegesComboBox.Size = new System.Drawing.Size(242, 28);
             this.privilegesComboBox.TabIndex = 4;
+            this.privilegesComboBox.SelectedIndexChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // updateButton
             // 
@@ -117,6 +119,7 @@ namespace ClinicSupport.UserControls
             this.updateButton.TabIndex = 5;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // privilegesLabel
             // 
@@ -127,14 +130,14 @@ namespace ClinicSupport.UserControls
             this.privilegesLabel.Text = "Privileges:";
             this.privilegesLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // EmployeePrivilegesUserControl
+            // NursePrivilegesUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "EmployeePrivilegesUserControl";
+            this.Name = "NursePrivilegesUserControl";
             this.Size = new System.Drawing.Size(570, 333);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

@@ -17,7 +17,7 @@ namespace ClinicSupport.DAL
         {
             Nurse nurse = new Nurse();
 
-            string selectStatement = "SELECT n.nid, n.username, n.iid FROM Nurse n join Login l on l.username = n.username WHERE n.username = @username;";
+            string selectStatement = "SELECT n.nid, n.username, n.iid, l.privilege FROM Nurse n join Login l on l.username = n.username WHERE n.username = @username;";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -34,13 +34,45 @@ namespace ClinicSupport.DAL
                         {
                             nurse.NurseID = (int)reader["nid"];
                             nurse.Username = reader["username"].ToString();
-                            nurse.IndividualID= (int)reader["iid"];
+                            nurse.IndividualID = (int)reader["iid"];
+                            nurse.Privilege = reader["privilege"].ToString();
                         }
                     }
                 }
             }
 
             return nurse;
+        }
+
+        /// <summary>
+        /// Method to update the Nurse information in the DB
+        /// </summary>
+        /// <param name = "nurse">the Nurse object to be passed from the controller</param> 
+        /// <returns>true if Nurse is updated successfully in the DB</returns>
+        public bool UpdateNurse(Nurse nurse)
+        {
+            string updateStatement = "UPDATE Login " +
+                "SET privilege = @privilege " + 
+                "WHERE username = @username;";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(updateStatement, connection))
+                {
+                    cmd.Parameters.Add("@privilege", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@privilege"].Value = nurse.Privilege;
+
+                    cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@username"].Value = nurse.Username;
+
+                    int count = cmd.ExecuteNonQuery();
+                    if (count > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
         }
     }
 }

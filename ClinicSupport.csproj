@@ -81,11 +81,11 @@
     <Compile Include="UserControls\AddPatientUserControl.Designer.cs">
       <DependentUpon>AddPatientUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\EmployeePrivilegesUserControl.cs">
+    <Compile Include="UserControls\NursePrivilegesUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\EmployeePrivilegesUserControl.Designer.cs">
-      <DependentUpon>EmployeePrivilegesUserControl.cs</DependentUpon>
+    <Compile Include="UserControls\NursePrivilegesUserControl.Designer.cs">
+      <DependentUpon>NursePrivilegesUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\NewAppointmentUserControl.cs">
       <SubType>UserControl</SubType>
@@ -173,8 +173,8 @@
     <EmbeddedResource Include="UserControls\AddPatientUserControl.resx">
       <DependentUpon>AddPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\EmployeePrivilegesUserControl.resx">
-      <DependentUpon>EmployeePrivilegesUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\NursePrivilegesUserControl.resx">
+      <DependentUpon>NursePrivilegesUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NewAppointmentUserControl.resx">
       <DependentUpon>NewAppointmentUserControl.cs</DependentUpon>

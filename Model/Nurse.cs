@@ -10,5 +10,7 @@
         public string Username { get; set; }
 
         public int IndividualID { get; set; }
+
+        public string Privilege { get; set; }
     }
 }
