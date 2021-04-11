@@ -18,7 +18,7 @@ namespace ClinicSupport.View
         /// <summary>
         /// Method to set the userLabel upon login
         /// </summary>
-        /// <param user = "user">the name of the user</param> 
+        /// <param name = "user">the name of the user</param> 
         public void SetUsername(string user)
         {
             nameLabel.Text = user;
@@ -27,6 +27,11 @@ namespace ClinicSupport.View
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
+        }
+
+        private void Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

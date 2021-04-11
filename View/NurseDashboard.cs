@@ -9,7 +9,7 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class NurseDashboard : Form
     {
-        private NurseController nurseController;
+        private readonly NurseController nurseController;
         private Nurse nurse;
 
         /// <summary>
@@ -49,6 +49,14 @@ namespace ClinicSupport.View
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
+        }
+
+        private void NurseDashboardTabControl_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (nurseDashboardTabControl.SelectedTab == nurseDashboardTabControl.TabPages["visitInformationTabPage"])
+            {
+                
+            }
         }
     }
 }

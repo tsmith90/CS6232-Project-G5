@@ -23,8 +23,8 @@ namespace ClinicSupport.Controller
         /// <summary>
         /// Method to get the login information from the LoginDBDAL
         /// </summary>
-        /// <param user = "user">the user's given username</param> 
-        /// <param password = "password">the users password</param> 
+        /// <param name = "user">the user's given username</param> 
+        /// <param name = "password">the users password</param> 
         /// <returns>A new User with a username and privileges</returns>
         public User GetLoginInformation(string user, string password)
         {
@@ -43,12 +43,11 @@ namespace ClinicSupport.Controller
         /// <summary>
         /// Method to create a hashed password
         /// </summary>
-        /// <param user = "user">the user's given username</param> 
-        /// <param password = "password">the users plain-text password</param> 
+        /// <param name = "user">the user's given username</param> 
+        /// <param name = "password">the users plain-text password</param> 
         /// <returns>A string with a hash to be stored as a password</returns>
         private string HashPassword(string user, string password)
         {
-            
             byte[] salt = new byte[31/8];
 
             string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
