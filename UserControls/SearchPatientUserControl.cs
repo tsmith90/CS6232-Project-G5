@@ -62,9 +62,9 @@ namespace ClinicSupport.UserControls
 
         private void SearchDOBButton_Click(object sender, EventArgs e)
         {
-            if (patientsDataGridView.Columns.Count > 0)
+            if (patientsDataGridView.Columns.Count > 1)
             {
-                RemoveColumnFromGridView(8);
+                patientsDataGridView.Columns.Clear();
                 patientsDataGridView.DataSource = null;
             }
             List<Individual> patients = new List<Individual>();
@@ -91,15 +91,14 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(fe.Message);
             }
             patientsDataGridView.DataSource = patients;
-            RemoveColumnFromGridView(0);
             AddEditColumnToGV();
         }
 
         private void SearchNameButton_Click(object sender, EventArgs e)
         {
-            if (patientsDataGridView.Columns.Count > 0)
+            if (patientsDataGridView.Columns.Count > 1)
             {
-                RemoveColumnFromGridView(8);
+                patientsDataGridView.Columns.Clear();
                 patientsDataGridView.DataSource = null;
             }
             List<Individual> patients = new List<Individual>();
@@ -123,15 +122,14 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
             }
             patientsDataGridView.DataSource = patients;
-            RemoveColumnFromGridView(0);
             AddEditColumnToGV();
         }
 
         private void SearchDOBAndLastNameButton_Click(object sender, EventArgs e)
         {
-            if (patientsDataGridView.Columns.Count > 0)
+            if (patientsDataGridView.Columns.Count > 1)
             {
-                RemoveColumnFromGridView(8);
+                patientsDataGridView.Columns.Clear();
                 patientsDataGridView.DataSource = null;
             }
             List <Individual> patients = new List<Individual>();
@@ -160,7 +158,6 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(fe.Message);
             }
             patientsDataGridView.DataSource = patients;
-            RemoveColumnFromGridView(0);
             AddEditColumnToGV();
         }
 
@@ -208,6 +205,18 @@ namespace ClinicSupport.UserControls
                 infoForm.SetIndividualData();
                 DialogResult result = infoForm.ShowDialog();
                 patientsDataGridView.Refresh();
+            }
+        }
+
+        private void ClearSearchesButton_Click(object sender, EventArgs e)
+        {
+            dobTextField.Text = "";
+            firstLastNameTextBox.Text = "";
+            dobLastNameTextBox.Text = "";
+            if (patientsDataGridView.Columns.Count > 1)
+            {
+                patientsDataGridView.DataSource = null;
+                patientsDataGridView.Columns.Clear();
             }
         }
     }
