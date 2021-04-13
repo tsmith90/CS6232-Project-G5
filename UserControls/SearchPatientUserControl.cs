@@ -91,6 +91,9 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(fe.Message);
             }
             patientsDataGridView.DataSource = patients;
+            patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
+            patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
+
             AddEditColumnToGV();
         }
 
@@ -122,6 +125,8 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
             }
             patientsDataGridView.DataSource = patients;
+            patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
+            patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
             AddEditColumnToGV();
         }
 
@@ -158,6 +163,8 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(fe.Message);
             }
             patientsDataGridView.DataSource = patients;
+            patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
+            patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
             AddEditColumnToGV();
         }
 
@@ -172,24 +179,21 @@ namespace ClinicSupport.UserControls
             patientsDataGridView.Columns.Add(Editlink);
         }
 
-        private void RemoveColumnFromGridView(int columnIndex)
-        {
-            patientsDataGridView.Columns.RemoveAt(columnIndex);
-        }
-
         private void PatientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 8)
-            {               
-                var lname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[0].Value);
-                var fname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[1].Value);
-                var dob = Convert.ToDateTime(patientsDataGridView.Rows[e.RowIndex].Cells[2].Value);
-                var address = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[3].Value);
-                var city = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[4].Value);
-                var state = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[5].Value);
-                var zip = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[6].Value);
-                var phone = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[7].Value);
+            if (e.ColumnIndex == 9)
+            {           
+                var id = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                var fname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                var lname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                var dob = Convert.ToDateTime(patientsDataGridView.Rows[e.RowIndex].Cells[3].Value);
+                var address = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[4].Value);
+                var city = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[5].Value);
+                var state = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[6].Value);
+                var zip = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[7].Value);
+                var phone = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[8].Value);
                 Individual patient = new Individual();
+                patient.IndividualID = id;
                 patient.FirstName = fname;
                 patient.LastName = lname;
                 patient.DateOfBirth = dob;
