@@ -133,8 +133,8 @@ namespace ClinicSupport.UserControls
         {
             try
             {
-                if (this.firstNameTextBox.Text == String.Empty || this.lastNameTextBox.Text == String.Empty || this.dobTextBox.Text == String.Empty || this.phoneTextBox.Text == String.Empty || 
-                    this.addressTextBox.Text == String.Empty || this.cityTextBox.Text == String.Empty || this.stateComboBox.SelectedIndex == 0 || this.zipTextBox.Text == String.Empty)
+                if (this.firstNameTextBox.Text == String.Empty || this.lastNameTextBox.Text == String.Empty || this.dobTextBox.Text == String.Empty || this.phoneTextBox.Text == String.Empty || this.phoneTextBox.Text.Length < 10 ||
+                    this.addressTextBox.Text == String.Empty || this.cityTextBox.Text == String.Empty || this.stateComboBox.SelectedIndex == -1 || this.zipTextBox.Text == String.Empty || this.zipTextBox.Text != String.Empty && !Int32.TryParse(this.zipTextBox.Text, out int number))
                 {
                     string message = "Please enter the required values:";
                     if (this.firstNameTextBox.Text == String.Empty)
@@ -165,13 +165,17 @@ namespace ClinicSupport.UserControls
                     {
                         message += "\n-City is missing";
                     }
-                    if (stateComboBox.SelectedIndex == 0)
+                    if (stateComboBox.SelectedIndex == -1)
                     {
                         message += "\n-State is not selected";
                     }
                     if (this.zipTextBox.Text == String.Empty)
                     {
                         message += "\n-Zip is missing";
+                    }
+                    if (this.zipTextBox.Text != String.Empty && !Int32.TryParse(this.zipTextBox.Text, out int num))
+                    {
+                        message += "\n-Zip must be a number";
                     }
                     MessageBox.Show(message, "Missing Information");
                 }
