@@ -212,8 +212,27 @@ namespace ClinicSupport.UserControls
                 {
                     patientsDataGridView.Columns.Clear();
                     patientsDataGridView.DataSource = null;
-                    // Find a way to refresh the patients list so that way the datasource can be up to date
+                    // Repulls data after the close button is selected on the update patient information dialog
+                    if (dobTextField.Visible == true)
+                    {
+                        DateTime dateOfBirth = Convert.ToDateTime(dobTextField.Text);
+                        this.patients = this.patientController.GetPatientsByDOB(dateOfBirth);
+                    }
+                    if (firstLastNameTextBox.Visible == true)
+                    {
+                        string firstName = firstLastNameTextBox.Text.Split(' ')[0];
+                        string lastName = firstLastNameTextBox.Text.Split(' ')[1];
+                        this.patients = this.patientController.GetPatientsByFirstAndLastName(firstName, lastName);
+                    }
+                    if (dobLastNameTextBox.Visible == true)
+                    {
+                        string lastName = dobLastNameTextBox.Text.Split(' ')[0];
+                        string dobString = dobLastNameTextBox.Text.Split(' ')[1];
+                        DateTime dateOfBirth = Convert.ToDateTime(dobString);
+                        this.patients = this.patientController.GetPatientsByLastNameAndDOB(lastName, dateOfBirth);
+                    }
                     patientsDataGridView.DataSource = this.patients;
+                    AddEditColumnToGV();
                 }
             }
         }
