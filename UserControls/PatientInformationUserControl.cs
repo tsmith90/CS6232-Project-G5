@@ -187,7 +187,6 @@ namespace ClinicSupport.UserControls
 
                     var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
                     int patientID = this.patientController.InsertNewPatient(newIndividualID);
-                    this.ClearForm();
                     this.messageLabel.Text = "Patient has been added!";
                     this.messageLabel.ForeColor = Color.Black;
                 }
@@ -207,8 +206,9 @@ namespace ClinicSupport.UserControls
             phoneTextBox.Text = "";
             addressTextBox.Text = "";
             cityTextBox.Text = "";
-            stateComboBox.SelectedIndex = 0;
+            stateComboBox.SelectedIndex = -1;
             zipTextBox.Text = "";
+            this.messageLabel.Text = "";
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
