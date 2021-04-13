@@ -37,6 +37,7 @@ namespace ClinicSupport.UserControls
         public void HideUpdateButton()
         {
             updateButton.Visible = false;
+            closeButton.Visible = false;
             patientInfoLabel.Text = "New Patient";
         }
 
@@ -251,7 +252,7 @@ namespace ClinicSupport.UserControls
                 else
                 {
                     individual = newIndividual;
-                    MessageBox.Show("Patient was successfulle updated!");
+                    this.messageLabel.Text = "Patient was successfulle updated!";
                 }
             }
             catch (Exception ex)
@@ -307,6 +308,15 @@ namespace ClinicSupport.UserControls
             this.individual.City = city;
             this.individual.State = state;
             this.individual.ZipCode = zip;
+        }
+        public Boolean ReturnDialogResultOK()
+        {
+            return true;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.DialogResult = DialogResult.OK;
         }
     }
 }

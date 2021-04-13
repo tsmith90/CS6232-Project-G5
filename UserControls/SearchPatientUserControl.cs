@@ -14,6 +14,8 @@ namespace ClinicSupport.UserControls
     {
         private readonly PatientController patientController;
 
+        private List<Individual> patients;
+
         /// <summary>
         /// 0-parameter constructor for the SearchPatientUserControl
         /// </summary>
@@ -22,6 +24,7 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
             searchCriteriaTableLayout.Hide();
             this.patientController = new PatientController();
+            this.patients = new List<Individual>();
         }
 
         private void SearchDOBRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -67,13 +70,12 @@ namespace ClinicSupport.UserControls
                 patientsDataGridView.Columns.Clear();
                 patientsDataGridView.DataSource = null;
             }
-            List<Individual> patients = new List<Individual>();
             try
             {
                 DateTime dob = Convert.ToDateTime(dobTextField.Text);
-                patients = this.patientController.GetPatientsByDOB(dob);
+                this.patients = this.patientController.GetPatientsByDOB(dob);
 
-                if (patients.Count == 0)
+                if (this.patients.Count == 0)
                 {
                     MessageBox.Show("No patient found with the date of birth entered", "No Patient Found");
                 }
@@ -90,7 +92,7 @@ namespace ClinicSupport.UserControls
             {
                 MessageBox.Show(fe.Message);
             }
-            patientsDataGridView.DataSource = patients;
+            patientsDataGridView.DataSource = this.patients;
             patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
             patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
 
@@ -104,14 +106,13 @@ namespace ClinicSupport.UserControls
                 patientsDataGridView.Columns.Clear();
                 patientsDataGridView.DataSource = null;
             }
-            List<Individual> patients = new List<Individual>();
             try
             {
                 string fname = firstLastNameTextBox.Text.Split(' ')[0];
                 string lname = firstLastNameTextBox.Text.Split(' ')[1];
-                patients = this.patientController.GetPatientsByFirstAndLastName(fname, lname);
+                this.patients = this.patientController.GetPatientsByFirstAndLastName(fname, lname);
 
-                if (patients.Count == 0)
+                if (this.patients.Count == 0)
                 {
                     MessageBox.Show("No patient found with the first and last name entered", "No Patient Found");
                 }
@@ -124,7 +125,7 @@ namespace ClinicSupport.UserControls
             {
                 MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
             }
-            patientsDataGridView.DataSource = patients;
+            patientsDataGridView.DataSource = this.patients;
             patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
             patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
             AddEditColumnToGV();
@@ -137,15 +138,14 @@ namespace ClinicSupport.UserControls
                 patientsDataGridView.Columns.Clear();
                 patientsDataGridView.DataSource = null;
             }
-            List <Individual> patients = new List<Individual>();
             try
             {
                 string lname = dobLastNameTextBox.Text.Split(' ')[0];
                 string dobString = dobLastNameTextBox.Text.Split(' ')[1];
                 DateTime dob = Convert.ToDateTime(dobString);
-                patients = this.patientController.GetPatientsByLastNameAndDOB(lname, dob);
+                this.patients = this.patientController.GetPatientsByLastNameAndDOB(lname, dob);
                 
-                if (patients.Count == 0)
+                if (this.patients.Count == 0)
                 {
                     MessageBox.Show("No patient found with the last name and date of birth entered", "No Patient Found");
                 }
@@ -162,7 +162,7 @@ namespace ClinicSupport.UserControls
             {
                 MessageBox.Show(fe.Message);
             }
-            patientsDataGridView.DataSource = patients;
+            patientsDataGridView.DataSource = this.patients;
             patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
             patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
             AddEditColumnToGV();
@@ -208,7 +208,13 @@ namespace ClinicSupport.UserControls
                 infoForm.PutIndividualData(patient);
                 infoForm.SetIndividualData();
                 DialogResult result = infoForm.ShowDialog();
-                patientsDataGridView.Refresh();
+                if (result == DialogResult.OK)
+                {
+                    patientsDataGridView.Columns.Clear();
+                    patientsDataGridView.DataSource = null;
+                    // Find a way to refresh the patients list so that way the datasource can be up to date
+                    patientsDataGridView.DataSource = this.patients;
+                }
             }
         }
 
