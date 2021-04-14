@@ -98,7 +98,7 @@ namespace ClinicSupport.UserControls
             {
                 if (nurseController.UpdateNurse(nurse))
                 {
-                    errorLabel.Text = "Nurse privilege was successfully updated";
+                    errorLabel.Text = "Nurse privilege was updated";
                 }
                 else
                 {

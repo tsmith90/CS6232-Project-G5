@@ -56,7 +56,6 @@ namespace ClinicSupport.Controller
                             prf: KeyDerivationPrf.HMACSHA256,
                             iterationCount: 10000,
                             numBytesRequested: 256 / 8));
-
             return hashed;
         }
     }

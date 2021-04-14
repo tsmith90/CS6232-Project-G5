@@ -75,6 +75,12 @@
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visit.cs" />
+    <Compile Include="UserControls\AddNurseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddNurseUserControl.Designer.cs">
+      <DependentUpon>AddNurseUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddPatientUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +176,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AddNurseUserControl.resx">
+      <DependentUpon>AddNurseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddPatientUserControl.resx">
       <DependentUpon>AddPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
