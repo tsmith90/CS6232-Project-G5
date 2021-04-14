@@ -14,6 +14,8 @@ namespace ClinicSupport.UserControls
     {
         private readonly PatientController patientController;
 
+        private List<Individual> patients;
+
         /// <summary>
         /// 0-parameter constructor for the SearchPatientUserControl
         /// </summary>
@@ -22,6 +24,7 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
             searchCriteriaTableLayout.Hide();
             this.patientController = new PatientController();
+            this.patients = new List<Individual>();
         }
 
         private void SearchDOBRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -62,18 +65,17 @@ namespace ClinicSupport.UserControls
 
         private void SearchDOBButton_Click(object sender, EventArgs e)
         {
-            if (patientsDataGridView.Columns.Count > 0)
+            if (patientsDataGridView.Columns.Count > 1)
             {
-                RemoveColumnFromGridView(8);
+                patientsDataGridView.Columns.Clear();
                 patientsDataGridView.DataSource = null;
             }
-            List<Individual> patients = new List<Individual>();
             try
             {
                 DateTime dob = Convert.ToDateTime(dobTextField.Text);
-                patients = this.patientController.GetPatientsByDOB(dob);
+                this.patients = this.patientController.GetPatientsByDOB(dob);
 
-                if (patients.Count == 0)
+                if (this.patients.Count == 0)
                 {
                     MessageBox.Show("No patient found with the date of birth entered", "No Patient Found");
                 }
@@ -90,26 +92,27 @@ namespace ClinicSupport.UserControls
             {
                 MessageBox.Show(fe.Message);
             }
-            patientsDataGridView.DataSource = patients;
-            RemoveColumnFromGridView(0);
+            patientsDataGridView.DataSource = this.patients;
+            patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
+            patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
+
             AddEditColumnToGV();
         }
 
         private void SearchNameButton_Click(object sender, EventArgs e)
         {
-            if (patientsDataGridView.Columns.Count > 0)
+            if (patientsDataGridView.Columns.Count > 1)
             {
-                RemoveColumnFromGridView(8);
+                patientsDataGridView.Columns.Clear();
                 patientsDataGridView.DataSource = null;
             }
-            List<Individual> patients = new List<Individual>();
             try
             {
                 string fname = firstLastNameTextBox.Text.Split(' ')[0];
                 string lname = firstLastNameTextBox.Text.Split(' ')[1];
-                patients = this.patientController.GetPatientsByFirstAndLastName(fname, lname);
+                this.patients = this.patientController.GetPatientsByFirstAndLastName(fname, lname);
 
-                if (patients.Count == 0)
+                if (this.patients.Count == 0)
                 {
                     MessageBox.Show("No patient found with the first and last name entered", "No Patient Found");
                 }
@@ -122,27 +125,27 @@ namespace ClinicSupport.UserControls
             {
                 MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
             }
-            patientsDataGridView.DataSource = patients;
-            RemoveColumnFromGridView(0);
+            patientsDataGridView.DataSource = this.patients;
+            patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
+            patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
             AddEditColumnToGV();
         }
 
         private void SearchDOBAndLastNameButton_Click(object sender, EventArgs e)
         {
-            if (patientsDataGridView.Columns.Count > 0)
+            if (patientsDataGridView.Columns.Count > 1)
             {
-                RemoveColumnFromGridView(8);
+                patientsDataGridView.Columns.Clear();
                 patientsDataGridView.DataSource = null;
             }
-            List <Individual> patients = new List<Individual>();
             try
             {
                 string lname = dobLastNameTextBox.Text.Split(' ')[0];
                 string dobString = dobLastNameTextBox.Text.Split(' ')[1];
                 DateTime dob = Convert.ToDateTime(dobString);
-                patients = this.patientController.GetPatientsByLastNameAndDOB(lname, dob);
+                this.patients = this.patientController.GetPatientsByLastNameAndDOB(lname, dob);
                 
-                if (patients.Count == 0)
+                if (this.patients.Count == 0)
                 {
                     MessageBox.Show("No patient found with the last name and date of birth entered", "No Patient Found");
                 }
@@ -159,8 +162,9 @@ namespace ClinicSupport.UserControls
             {
                 MessageBox.Show(fe.Message);
             }
-            patientsDataGridView.DataSource = patients;
-            RemoveColumnFromGridView(0);
+            patientsDataGridView.DataSource = this.patients;
+            patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
+            patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
             AddEditColumnToGV();
         }
 
@@ -175,24 +179,21 @@ namespace ClinicSupport.UserControls
             patientsDataGridView.Columns.Add(Editlink);
         }
 
-        private void RemoveColumnFromGridView(int columnIndex)
-        {
-            patientsDataGridView.Columns.RemoveAt(columnIndex);
-        }
-
         private void PatientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 8)
-            {               
-                var lname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[0].Value);
-                var fname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[1].Value);
-                var dob = Convert.ToDateTime(patientsDataGridView.Rows[e.RowIndex].Cells[2].Value);
-                var address = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[3].Value);
-                var city = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[4].Value);
-                var state = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[5].Value);
-                var zip = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[6].Value);
-                var phone = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[7].Value);
+            if (e.ColumnIndex == 9)
+            {           
+                var id = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                var fname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                var lname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                var dob = Convert.ToDateTime(patientsDataGridView.Rows[e.RowIndex].Cells[3].Value);
+                var address = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[4].Value);
+                var city = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[5].Value);
+                var state = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[6].Value);
+                var zip = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[7].Value);
+                var phone = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[8].Value);
                 Individual patient = new Individual();
+                patient.IndividualID = id;
                 patient.FirstName = fname;
                 patient.LastName = lname;
                 patient.DateOfBirth = dob;
@@ -207,7 +208,44 @@ namespace ClinicSupport.UserControls
                 infoForm.PutIndividualData(patient);
                 infoForm.SetIndividualData();
                 DialogResult result = infoForm.ShowDialog();
-                patientsDataGridView.Refresh();
+                if (result == DialogResult.OK)
+                {
+                    patientsDataGridView.Columns.Clear();
+                    patientsDataGridView.DataSource = null;
+                    // Repulls data after the close button is selected on the update patient information dialog
+                    if (dobTextField.Visible == true)
+                    {
+                        DateTime dateOfBirth = Convert.ToDateTime(dobTextField.Text);
+                        this.patients = this.patientController.GetPatientsByDOB(dateOfBirth);
+                    }
+                    if (firstLastNameTextBox.Visible == true)
+                    {
+                        string firstName = firstLastNameTextBox.Text.Split(' ')[0];
+                        string lastName = firstLastNameTextBox.Text.Split(' ')[1];
+                        this.patients = this.patientController.GetPatientsByFirstAndLastName(firstName, lastName);
+                    }
+                    if (dobLastNameTextBox.Visible == true)
+                    {
+                        string lastName = dobLastNameTextBox.Text.Split(' ')[0];
+                        string dobString = dobLastNameTextBox.Text.Split(' ')[1];
+                        DateTime dateOfBirth = Convert.ToDateTime(dobString);
+                        this.patients = this.patientController.GetPatientsByLastNameAndDOB(lastName, dateOfBirth);
+                    }
+                    patientsDataGridView.DataSource = this.patients;
+                    AddEditColumnToGV();
+                }
+            }
+        }
+
+        private void ClearSearchesButton_Click(object sender, EventArgs e)
+        {
+            dobTextField.Text = "";
+            firstLastNameTextBox.Text = "";
+            dobLastNameTextBox.Text = "";
+            if (patientsDataGridView.Columns.Count > 1)
+            {
+                patientsDataGridView.DataSource = null;
+                patientsDataGridView.Columns.Clear();
             }
         }
     }

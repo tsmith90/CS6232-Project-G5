@@ -37,6 +37,7 @@ namespace ClinicSupport.UserControls
         public void HideUpdateButton()
         {
             updateButton.Visible = false;
+            closeButton.Visible = false;
             patientInfoLabel.Text = "New Patient";
         }
 
@@ -133,8 +134,8 @@ namespace ClinicSupport.UserControls
         {
             try
             {
-                if (this.firstNameTextBox.Text == String.Empty || this.lastNameTextBox.Text == String.Empty || this.dobTextBox.Text == String.Empty || this.phoneTextBox.Text == String.Empty || 
-                    this.addressTextBox.Text == String.Empty || this.cityTextBox.Text == String.Empty || this.stateComboBox.SelectedIndex == 0 || this.zipTextBox.Text == String.Empty)
+                if (this.firstNameTextBox.Text == String.Empty || this.lastNameTextBox.Text == String.Empty || this.dobTextBox.Text == String.Empty || this.phoneTextBox.Text == String.Empty || this.phoneTextBox.Text.Length < 10 ||
+                    this.addressTextBox.Text == String.Empty || this.cityTextBox.Text == String.Empty || this.stateComboBox.SelectedIndex == -1 || this.zipTextBox.Text == String.Empty || this.zipTextBox.Text != String.Empty && !Int32.TryParse(this.zipTextBox.Text, out int number))
                 {
                     string message = "Please enter the required values:";
                     if (this.firstNameTextBox.Text == String.Empty)
@@ -165,13 +166,17 @@ namespace ClinicSupport.UserControls
                     {
                         message += "\n-City is missing";
                     }
-                    if (stateComboBox.SelectedIndex == 0)
+                    if (stateComboBox.SelectedIndex == -1)
                     {
                         message += "\n-State is not selected";
                     }
                     if (this.zipTextBox.Text == String.Empty)
                     {
                         message += "\n-Zip is missing";
+                    }
+                    if (this.zipTextBox.Text != String.Empty && !Int32.TryParse(this.zipTextBox.Text, out int num))
+                    {
+                        message += "\n-Zip must be a number";
                     }
                     MessageBox.Show(message, "Missing Information");
                 }
@@ -183,7 +188,6 @@ namespace ClinicSupport.UserControls
 
                     var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
                     int patientID = this.patientController.InsertNewPatient(newIndividualID);
-                    this.ClearForm();
                     this.messageLabel.Text = "Patient has been added!";
                     this.messageLabel.ForeColor = Color.Black;
                 }
@@ -203,8 +207,9 @@ namespace ClinicSupport.UserControls
             phoneTextBox.Text = "";
             addressTextBox.Text = "";
             cityTextBox.Text = "";
-            stateComboBox.SelectedIndex = 0;
+            stateComboBox.SelectedIndex = -1;
             zipTextBox.Text = "";
+            this.messageLabel.Text = "";
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -247,7 +252,7 @@ namespace ClinicSupport.UserControls
                 else
                 {
                     individual = newIndividual;
-                    MessageBox.Show("Patient was successfulle updated!");
+                    this.messageLabel.Text = "Patient was successfulle updated!";
                 }
             }
             catch (Exception ex)
@@ -303,6 +308,15 @@ namespace ClinicSupport.UserControls
             this.individual.City = city;
             this.individual.State = state;
             this.individual.ZipCode = zip;
+        }
+        public Boolean ReturnDialogResultOK()
+        {
+            return true;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.DialogResult = DialogResult.OK;
         }
     }
 }

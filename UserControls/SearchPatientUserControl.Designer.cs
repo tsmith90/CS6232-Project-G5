@@ -43,6 +43,7 @@
             this.searchNameButton = new System.Windows.Forms.Button();
             this.searchDOBAndLastNameButton = new System.Windows.Forms.Button();
             this.patientsDataGridView = new System.Windows.Forms.DataGridView();
+            this.clearSearchesButton = new System.Windows.Forms.Button();
             this.searchPatientLblTableLayout.SuspendLayout();
             this.radioButtonTableLayout.SuspendLayout();
             this.searchCriteriaTableLayout.SuspendLayout();
@@ -226,17 +227,28 @@
             this.patientsDataGridView.AllowUserToAddRows = false;
             this.patientsDataGridView.AllowUserToDeleteRows = false;
             this.patientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.patientsDataGridView.Location = new System.Drawing.Point(3, 107);
+            this.patientsDataGridView.Location = new System.Drawing.Point(7, 136);
             this.patientsDataGridView.Name = "patientsDataGridView";
             this.patientsDataGridView.ReadOnly = true;
-            this.patientsDataGridView.Size = new System.Drawing.Size(600, 233);
+            this.patientsDataGridView.Size = new System.Drawing.Size(780, 233);
             this.patientsDataGridView.TabIndex = 3;
             this.patientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsDataGridView_CellContentClick);
+            // 
+            // clearSearchesButton
+            // 
+            this.clearSearchesButton.Location = new System.Drawing.Point(7, 107);
+            this.clearSearchesButton.Name = "clearSearchesButton";
+            this.clearSearchesButton.Size = new System.Drawing.Size(98, 23);
+            this.clearSearchesButton.TabIndex = 4;
+            this.clearSearchesButton.Text = "Clear Searches";
+            this.clearSearchesButton.UseVisualStyleBackColor = true;
+            this.clearSearchesButton.Click += new System.EventHandler(this.ClearSearchesButton_Click);
             // 
             // SearchPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.clearSearchesButton);
             this.Controls.Add(this.patientsDataGridView);
             this.Controls.Add(this.searchCriteriaTableLayout);
             this.Controls.Add(this.radioButtonTableLayout);
@@ -271,5 +283,6 @@
         private System.Windows.Forms.Button searchNameButton;
         private System.Windows.Forms.Button searchDOBAndLastNameButton;
         private System.Windows.Forms.DataGridView patientsDataGridView;
+        private System.Windows.Forms.Button clearSearchesButton;
     }
 }
