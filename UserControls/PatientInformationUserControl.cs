@@ -128,6 +128,7 @@ namespace ClinicSupport.UserControls
             List<string> names = states.Keys.ToList();
 
             stateComboBox.DataSource = names;
+            stateComboBox.SelectedIndex = 0;
         }
 
         private void CreatePatientButton_Click(object sender, System.EventArgs e)
@@ -207,7 +208,7 @@ namespace ClinicSupport.UserControls
             phoneTextBox.Text = "";
             addressTextBox.Text = "";
             cityTextBox.Text = "";
-            stateComboBox.SelectedIndex = -1;
+            stateComboBox.SelectedIndex = 0;
             zipTextBox.Text = "";
             this.messageLabel.Text = "";
         }
