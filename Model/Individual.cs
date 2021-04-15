@@ -24,5 +24,7 @@ namespace ClinicSupport.Model
         public int ZipCode { get; set; } 
 
         public string PhoneNumber { get; set; }
+
+        public int SSN { get; set; }
     }
 }

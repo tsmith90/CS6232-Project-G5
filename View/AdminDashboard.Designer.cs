@@ -34,10 +34,10 @@ namespace ClinicSupport.View
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.adminTabControl = new System.Windows.Forms.TabControl();
-            this.employeeTabPage = new System.Windows.Forms.TabPage();
+            this.nurseInformationTabPage = new System.Windows.Forms.TabPage();
             this.addNurseTabPage = new System.Windows.Forms.TabPage();
-            this.privilegeTabPage = new System.Windows.Forms.TabPage();
             this.addNurseUserControl1 = new ClinicSupport.UserControls.AddNurseUserControl();
+            this.privilegeTabPage = new System.Windows.Forms.TabPage();
             this.nursePrivilegesUserControl1 = new ClinicSupport.UserControls.NursePrivilegesUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.adminTabControl.SuspendLayout();
@@ -70,22 +70,24 @@ namespace ClinicSupport.View
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(107, 24);
             this.nameLabel.TabIndex = 0;
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // logoutLinkLabel
             // 
             this.logoutLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutLinkLabel.Location = new System.Drawing.Point(698, 20);
             this.logoutLinkLabel.Name = "logoutLinkLabel";
-            this.logoutLinkLabel.Size = new System.Drawing.Size(95, 23);
+            this.logoutLinkLabel.Size = new System.Drawing.Size(72, 23);
             this.logoutLinkLabel.TabIndex = 1;
             this.logoutLinkLabel.TabStop = true;
             this.logoutLinkLabel.Text = "Logout";
+            this.logoutLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logoutLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLinkLabel_LinkClicked);
             // 
             // adminTabControl
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.adminTabControl, 3);
-            this.adminTabControl.Controls.Add(this.employeeTabPage);
+            this.adminTabControl.Controls.Add(this.nurseInformationTabPage);
             this.adminTabControl.Controls.Add(this.addNurseTabPage);
             this.adminTabControl.Controls.Add(this.privilegeTabPage);
             this.adminTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,15 +97,15 @@ namespace ClinicSupport.View
             this.adminTabControl.Size = new System.Drawing.Size(767, 399);
             this.adminTabControl.TabIndex = 2;
             // 
-            // employeeTabPage
+            // nurseInformationTabPage
             // 
-            this.employeeTabPage.Location = new System.Drawing.Point(4, 29);
-            this.employeeTabPage.Name = "employeeTabPage";
-            this.employeeTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.employeeTabPage.Size = new System.Drawing.Size(846, 364);
-            this.employeeTabPage.TabIndex = 0;
-            this.employeeTabPage.Text = "Employee Information";
-            this.employeeTabPage.UseVisualStyleBackColor = true;
+            this.nurseInformationTabPage.Location = new System.Drawing.Point(4, 29);
+            this.nurseInformationTabPage.Name = "nurseInformationTabPage";
+            this.nurseInformationTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.nurseInformationTabPage.Size = new System.Drawing.Size(759, 366);
+            this.nurseInformationTabPage.TabIndex = 0;
+            this.nurseInformationTabPage.Text = "View/Update Nurse";
+            this.nurseInformationTabPage.UseVisualStyleBackColor = true;
             // 
             // addNurseTabPage
             // 
@@ -115,17 +117,6 @@ namespace ClinicSupport.View
             this.addNurseTabPage.Text = "Add Nurse";
             this.addNurseTabPage.UseVisualStyleBackColor = true;
             // 
-            // privilegeTabPage
-            // 
-            this.privilegeTabPage.Controls.Add(this.nursePrivilegesUserControl1);
-            this.privilegeTabPage.Location = new System.Drawing.Point(4, 29);
-            this.privilegeTabPage.Name = "privilegeTabPage";
-            this.privilegeTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.privilegeTabPage.Size = new System.Drawing.Size(846, 364);
-            this.privilegeTabPage.TabIndex = 1;
-            this.privilegeTabPage.Text = "Nurse Privileges";
-            this.privilegeTabPage.UseVisualStyleBackColor = true;
-            // 
             // addNurseUserControl1
             // 
             this.addNurseUserControl1.Location = new System.Drawing.Point(0, 0);
@@ -133,6 +124,17 @@ namespace ClinicSupport.View
             this.addNurseUserControl1.Name = "addNurseUserControl1";
             this.addNurseUserControl1.Size = new System.Drawing.Size(914, 435);
             this.addNurseUserControl1.TabIndex = 0;
+            // 
+            // privilegeTabPage
+            // 
+            this.privilegeTabPage.Controls.Add(this.nursePrivilegesUserControl1);
+            this.privilegeTabPage.Location = new System.Drawing.Point(4, 29);
+            this.privilegeTabPage.Name = "privilegeTabPage";
+            this.privilegeTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.privilegeTabPage.Size = new System.Drawing.Size(759, 366);
+            this.privilegeTabPage.TabIndex = 1;
+            this.privilegeTabPage.Text = "Nurse Privileges";
+            this.privilegeTabPage.UseVisualStyleBackColor = true;
             // 
             // nursePrivilegesUserControl1
             // 
@@ -171,7 +173,7 @@ namespace ClinicSupport.View
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.LinkLabel logoutLinkLabel;
         private System.Windows.Forms.TabControl adminTabControl;
-        private System.Windows.Forms.TabPage employeeTabPage;
+        private System.Windows.Forms.TabPage nurseInformationTabPage;
         private System.Windows.Forms.TabPage privilegeTabPage;
         private UserControls.NursePrivilegesUserControl nursePrivilegesUserControl1;
         private System.Windows.Forms.TabPage addNurseTabPage;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicSupport.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -7,7 +8,6 @@ namespace ClinicSupport.UserControls
 {
     public partial class AddNurseUserControl : UserControl
     {
-
         private readonly Dictionary<string, string> states;
 
 
@@ -33,6 +33,7 @@ namespace ClinicSupport.UserControls
             zipTextBox.Text = "";
             phoneTextBox.Text = "";
             stateComboBox.SelectedIndex = 0;
+            errorLabel.Text = "";
         }
 
         private void SetStateList()
@@ -98,6 +99,96 @@ namespace ClinicSupport.UserControls
 
             stateComboBox.DataSource = names;
             stateComboBox.SelectedIndex = 0;
+        }
+
+        private void AddNurseButton_Click(object sender, EventArgs e)
+        {
+            Individual newNurse = new Individual();
+
+            if (string.IsNullOrEmpty(firstNameTextBox.Text))
+            {
+                errorLabel.Text = "Please provide a first name";
+            }
+            else if (string.IsNullOrEmpty(lastNameTextBox.Text))
+            {
+                errorLabel.Text = "Please provide a last name";
+            }
+            else if (string.IsNullOrEmpty(addressTextBox.Text))
+            {
+                errorLabel.Text = "Please provide an address";
+            }
+            else if (string.IsNullOrEmpty(cityTextBox.Text))
+            {
+                errorLabel.Text = "Please provide a city";
+            }
+            else if (string.IsNullOrEmpty(zipTextBox.Text) || zipTextBox.Text.Length != 5)
+            {
+                errorLabel.Text = "Please provide a valid zip code";
+            }
+            else if (string.IsNullOrEmpty(ssnTextBox.Text) || ssnTextBox.Text.Length != 9)
+            {
+                errorLabel.Text = "Please provide a valid SSN";
+            }
+            else if (string.IsNullOrEmpty(phoneTextBox.Text) || phoneTextBox.Text.Length != 10)
+            {
+                errorLabel.Text = "Please provide a valid phone number";
+            }
+            else
+            {
+                try
+                {
+                    int zip = ParseNumbers(zipTextBox.Text, "zip code");
+                    int ssn = ParseNumbers(ssnTextBox.Text, "SSN");
+                    int phone = ParseNumbers(phoneTextBox.Text, "phone number");
+
+                    newNurse.ZipCode = zip;
+                    newNurse.SSN = ssn;
+                    newNurse.PhoneNumber = phone.ToString();
+                    newNurse.FirstName = firstNameTextBox.Text;
+                    newNurse.LastName = lastNameTextBox.Text;
+                    newNurse.StreetAddress = addressTextBox.Text;
+                    newNurse.City = cityTextBox.Text;
+
+                    string state = states[stateComboBox.SelectedItem.ToString()];
+                    newNurse.State = state;
+                    newNurse.DateOfBirth = dateOfBirthTimePicker.Value;
+
+
+                    //add newNurse to the DB here
+
+
+                }
+                catch (FormatException ex)
+                {
+                    errorLabel.Text = "Please enter a valid " + ex.Message;
+                }
+                catch (Exception ex)
+                {
+                    errorLabel.Text = ex.Message;
+                }
+            }
+
+        }
+
+        private int ParseNumbers(string numbers, string text)
+        {
+            int id;
+
+            try
+            {
+                id = Int32.Parse(numbers);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException(text);
+            }
+
+            return id;
+        }
+
+        private void Text_TextChanged(object sender, EventArgs e)
+        {
+            errorLabel.Text = "";
         }
     }
 }
