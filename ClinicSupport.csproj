@@ -117,11 +117,17 @@
     <Compile Include="UserControls\ViewAppointmentsByPatientIDUserControl.Designer.cs">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UpdateNurserPasswordUserControl.cs">
+    <Compile Include="UserControls\UpdateNursePasswordUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UpdateNurserPasswordUserControl.Designer.cs">
-      <DependentUpon>UpdateNurserPasswordUserControl.cs</DependentUpon>
+    <Compile Include="UserControls\UpdateNursePasswordUserControl.Designer.cs">
+      <DependentUpon>UpdateNursePasswordUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ViewUpdateNurseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewUpdateNurseUserControl.Designer.cs">
+      <DependentUpon>ViewUpdateNurseUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\VisitInformationUserControl.cs">
       <SubType>UserControl</SubType>
@@ -203,8 +209,11 @@
     <EmbeddedResource Include="UserControls\ViewAppointmentsByPatientIDUserControl.resx">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UpdateNurserPasswordUserControl.resx">
-      <DependentUpon>UpdateNurserPasswordUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UpdateNursePasswordUserControl.resx">
+      <DependentUpon>UpdateNursePasswordUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ViewUpdateNurseUserControl.resx">
+      <DependentUpon>ViewUpdateNurseUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitInformationUserControl.resx">
       <DependentUpon>VisitInformationUserControl.cs</DependentUpon>
