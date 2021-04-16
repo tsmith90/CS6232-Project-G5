@@ -15,11 +15,11 @@ namespace ClinicSupport.DAL
         /// </summary>
         /// <param name="iid">the individual's id</param>
         /// <returns>the Individual object</returns>
-        public Individual GeIndividualbyID(int iid)
+        public Individual GetIndividualbyID(int iid)
         {
             Individual _individual = new Individual();
             string selectStatement =
-                "SELECT fname, lname, streetAddress, city, state, zip, phone, dob " +
+                "SELECT fname, lname, streetAddress, city, state, zip, phone, dob, ssn " +
                  "FROM Individual " +
                  "WHERE iid = @iid";
 
@@ -39,9 +39,10 @@ namespace ClinicSupport.DAL
                             _individual.StreetAddress = (string)reader["streetAddress"];
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
-                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
+                            _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
                             _individual.DateOfBirth = Convert.ToDateTime(reader["dob"]);
+                            _individual.SSN = reader["ssn"].ToString();
                         }
                     }
                 }

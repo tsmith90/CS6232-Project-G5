@@ -179,7 +179,7 @@ namespace ClinicSupport.DAL
                             _individual.StreetAddress = (string)reader["streetAddress"];
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
-                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
+                            _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
                             _patients.Add(_individual);
                         }
@@ -225,7 +225,7 @@ namespace ClinicSupport.DAL
                             _individual.StreetAddress = (string)reader["streetAddress"];
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
-                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
+                            _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
                             _patients.Add(_individual);
                         }
@@ -271,7 +271,7 @@ namespace ClinicSupport.DAL
                             _individual.StreetAddress = (string)reader["streetAddress"];
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
-                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
+                            _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
                             _patients.Add(_individual);
                         }

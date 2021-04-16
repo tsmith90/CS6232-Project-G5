@@ -103,8 +103,8 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 373);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -127,12 +127,13 @@ namespace ClinicSupport.UserControls
             this.clearButton.TabIndex = 4;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // errorLabel
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 5);
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(11, 288);
+            this.errorLabel.Location = new System.Drawing.Point(11, 280);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(730, 32);
             this.errorLabel.TabIndex = 3;
@@ -147,6 +148,7 @@ namespace ClinicSupport.UserControls
             this.findNurseButton.TabIndex = 2;
             this.findNurseButton.Text = "Find Nurse";
             this.findNurseButton.UseVisualStyleBackColor = true;
+            this.findNurseButton.Click += new System.EventHandler(this.FindNurseButton_Click);
             // 
             // updateButton
             // 
@@ -157,6 +159,7 @@ namespace ClinicSupport.UserControls
             this.updateButton.TabIndex = 5;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // firstNameLabel
             // 

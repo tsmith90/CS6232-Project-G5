@@ -284,7 +284,7 @@ namespace ClinicSupport.UserControls
             individual.StreetAddress = address;
             individual.City = city;
             individual.State = state;
-            individual.ZipCode = zip;
+            individual.ZipCode = zip.ToString();
         }
 
         /// <summary>
@@ -308,7 +308,7 @@ namespace ClinicSupport.UserControls
             this.individual.StreetAddress = address;
             this.individual.City = city;
             this.individual.State = state;
-            this.individual.ZipCode = zip;
+            this.individual.ZipCode = zip.ToString();
         }
         public Boolean ReturnDialogResultOK()
         {

@@ -21,10 +21,10 @@ namespace ClinicSupport.Model
 
         public string State { get; set; }
 
-        public int ZipCode { get; set; } 
+        public string ZipCode { get; set; } 
 
         public string PhoneNumber { get; set; }
 
-        public int SSN { get; set; }
+        public string SSN { get; set; }
     }
 }

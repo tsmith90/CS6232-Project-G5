@@ -1,5 +1,6 @@
 ﻿using ClinicSupport.DAL;
 using ClinicSupport.Model;
+using System;
 
 namespace ClinicSupport.Controller
 {
@@ -25,7 +26,11 @@ namespace ClinicSupport.Controller
         /// <returns>Returns the individual with the specified individualID</returns>
         public Individual GetIndividualByID(int iid)
         {
-            Individual individual = individualDAL.GeIndividualbyID(iid);
+            if (iid < 0)
+            {
+                throw new Exception("Please enter a valid individual id");
+            }
+            Individual individual = individualDAL.GetIndividualbyID(iid);
             return individual;
         }
 
@@ -36,8 +41,23 @@ namespace ClinicSupport.Controller
         /// <returns>Returns the new iid of the newly created individual</returns>
         public int InsertNewIndividual(Individual newIndividual)
         {
+            if (newIndividual == null)
+            {
+                throw new ArgumentNullException("Please enter a valid individual");
+            }
+
             int newIndividualID = individualDAL.AddIndividual(newIndividual);
             return newIndividualID;
+        }
+
+        public bool UpdateIndividual(Individual newIndividual)
+        {
+            if (newIndividual == null)
+            {
+                throw new ArgumentNullException("Please enter a valid individual");
+            }
+
+            return false;
         }
     }
 }

@@ -49,7 +49,7 @@ namespace ClinicSupport.DAL
         /// </summary>
         /// <param name = "nurse">the Nurse object to be passed from the controller</param> 
         /// <returns>true if Nurse is updated successfully in the DB</returns>
-        public bool UpdateNurse(Nurse nurse)
+        public bool UpdateNursePrivileges(Nurse nurse)
         {
             string updateStatement = "UPDATE Login " +
                 "SET privilege = @privilege " + 

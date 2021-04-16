@@ -46,7 +46,7 @@ namespace ClinicSupport.Controller
                 throw new ArgumentNullException("Please enter a valid nurse object");
             }
 
-            return nurseDAL.UpdateNurse(nurse);
+            return nurseDAL.UpdateNursePrivileges(nurse);
         }
     }
 }

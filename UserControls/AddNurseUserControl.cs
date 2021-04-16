@@ -141,8 +141,8 @@ namespace ClinicSupport.UserControls
                     int ssn = ParseNumbers(ssnTextBox.Text, "SSN");
                     int phone = ParseNumbers(phoneTextBox.Text, "phone number");
 
-                    newNurse.ZipCode = zip;
-                    newNurse.SSN = ssn;
+                    newNurse.ZipCode = zip.ToString();
+                    newNurse.SSN = ssn.ToString();
                     newNurse.PhoneNumber = phone.ToString();
                     newNurse.FirstName = firstNameTextBox.Text;
                     newNurse.LastName = lastNameTextBox.Text;
