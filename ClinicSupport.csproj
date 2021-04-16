@@ -117,6 +117,12 @@
     <Compile Include="UserControls\ViewAppointmentsByPatientIDUserControl.Designer.cs">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ViewUpdateNurserLoginUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewUpdateNurserLoginUserControl.Designer.cs">
+      <DependentUpon>ViewUpdateNurserLoginUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\VisitInformationUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ViewAppointmentsByPatientIDUserControl.resx">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ViewUpdateNurserLoginUserControl.resx">
+      <DependentUpon>ViewUpdateNurserLoginUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitInformationUserControl.resx">
       <DependentUpon>VisitInformationUserControl.cs</DependentUpon>

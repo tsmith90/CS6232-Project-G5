@@ -48,28 +48,30 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 257F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
-            this.tableLayoutPanel1.Controls.Add(this.usernameLabel, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.usernameTextBox, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.findUserButton, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.privilegesComboBox, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.updateButton, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.privilegesLabel, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.errorLabel, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.usernameLabel, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.usernameTextBox, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.findUserButton, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.privilegesComboBox, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.updateButton, 4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.privilegesLabel, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.errorLabel, 3, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(564, 327);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // usernameLabel
             // 
-            this.usernameLabel.Location = new System.Drawing.Point(49, 34);
+            this.usernameLabel.Location = new System.Drawing.Point(49, 61);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(93, 26);
             this.usernameLabel.TabIndex = 0;
@@ -78,7 +80,7 @@ namespace ClinicSupport.UserControls
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(148, 37);
+            this.usernameTextBox.Location = new System.Drawing.Point(148, 64);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(242, 26);
             this.usernameTextBox.TabIndex = 1;
@@ -86,7 +88,7 @@ namespace ClinicSupport.UserControls
             // 
             // findUserButton
             // 
-            this.findUserButton.Location = new System.Drawing.Point(405, 37);
+            this.findUserButton.Location = new System.Drawing.Point(405, 64);
             this.findUserButton.Name = "findUserButton";
             this.findUserButton.Size = new System.Drawing.Size(117, 26);
             this.findUserButton.TabIndex = 2;
@@ -98,7 +100,7 @@ namespace ClinicSupport.UserControls
             // 
             this.privilegesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.privilegesComboBox.FormattingEnabled = true;
-            this.privilegesComboBox.Location = new System.Drawing.Point(148, 114);
+            this.privilegesComboBox.Location = new System.Drawing.Point(148, 104);
             this.privilegesComboBox.Name = "privilegesComboBox";
             this.privilegesComboBox.Size = new System.Drawing.Size(242, 28);
             this.privilegesComboBox.TabIndex = 4;
@@ -106,7 +108,7 @@ namespace ClinicSupport.UserControls
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(405, 114);
+            this.updateButton.Location = new System.Drawing.Point(405, 104);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(117, 28);
             this.updateButton.TabIndex = 5;
@@ -116,7 +118,7 @@ namespace ClinicSupport.UserControls
             // 
             // privilegesLabel
             // 
-            this.privilegesLabel.Location = new System.Drawing.Point(49, 111);
+            this.privilegesLabel.Location = new System.Drawing.Point(49, 101);
             this.privilegesLabel.Name = "privilegesLabel";
             this.privilegesLabel.Size = new System.Drawing.Size(93, 31);
             this.privilegesLabel.TabIndex = 6;
@@ -128,9 +130,9 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 5);
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(3, 242);
+            this.errorLabel.Location = new System.Drawing.Point(3, 17);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(561, 41);
+            this.errorLabel.Size = new System.Drawing.Size(561, 33);
             this.errorLabel.TabIndex = 3;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

@@ -90,8 +90,8 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -104,7 +104,7 @@ namespace ClinicSupport.UserControls
             // 
             this.firstNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(180, 43);
+            this.firstNameLabel.Location = new System.Drawing.Point(180, 42);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(86, 20);
             this.firstNameLabel.TabIndex = 0;
@@ -112,7 +112,7 @@ namespace ClinicSupport.UserControls
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(151, 66);
+            this.firstNameTextBox.Location = new System.Drawing.Point(151, 65);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(144, 26);
             this.firstNameTextBox.TabIndex = 1;
@@ -121,7 +121,7 @@ namespace ClinicSupport.UserControls
             // lastNameLabel
             // 
             this.lastNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lastNameLabel.Location = new System.Drawing.Point(329, 44);
+            this.lastNameLabel.Location = new System.Drawing.Point(329, 43);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(93, 19);
             this.lastNameLabel.TabIndex = 2;
@@ -129,7 +129,7 @@ namespace ClinicSupport.UserControls
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(301, 66);
+            this.lastNameTextBox.Location = new System.Drawing.Point(301, 65);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(149, 26);
             this.lastNameTextBox.TabIndex = 3;
@@ -204,7 +204,7 @@ namespace ClinicSupport.UserControls
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(457, 66);
+            this.addressTextBox.Location = new System.Drawing.Point(457, 65);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(161, 26);
             this.addressTextBox.TabIndex = 7;
@@ -213,7 +213,7 @@ namespace ClinicSupport.UserControls
             // addressLabel
             // 
             this.addressLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.addressLabel.Location = new System.Drawing.Point(503, 42);
+            this.addressLabel.Location = new System.Drawing.Point(503, 41);
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(69, 21);
             this.addressLabel.TabIndex = 6;
