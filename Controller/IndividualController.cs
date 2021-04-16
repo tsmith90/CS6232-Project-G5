@@ -57,7 +57,7 @@ namespace ClinicSupport.Controller
                 throw new ArgumentNullException("Please enter a valid individual");
             }
 
-            return false;
+            return individualDAL.UpdateIndividual(newIndividual);
         }
     }
 }

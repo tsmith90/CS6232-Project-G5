@@ -30,6 +30,7 @@ namespace ClinicSupport.DAL
                 {
                     selectCommand.Parameters.Add("@iid", SqlDbType.Int);
                     selectCommand.Parameters["@iid"].Value = iid;
+
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         while (reader.Read())
@@ -85,6 +86,62 @@ namespace ClinicSupport.DAL
                     return indivdualID;
                 }
             }
+        }
+
+        public bool UpdateIndividual(Individual newIndividual)
+        {
+            string updateStatement = 
+                "UPDATE dbo.Individual " +
+                "SET lname = @lname, fname = @fname, dob = @dob, streetAddress = @address, " +
+                "city = @city, state = @state, zip = @zip, phone = @phone, ssn = @ssn " +
+                "WHERE iid = @iid;";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(updateStatement, connection))
+                {
+                    cmd.Parameters.Add("@lname", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@lname"].Value = newIndividual.LastName;
+
+                    cmd.Parameters.Add("@fname", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@fname"].Value = newIndividual.FirstName;
+
+                    cmd.Parameters.Add("@dob", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@dob"].Value = newIndividual.DateOfBirth;
+
+                    cmd.Parameters.Add("@address", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@address"].Value = newIndividual.StreetAddress;
+
+                    cmd.Parameters.Add("@city", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@city"].Value = newIndividual.City;
+
+                    cmd.Parameters.Add("@state", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@state"].Value = newIndividual.State;
+
+                    cmd.Parameters.Add("@zip", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@zip"].Value = newIndividual.ZipCode;
+
+                    cmd.Parameters.Add("@phone", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@phone"].Value = newIndividual.PhoneNumber;
+
+                    cmd.Parameters.Add("@ssn", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@ssn"].Value = newIndividual.SSN;
+
+                    cmd.Parameters.Add("@iid", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@iid"].Value = newIndividual.IndividualID;
+
+                    int count = cmd.ExecuteNonQuery();
+                    if (count > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+
+
+
+            return false;
         }
     }
 }

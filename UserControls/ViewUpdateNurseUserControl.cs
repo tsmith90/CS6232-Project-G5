@@ -228,6 +228,7 @@ namespace ClinicSupport.UserControls
             dateOfBirthTimePicker.Enabled = false;
             ssnTextbox.Enabled = false;
             phoneTextbox.Enabled = false;
+            updateButton.Enabled = false;
         }
 
         private void OpenControls()
@@ -241,6 +242,7 @@ namespace ClinicSupport.UserControls
             dateOfBirthTimePicker.Enabled = true;
             ssnTextbox.Enabled = true;
             phoneTextbox.Enabled = true;
+            updateButton.Enabled = true;
         }
 
         private bool CheckChanges()
@@ -279,6 +281,7 @@ namespace ClinicSupport.UserControls
         {
             Individual newIndividual = new Individual();
 
+            newIndividual.IndividualID = nurse.IndividualID;
             newIndividual.FirstName = firstNameTextbox.Text;
             newIndividual.LastName = lastNameTextbox.Text;
             newIndividual.StreetAddress = addressTextbox.Text;
