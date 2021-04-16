@@ -39,13 +39,13 @@ namespace ClinicSupport.View
             this.addNurseUserControl1 = new ClinicSupport.UserControls.AddNurseUserControl();
             this.privilegeTabPage = new System.Windows.Forms.TabPage();
             this.nursePrivilegesUserControl1 = new ClinicSupport.UserControls.NursePrivilegesUserControl();
-            this.nurseLoginTabPage = new System.Windows.Forms.TabPage();
-            this.viewUpdateNurserUserControl1 = new ClinicSupport.UserControls.ViewUpdateNurserUserControl();
+            this.nursePasswordTabPage = new System.Windows.Forms.TabPage();
+            this.viewUpdateNurserUserControl1 = new ClinicSupport.UserControls.UpdateNursePasswordUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.adminTabControl.SuspendLayout();
             this.addNurseTabPage.SuspendLayout();
             this.privilegeTabPage.SuspendLayout();
-            this.nurseLoginTabPage.SuspendLayout();
+            this.nursePasswordTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -93,7 +93,7 @@ namespace ClinicSupport.View
             this.adminTabControl.Controls.Add(this.nurseInformationTabPage);
             this.adminTabControl.Controls.Add(this.addNurseTabPage);
             this.adminTabControl.Controls.Add(this.privilegeTabPage);
-            this.adminTabControl.Controls.Add(this.nurseLoginTabPage);
+            this.adminTabControl.Controls.Add(this.nursePasswordTabPage);
             this.adminTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminTabControl.Location = new System.Drawing.Point(3, 49);
             this.adminTabControl.Name = "adminTabControl";
@@ -149,15 +149,15 @@ namespace ClinicSupport.View
             this.nursePrivilegesUserControl1.Size = new System.Drawing.Size(570, 333);
             this.nursePrivilegesUserControl1.TabIndex = 0;
             // 
-            // nurseLoginTabPage
+            // nursePasswordTabPage
             // 
-            this.nurseLoginTabPage.Controls.Add(this.viewUpdateNurserUserControl1);
-            this.nurseLoginTabPage.Location = new System.Drawing.Point(4, 29);
-            this.nurseLoginTabPage.Name = "nurseLoginTabPage";
-            this.nurseLoginTabPage.Size = new System.Drawing.Size(759, 366);
-            this.nurseLoginTabPage.TabIndex = 3;
-            this.nurseLoginTabPage.Text = "Update Nurse Login";
-            this.nurseLoginTabPage.UseVisualStyleBackColor = true;
+            this.nursePasswordTabPage.Controls.Add(this.viewUpdateNurserUserControl1);
+            this.nursePasswordTabPage.Location = new System.Drawing.Point(4, 29);
+            this.nursePasswordTabPage.Name = "nursePasswordTabPage";
+            this.nursePasswordTabPage.Size = new System.Drawing.Size(759, 366);
+            this.nursePasswordTabPage.TabIndex = 3;
+            this.nursePasswordTabPage.Text = "Update Nurse Password";
+            this.nursePasswordTabPage.UseVisualStyleBackColor = true;
             // 
             // viewUpdateNurserUserControl1
             // 
@@ -174,6 +174,7 @@ namespace ClinicSupport.View
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(779, 455);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -186,7 +187,7 @@ namespace ClinicSupport.View
             this.adminTabControl.ResumeLayout(false);
             this.addNurseTabPage.ResumeLayout(false);
             this.privilegeTabPage.ResumeLayout(false);
-            this.nurseLoginTabPage.ResumeLayout(false);
+            this.nursePasswordTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -202,7 +203,7 @@ namespace ClinicSupport.View
         private UserControls.NursePrivilegesUserControl nursePrivilegesUserControl1;
         private System.Windows.Forms.TabPage addNurseTabPage;
         private UserControls.AddNurseUserControl addNurseUserControl1;
-        private System.Windows.Forms.TabPage nurseLoginTabPage;
-        private UserControls.ViewUpdateNurserUserControl viewUpdateNurserUserControl1;
+        private System.Windows.Forms.TabPage nursePasswordTabPage;
+        private UserControls.UpdateNursePasswordUserControl viewUpdateNurserUserControl1;
     }
 }

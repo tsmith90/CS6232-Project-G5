@@ -41,8 +41,31 @@ namespace ClinicSupport.DAL
                     }
                 }
             }
-
             return newUser;
+        }
+
+        public bool SetLoginInformation(string username, string password)
+        {
+            string updateStatement = "UPDATE dbo.Login SET password = @password WHERE username = @username;";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(updateStatement, connection))
+                {
+                    selectCommand.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
+                    selectCommand.Parameters["@username"].Value = username;
+
+                    selectCommand.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
+                    selectCommand.Parameters["@password"].Value = password;
+
+                    int count = selectCommand.ExecuteNonQuery();
+                    if (count > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
         }
     }
 }

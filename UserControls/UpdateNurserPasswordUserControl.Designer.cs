@@ -1,7 +1,7 @@
 ﻿
 namespace ClinicSupport.UserControls
 {
-    partial class ViewUpdateNurserUserControl
+    partial class UpdateNursePasswordUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,8 +33,6 @@ namespace ClinicSupport.UserControls
             this.usernameLabel = new System.Windows.Forms.Label();
             this.findUserTextbox = new System.Windows.Forms.TextBox();
             this.findUserButton = new System.Windows.Forms.Button();
-            this.newUsernameLabel = new System.Windows.Forms.Label();
-            this.newUsernameTextbox = new System.Windows.Forms.TextBox();
             this.newPasswordLabel = new System.Windows.Forms.Label();
             this.newPasswordTextbox = new System.Windows.Forms.TextBox();
             this.confirmPasswordLabel = new System.Windows.Forms.Label();
@@ -58,8 +56,6 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.Controls.Add(this.usernameLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.findUserTextbox, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.findUserButton, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.newUsernameLabel, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.newUsernameTextbox, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.newPasswordLabel, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.newPasswordTextbox, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.confirmPasswordLabel, 2, 4);
@@ -105,23 +101,7 @@ namespace ClinicSupport.UserControls
             this.findUserButton.TabIndex = 2;
             this.findUserButton.Text = "Find User";
             this.findUserButton.UseVisualStyleBackColor = true;
-            // 
-            // newUsernameLabel
-            // 
-            this.newUsernameLabel.Location = new System.Drawing.Point(109, 76);
-            this.newUsernameLabel.Name = "newUsernameLabel";
-            this.newUsernameLabel.Size = new System.Drawing.Size(154, 31);
-            this.newUsernameLabel.TabIndex = 3;
-            this.newUsernameLabel.Text = "New Username:";
-            this.newUsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // newUsernameTextbox
-            // 
-            this.newUsernameTextbox.Location = new System.Drawing.Point(269, 79);
-            this.newUsernameTextbox.Name = "newUsernameTextbox";
-            this.newUsernameTextbox.Size = new System.Drawing.Size(220, 26);
-            this.newUsernameTextbox.TabIndex = 4;
-            this.newUsernameTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
+            this.findUserButton.Click += new System.EventHandler(this.FindUserButton_Click);
             // 
             // newPasswordLabel
             // 
@@ -186,16 +166,17 @@ namespace ClinicSupport.UserControls
             this.updateLoginButton.Name = "updateLoginButton";
             this.updateLoginButton.Size = new System.Drawing.Size(155, 51);
             this.updateLoginButton.TabIndex = 11;
-            this.updateLoginButton.Text = "Update Login";
+            this.updateLoginButton.Text = "Update Password";
             this.updateLoginButton.UseVisualStyleBackColor = true;
+            this.updateLoginButton.Click += new System.EventHandler(this.UpdatePasswordButton_Click);
             // 
-            // ViewUpdateNurserUserControl
+            // UpdateNursePasswordUserControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "ViewUpdateNurserUserControl";
+            this.Name = "UpdateNursePasswordUserControl";
             this.Size = new System.Drawing.Size(756, 352);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -209,8 +190,6 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.TextBox findUserTextbox;
         private System.Windows.Forms.Button findUserButton;
-        private System.Windows.Forms.Label newUsernameLabel;
-        private System.Windows.Forms.TextBox newUsernameTextbox;
         private System.Windows.Forms.Label newPasswordLabel;
         private System.Windows.Forms.TextBox newPasswordTextbox;
         private System.Windows.Forms.Label confirmPasswordLabel;

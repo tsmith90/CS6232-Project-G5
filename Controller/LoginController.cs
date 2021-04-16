@@ -10,14 +10,14 @@ namespace ClinicSupport.Controller
     /// </summary>
     class LoginController
     {
-        private readonly LoginDAL loginDBDAL;
+        private readonly LoginDAL loginDAL;
 
         /// <summary>
         /// 0-parameter constructor for the LoginController class
         /// </summary>
         public LoginController()
         {
-            loginDBDAL = new LoginDAL();
+            loginDAL = new LoginDAL();
         }
 
         /// <summary>
@@ -35,9 +35,21 @@ namespace ClinicSupport.Controller
 
             string hashedPassword = HashPassword(user, password);
 
-            User information = loginDBDAL.GetLoginInformation(user, hashedPassword);
+            User information = loginDAL.GetLoginInformation(user, hashedPassword);
 
             return information;
+        }
+
+        public bool SetLoginInformation(string username, string password)
+        {
+            if (username == null || password == null)
+            {
+                throw new ArgumentNullException("Please enter valid login information");
+            }
+
+            string newPassword = HashPassword(username, password);
+
+            return loginDAL.SetLoginInformation(username, newPassword);
         }
 
         /// <summary>

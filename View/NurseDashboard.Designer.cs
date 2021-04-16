@@ -35,12 +35,12 @@ namespace ClinicSupport.View
             this.nameLabel = new System.Windows.Forms.Label();
             this.nurseDashboardTabControl = new System.Windows.Forms.TabControl();
             this.searchPatientsTabPage = new System.Windows.Forms.TabPage();
-            this.addPatientTabPage = new System.Windows.Forms.TabPage();
-            this.appointmentTabPage = new System.Windows.Forms.TabPage();
-            this.visitInformationTabPage = new System.Windows.Forms.TabPage();
             this.searchPatientUserControl1 = new ClinicSupport.UserControls.SearchPatientUserControl();
+            this.addPatientTabPage = new System.Windows.Forms.TabPage();
             this.addPatientUserControl1 = new ClinicSupport.UserControls.AddPatientUserControl();
+            this.appointmentTabPage = new System.Windows.Forms.TabPage();
             this.viewAppointmentsByPatientIDUserControl1 = new ClinicSupport.UserControls.ViewAppointmentsByPatientIDUserControl();
+            this.visitInformationTabPage = new System.Windows.Forms.TabPage();
             this.visitInformationUserControl2 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.visitInformationUserControl1 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.tableLayoutPanel1.SuspendLayout();
@@ -117,40 +117,6 @@ namespace ClinicSupport.View
             this.searchPatientsTabPage.Text = "Search Patients";
             this.searchPatientsTabPage.UseVisualStyleBackColor = true;
             // 
-            // addPatientTabPage
-            // 
-            this.addPatientTabPage.Controls.Add(this.addPatientUserControl1);
-            this.addPatientTabPage.Location = new System.Drawing.Point(4, 29);
-            this.addPatientTabPage.Name = "addPatientTabPage";
-            this.addPatientTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.addPatientTabPage.Size = new System.Drawing.Size(906, 537);
-            this.addPatientTabPage.TabIndex = 1;
-            this.addPatientTabPage.Text = "Add Patient";
-            this.addPatientTabPage.UseVisualStyleBackColor = true;
-            // 
-            // appointmentTabPage
-            // 
-            this.appointmentTabPage.Controls.Add(this.viewAppointmentsByPatientIDUserControl1);
-            this.appointmentTabPage.Location = new System.Drawing.Point(4, 29);
-            this.appointmentTabPage.Margin = new System.Windows.Forms.Padding(1);
-            this.appointmentTabPage.Name = "appointmentTabPage";
-            this.appointmentTabPage.Size = new System.Drawing.Size(906, 537);
-            this.appointmentTabPage.TabIndex = 3;
-            this.appointmentTabPage.Text = "Appointment Info";
-            this.appointmentTabPage.UseVisualStyleBackColor = true;
-            // 
-            // visitInformationTabPage
-            // 
-            this.visitInformationTabPage.Controls.Add(this.visitInformationUserControl2);
-            this.visitInformationTabPage.Controls.Add(this.visitInformationUserControl1);
-            this.visitInformationTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visitInformationTabPage.Location = new System.Drawing.Point(4, 29);
-            this.visitInformationTabPage.Name = "visitInformationTabPage";
-            this.visitInformationTabPage.Size = new System.Drawing.Size(906, 537);
-            this.visitInformationTabPage.TabIndex = 2;
-            this.visitInformationTabPage.Text = "Visit Information";
-            this.visitInformationTabPage.UseVisualStyleBackColor = true;
-            // 
             // searchPatientUserControl1
             // 
             this.searchPatientUserControl1.Location = new System.Drawing.Point(7, 8);
@@ -158,6 +124,17 @@ namespace ClinicSupport.View
             this.searchPatientUserControl1.Name = "searchPatientUserControl1";
             this.searchPatientUserControl1.Size = new System.Drawing.Size(914, 521);
             this.searchPatientUserControl1.TabIndex = 0;
+            // 
+            // addPatientTabPage
+            // 
+            this.addPatientTabPage.Controls.Add(this.addPatientUserControl1);
+            this.addPatientTabPage.Location = new System.Drawing.Point(4, 29);
+            this.addPatientTabPage.Name = "addPatientTabPage";
+            this.addPatientTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.addPatientTabPage.Size = new System.Drawing.Size(928, 537);
+            this.addPatientTabPage.TabIndex = 1;
+            this.addPatientTabPage.Text = "Add Patient";
+            this.addPatientTabPage.UseVisualStyleBackColor = true;
             // 
             // addPatientUserControl1
             // 
@@ -167,6 +144,17 @@ namespace ClinicSupport.View
             this.addPatientUserControl1.Size = new System.Drawing.Size(582, 376);
             this.addPatientUserControl1.TabIndex = 0;
             // 
+            // appointmentTabPage
+            // 
+            this.appointmentTabPage.Controls.Add(this.viewAppointmentsByPatientIDUserControl1);
+            this.appointmentTabPage.Location = new System.Drawing.Point(4, 29);
+            this.appointmentTabPage.Margin = new System.Windows.Forms.Padding(1);
+            this.appointmentTabPage.Name = "appointmentTabPage";
+            this.appointmentTabPage.Size = new System.Drawing.Size(928, 537);
+            this.appointmentTabPage.TabIndex = 3;
+            this.appointmentTabPage.Text = "Appointment Info";
+            this.appointmentTabPage.UseVisualStyleBackColor = true;
+            // 
             // viewAppointmentsByPatientIDUserControl1
             // 
             this.viewAppointmentsByPatientIDUserControl1.Location = new System.Drawing.Point(5, 7);
@@ -174,6 +162,18 @@ namespace ClinicSupport.View
             this.viewAppointmentsByPatientIDUserControl1.Name = "viewAppointmentsByPatientIDUserControl1";
             this.viewAppointmentsByPatientIDUserControl1.Size = new System.Drawing.Size(778, 539);
             this.viewAppointmentsByPatientIDUserControl1.TabIndex = 0;
+            // 
+            // visitInformationTabPage
+            // 
+            this.visitInformationTabPage.Controls.Add(this.visitInformationUserControl2);
+            this.visitInformationTabPage.Controls.Add(this.visitInformationUserControl1);
+            this.visitInformationTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visitInformationTabPage.Location = new System.Drawing.Point(4, 29);
+            this.visitInformationTabPage.Name = "visitInformationTabPage";
+            this.visitInformationTabPage.Size = new System.Drawing.Size(928, 537);
+            this.visitInformationTabPage.TabIndex = 2;
+            this.visitInformationTabPage.Text = "Visit Information";
+            this.visitInformationTabPage.UseVisualStyleBackColor = true;
             // 
             // visitInformationUserControl2
             // 
@@ -192,7 +192,7 @@ namespace ClinicSupport.View
             this.visitInformationUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.visitInformationUserControl1.Name = "visitInformationUserControl1";
             this.visitInformationUserControl1.Nurse = null;
-            this.visitInformationUserControl1.Size = new System.Drawing.Size(0, 7);
+            this.visitInformationUserControl1.Size = new System.Drawing.Size(0, 0);
             this.visitInformationUserControl1.TabIndex = 0;
             // 
             // NurseDashboard
@@ -209,6 +209,7 @@ namespace ClinicSupport.View
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NurseDashboard";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nurse Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_FormClosed);
