@@ -50,6 +50,11 @@ namespace ClinicSupport.Controller
             return newIndividualID;
         }
 
+        /// <summary>
+        /// Updates an Individual object in the DAL
+        /// </summary>
+        /// <param name="newIndividual">the individual to be updated</param>
+        /// <returns>true if the DAL updates properly </returns>
         public bool UpdateIndividual(Individual newIndividual)
         {
             if (newIndividual == null)

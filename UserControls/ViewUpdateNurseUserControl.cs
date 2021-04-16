@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl to view and update nurse information
+    /// </summary>
     public partial class ViewUpdateNurseUserControl : UserControl
     {
         private readonly Dictionary<string, string> states;
@@ -15,6 +18,9 @@ namespace ClinicSupport.UserControls
         private Individual individual;
         private Nurse nurse;
 
+        /// <summary>
+        /// 0-parameter constructor for ViewUpdateNurseUserControl
+        /// </summary>
         public ViewUpdateNurseUserControl()
         {
             InitializeComponent();

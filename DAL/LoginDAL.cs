@@ -44,6 +44,12 @@ namespace ClinicSupport.DAL
             return newUser;
         }
 
+        /// <summary>
+        /// Sets a new password in the DB for an employee
+        /// </summary>
+        /// <param name="username">the individual's username</param>
+        /// <param name="password">the individual's new password</param>
+        /// <returns>true if the DB successfully sets a new password</returns>
         public bool SetLoginInformation(string username, string password)
         {
             string updateStatement = "UPDATE dbo.Login SET password = @password WHERE username = @username;";

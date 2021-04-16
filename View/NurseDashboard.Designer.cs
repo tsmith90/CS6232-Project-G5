@@ -104,7 +104,6 @@ namespace ClinicSupport.View
             this.nurseDashboardTabControl.SelectedIndex = 0;
             this.nurseDashboardTabControl.Size = new System.Drawing.Size(936, 570);
             this.nurseDashboardTabControl.TabIndex = 3;
-            this.nurseDashboardTabControl.SelectedIndexChanged += new System.EventHandler(this.NurseDashboardTabControl_SelectedIndexChanged);
             // 
             // searchPatientsTabPage
             // 

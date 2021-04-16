@@ -6,11 +6,17 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl for Adding Nurses to the DB
+    /// </summary>
     public partial class AddNurseUserControl : UserControl
     {
+
         private readonly Dictionary<string, string> states;
 
-
+        /// <summary>
+        /// 0-parameter constructor for the AddNurseUserControl
+        /// </summary>
         public AddNurseUserControl()
         {
             InitializeComponent();
@@ -23,6 +29,9 @@ namespace ClinicSupport.UserControls
             ClearControls();
         }
 
+        /// <summary>
+        /// Method to reset the UserControl controls
+        /// </summary>
         public void ClearControls()
         {
             firstNameTextBox.Text = "";

@@ -50,13 +50,5 @@ namespace ClinicSupport.View
         {
             Hide();
         }
-
-        private void NurseDashboardTabControl_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            if (nurseDashboardTabControl.SelectedTab == nurseDashboardTabControl.TabPages["visitInformationTabPage"])
-            {
-                
-            }
-        }
     }
 }

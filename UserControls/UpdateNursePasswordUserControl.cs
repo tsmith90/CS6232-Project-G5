@@ -5,12 +5,18 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl to update a nurse password in the DB
+    /// </summary>
     public partial class UpdateNursePasswordUserControl : UserControl
     {
         private Nurse nurse;
         private readonly NurseController nurseController;
         private readonly LoginController loginController;
 
+        /// <summary>
+        /// 0-parameter constructor for UpdateNursePasswordUserControl
+        /// </summary>
         public UpdateNursePasswordUserControl()
         {
             InitializeComponent();
@@ -57,6 +63,9 @@ namespace ClinicSupport.UserControls
             updateLoginButton.Enabled = true;
         }
 
+        /// <summary>
+        /// Clears the current controls' content
+        /// </summary>
         public void ClearControls()
         {
             findUserTextbox.Text = "";

@@ -88,6 +88,11 @@ namespace ClinicSupport.DAL
             }
         }
 
+        /// <summary>
+        /// Updates an Individual's information in the DB
+        /// </summary>
+        /// <param name="newIndividual">the individual to be updated</param>
+        /// <returns>true if the DB successfully updates the individual</returns>
         public bool UpdateIndividual(Individual newIndividual)
         {
             string updateStatement = 
@@ -138,10 +143,6 @@ namespace ClinicSupport.DAL
                         return false;
                 }
             }
-
-
-
-            return false;
         }
     }
 }

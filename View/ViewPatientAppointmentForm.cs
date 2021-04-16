@@ -17,6 +17,5 @@ namespace ClinicSupport.View
             InitializeComponent();
             _currentPatientID = this.viewAppointmentsByPatientIDUserControl1.GetCurrentPatientID();
         }
-
     }
 }

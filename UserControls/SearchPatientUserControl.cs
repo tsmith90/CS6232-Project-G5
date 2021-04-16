@@ -13,7 +13,6 @@ namespace ClinicSupport.UserControls
     public partial class SearchPatientUserControl : UserControl
     {
         private readonly PatientController patientController;
-
         private List<Individual> patients;
 
         /// <summary>

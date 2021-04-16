@@ -40,6 +40,12 @@ namespace ClinicSupport.Controller
             return information;
         }
 
+        /// <summary>
+        /// Sets a new password in the DAL for an employee
+        /// </summary>
+        /// <param name="username">the individual's username</param>
+        /// <param name="password">the individual's new password</param>
+        /// <returns>true if the DAl successfully sets a new password</returns>
         public bool SetLoginInformation(string username, string password)
         {
             if (username == null || password == null)

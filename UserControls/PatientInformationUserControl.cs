@@ -19,7 +19,7 @@ namespace ClinicSupport.UserControls
         private Individual individual;
 
         /// <summary>
-        /// 0 parameter contructor
+        /// 0 parameter contructor for PatientInformationUserControl
         /// </summary>
         public PatientInformationUserControl()
         {
@@ -310,6 +310,11 @@ namespace ClinicSupport.UserControls
             this.individual.State = state;
             this.individual.ZipCode = zip.ToString();
         }
+
+        /// <summary>
+        /// Method to return a Dialog result
+        /// </summary>
+        /// <returns>true</returns>
         public Boolean ReturnDialogResultOK()
         {
             return true;
