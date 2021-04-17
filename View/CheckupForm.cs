@@ -200,8 +200,6 @@ namespace ClinicSupport.View
         {
             Visit newVisit = new Visit();
 
-            try
-            {
                 newVisit.PatientID = visit.PatientID;
                 newVisit.DateTime = visit.DateTime;
                 newVisit.NurseID = Int32.Parse(nurseTextBox.Text);
@@ -228,7 +226,7 @@ namespace ClinicSupport.View
                 } 
                 else if (String.IsNullOrEmpty(symptomsTextBox.Text))
                 {
-                    newVisit.Symptoms = visit.Symptoms;
+                    throw new Exception("Please fill out symptoms");
                 }
                 else
                 {
@@ -252,7 +250,7 @@ namespace ClinicSupport.View
                 }
                 else if (String.IsNullOrEmpty(initialDiagnosisTextBox.Text))
                 {
-                    newVisit.InitialDiagnosis = visit.InitialDiagnosis;
+                    throw new Exception("Please fill out an initial diagnosis");
                 }
                 else
                 {
@@ -273,17 +271,15 @@ namespace ClinicSupport.View
                     {
                         throw new Exception();
                     }
-                } 
+                }
+                else if (String.IsNullOrEmpty(finalDiagnosisTextBox.Text))
+                {
+                    newVisit.FinalDiagnosis = "None currently entered";
+                }
                 else
                 {
                     newVisit.FinalDiagnosis = finalDiagnosisTextBox.Text;
                 }
-
-            } 
-            catch
-            {
-                throw new Exception("Some of your information is incorrect. Please try again");
-            }
 
             return newVisit;
         }

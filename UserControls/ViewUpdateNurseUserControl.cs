@@ -45,6 +45,9 @@ namespace ClinicSupport.UserControls
             ClearControls();
         }
 
+        /// <summary>
+        /// Method to clear controls to default values
+        /// </summary>
         public void ClearControls()
         {
             firstNameTextbox.Text = "";
@@ -230,20 +233,21 @@ namespace ClinicSupport.UserControls
 
         private void UpdateNurse()
         {
-            Individual newIndividual = new Individual();
+            Individual newIndividual = new Individual
+            {
+                IndividualID = nurse.IndividualID,
+                FirstName = firstNameTextbox.Text,
+                LastName = lastNameTextbox.Text,
+                StreetAddress = addressTextbox.Text,
+                City = cityTextbox.Text,
+                State = states[stateComboBox.SelectedItem.ToString()],
+                ZipCode = zipTextbox.Text,
+                DateOfBirth = dateOfBirthTimePicker.Value,
+                SSN = ssnTextbox.Text,
+                PhoneNumber = phoneTextbox.Text
+            };
 
-            newIndividual.IndividualID = nurse.IndividualID;
-            newIndividual.FirstName = firstNameTextbox.Text;
-            newIndividual.LastName = lastNameTextbox.Text;
-            newIndividual.StreetAddress = addressTextbox.Text;
-            newIndividual.City = cityTextbox.Text;
-            newIndividual.State = states[stateComboBox.SelectedItem.ToString()];
-            newIndividual.ZipCode = zipTextbox.Text;
-            newIndividual.DateOfBirth = dateOfBirthTimePicker.Value;
-            newIndividual.SSN = ssnTextbox.Text;
-            newIndividual.PhoneNumber = phoneTextbox.Text;
-
-            if(individualController.UpdateIndividual(newIndividual))
+            if (individualController.UpdateIndividual(newIndividual))
             {
                 errorLabel.Text = "Nurse was successfully updated";
             }

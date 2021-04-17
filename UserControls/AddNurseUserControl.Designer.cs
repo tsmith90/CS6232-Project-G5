@@ -40,23 +40,23 @@ namespace ClinicSupport.UserControls
             this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.zipTextBox = new System.Windows.Forms.TextBox();
             this.zipLabel = new System.Windows.Forms.Label();
-            this.addNurseButton = new System.Windows.Forms.Button();
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.addressLabel = new System.Windows.Forms.Label();
             this.dateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.dobLabel = new System.Windows.Forms.Label();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.phoneLabel = new System.Windows.Forms.Label();
-            this.clearButton = new System.Windows.Forms.Button();
             this.ssnLabel = new System.Windows.Forms.Label();
             this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.addNurseButton = new System.Windows.Forms.Button();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.confirmPasswordLabel = new System.Windows.Forms.Label();
             this.confirmPasswordTextbox = new System.Windows.Forms.TextBox();
+            this.clearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -204,17 +204,6 @@ namespace ClinicSupport.UserControls
             this.zipLabel.TabIndex = 14;
             this.zipLabel.Text = "Zip Code";
             // 
-            // addNurseButton
-            // 
-            this.addNurseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addNurseButton.Location = new System.Drawing.Point(390, 270);
-            this.addNurseButton.Name = "addNurseButton";
-            this.addNurseButton.Size = new System.Drawing.Size(117, 45);
-            this.addNurseButton.TabIndex = 18;
-            this.addNurseButton.Text = "Add Nurse";
-            this.addNurseButton.UseVisualStyleBackColor = true;
-            this.addNurseButton.Click += new System.EventHandler(this.AddNurseButton_Click);
-            // 
             // addressTextBox
             // 
             this.addressTextBox.Location = new System.Drawing.Point(343, 65);
@@ -238,7 +227,7 @@ namespace ClinicSupport.UserControls
             this.dateOfBirthTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOfBirthTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateOfBirthTimePicker.Location = new System.Drawing.Point(29, 220);
-            this.dateOfBirthTimePicker.MaxDate = new System.DateTime(2021, 4, 15, 0, 0, 0, 0);
+            this.dateOfBirthTimePicker.MaxDate = new System.DateTime(2060, 9, 25, 0, 0, 0, 0);
             this.dateOfBirthTimePicker.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
             this.dateOfBirthTimePicker.Name = "dateOfBirthTimePicker";
             this.dateOfBirthTimePicker.Size = new System.Drawing.Size(144, 26);
@@ -273,17 +262,6 @@ namespace ClinicSupport.UserControls
             this.phoneLabel.TabIndex = 12;
             this.phoneLabel.Text = "Phone";
             // 
-            // clearButton
-            // 
-            this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.clearButton.Location = new System.Drawing.Point(220, 270);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(117, 45);
-            this.clearButton.TabIndex = 17;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
-            // 
             // ssnLabel
             // 
             this.ssnLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -311,6 +289,17 @@ namespace ClinicSupport.UserControls
             this.errorLabel.Size = new System.Drawing.Size(736, 31);
             this.errorLabel.TabIndex = 16;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // addNurseButton
+            // 
+            this.addNurseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addNurseButton.Location = new System.Drawing.Point(390, 270);
+            this.addNurseButton.Name = "addNurseButton";
+            this.addNurseButton.Size = new System.Drawing.Size(117, 45);
+            this.addNurseButton.TabIndex = 18;
+            this.addNurseButton.Text = "Add Nurse";
+            this.addNurseButton.UseVisualStyleBackColor = true;
+            this.addNurseButton.Click += new System.EventHandler(this.AddNurseButton_Click);
             // 
             // usernameLabel
             // 
@@ -365,6 +354,17 @@ namespace ClinicSupport.UserControls
             this.confirmPasswordTextbox.Size = new System.Drawing.Size(210, 26);
             this.confirmPasswordTextbox.TabIndex = 26;
             this.confirmPasswordTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
+            // 
+            // clearButton
+            // 
+            this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearButton.Location = new System.Drawing.Point(220, 270);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(117, 45);
+            this.clearButton.TabIndex = 17;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // AddNurseUserControl
             // 
