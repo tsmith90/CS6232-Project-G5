@@ -8,7 +8,7 @@ namespace ClinicSupport.UserControls
     /// <summary>
     /// UserControl to update a nurse password in the DB
     /// </summary>
-    public partial class UpdateNursePasswordUserControl : UserControl
+    public partial class UpdateNurseLoginUserControl : UserControl
     {
         private Nurse nurse;
         private readonly NurseController nurseController;
@@ -17,7 +17,7 @@ namespace ClinicSupport.UserControls
         /// <summary>
         /// 0-parameter constructor for UpdateNursePasswordUserControl
         /// </summary>
-        public UpdateNursePasswordUserControl()
+        public UpdateNurseLoginUserControl()
         {
             InitializeComponent();
             SetControls();
@@ -52,6 +52,7 @@ namespace ClinicSupport.UserControls
         private void SetControls()
         {
             newPasswordTextbox.ReadOnly = true;
+            newUsernameTextbox.ReadOnly = true;
             confirmPasswordTextbox.ReadOnly = true;
             updateLoginButton.Enabled = false;
         }
@@ -59,6 +60,7 @@ namespace ClinicSupport.UserControls
         private void OpenControls()
         {
             newPasswordTextbox.ReadOnly = false;
+            newUsernameTextbox.ReadOnly = false;
             confirmPasswordTextbox.ReadOnly = false;
             updateLoginButton.Enabled = true;
         }
@@ -69,6 +71,7 @@ namespace ClinicSupport.UserControls
         public void ClearControls()
         {
             findUserTextbox.Text = "";
+            newUsernameTextbox.Text = "";
             newPasswordTextbox.Text = "";
             confirmPasswordTextbox.Text = "";
             errorLabel.Text = "";
@@ -82,9 +85,13 @@ namespace ClinicSupport.UserControls
 
         private void UpdatePasswordButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(newPasswordTextbox.Text) && string.IsNullOrEmpty(confirmPasswordTextbox.Text)) 
+            if (string.IsNullOrEmpty(newUsernameTextbox.Text) && string.IsNullOrEmpty(newPasswordTextbox.Text) && string.IsNullOrEmpty(confirmPasswordTextbox.Text)) 
             {
-                errorLabel.Text = "Please enter a valid update for the password";
+                errorLabel.Text = "Please enter a valid update";
+            }
+            else if (string.IsNullOrEmpty(newUsernameTextbox.Text) || string.IsNullOrEmpty(newPasswordTextbox.Text) || string.IsNullOrEmpty(confirmPasswordTextbox.Text))
+            {
+                errorLabel.Text = "Please enter a valid update";
             }
             else if (!newPasswordTextbox.Text.Equals(confirmPasswordTextbox.Text))
             {
@@ -92,7 +99,7 @@ namespace ClinicSupport.UserControls
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to update this user password?", "Confirm Password Update", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to update this user?", "Confirm Update", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     try
@@ -114,15 +121,16 @@ namespace ClinicSupport.UserControls
         private void UpdateNurse()
         {
             string username = nurse.Username;
+            string newUsername = newUsernameTextbox.Text;
             string password = confirmPasswordTextbox.Text;
             
-            if(loginController.SetLoginInformation(username, password))
+            if(loginController.SetLoginInformation(username, newUsername, password))
             {
-                errorLabel.Text = "Nurse's password was successfully updated";
+                errorLabel.Text = "Nurse's Login was successfully updated";
             }
             else
             {
-                errorLabel.Text = "Nurse's password was not updated";
+                errorLabel.Text = "Nurse's Login was not updated";
             }
         }
     }

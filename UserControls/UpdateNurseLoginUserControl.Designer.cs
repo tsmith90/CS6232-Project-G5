@@ -1,7 +1,7 @@
 ﻿
 namespace ClinicSupport.UserControls
 {
-    partial class UpdateNursePasswordUserControl
+    partial class UpdateNurseLoginUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -40,6 +40,8 @@ namespace ClinicSupport.UserControls
             this.errorLabel = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.updateLoginButton = new System.Windows.Forms.Button();
+            this.newUsernameTextbox = new System.Windows.Forms.TextBox();
+            this.newUsernameLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,16 +65,18 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.Controls.Add(this.errorLabel, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.clearButton, 2, 6);
             this.tableLayoutPanel1.Controls.Add(this.updateLoginButton, 3, 6);
+            this.tableLayoutPanel1.Controls.Add(this.newUsernameTextbox, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.newUsernameLabel, 2, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 349);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -105,7 +109,7 @@ namespace ClinicSupport.UserControls
             // 
             // newPasswordLabel
             // 
-            this.newPasswordLabel.Location = new System.Drawing.Point(109, 114);
+            this.newPasswordLabel.Location = new System.Drawing.Point(109, 132);
             this.newPasswordLabel.Name = "newPasswordLabel";
             this.newPasswordLabel.Size = new System.Drawing.Size(154, 25);
             this.newPasswordLabel.TabIndex = 5;
@@ -114,7 +118,7 @@ namespace ClinicSupport.UserControls
             // 
             // newPasswordTextbox
             // 
-            this.newPasswordTextbox.Location = new System.Drawing.Point(269, 117);
+            this.newPasswordTextbox.Location = new System.Drawing.Point(269, 135);
             this.newPasswordTextbox.Name = "newPasswordTextbox";
             this.newPasswordTextbox.Size = new System.Drawing.Size(220, 26);
             this.newPasswordTextbox.TabIndex = 6;
@@ -123,7 +127,7 @@ namespace ClinicSupport.UserControls
             // 
             // confirmPasswordLabel
             // 
-            this.confirmPasswordLabel.Location = new System.Drawing.Point(109, 155);
+            this.confirmPasswordLabel.Location = new System.Drawing.Point(109, 177);
             this.confirmPasswordLabel.Name = "confirmPasswordLabel";
             this.confirmPasswordLabel.Size = new System.Drawing.Size(154, 25);
             this.confirmPasswordLabel.TabIndex = 7;
@@ -132,7 +136,7 @@ namespace ClinicSupport.UserControls
             // 
             // confirmPasswordTextbox
             // 
-            this.confirmPasswordTextbox.Location = new System.Drawing.Point(269, 158);
+            this.confirmPasswordTextbox.Location = new System.Drawing.Point(269, 180);
             this.confirmPasswordTextbox.Name = "confirmPasswordTextbox";
             this.confirmPasswordTextbox.Size = new System.Drawing.Size(220, 26);
             this.confirmPasswordTextbox.TabIndex = 8;
@@ -143,15 +147,15 @@ namespace ClinicSupport.UserControls
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 4);
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(23, 191);
+            this.errorLabel.Location = new System.Drawing.Point(23, 239);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(708, 54);
+            this.errorLabel.Size = new System.Drawing.Size(708, 30);
             this.errorLabel.TabIndex = 9;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(109, 257);
+            this.clearButton.Location = new System.Drawing.Point(109, 278);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(154, 51);
             this.clearButton.TabIndex = 10;
@@ -162,13 +166,31 @@ namespace ClinicSupport.UserControls
             // updateLoginButton
             // 
             this.updateLoginButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.updateLoginButton.Location = new System.Drawing.Point(334, 257);
+            this.updateLoginButton.Location = new System.Drawing.Point(334, 278);
             this.updateLoginButton.Name = "updateLoginButton";
             this.updateLoginButton.Size = new System.Drawing.Size(155, 51);
             this.updateLoginButton.TabIndex = 11;
-            this.updateLoginButton.Text = "Update Password";
+            this.updateLoginButton.Text = "Update Login";
             this.updateLoginButton.UseVisualStyleBackColor = true;
             this.updateLoginButton.Click += new System.EventHandler(this.UpdatePasswordButton_Click);
+            // 
+            // newUsernameTextbox
+            // 
+            this.newUsernameTextbox.Location = new System.Drawing.Point(269, 96);
+            this.newUsernameTextbox.Name = "newUsernameTextbox";
+            this.newUsernameTextbox.Size = new System.Drawing.Size(220, 26);
+            this.newUsernameTextbox.TabIndex = 13;
+            this.newUsernameTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
+            // 
+            // newUsernameLabel
+            // 
+            this.newUsernameLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.newUsernameLabel.Location = new System.Drawing.Point(109, 98);
+            this.newUsernameLabel.Name = "newUsernameLabel";
+            this.newUsernameLabel.Size = new System.Drawing.Size(154, 28);
+            this.newUsernameLabel.TabIndex = 12;
+            this.newUsernameLabel.Text = "New Username:";
+            this.newUsernameLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // UpdateNursePasswordUserControl
             // 
@@ -197,5 +219,7 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button updateLoginButton;
+        private System.Windows.Forms.TextBox newUsernameTextbox;
+        private System.Windows.Forms.Label newUsernameLabel;
     }
 }

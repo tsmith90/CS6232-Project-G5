@@ -48,17 +48,21 @@ namespace ClinicSupport.DAL
         /// Sets a new password in the DB for an employee
         /// </summary>
         /// <param name="username">the individual's username</param>
+        /// <param name="newUsername">the individual's new username</param>
         /// <param name="password">the individual's new password</param>
         /// <returns>true if the DB successfully sets a new password</returns>
-        public bool SetLoginInformation(string username, string password)
+        public bool SetLoginInformation(string username, string newUsername, string password)
         {
-            string updateStatement = "UPDATE dbo.Login SET password = @password WHERE username = @username;";
+            string updateStatement = "UPDATE dbo.Login SET username = @newUsername, password = @password WHERE username = @username;";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(updateStatement, connection))
                 {
+                    selectCommand.Parameters.Add("@newUsername", System.Data.SqlDbType.VarChar);
+                    selectCommand.Parameters["@newUsername"].Value = newUsername;
+
                     selectCommand.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
                     selectCommand.Parameters["@username"].Value = username;
 

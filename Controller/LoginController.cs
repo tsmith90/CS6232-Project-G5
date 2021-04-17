@@ -44,18 +44,19 @@ namespace ClinicSupport.Controller
         /// Sets a new password in the DAL for an employee
         /// </summary>
         /// <param name="username">the individual's username</param>
+        /// <param name="newUsername">the individual's new username</param> 
         /// <param name="password">the individual's new password</param>
         /// <returns>true if the DAl successfully sets a new password</returns>
-        public bool SetLoginInformation(string username, string password)
+        public bool SetLoginInformation(string username, string newUsername, string password)
         {
-            if (username == null || password == null)
+            if (username == null || newUsername == null || password == null)
             {
                 throw new ArgumentNullException("Please enter valid login information");
             }
 
-            string newPassword = HashPassword(username, password);
+            string newPassword = HashPassword(newUsername, password);
 
-            return loginDAL.SetLoginInformation(username, newPassword);
+            return loginDAL.SetLoginInformation(username, newUsername, newPassword);
         }
 
         /// <summary>
@@ -74,6 +75,7 @@ namespace ClinicSupport.Controller
                             prf: KeyDerivationPrf.HMACSHA256,
                             iterationCount: 10000,
                             numBytesRequested: 256 / 8));
+
             return hashed;
         }
     }

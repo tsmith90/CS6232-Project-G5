@@ -117,11 +117,11 @@
     <Compile Include="UserControls\ViewAppointmentsByPatientIDUserControl.Designer.cs">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UpdateNursePasswordUserControl.cs">
+    <Compile Include="UserControls\UpdateNurseLoginUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UpdateNursePasswordUserControl.Designer.cs">
-      <DependentUpon>UpdateNursePasswordUserControl.cs</DependentUpon>
+    <Compile Include="UserControls\UpdateNurseLoginUserControl.Designer.cs">
+      <DependentUpon>UpdateNurseLoginUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ViewUpdateNurseUserControl.cs">
       <SubType>UserControl</SubType>
@@ -209,8 +209,8 @@
     <EmbeddedResource Include="UserControls\ViewAppointmentsByPatientIDUserControl.resx">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UpdateNursePasswordUserControl.resx">
-      <DependentUpon>UpdateNursePasswordUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UpdateNurseLoginUserControl.resx">
+      <DependentUpon>UpdateNurseLoginUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ViewUpdateNurseUserControl.resx">
       <DependentUpon>ViewUpdateNurseUserControl.cs</DependentUpon>
