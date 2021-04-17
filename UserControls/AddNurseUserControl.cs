@@ -43,6 +43,9 @@ namespace ClinicSupport.UserControls
             phoneTextBox.Text = "";
             stateComboBox.SelectedIndex = 0;
             errorLabel.Text = "";
+            usernameTextBox.Text = "";
+            passwordTextbox.Text = "";
+            confirmPasswordTextbox.Text = "";
         }
 
         private void SetStateList()
@@ -142,13 +145,29 @@ namespace ClinicSupport.UserControls
             {
                 errorLabel.Text = "Please provide a valid phone number";
             }
+            else if (string.IsNullOrEmpty(usernameTextBox.Text))
+            {
+                errorLabel.Text = "Please provide a valid username";
+            }
+            else if (string.IsNullOrEmpty(passwordTextbox.Text))
+            {
+                errorLabel.Text = "Please provide a valid password";
+            }
+            else if (string.IsNullOrEmpty(confirmPasswordTextbox.Text))
+            {
+                errorLabel.Text = "Please confirm the password";
+            }
+            else if (!passwordTextbox.Text.Equals(confirmPasswordTextbox.Text))
+            {
+                errorLabel.Text = "The passwords don't match!";
+            }
             else
             {
                 try
                 {
-                    int zip = ParseNumbers(zipTextBox.Text, "zip code");
-                    int ssn = ParseNumbers(ssnTextBox.Text, "SSN");
-                    int phone = ParseNumbers(phoneTextBox.Text, "phone number");
+                    long zip = ParseNumbers(zipTextBox.Text, "zip code");
+                    long ssn = ParseNumbers(ssnTextBox.Text, "SSN");
+                    long phone = ParseNumbers(phoneTextBox.Text, "phone number");
 
                     newNurse.ZipCode = zip.ToString();
                     newNurse.SSN = ssn.ToString();
@@ -165,7 +184,6 @@ namespace ClinicSupport.UserControls
 
                     //add newNurse to the DB here
 
-
                 }
                 catch (FormatException ex)
                 {
@@ -179,13 +197,13 @@ namespace ClinicSupport.UserControls
 
         }
 
-        private int ParseNumbers(string numbers, string text)
+        private long ParseNumbers(string numbers, string text)
         {
-            int id;
+            long id;
 
             try
             {
-                id = Int32.Parse(numbers);
+                id = Int64.Parse(numbers);
             }
             catch (FormatException)
             {

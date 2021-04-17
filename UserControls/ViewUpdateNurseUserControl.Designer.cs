@@ -103,9 +103,9 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 121F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 373);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -121,7 +121,7 @@ namespace ClinicSupport.UserControls
             // clearButton
             // 
             this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.clearButton.Location = new System.Drawing.Point(107, 326);
+            this.clearButton.Location = new System.Drawing.Point(107, 301);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(128, 41);
             this.clearButton.TabIndex = 4;
@@ -133,7 +133,7 @@ namespace ClinicSupport.UserControls
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 5);
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(11, 280);
+            this.errorLabel.Location = new System.Drawing.Point(11, 264);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(730, 32);
             this.errorLabel.TabIndex = 3;
@@ -153,7 +153,7 @@ namespace ClinicSupport.UserControls
             // updateButton
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.updateButton, 2);
-            this.updateButton.Location = new System.Drawing.Point(486, 326);
+            this.updateButton.Location = new System.Drawing.Point(486, 301);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(135, 41);
             this.updateButton.TabIndex = 5;

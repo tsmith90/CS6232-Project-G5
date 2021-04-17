@@ -49,7 +49,10 @@ namespace ClinicSupport.UserControls
             errorLabel.Text = "";
         }
 
-        private void SetControls()
+        /// <summary>
+        /// Sets the current controls' to readonly
+        /// </summary>
+        public void SetControls()
         {
             newPasswordTextbox.ReadOnly = true;
             newUsernameTextbox.ReadOnly = true;
