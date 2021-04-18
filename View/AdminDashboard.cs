@@ -33,5 +33,28 @@ namespace ClinicSupport.View
         {
             Application.Exit();
         }
+
+        private void TabControl_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (adminTabControl.SelectedTab == adminTabControl.TabPages["nurseInformationTabPage"])
+            {
+                this.viewUpdateNurseUserControl1.ClearControls();
+                this.viewUpdateNurseUserControl1.SetControls();
+            }
+            else if (adminTabControl.SelectedTab == adminTabControl.TabPages["addNurseTabPage"])
+            {
+                this.addNurseUserControl1.ClearControls();
+            }
+            else if (adminTabControl.SelectedTab == adminTabControl.TabPages["privilegeTabPage"])
+            {
+                this.nursePrivilegesUserControl1.CloseControls();
+                this.nursePrivilegesUserControl1.ClearControls();
+            }
+            else if (adminTabControl.SelectedTab == adminTabControl.TabPages["nurseLoginTabPage"])
+            {
+                this.viewUpdateNurserUserControl1.ClearControls();
+                this.viewUpdateNurserUserControl1.SetControls();
+            }
+        }
     }
 }

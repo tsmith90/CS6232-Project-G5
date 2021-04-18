@@ -83,7 +83,6 @@ namespace ClinicSupport.UserControls
         private void ClearButton_Click(object sender, EventArgs e)
         {
             ClearControls();
-            findUserTextbox.Text = nurse.Username;
         }
 
         private void UpdatePasswordButton_Click(object sender, EventArgs e)
@@ -99,6 +98,10 @@ namespace ClinicSupport.UserControls
             else if (!newPasswordTextbox.Text.Equals(confirmPasswordTextbox.Text))
             {
                 errorLabel.Text = "The passwords do not match";
+            }
+            else if (string.IsNullOrEmpty(findUserTextbox.Text) || !findUserTextbox.Text.Equals(nurse.Username))
+            {
+                errorLabel.Text = "Please don't change the lookup name";
             }
             else
             {

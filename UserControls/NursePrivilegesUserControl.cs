@@ -25,10 +25,23 @@ namespace ClinicSupport.UserControls
             CloseControls();
         }
 
-        private void CloseControls()
+        /// <summary>
+        /// method to set controls to readonly
+        /// </summary>
+        public void CloseControls()
         {
             updateButton.Enabled = false;
             privilegesComboBox.Enabled = false;
+        }
+
+        /// <summary>
+        /// method to clear controls' content
+        /// </summary>
+        public void ClearControls()
+        {
+            privilegesComboBox.DataSource = null;
+            usernameTextBox.Text = "";
+            errorLabel.Text = "";
         }
 
         private void OpenControls()

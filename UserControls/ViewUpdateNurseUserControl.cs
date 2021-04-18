@@ -50,6 +50,7 @@ namespace ClinicSupport.UserControls
         /// </summary>
         public void ClearControls()
         {
+            findNurseTextBox.Text = "";
             firstNameTextbox.Text = "";
             lastNameTextbox.Text = "";
             dateOfBirthTimePicker.Value = DateTime.Now;
@@ -171,7 +172,10 @@ namespace ClinicSupport.UserControls
             }
         }
 
-        private void SetControls()
+        /// <summary>
+        /// Method to set controls to readonly
+        /// </summary>
+        public void SetControls()
         {
             firstNameTextbox.Enabled = false;
             lastNameTextbox.Enabled = false;
