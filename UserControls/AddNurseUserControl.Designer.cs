@@ -335,6 +335,7 @@ namespace ClinicSupport.UserControls
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Size = new System.Drawing.Size(210, 26);
             this.passwordTextbox.TabIndex = 24;
+            this.passwordTextbox.UseSystemPasswordChar = true;
             this.passwordTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // confirmPasswordLabel
@@ -353,6 +354,7 @@ namespace ClinicSupport.UserControls
             this.confirmPasswordTextbox.Name = "confirmPasswordTextbox";
             this.confirmPasswordTextbox.Size = new System.Drawing.Size(210, 26);
             this.confirmPasswordTextbox.TabIndex = 26;
+            this.confirmPasswordTextbox.UseSystemPasswordChar = true;
             this.confirmPasswordTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // clearButton

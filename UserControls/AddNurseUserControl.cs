@@ -1,4 +1,5 @@
-﻿using ClinicSupport.Model;
+﻿using ClinicSupport.Controller;
+using ClinicSupport.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace ClinicSupport.UserControls
     {
 
         private readonly Dictionary<string, string> states;
+        private readonly NurseController nurseController;
         private readonly States statesList;
 
 
@@ -23,6 +25,7 @@ namespace ClinicSupport.UserControls
         {
             InitializeComponent();
             statesList = new States();
+            nurseController = new NurseController();
             states = statesList.SetStates();
             SetStateList();
         }
@@ -127,8 +130,19 @@ namespace ClinicSupport.UserControls
                     newNurse.State = state;
                     newNurse.DateOfBirth = dateOfBirthTimePicker.Value;
 
+                    string user = usernameTextBox.Text;
+                    string password = confirmPasswordTextbox.Text;
 
-                    //add newNurse to the DB here
+
+                    if(nurseController.AddNurse(newNurse, user, password))
+                    {
+                        ClearControls();
+                        errorLabel.Text = "Nurse successfully added";
+                    }
+                    else
+                    {
+                        errorLabel.Text = "Nurse not added. There was a problem with the information";
+                    }
 
                 }
                 catch (FormatException ex)
@@ -140,7 +154,6 @@ namespace ClinicSupport.UserControls
                     errorLabel.Text = ex.Message;
                 }
             }
-
         }
 
         private long ParseNumbers(string numbers, string text)

@@ -65,7 +65,7 @@ namespace ClinicSupport.Controller
         /// <param name = "user">the user's given username</param> 
         /// <param name = "password">the users plain-text password</param> 
         /// <returns>A string with a hash to be stored as a password</returns>
-        private string HashPassword(string user, string password)
+        public string HashPassword(string user, string password)
         {
             byte[] salt = new byte[31/8];
 

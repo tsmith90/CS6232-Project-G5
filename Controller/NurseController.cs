@@ -10,6 +10,7 @@ namespace ClinicSupport.Controller
     class NurseController
     {
         private readonly NurseDAL nurseDAL;
+        private readonly LoginController loginController;
 
         /// <summary>
         /// 0-parameter constructor for the NurseController class
@@ -17,6 +18,7 @@ namespace ClinicSupport.Controller
         public NurseController()
         {
             nurseDAL = new NurseDAL();
+            loginController = new LoginController();
         }
 
         /// <summary>
@@ -47,6 +49,31 @@ namespace ClinicSupport.Controller
             }
 
             return nurseDAL.UpdateNursePrivileges(nurse);
+        }
+
+        /// <summary>
+        /// Method to add a Nurse in the DAL
+        /// </summary>
+        /// <param name = "individual">the Individual object to be passed to the DAL</param> 
+        /// <param name = "user">the username to be passed to the DAL</param> 
+        /// <param name = "password">the password to be hashed then passed to the DAL</param>
+        /// <returns>true if Nurse is added successfully in the DAL</returns>
+        public bool AddNurse(Individual individual, string user, string password)
+        {
+            if (individual == null || string.IsNullOrEmpty(user) || string.IsNullOrEmpty(password))
+            {
+                throw new Exception("please enter valid parameters to AddNurse");
+            }
+
+            try
+            {
+                string hashedPassword = loginController.HashPassword(user, password);
+                return nurseDAL.AddNurse(individual, user, hashedPassword);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

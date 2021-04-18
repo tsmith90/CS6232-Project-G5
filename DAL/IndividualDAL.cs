@@ -59,8 +59,8 @@ namespace ClinicSupport.DAL
         public int AddIndividual(Individual newIndividual)
         {
             string insertStatement =
-                "INSERT INTO Individual (lname, fname, dob, streetAddress, city, state, zip, phone) " +
-                "VALUES (@LastName, @FirstName, @DOB, @Address, @City, @State, @Zip, @Phone);";
+                "INSERT INTO Individual (lname, fname, dob, streetAddress, city, state, zip, phone, ssn) " +
+                "VALUES (@LastName, @FirstName, @DOB, @Address, @City, @State, @Zip, @Phone, @SSN);";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -75,6 +75,7 @@ namespace ClinicSupport.DAL
                     insertCommand.Parameters.AddWithValue("@State", newIndividual.State);
                     insertCommand.Parameters.AddWithValue("@Zip", newIndividual.ZipCode);
                     insertCommand.Parameters.AddWithValue("@Phone", newIndividual.PhoneNumber);
+                    insertCommand.Parameters.AddWithValue("@SSN", newIndividual.SSN);
 
                     insertCommand.ExecuteNonQuery();
                 }

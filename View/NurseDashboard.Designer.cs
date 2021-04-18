@@ -140,7 +140,7 @@ namespace ClinicSupport.View
             this.addPatientUserControl1.Location = new System.Drawing.Point(189, 17);
             this.addPatientUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addPatientUserControl1.Name = "addPatientUserControl1";
-            this.addPatientUserControl1.Size = new System.Drawing.Size(582, 376);
+            this.addPatientUserControl1.Size = new System.Drawing.Size(582, 524);
             this.addPatientUserControl1.TabIndex = 0;
             // 
             // appointmentTabPage
