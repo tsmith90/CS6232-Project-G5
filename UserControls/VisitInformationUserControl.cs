@@ -104,7 +104,7 @@ namespace ClinicSupport.UserControls
 
         private void EnterInformationButton_Click(object sender, EventArgs e)
         {
-            checkupForm.SetNurse(Nurse.Username);
+            checkupForm.SetNurse(Nurse);
             visitListView.Items.Clear();
             patientIDTextBox.Text = "";
             checkupForm.ShowDialog();

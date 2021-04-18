@@ -38,14 +38,14 @@ namespace ClinicSupport.View
         /// Method to set the Nurse object across forms
         /// </summary>
         /// <param name="name">The name of the Nurse</param>
-        public void SetNurse(string name)
+        public void SetNurse(Nurse nurse)
         {
-            if (name == null)
+            if (nurse == null)
             {
-                throw new ArgumentNullException("Please enter a valid nurse name");
+                throw new ArgumentNullException("Please enter a valid nurse");
             }
 
-            nurse = nurseController.GetNurseByUsername(name);
+            this.nurse = nurse;
         }
 
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
