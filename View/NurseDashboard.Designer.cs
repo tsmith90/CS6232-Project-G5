@@ -43,20 +43,23 @@ namespace ClinicSupport.View
             this.visitInformationTabPage = new System.Windows.Forms.TabPage();
             this.visitInformationUserControl2 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.visitInformationUserControl1 = new ClinicSupport.UserControls.VisitInformationUserControl();
+            this.deletePatientTabPage = new System.Windows.Forms.TabPage();
+            this.deletePatientUserControl1 = new ClinicSupport.UserControls.DeletePatientUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.nurseDashboardTabControl.SuspendLayout();
             this.searchPatientsTabPage.SuspendLayout();
             this.addPatientTabPage.SuspendLayout();
             this.appointmentTabPage.SuspendLayout();
             this.visitInformationTabPage.SuspendLayout();
+            this.deletePatientTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 626F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel1.Controls.Add(this.logoutLinkLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.nameLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.nurseDashboardTabControl, 0, 2);
@@ -73,7 +76,7 @@ namespace ClinicSupport.View
             // logoutLinkLabel
             // 
             this.logoutLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutLinkLabel.Location = new System.Drawing.Point(818, 12);
+            this.logoutLinkLabel.Location = new System.Drawing.Point(859, 12);
             this.logoutLinkLabel.Name = "logoutLinkLabel";
             this.logoutLinkLabel.Size = new System.Drawing.Size(77, 34);
             this.logoutLinkLabel.TabIndex = 2;
@@ -99,6 +102,7 @@ namespace ClinicSupport.View
             this.nurseDashboardTabControl.Controls.Add(this.addPatientTabPage);
             this.nurseDashboardTabControl.Controls.Add(this.appointmentTabPage);
             this.nurseDashboardTabControl.Controls.Add(this.visitInformationTabPage);
+            this.nurseDashboardTabControl.Controls.Add(this.deletePatientTabPage);
             this.nurseDashboardTabControl.Location = new System.Drawing.Point(3, 49);
             this.nurseDashboardTabControl.Name = "nurseDashboardTabControl";
             this.nurseDashboardTabControl.SelectedIndex = 0;
@@ -176,7 +180,7 @@ namespace ClinicSupport.View
             // 
             // visitInformationUserControl2
             // 
-            this.visitInformationUserControl2.Location = new System.Drawing.Point(5, 0);
+            this.visitInformationUserControl2.Location = new System.Drawing.Point(15, 18);
             this.visitInformationUserControl2.Name = "visitInformationUserControl2";
             this.visitInformationUserControl2.Nurse = null;
             this.visitInformationUserControl2.Size = new System.Drawing.Size(894, 498);
@@ -193,6 +197,25 @@ namespace ClinicSupport.View
             this.visitInformationUserControl1.Nurse = null;
             this.visitInformationUserControl1.Size = new System.Drawing.Size(0, 0);
             this.visitInformationUserControl1.TabIndex = 0;
+            // 
+            // deletePatientTabPage
+            // 
+            this.deletePatientTabPage.Controls.Add(this.deletePatientUserControl1);
+            this.deletePatientTabPage.Location = new System.Drawing.Point(4, 29);
+            this.deletePatientTabPage.Name = "deletePatientTabPage";
+            this.deletePatientTabPage.Size = new System.Drawing.Size(928, 537);
+            this.deletePatientTabPage.TabIndex = 4;
+            this.deletePatientTabPage.Text = "Delete Patient";
+            this.deletePatientTabPage.UseVisualStyleBackColor = true;
+            // 
+            // deletePatientUserControl1
+            // 
+            this.deletePatientUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletePatientUserControl1.Location = new System.Drawing.Point(17, 24);
+            this.deletePatientUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deletePatientUserControl1.Name = "deletePatientUserControl1";
+            this.deletePatientUserControl1.Size = new System.Drawing.Size(893, 494);
+            this.deletePatientUserControl1.TabIndex = 0;
             // 
             // NurseDashboard
             // 
@@ -218,6 +241,7 @@ namespace ClinicSupport.View
             this.addPatientTabPage.ResumeLayout(false);
             this.appointmentTabPage.ResumeLayout(false);
             this.visitInformationTabPage.ResumeLayout(false);
+            this.deletePatientTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -237,5 +261,7 @@ namespace ClinicSupport.View
         private UserControls.SearchPatientUserControl searchPatientUserControl1;
         private System.Windows.Forms.TabPage appointmentTabPage;
         private UserControls.ViewAppointmentsByPatientIDUserControl viewAppointmentsByPatientIDUserControl1;
+        private System.Windows.Forms.TabPage deletePatientTabPage;
+        private UserControls.DeletePatientUserControl deletePatientUserControl1;
     }
 }

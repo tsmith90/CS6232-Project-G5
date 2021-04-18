@@ -2,6 +2,7 @@
 using ClinicSupport.Model;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace ClinicSupport.Controller
 {
@@ -11,6 +12,7 @@ namespace ClinicSupport.Controller
     class PatientController
     {
         private readonly PatientDAL patientDAL;
+        private readonly IndividualDAL individualDAL;
 
         /// <summary>
         /// 0 parameter constructor for the PatientController class
@@ -18,6 +20,7 @@ namespace ClinicSupport.Controller
         public PatientController()
         {
             patientDAL = new PatientDAL();
+            individualDAL = new IndividualDAL();
         }
 
         /// <summary>
@@ -115,6 +118,40 @@ namespace ClinicSupport.Controller
                 throw new ArgumentNullException("Please make sure all information is entered");
             }
             return patientDAL.UpdatePatient(oldPatient, newPatient);
+        }
+
+        /// <summary>
+        /// Method to retrieve Patient personal information from the DAL
+        /// </summary>
+        /// <param name="pid">The patient id</param>
+        /// <returns>True if individual is successfully updated</returns>
+        public Individual GetPatientInformation(int pid)
+        {
+            if (pid < 0)
+            {
+                throw new Exception("Please use a valid patient id");
+            }
+
+            Patient patient = patientDAL.GetPatientbyID(pid);
+            _ = new Individual();
+            Individual individual;
+            if (patient.IndividualID == 0)
+            {
+                throw new Exception("That patient isn't in the system currently.");
+            }
+            else
+            {
+                try
+                {
+                    individual = individualDAL.GetIndividualbyID(patient.IndividualID);
+                }
+                catch (Exception)
+                {
+                    throw new Exception("That individual was already deleted.");
+                }
+            }
+
+            return individual;
         }
     }
 }

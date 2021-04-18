@@ -144,7 +144,7 @@ namespace ClinicSupport.UserControls
             this.lastNameTextBox.Location = new System.Drawing.Point(180, 65);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(149, 26);
-            this.lastNameTextBox.TabIndex = 3;
+            this.lastNameTextBox.TabIndex = 2;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // cityLabel
@@ -162,7 +162,7 @@ namespace ClinicSupport.UserControls
             this.cityTextBox.Location = new System.Drawing.Point(29, 141);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(144, 26);
-            this.cityTextBox.TabIndex = 9;
+            this.cityTextBox.TabIndex = 5;
             this.cityTextBox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // stateLabel
@@ -182,7 +182,7 @@ namespace ClinicSupport.UserControls
             this.stateComboBox.Location = new System.Drawing.Point(180, 141);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(149, 28);
-            this.stateComboBox.TabIndex = 11;
+            this.stateComboBox.TabIndex = 6;
             this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.Text_TextChanged);
             this.stateComboBox.SelectedValueChanged += new System.EventHandler(this.Text_TextChanged);
             // 
@@ -191,7 +191,7 @@ namespace ClinicSupport.UserControls
             this.zipTextBox.Location = new System.Drawing.Point(343, 141);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(161, 26);
-            this.zipTextBox.TabIndex = 15;
+            this.zipTextBox.TabIndex = 7;
             this.zipTextBox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // zipLabel
@@ -209,7 +209,7 @@ namespace ClinicSupport.UserControls
             this.addressTextBox.Location = new System.Drawing.Point(343, 65);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(161, 26);
-            this.addressTextBox.TabIndex = 7;
+            this.addressTextBox.TabIndex = 3;
             this.addressTextBox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // addressLabel
@@ -231,7 +231,7 @@ namespace ClinicSupport.UserControls
             this.dateOfBirthTimePicker.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
             this.dateOfBirthTimePicker.Name = "dateOfBirthTimePicker";
             this.dateOfBirthTimePicker.Size = new System.Drawing.Size(144, 26);
-            this.dateOfBirthTimePicker.TabIndex = 5;
+            this.dateOfBirthTimePicker.TabIndex = 9;
             this.dateOfBirthTimePicker.Value = new System.DateTime(2021, 4, 15, 0, 0, 0, 0);
             this.dateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.Text_TextChanged);
             // 
@@ -249,7 +249,7 @@ namespace ClinicSupport.UserControls
             this.phoneTextBox.Location = new System.Drawing.Point(343, 220);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(161, 26);
-            this.phoneTextBox.TabIndex = 13;
+            this.phoneTextBox.TabIndex = 11;
             this.phoneTextBox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // phoneLabel
@@ -277,7 +277,7 @@ namespace ClinicSupport.UserControls
             this.ssnTextBox.Location = new System.Drawing.Point(180, 220);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(150, 26);
-            this.ssnTextBox.TabIndex = 20;
+            this.ssnTextBox.TabIndex = 10;
             this.ssnTextBox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // errorLabel
@@ -296,7 +296,7 @@ namespace ClinicSupport.UserControls
             this.addNurseButton.Location = new System.Drawing.Point(390, 270);
             this.addNurseButton.Name = "addNurseButton";
             this.addNurseButton.Size = new System.Drawing.Size(117, 45);
-            this.addNurseButton.TabIndex = 18;
+            this.addNurseButton.TabIndex = 14;
             this.addNurseButton.Text = "Add Nurse";
             this.addNurseButton.UseVisualStyleBackColor = true;
             this.addNurseButton.Click += new System.EventHandler(this.AddNurseButton_Click);
@@ -316,7 +316,7 @@ namespace ClinicSupport.UserControls
             this.usernameTextBox.Location = new System.Drawing.Point(513, 65);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(210, 26);
-            this.usernameTextBox.TabIndex = 22;
+            this.usernameTextBox.TabIndex = 4;
             this.usernameTextBox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // passwordLabel
@@ -334,7 +334,7 @@ namespace ClinicSupport.UserControls
             this.passwordTextbox.Location = new System.Drawing.Point(513, 141);
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Size = new System.Drawing.Size(210, 26);
-            this.passwordTextbox.TabIndex = 24;
+            this.passwordTextbox.TabIndex = 8;
             this.passwordTextbox.UseSystemPasswordChar = true;
             this.passwordTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
@@ -353,7 +353,7 @@ namespace ClinicSupport.UserControls
             this.confirmPasswordTextbox.Location = new System.Drawing.Point(513, 220);
             this.confirmPasswordTextbox.Name = "confirmPasswordTextbox";
             this.confirmPasswordTextbox.Size = new System.Drawing.Size(210, 26);
-            this.confirmPasswordTextbox.TabIndex = 26;
+            this.confirmPasswordTextbox.TabIndex = 12;
             this.confirmPasswordTextbox.UseSystemPasswordChar = true;
             this.confirmPasswordTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
@@ -363,7 +363,7 @@ namespace ClinicSupport.UserControls
             this.clearButton.Location = new System.Drawing.Point(220, 270);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(117, 45);
-            this.clearButton.TabIndex = 17;
+            this.clearButton.TabIndex = 13;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);

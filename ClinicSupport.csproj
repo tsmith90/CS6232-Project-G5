@@ -88,6 +88,12 @@
     <Compile Include="UserControls\AddPatientUserControl.Designer.cs">
       <DependentUpon>AddPatientUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DeletePatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DeletePatientUserControl.Designer.cs">
+      <DependentUpon>DeletePatientUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\NursePrivilegesUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddPatientUserControl.resx">
       <DependentUpon>AddPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DeletePatientUserControl.resx">
+      <DependentUpon>DeletePatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NursePrivilegesUserControl.resx">
       <DependentUpon>NursePrivilegesUserControl.cs</DependentUpon>
