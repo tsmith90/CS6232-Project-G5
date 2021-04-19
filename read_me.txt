@@ -5,9 +5,9 @@ DB Name: CS6232-g5
 Login Information:
 
 Admin Logins:
-1. Username: John / Password: Admin
+1. Username: doe / Password: test1234
 2. Username: Bruce / Password: Wayne
 
 Nurse Logins:
-1. Username: Jane / Password: test1234
+1. Username: jane / Password: test1234
 2. Username: Joe / Password: Dirt
