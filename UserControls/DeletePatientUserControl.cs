@@ -54,7 +54,6 @@ namespace ClinicSupport.UserControls
         /// </summary>
         public void ClearControls()
         {
-            findPatientTextbox.Text = "";
             firstNameTextBox.Text = "";
             lastNameTextBox.Text = "";
             addressTextBox.Text = "";
@@ -82,7 +81,10 @@ namespace ClinicSupport.UserControls
                 zipTextBox.Text = individual.ZipCode;
                 ssnTextBox.Text = individual.SSN;
                 phoneTextBox.Text = individual.PhoneNumber;
-                dateTextBox.Text = individual.DateOfBirth.ToShortDateString();
+                if (individual.DateOfBirth.CompareTo(DateTime.MinValue) > 0)
+                {
+                    dateTextBox.Text = individual.DateOfBirth.ToShortDateString();
+                }
             }
             catch (FormatException)
             {
@@ -101,6 +103,7 @@ namespace ClinicSupport.UserControls
                 if (patientController.DeletePatientWithoutAppointment(id))
                 {
                     ClearControls();
+                    findPatientTextbox.Text = "";
                     errorLabel.Text = "The patient was successfully deleted";
                 }
                 else
