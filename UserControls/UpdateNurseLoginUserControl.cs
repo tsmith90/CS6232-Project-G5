@@ -35,6 +35,7 @@ namespace ClinicSupport.UserControls
             if (nurse.IndividualID != 0)
             {
                 OpenControls();
+                errorLabel.Text = "Nurse found, please enter an update.";
             }
             else
             {
@@ -83,6 +84,7 @@ namespace ClinicSupport.UserControls
         private void ClearButton_Click(object sender, EventArgs e)
         {
             ClearControls();
+            SetControls();
         }
 
         private void UpdatePasswordButton_Click(object sender, EventArgs e)
