@@ -6,12 +6,18 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl for nurses to delete patients who don't have appointments
+    /// </summary>
     public partial class DeletePatientUserControl : UserControl
     {
         private readonly PatientController patientController;
         private readonly States statesList;
         private int id;
 
+        /// <summary>
+        /// 0-parameter constructor for DeletePatientUserControl
+        /// </summary>
         public DeletePatientUserControl()
         {
             InitializeComponent();
@@ -43,8 +49,12 @@ namespace ClinicSupport.UserControls
             ClearControls();
         }
 
-        private void ClearControls()
+        /// <summary>
+        /// Method to Clear all controls in the usercontrol
+        /// </summary>
+        public void ClearControls()
         {
+            findPatientTextbox.Text = "";
             firstNameTextBox.Text = "";
             lastNameTextBox.Text = "";
             addressTextBox.Text = "";
@@ -91,7 +101,6 @@ namespace ClinicSupport.UserControls
                 if (patientController.DeletePatientWithoutAppointment(id))
                 {
                     ClearControls();
-                    findPatientTextbox.Text = "";
                     errorLabel.Text = "The patient was successfully deleted";
                 }
                 else
