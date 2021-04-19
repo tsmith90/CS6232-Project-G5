@@ -39,13 +39,13 @@ namespace ClinicSupport.Controller
         /// <param name="newAppt">newAppt to update</param>
         /// <param name="oldAppt">oldAppt to compare if has changed</param>
         /// <returns>true if sucessful, else false</returns>
-        public bool UpdateAppointmentt(Appointment oldAppt, Appointment newAppt)
+        public bool UpdateAppointment(Appointment oldAppt, Appointment newAppt)
         {
             if (oldAppt == null || newAppt == null)
             {
                 throw new ArgumentNullException("Appointments cannot be null");
             }
-            return this.appointmentDAL.UpdateAppointmentt(oldAppt, newAppt);
+            return this.appointmentDAL.UpdateAppointment(oldAppt, newAppt);
         }
 
         /// <summary>
@@ -75,6 +75,20 @@ namespace ClinicSupport.Controller
                 throw new ArgumentNullException("patientID cannot be a negative number");
             }
             return this.appointmentDAL.GetAppointmentsByPID(patientID);
+        }
+
+        /// <summary>
+        /// Getting list of Appointments for given patientID.
+        /// </summary>
+        /// <param name="patientID">patientID</param>
+        /// <returns>list of Appointments</returns>
+        public Appointment GetAppointmentByID(int patientID, int docID, DateTime apptTime)
+        {
+            if (patientID < 0)
+            {
+                throw new ArgumentNullException("patientID cannot be a negative number");
+            }
+            return this.appointmentDAL.GetAppointmentByID(patientID, docID, apptTime);
         }
     }
 }

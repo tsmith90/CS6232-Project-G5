@@ -17,6 +17,7 @@ namespace ClinicSupport.UserControls
         private readonly PatientController patientController;
         private readonly IndividualController individualController;
         private Patient patient;
+        private Appointment appointment;
 
         public int CurrentPatientID { get; set; }
 
@@ -45,6 +46,7 @@ namespace ClinicSupport.UserControls
         /// <param name="patient">Patient whose information is to be displayed on the user control input fields</param>
         public void SetAppointment(Appointment _appt)
         {
+            this.appointment = _appt;
             if (_appt.PatientID > 0)
             {
                 this.patient = this.patientController.GetPatientByID(_appt.PatientID);
@@ -117,17 +119,30 @@ namespace ClinicSupport.UserControls
                         newAppointment.Time = apptDateTime;
                         newAppointment.Reason = reason;
                         bool apptAdded = false;
-                        apptAdded = this.appointmentController.InsertNewAppointment(newAppointment);
-                        if (apptAdded)
+                        string msg = string.Empty;
+                        if (this.appointment.Time != DateTime.MinValue)
                         {
-                            this.ClearForm();
-                            this.messageLabel.Text = "Appointment is added!";
-                            this.messageLabel.ForeColor = Color.Black;
+                            Appointment oldAppt = this.appointmentController.GetAppointmentByID(this.appointment.PatientID, this.appointment.DoctorID, this.appointment.Time);
+                            apptAdded = this.appointmentController.UpdateAppointment(oldAppt, newAppointment);
+                            msg = "update";
                         }
                         else
                         {
-                            this.messageLabel.Text = "Unable to add the Appointment at this time!";
+                            apptAdded = this.appointmentController.InsertNewAppointment(newAppointment);
+                            msg = "add";
+                        }
+                        if (apptAdded)
+                        {
+                            this.ClearForm();
+                            this.messageLabel.Text = "Appointment is " + msg + "d!";
+                            this.messageLabel.ForeColor = Color.Black;
+                            this.ParentForm.DialogResult = DialogResult.OK;
+                        }
+                        else
+                        {
+                            this.messageLabel.Text = "Unable to  " + msg + " the Appointment at this time!";
                             this.messageLabel.ForeColor = Color.Red;
+                            this.ParentForm.DialogResult = DialogResult.Abort;
                         }
                     }
                     else
@@ -146,7 +161,8 @@ namespace ClinicSupport.UserControls
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.ClearForm();
+            this.ParentForm.DialogResult = DialogResult.Cancel;
+            ((Form)this.TopLevelControl).Close();
         }
 
         private void FillDoctorComboBox()

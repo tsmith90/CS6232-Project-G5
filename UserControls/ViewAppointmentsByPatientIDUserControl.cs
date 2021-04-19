@@ -3,9 +3,9 @@ using ClinicSupport.Model;
 using ClinicSupport.View;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+
 
 namespace ClinicSupport.UserControls
 {
@@ -18,7 +18,6 @@ namespace ClinicSupport.UserControls
         private List<Appointment> appointmentList;
         private readonly AppointmentController appointmentController;
         private readonly PatientController patientController;
-        private NewAppointmentForm _patientAppointmentForm;
 
         /// <summary>
         /// 0-parameter constructor for ViewAppointmentsByPatientIDUserControl
@@ -41,11 +40,22 @@ namespace ClinicSupport.UserControls
             {
                 throw new ArgumentNullException("patientID cannot be a negative number");
             }
-
             try
             {
                 appointmentList = this.appointmentController.GetAppointmentsByPID(patientID);
-                appointmentDataGridView.DataSource = this.GetAppointmentTable();
+                appointmentDataGridView.DataSource = appointmentList;
+
+                DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
+                editButtonColumn.Name = "edit_column";
+                editButtonColumn.HeaderText = "Edit";
+                editButtonColumn.Text = "Edit";
+
+                int columnIndex = 4;
+
+                if (appointmentDataGridView.Columns["edit_column"] == null)
+                {
+                    appointmentDataGridView.Columns.Insert(columnIndex, editButtonColumn);
+                }
             }
             catch (Exception ex)
             {
@@ -55,14 +65,14 @@ namespace ClinicSupport.UserControls
 
         private void AppointmentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string text = appointmentDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            //edit column 
-            if (text == "Edit"){
-
-                var pid = Convert.ToInt32(appointmentDataGridView.Rows[e.RowIndex].Cells[0].Value);
-                var did = Convert.ToInt32(appointmentDataGridView.Rows[e.RowIndex].Cells[1].Value);
-                var reason = Convert.ToString(appointmentDataGridView.Rows[e.RowIndex].Cells[2].Value);
-                var time = Convert.ToDateTime(appointmentDataGridView.Rows[e.RowIndex].Cells[3].Value);
+            if (e.ColumnIndex == appointmentDataGridView.Columns["edit_column"].Index)
+            {
+                this.messageLabel.Text = "";
+                this.messageLabel.ForeColor = Color.Black;
+                var pid = Convert.ToInt32(appointmentDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                var time = Convert.ToDateTime(appointmentDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                var did = Convert.ToInt32(appointmentDataGridView.Rows[e.RowIndex].Cells[3].Value);
+                var reason = Convert.ToString(appointmentDataGridView.Rows[e.RowIndex].Cells[4].Value);
                 Appointment _appt = new Appointment();
                 _appt.DoctorID = did;
                 _appt.PatientID = pid;
@@ -71,8 +81,20 @@ namespace ClinicSupport.UserControls
 
                 NewAppointmentForm apptForm = new NewAppointmentForm();
                 apptForm.SetAppointment(_appt);
-                apptForm.Show();
-                appointmentDataGridView.Refresh();
+                if (apptForm.ShowDialog() == DialogResult.OK)
+                {
+                    this.GetPatientData(this.patient.PatientID);
+                }
+                else if (apptForm.ShowDialog() == DialogResult.Abort)
+                {
+                    string message = "Unable to update the Appointment at this time!";
+                    this.messageLabel.Text = message;
+                    this.messageLabel.ForeColor = Color.Red;
+                }
+                else
+                {
+                    apptForm.Close();
+                }
             }
         }
 
@@ -114,38 +136,29 @@ namespace ClinicSupport.UserControls
             } 
         }
 
-        private DataTable GetAppointmentTable()
-        {
-            DataTable apptDataTable = new DataTable();
-            apptDataTable.Columns.Add("Patient ID", typeof(string));
-            apptDataTable.Columns.Add("Doctor ID", typeof(string));
-            apptDataTable.Columns.Add("Reason", typeof(string));
-            apptDataTable.Columns.Add("Appointment Time", typeof(string));
-            apptDataTable.Columns.Add(" ", typeof(string));
-
-            foreach (Appointment appt in this.appointmentList)
-            {
-                if (appt.Time > DateTime.Now.AddHours(24))
-                {
-                    apptDataTable.Rows.Add(appt.PatientID, appt.DoctorID, appt.Reason, appt.Time, "Edit");
-                }
-                else
-                    apptDataTable.Rows.Add(appt.PatientID, appt.DoctorID, appt.Reason, appt.Time, " ");
-            }
-
-            return apptDataTable;
-        }
-
         private void NewApptButton_Click(object sender, EventArgs e)
         {
+            this.messageLabel.Text = "";
+            this.messageLabel.ForeColor = Color.Black;
+
             Appointment _appt = new Appointment();
             _appt.PatientID = this.patient.PatientID;
-            this._patientAppointmentForm = new NewAppointmentForm();
-            this._patientAppointmentForm.SetAppointment(_appt);
+            NewAppointmentForm _patientAppointmentForm = new NewAppointmentForm();
+            _patientAppointmentForm.SetAppointment(_appt);
 
-            if (this._patientAppointmentForm.ShowDialog() == DialogResult.OK)
+            if (_patientAppointmentForm.ShowDialog() == DialogResult.OK)
             {
                 this.GetPatientData(this.patient.PatientID);
+            }
+            else if (_patientAppointmentForm.ShowDialog() == DialogResult.Abort)
+            {
+                string message = "Unable to add the Appointment at this time!";
+                this.messageLabel.Text = message;
+                this.messageLabel.ForeColor = Color.Red;
+            }
+            else
+            {
+                _patientAppointmentForm.Close();
             }
         }
 

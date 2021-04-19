@@ -51,11 +51,11 @@ namespace ClinicSupport.DAL
         /// <param name="apptTime">apptTime</param>
         /// <param name="did">did</param>
         /// <returns>the Appointment object</returns>
-        public Appointment GetAppointmentByPid(int pid, int did, DateTime apptTime)
+        public Appointment GetAppointmentByID(int pid, int did, DateTime apptTime)
         {
             Appointment _appointment = new Appointment();
             string selectStatement =
-                "SELECT pid, did, time " +
+                "SELECT pid, did, time, reason " +
                  "FROM Appointment " +
                  "WHERE pid = @pid AND did = @did AND time = @apptTime";
 
@@ -75,8 +75,9 @@ namespace ClinicSupport.DAL
                         while (reader.Read())
                         {
                             _appointment.PatientID = (int)reader["pid"];
-                            _appointment.DoctorID = (int)reader["iid"];
+                            _appointment.DoctorID = (int)reader["did"];
                             _appointment.Time = (DateTime)reader["time"];
+                            _appointment.Reason = reader["reason"].ToString();
                         }
                     }
                 }
@@ -147,12 +148,15 @@ namespace ClinicSupport.DAL
         /// <param name="oldAppointment">given oldAppointment to update a Appointment</param>
         /// <param name="newAppointment">given newAppointment to update a Appointment</param>
         /// <returns>true if appoint is successfully updated</returns>
-        public bool UpdateAppointmentt(Appointment oldAppointment, Appointment newAppointment)
+        public bool UpdateAppointment(Appointment oldAppointment, Appointment newAppointment)
         {
             string updateStatement =
-                 "UPDATE dbo.Appointment SET Time =  @newTime " +
-                 "WHERE PatientID = @oldPatientID " +
-                 "AND DoctorID = @oldDoctorID";
+                 "UPDATE dbo.Appointment SET Time =  @newTime, Reason = @newReason " +
+                 "WHERE pid = @oldPatientID " +
+                 "AND did = @oldDoctorID " +
+                 "AND time = @oldTime";
+            //ALTER TABLE dbo.Inventories NOCHECK CONSTRAINT FK__Inventori__Accou__29CC2871
+            //ALTER TABLE dbo.Inventories WITH CHECK CHECK CONSTRAINT FK__Inventori__Accou__29CC2871
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -161,8 +165,10 @@ namespace ClinicSupport.DAL
                 {
                     // define parameters and their values
                     cmd.Parameters.Add("@oldDoctorID", SqlDbType.Int).Value = oldAppointment.DoctorID;
-                    cmd.Parameters.Add("@newPatientID", SqlDbType.Int).Value = newAppointment.PatientID;
-                    cmd.Parameters.Add("@newTime", SqlDbType.VarChar).Value = newAppointment.Time;
+                    cmd.Parameters.Add("@oldPatientID", SqlDbType.Int).Value = oldAppointment.PatientID;
+                    cmd.Parameters.Add("@oldTime", SqlDbType.DateTime).Value = oldAppointment.Time;
+                    cmd.Parameters.AddWithValue("@newTime", SqlDbType.DateTime).Value = newAppointment.Time;
+                    cmd.Parameters.Add("@newReason", SqlDbType.VarChar).Value = newAppointment.Reason;
 
                     int count = cmd.ExecuteNonQuery();
                     if (count > 0)
