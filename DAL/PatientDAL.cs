@@ -203,7 +203,7 @@ namespace ClinicSupport.DAL
         {
             List<Individual> _patients = new List<Individual>();
             string selectStatement = 
-                "SELECT p.pid, fname, lname, streetAddress, dob, city, state, zip, phone " +
+                "SELECT p.pid, fname, lname, streetAddress, dob, city, state, zip, phone, ssn " +
                 "FROM Individual i INNER JOIN Patient p ON " +
                 "i.iid = p.iid " +
                 "WHERE dob = @DOB";
@@ -230,6 +230,7 @@ namespace ClinicSupport.DAL
                             _individual.State = (string)reader["state"];
                             _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
+                            _individual.SSN = (string)reader["ssn"];
                             _patients.Add(_individual);
                         }
                     }
@@ -248,7 +249,7 @@ namespace ClinicSupport.DAL
         {
             List<Individual> _patients = new List<Individual>();
             string selectStatement =
-                "SELECT p.pid, i.iid, fname, lname, streetAddress, dob, city, state, zip, phone " +
+                "SELECT p.pid, i.iid, fname, lname, streetAddress, dob, city, state, zip, phone, ssn " +
                 "FROM Individual i INNER JOIN Patient p ON " +
                 "i.iid = p.iid " +
                 "WHERE fname = @FirstName " +
@@ -277,6 +278,7 @@ namespace ClinicSupport.DAL
                             _individual.State = (string)reader["state"];
                             _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
+                            _individual.SSN = (string)reader["ssn"];
                             _patients.Add(_individual);
                         }
                     }
@@ -295,7 +297,7 @@ namespace ClinicSupport.DAL
         {
             List<Individual> _patients = new List<Individual>();
             string selectStatement =
-                "SELECT p.pid, fname, lname, streetAddress, dob, city, state, zip, phone " +
+                "SELECT p.pid, fname, lname, streetAddress, dob, city, state, zip, phone, ssn " +
                 "FROM Individual i INNER JOIN Patient p ON " +
                 "i.iid = p.iid " +
                 "WHERE lname = @LastName " +
@@ -324,6 +326,7 @@ namespace ClinicSupport.DAL
                             _individual.State = (string)reader["state"];
                             _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
+                            _individual.SSN = (string)reader["ssn"];
                             _patients.Add(_individual);
                         }
                     }
@@ -349,7 +352,8 @@ namespace ClinicSupport.DAL
                  "city = @NewCity, " +
                  "state = @NewState, " +
                  "zip = @NewZip, " +
-                 "phone = @NewPhone " +
+                 "phone = @NewPhone, " +
+                 "ssn = @NewSSN " +
                  "WHERE lname = @OldLastName " +
                  "AND fname = @OldFirstName " +
                  "AND dob LIKE @OldDOB " +
@@ -357,7 +361,8 @@ namespace ClinicSupport.DAL
                  "AND city = @OldCity " +
                  "AND state = @OldState " +
                  "AND zip = @OldZip " +
-                 "AND phone = @OldPhone";
+                 "AND phone = @OldPhone " +
+                 "AND ssn = @OldSSN";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -372,6 +377,7 @@ namespace ClinicSupport.DAL
                     updateCommand.Parameters.AddWithValue("@NewState", newPatient.State);
                     updateCommand.Parameters.AddWithValue("@NewZip", newPatient.ZipCode);
                     updateCommand.Parameters.AddWithValue("@NewPhone", newPatient.PhoneNumber);
+                    updateCommand.Parameters.AddWithValue("@NewSSN", newPatient.SSN);
 
                     updateCommand.Parameters.AddWithValue("@OldLastName", oldPatient.LastName);
                     updateCommand.Parameters.AddWithValue("@OldFirstName", oldPatient.FirstName);
@@ -384,6 +390,7 @@ namespace ClinicSupport.DAL
                     updateCommand.Parameters.AddWithValue("@OldState", oldPatient.State);
                     updateCommand.Parameters.AddWithValue("@OldZip", oldPatient.ZipCode);
                     updateCommand.Parameters.AddWithValue("@OldPhone", oldPatient.PhoneNumber);
+                    updateCommand.Parameters.AddWithValue("@OldSSN", oldPatient.SSN);
 
                     try
                     {

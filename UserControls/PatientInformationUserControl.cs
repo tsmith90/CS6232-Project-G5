@@ -62,6 +62,7 @@ namespace ClinicSupport.UserControls
             lastNameTextBox.Text = patient.LastName;
             dobTextBox.Text = patient.DateOfBirth.ToString("MM-dd-yyyy");
             phoneTextBox.Text = patient.PhoneNumber.ToString();
+            ssnTextBox.Text = patient.SSN;
             addressTextBox.Text = patient.StreetAddress;
             cityTextBox.Text = patient.City;
             stateComboBox.SelectedItem = GetSelectedState(patient.State);
@@ -80,7 +81,7 @@ namespace ClinicSupport.UserControls
         {
             try
             {
-                if (this.firstNameTextBox.Text == String.Empty || this.lastNameTextBox.Text == String.Empty || this.dobTextBox.Text == String.Empty || this.phoneTextBox.Text == String.Empty || this.phoneTextBox.Text.Length < 10 ||
+                if (this.firstNameTextBox.Text == String.Empty || this.lastNameTextBox.Text == String.Empty || this.dobTextBox.Text == String.Empty || this.phoneTextBox.Text == String.Empty || this.phoneTextBox.Text.Length < 10 || this.ssnTextBox.Text == String.Empty || this.ssnTextBox.Text.Length > 9 || this.ssnTextBox.Text.Length < 9 ||
                     this.addressTextBox.Text == String.Empty || this.cityTextBox.Text == String.Empty || this.stateComboBox.SelectedIndex == -1 || this.zipTextBox.Text == String.Empty || this.zipTextBox.Text != String.Empty && !Int32.TryParse(this.zipTextBox.Text, out int number))
                 {
                     string message = "Please enter the required values:";
@@ -103,6 +104,14 @@ namespace ClinicSupport.UserControls
                     if (this.phoneTextBox.Text.Length < 10)
                     {
                         message += "\n-Phone number must contain 10 numbers (XXXXXXXXXX)";
+                    }
+                    if (this.ssnTextBox.Text == String.Empty)
+                    {
+                        message += "\n-SSN is missing";
+                    }
+                    if (this.ssnTextBox.Text.Length > 9 || this.ssnTextBox.Text.Length < 9)
+                    {
+                        message += "\n-SSN should be exactly 9 numbers in length";
                     }
                     if (this.addressTextBox.Text == String.Empty)
                     {
@@ -151,6 +160,7 @@ namespace ClinicSupport.UserControls
             lastNameTextBox.Text = "";
             dobTextBox.Text = "";
             phoneTextBox.Text = "";
+            ssnTextBox.Text = "";
             addressTextBox.Text = "";
             cityTextBox.Text = "";
             stateComboBox.SelectedIndex = 0;
@@ -198,7 +208,7 @@ namespace ClinicSupport.UserControls
                 else
                 {
                     individual = newIndividual;
-                    this.messageLabel.Text = "Patient was successfulle updated!";
+                    this.messageLabel.Text = "Patient was successfully updated!";
                 }
             }
             catch (Exception ex)
@@ -217,6 +227,7 @@ namespace ClinicSupport.UserControls
             var lname = this.lastNameTextBox.Text;
             var dob = Convert.ToDateTime(this.dobTextBox.Text);
             var phone = this.phoneTextBox.Text;
+            var ssn = this.ssnTextBox.Text;
             var address = this.addressTextBox.Text;
             var city = this.cityTextBox.Text;
             var state = this.GetSelectedState(this.stateComboBox.SelectedValue.ToString());
@@ -226,6 +237,7 @@ namespace ClinicSupport.UserControls
             individual.LastName = lname;
             individual.DateOfBirth = dob;
             individual.PhoneNumber = phone;
+            individual.SSN = ssn;
             individual.StreetAddress = address;
             individual.City = city;
             individual.State = state;
@@ -241,6 +253,7 @@ namespace ClinicSupport.UserControls
             var lname = this.lastNameTextBox.Text;
             var dob = Convert.ToDateTime(this.dobTextBox.Text);
             var phone = this.phoneTextBox.Text;
+            var ssn = this.ssnTextBox.Text;
             var address = this.addressTextBox.Text;
             var city = this.cityTextBox.Text;
             var state = this.GetSelectedState(this.stateComboBox.SelectedValue.ToString());
@@ -250,6 +263,7 @@ namespace ClinicSupport.UserControls
             this.individual.LastName = lname;
             this.individual.DateOfBirth = dob;
             this.individual.PhoneNumber = phone;
+            this.individual.SSN = ssn;
             this.individual.StreetAddress = address;
             this.individual.City = city;
             this.individual.State = state;

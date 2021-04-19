@@ -36,7 +36,7 @@
             this.patientInformationUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.patientInformationUserControl1.Location = new System.Drawing.Point(0, 0);
             this.patientInformationUserControl1.Name = "patientInformationUserControl1";
-            this.patientInformationUserControl1.Size = new System.Drawing.Size(402, 233);
+            this.patientInformationUserControl1.Size = new System.Drawing.Size(402, 330);
             this.patientInformationUserControl1.TabIndex = 0;
             // 
             // AddPatientUserControl
@@ -45,7 +45,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.patientInformationUserControl1);
             this.Name = "AddPatientUserControl";
-            this.Size = new System.Drawing.Size(402, 300);
+            this.Size = new System.Drawing.Size(402, 354);
             this.ResumeLayout(false);
 
         }

@@ -53,6 +53,8 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.messageLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
+            this.ssnLabel = new System.Windows.Forms.Label();
+            this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -181,14 +183,14 @@
             this.addressTextBox.Location = new System.Drawing.Point(226, 23);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(151, 20);
-            this.addressTextBox.TabIndex = 5;
+            this.addressTextBox.TabIndex = 6;
             // 
             // cityTextBox
             // 
             this.cityTextBox.Location = new System.Drawing.Point(226, 63);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(151, 20);
-            this.cityTextBox.TabIndex = 6;
+            this.cityTextBox.TabIndex = 7;
             // 
             // stateComboBox
             // 
@@ -197,14 +199,14 @@
             this.stateComboBox.Location = new System.Drawing.Point(226, 103);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(151, 21);
-            this.stateComboBox.TabIndex = 7;
+            this.stateComboBox.TabIndex = 8;
             // 
             // zipTextBox
             // 
             this.zipTextBox.Location = new System.Drawing.Point(226, 143);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(151, 20);
-            this.zipTextBox.TabIndex = 8;
+            this.zipTextBox.TabIndex = 9;
             // 
             // clearButton
             // 
@@ -270,9 +272,12 @@
             this.tableLayoutPanel2.Controls.Add(this.addressTextBox, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.cityLabel, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.stateLabel, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.ssnLabel, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.ssnTextBox, 0, 9);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 8;
+            this.tableLayoutPanel2.RowCount = 10;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -281,7 +286,9 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(447, 162);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(446, 205);
             this.tableLayoutPanel2.TabIndex = 13;
             // 
             // tableLayoutPanel3
@@ -293,30 +300,49 @@
             this.tableLayoutPanel3.Controls.Add(this.clearButton, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.createPatientButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.updateButton, 2, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 190);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 233);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(444, 26);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(446, 26);
             this.tableLayoutPanel3.TabIndex = 14;
             // 
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
-            this.messageLabel.Location = new System.Drawing.Point(3, 219);
+            this.messageLabel.Location = new System.Drawing.Point(3, 283);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(0, 13);
             this.messageLabel.TabIndex = 15;
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(299, 239);
+            this.closeButton.Location = new System.Drawing.Point(299, 283);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 16;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // ssnLabel
+            // 
+            this.ssnLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ssnLabel.AutoSize = true;
+            this.ssnLabel.Location = new System.Drawing.Point(3, 167);
+            this.ssnLabel.Name = "ssnLabel";
+            this.ssnLabel.Size = new System.Drawing.Size(32, 13);
+            this.ssnLabel.TabIndex = 11;
+            this.ssnLabel.Text = "SSN:";
+            // 
+            // ssnTextBox
+            // 
+            this.ssnTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ssnTextBox.Location = new System.Drawing.Point(3, 183);
+            this.ssnTextBox.Name = "ssnTextBox";
+            this.ssnTextBox.Size = new System.Drawing.Size(146, 20);
+            this.ssnTextBox.TabIndex = 5;
             // 
             // PatientInformationUserControl
             // 
@@ -366,5 +392,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label ssnLabel;
+        private System.Windows.Forms.TextBox ssnTextBox;
     }
 }
