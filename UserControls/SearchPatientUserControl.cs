@@ -126,6 +126,12 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
             }
             patientsDataGridView.DataSource = this.patients;
+            //patientsDataGridView.Columns["IndividualID"].Name = "PatientID";
+            // Figure out how to get the patientID into each row
+            /*this.patients.ForEach(m =>
+            {
+                
+            });*/
             patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
             patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
             AddEditColumnToGV();
@@ -247,6 +253,11 @@ namespace ClinicSupport.UserControls
                 patientsDataGridView.DataSource = null;
                 patientsDataGridView.Columns.Clear();
             }
+        }
+
+        private int GetPatientIDByIndividualID(int iid)
+        {
+            return this.patientController.GetPatientIDByIndividualID(iid);
         }
     }
 }

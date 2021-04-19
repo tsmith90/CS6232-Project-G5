@@ -116,5 +116,10 @@ namespace ClinicSupport.Controller
             }
             return patientDAL.UpdatePatient(oldPatient, newPatient);
         }
+
+        public int GetPatientIDByIndividualID(int iid)
+        {
+            return patientDAL.GetPatientIDByIndividualID(iid);
+        }
     }
 }

@@ -230,6 +230,8 @@
             this.patientsDataGridView.Location = new System.Drawing.Point(7, 136);
             this.patientsDataGridView.Name = "patientsDataGridView";
             this.patientsDataGridView.ReadOnly = true;
+            this.patientsDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.patientsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.patientsDataGridView.Size = new System.Drawing.Size(780, 233);
             this.patientsDataGridView.TabIndex = 3;
             this.patientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsDataGridView_CellContentClick);

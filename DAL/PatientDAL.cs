@@ -173,6 +173,7 @@ namespace ClinicSupport.DAL
                             Patient _patient = new Patient();
                             Individual _individual = new Individual();
                             _patient.PatientID = (int)reader["pid"];
+                            _individual.IndividualID = (int)reader["iid"];
                             _individual.FirstName = (string)reader["fname"];
                             _individual.LastName = (string)reader["lname"];
                             _individual.DateOfBirth = Convert.ToDateTime(reader["dob"]);
@@ -199,7 +200,7 @@ namespace ClinicSupport.DAL
         {
             List<Individual> _patients = new List<Individual>();
             string selectStatement =
-                "SELECT p.pid, fname, lname, streetAddress, dob, city, state, zip, phone " +
+                "SELECT p.pid, i.iid, fname, lname, streetAddress, dob, city, state, zip, phone " +
                 "FROM Individual i INNER JOIN Patient p ON " +
                 "i.iid = p.iid " +
                 "WHERE fname = @FirstName " +
@@ -219,6 +220,7 @@ namespace ClinicSupport.DAL
                             Patient _patient = new Patient();
                             Individual _individual = new Individual();
                             _patient.PatientID = (int)reader["pid"];
+                            _individual.IndividualID = (int)reader["iid"];
                             _individual.FirstName = (string)reader["fname"];
                             _individual.LastName = (string)reader["lname"];
                             _individual.DateOfBirth = Convert.ToDateTime(reader["dob"]);
@@ -265,6 +267,7 @@ namespace ClinicSupport.DAL
                             Patient _patient = new Patient();
                             Individual _individual = new Individual();
                             _patient.PatientID = (int)reader["pid"];
+                            _individual.IndividualID = (int)reader["iid"];
                             _individual.FirstName = (string)reader["fname"];
                             _individual.LastName = (string)reader["lname"];
                             _individual.DateOfBirth = Convert.ToDateTime(reader["dob"]);
@@ -348,6 +351,34 @@ namespace ClinicSupport.DAL
                     }
                 }
             }
+        }
+
+        public int GetPatientIDByIndividualID(int iid)
+        {
+            Patient _patient = new Patient();
+            string selectStatement =
+                "SELECT pid, iid " +
+                 "FROM Patient " +
+                 "WHERE iid = @iid";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.Add("@iid", SqlDbType.Int);
+                    selectCommand.Parameters["@iid"].Value = iid;
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            _patient.PatientID = (int)reader["pid"];
+                            _patient.IndividualID = (int)reader["iid"];
+                        }
+                    }
+                }
+            }
+            return _patient.PatientID;
         }
     }
 }
