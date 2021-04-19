@@ -175,5 +175,17 @@ namespace ClinicSupport.Controller
                 throw new Exception(ex.Message);
             }
         }
+
+        public int GetPatientIDByIndividualID(int iid)
+        {
+            try
+            {
+                return patientDAL.GetPatientIDByIndividualID(iid);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

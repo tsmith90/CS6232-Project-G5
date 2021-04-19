@@ -186,7 +186,7 @@ namespace ClinicSupport.UserControls
 
         private void PatientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 9)
+            if (e.ColumnIndex == 10)
             {           
                 var id = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[0].Value);
                 var fname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[2].Value);
@@ -197,6 +197,8 @@ namespace ClinicSupport.UserControls
                 var state = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[6].Value);
                 var zip = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[7].Value);
                 var phone = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[8].Value);
+                var ssn = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[9].Value);
+
                 Individual patient = new Individual();
                 patient.IndividualID = id;
                 patient.FirstName = fname;
@@ -207,6 +209,7 @@ namespace ClinicSupport.UserControls
                 patient.City = city;
                 patient.State = state;
                 patient.ZipCode = zip.ToString();
+                patient.SSN = ssn;
                 
                 ViewPatientInformationForm infoForm = new ViewPatientInformationForm();
                 infoForm.SetPatient(patient);
