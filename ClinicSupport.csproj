@@ -73,13 +73,26 @@
     <Compile Include="Model\Individual.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\States.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visit.cs" />
+    <Compile Include="UserControls\AddNurseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddNurseUserControl.Designer.cs">
+      <DependentUpon>AddNurseUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddPatientUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AddPatientUserControl.Designer.cs">
       <DependentUpon>AddPatientUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DeletePatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DeletePatientUserControl.Designer.cs">
+      <DependentUpon>DeletePatientUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\NursePrivilegesUserControl.cs">
       <SubType>UserControl</SubType>
@@ -110,6 +123,18 @@
     </Compile>
     <Compile Include="UserControls\ViewAppointmentsByPatientIDUserControl.Designer.cs">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UpdateNurseLoginUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UpdateNurseLoginUserControl.Designer.cs">
+      <DependentUpon>UpdateNurseLoginUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ViewUpdateNurseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewUpdateNurseUserControl.Designer.cs">
+      <DependentUpon>ViewUpdateNurseUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\VisitInformationUserControl.cs">
       <SubType>UserControl</SubType>
@@ -170,8 +195,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AddNurseUserControl.resx">
+      <DependentUpon>AddNurseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddPatientUserControl.resx">
       <DependentUpon>AddPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DeletePatientUserControl.resx">
+      <DependentUpon>DeletePatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NursePrivilegesUserControl.resx">
       <DependentUpon>NursePrivilegesUserControl.cs</DependentUpon>
@@ -187,6 +218,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ViewAppointmentsByPatientIDUserControl.resx">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UpdateNurseLoginUserControl.resx">
+      <DependentUpon>UpdateNurseLoginUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ViewUpdateNurseUserControl.resx">
+      <DependentUpon>ViewUpdateNurseUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitInformationUserControl.resx">
       <DependentUpon>VisitInformationUserControl.cs</DependentUpon>

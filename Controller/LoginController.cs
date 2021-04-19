@@ -10,14 +10,14 @@ namespace ClinicSupport.Controller
     /// </summary>
     class LoginController
     {
-        private readonly LoginDAL loginDBDAL;
+        private readonly LoginDAL loginDAL;
 
         /// <summary>
         /// 0-parameter constructor for the LoginController class
         /// </summary>
         public LoginController()
         {
-            loginDBDAL = new LoginDAL();
+            loginDAL = new LoginDAL();
         }
 
         /// <summary>
@@ -35,9 +35,28 @@ namespace ClinicSupport.Controller
 
             string hashedPassword = HashPassword(user, password);
 
-            User information = loginDBDAL.GetLoginInformation(user, hashedPassword);
+            User information = loginDAL.GetLoginInformation(user, hashedPassword);
 
             return information;
+        }
+
+        /// <summary>
+        /// Sets a new password in the DAL for an employee
+        /// </summary>
+        /// <param name="username">the individual's username</param>
+        /// <param name="newUsername">the individual's new username</param> 
+        /// <param name="password">the individual's new password</param>
+        /// <returns>true if the DAl successfully sets a new password</returns>
+        public bool SetLoginInformation(string username, string newUsername, string password)
+        {
+            if (username == null || newUsername == null || password == null)
+            {
+                throw new ArgumentNullException("Please enter valid login information");
+            }
+
+            string newPassword = HashPassword(newUsername, password);
+
+            return loginDAL.SetLoginInformation(username, newUsername, newPassword);
         }
 
         /// <summary>
@@ -46,7 +65,7 @@ namespace ClinicSupport.Controller
         /// <param name = "user">the user's given username</param> 
         /// <param name = "password">the users plain-text password</param> 
         /// <returns>A string with a hash to be stored as a password</returns>
-        private string HashPassword(string user, string password)
+        public string HashPassword(string user, string password)
         {
             byte[] salt = new byte[31/8];
 

@@ -173,7 +173,6 @@ namespace ClinicSupport.DAL
             }
         }
 
-
         /// <summary>
         /// Get all the Appointment objects from the data source for the given patientID.
         /// </summary>

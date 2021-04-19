@@ -106,6 +106,54 @@ namespace ClinicSupport.DAL
         }
 
         /// <summary>
+        /// Method to delete Patient information in the DB
+        /// </summary>
+        /// <param name="pid">The patient id</param>
+        /// <returns>True if individual is successfully deleted</returns>
+        public bool DeletePatientWithoutAppointment(int pid)
+        {
+            int countAppointments = 0;
+            string deletePatient = "DELETE FROM Patient WHERE pid = @pid;";
+            string checkAppointments = "SELECT count(pid) as counted FROM  Appointment WHERE pid = @pid;";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(checkAppointments, connection))
+                {
+                    selectCommand.Parameters.Add("@pid", SqlDbType.Int);
+                    selectCommand.Parameters["@pid"].Value = pid;
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            countAppointments = (int)reader["counted"];
+                        }
+
+                        if (countAppointments > 0)
+                        {
+                            throw new Exception("Can't delete. That patient has appointments.");
+                        }
+                    }
+                }
+
+                using (SqlCommand cmd = new SqlCommand(deletePatient, connection))
+                {
+                    cmd.Parameters.Add("@pid", SqlDbType.Int);
+                    cmd.Parameters["@pid"].Value = pid;
+
+                    int count = cmd.ExecuteNonQuery();
+                    if (count > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
+
+        /// <summary>
         /// Get the Patient object from the data source.
         /// </summary>
         /// <param name="fname">fname</param>
@@ -180,7 +228,7 @@ namespace ClinicSupport.DAL
                             _individual.StreetAddress = (string)reader["streetAddress"];
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
-                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
+                            _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
                             _patients.Add(_individual);
                         }
@@ -227,7 +275,7 @@ namespace ClinicSupport.DAL
                             _individual.StreetAddress = (string)reader["streetAddress"];
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
-                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
+                            _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
                             _patients.Add(_individual);
                         }
@@ -274,7 +322,7 @@ namespace ClinicSupport.DAL
                             _individual.StreetAddress = (string)reader["streetAddress"];
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
-                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
+                            _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
                             _patients.Add(_individual);
                         }

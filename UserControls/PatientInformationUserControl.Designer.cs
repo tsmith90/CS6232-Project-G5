@@ -210,7 +210,7 @@
             // 
             this.clearButton.Location = new System.Drawing.Point(3, 3);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.Size = new System.Drawing.Size(75, 20);
             this.clearButton.TabIndex = 9;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -220,7 +220,7 @@
             // 
             this.updateButton.Location = new System.Drawing.Point(299, 3);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.Size = new System.Drawing.Size(75, 20);
             this.updateButton.TabIndex = 11;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@
             // 
             this.createPatientButton.Location = new System.Drawing.Point(151, 3);
             this.createPatientButton.Name = "createPatientButton";
-            this.createPatientButton.Size = new System.Drawing.Size(75, 23);
+            this.createPatientButton.Size = new System.Drawing.Size(75, 20);
             this.createPatientButton.TabIndex = 10;
             this.createPatientButton.Text = "Create";
             this.createPatientButton.UseVisualStyleBackColor = true;
@@ -297,7 +297,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(444, 32);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(444, 26);
             this.tableLayoutPanel3.TabIndex = 14;
             // 
             // messageLabel

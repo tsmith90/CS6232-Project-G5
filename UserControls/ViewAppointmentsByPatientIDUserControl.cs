@@ -52,6 +52,7 @@ namespace ClinicSupport.UserControls
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+
         private void AppointmentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string text = appointmentDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
@@ -110,9 +111,9 @@ namespace ClinicSupport.UserControls
                     MessageBox.Show("Please enter a valid inte!!!!" + Environment.NewLine + ex.Message,
                         "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            
+            } 
         }
+
         private DataTable GetAppointmentTable()
         {
             DataTable apptDataTable = new DataTable();

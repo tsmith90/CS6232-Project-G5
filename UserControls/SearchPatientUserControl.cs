@@ -13,7 +13,6 @@ namespace ClinicSupport.UserControls
     public partial class SearchPatientUserControl : UserControl
     {
         private readonly PatientController patientController;
-
         private List<Individual> patients;
 
         /// <summary>
@@ -207,7 +206,7 @@ namespace ClinicSupport.UserControls
                 patient.StreetAddress = address;
                 patient.City = city;
                 patient.State = state;
-                patient.ZipCode = zip;
+                patient.ZipCode = zip.ToString();
                 
                 ViewPatientInformationForm infoForm = new ViewPatientInformationForm();
                 infoForm.SetPatient(patient);

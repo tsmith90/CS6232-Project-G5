@@ -37,8 +37,8 @@ namespace ClinicSupport.View
         public void SetNurse(string user)
         {
             nurse = nurseController.GetNurseByUsername(user);
-            this.visitInformationUserControl1.Nurse = nurse;
-            this.visitInformationUserControl2.Nurse = nurse;
+            visitInformationUserControl1.Nurse = nurse;
+            visitInformationUserControl2.Nurse = nurse;
         }
 
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
@@ -49,14 +49,6 @@ namespace ClinicSupport.View
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-        }
-
-        private void NurseDashboardTabControl_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            if (nurseDashboardTabControl.SelectedTab == nurseDashboardTabControl.TabPages["visitInformationTabPage"])
-            {
-                
-            }
         }
     }
 }

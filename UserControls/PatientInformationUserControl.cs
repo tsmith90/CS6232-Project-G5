@@ -14,12 +14,13 @@ namespace ClinicSupport.UserControls
     public partial class PatientInformationUserControl : UserControl
     {
         private readonly Dictionary<string, string> states;
+        private readonly States statesList;
         private readonly IndividualController individualController;
         private readonly PatientController patientController;
         private Individual individual;
 
         /// <summary>
-        /// 0 parameter contructor
+        /// 0 parameter contructor for PatientInformationUserControl
         /// </summary>
         public PatientInformationUserControl()
         {
@@ -27,7 +28,8 @@ namespace ClinicSupport.UserControls
             this.individualController = new IndividualController();
             this.patientController = new PatientController();
             this.individual = new Individual();
-            states = new Dictionary<string, string>();
+            statesList = new States();
+            states = statesList.SetStates();
             SetStateList();
         }
 
@@ -68,66 +70,10 @@ namespace ClinicSupport.UserControls
 
         private void SetStateList()
         {
-            states.Add("Alabama", "AL");
-            states.Add("Alaska", "AK");
-            states.Add("America Samoa", "AS");
-            states.Add("Arizona", "AZ");
-            states.Add("Arkansas", "AR");
-            states.Add("California", "CA");
-            states.Add("Colorado", "CO");
-            states.Add("Connecticut", "CT");
-            states.Add("Delaware", "DE");
-            states.Add("District of Columbia", "DC");
-            states.Add("Florida", "FL");
-            states.Add("Georgia", "GA");
-            states.Add("Guam", "GU");
-            states.Add("Hawaii", "HI");
-            states.Add("Idaho", "NurseID");
-            states.Add("Illinois", "IL");
-            states.Add("Indiana", "IN");
-            states.Add("Iowa", "IA");
-            states.Add("Kansas", "KS");
-            states.Add("Kentucky", "KY");
-            states.Add("Louisiana", "LA");
-            states.Add("Maine", "ME");
-            states.Add("Maryland", "MD");
-            states.Add("Massachusetts", "MA");
-            states.Add("Michigan", "MI");
-            states.Add("Minnesota", "MN");
-            states.Add("Mississippi", "MS");
-            states.Add("Missouri", "MO");
-            states.Add("Montana", "MT");
-            states.Add("Nebraska", "NE");
-            states.Add("Nevada", "NV");
-            states.Add("New Hampshire", "NH");
-            states.Add("New Jersey", "NJ");
-            states.Add("New Mexico", "NM");
-            states.Add("New York", "NY");
-            states.Add("North Carolina", "NC");
-            states.Add("North Dakota", "ND");
-            states.Add("Northern Mariana Islands", "MP");
-            states.Add("Ohio", "OH");
-            states.Add("Oklahoma", "OK");
-            states.Add("Oregon", "OR");
-            states.Add("Pennsylvania", "PA");
-            states.Add("Puerto Rico", "PR");
-            states.Add("Rhode Island", "RI");
-            states.Add("South Carolina", "SC");
-            states.Add("South Dakota", "SD");
-            states.Add("Tennessee", "TN");
-            states.Add("Texas", "TX");
-            states.Add("Utah", "UT");
-            states.Add("Vermont", "VT");
-            states.Add("Virginia", "VA");
-            states.Add("Virgin Islands", "VI");
-            states.Add("Washington", "WA");
-            states.Add("West Virginia", "WV");
-            states.Add("Wisconsin", "WI");
-            states.Add("Wyoming", "WY");
-
             List<string> names = states.Keys.ToList();
 
             stateComboBox.DataSource = names;
+            stateComboBox.SelectedIndex = 0;
         }
 
         private void CreatePatientButton_Click(object sender, System.EventArgs e)
@@ -207,7 +153,7 @@ namespace ClinicSupport.UserControls
             phoneTextBox.Text = "";
             addressTextBox.Text = "";
             cityTextBox.Text = "";
-            stateComboBox.SelectedIndex = -1;
+            stateComboBox.SelectedIndex = 0;
             zipTextBox.Text = "";
             this.messageLabel.Text = "";
         }
@@ -283,7 +229,7 @@ namespace ClinicSupport.UserControls
             individual.StreetAddress = address;
             individual.City = city;
             individual.State = state;
-            individual.ZipCode = zip;
+            individual.ZipCode = zip.ToString();
         }
 
         /// <summary>
@@ -307,8 +253,13 @@ namespace ClinicSupport.UserControls
             this.individual.StreetAddress = address;
             this.individual.City = city;
             this.individual.State = state;
-            this.individual.ZipCode = zip;
+            this.individual.ZipCode = zip.ToString();
         }
+
+        /// <summary>
+        /// Method to return a Dialog result
+        /// </summary>
+        /// <returns>true</returns>
         public Boolean ReturnDialogResultOK()
         {
             return true;

@@ -15,11 +15,11 @@ namespace ClinicSupport.DAL
         /// </summary>
         /// <param name="iid">the individual's id</param>
         /// <returns>the Individual object</returns>
-        public Individual GeIndividualbyID(int iid)
+        public Individual GetIndividualbyID(int iid)
         {
             Individual _individual = new Individual();
             string selectStatement =
-                "SELECT fname, lname, streetAddress, city, state, zip, phone, dob " +
+                "SELECT fname, lname, streetAddress, city, state, zip, phone, dob, ssn " +
                  "FROM Individual " +
                  "WHERE iid = @iid";
 
@@ -30,6 +30,7 @@ namespace ClinicSupport.DAL
                 {
                     selectCommand.Parameters.Add("@iid", SqlDbType.Int);
                     selectCommand.Parameters["@iid"].Value = iid;
+
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         while (reader.Read())
@@ -39,9 +40,10 @@ namespace ClinicSupport.DAL
                             _individual.StreetAddress = (string)reader["streetAddress"];
                             _individual.City = (string)reader["city"];
                             _individual.State = (string)reader["state"];
-                            _individual.ZipCode = Convert.ToInt32(reader["zip"]);
+                            _individual.ZipCode = reader["zip"].ToString();
                             _individual.PhoneNumber = (string)reader["phone"];
                             _individual.DateOfBirth = Convert.ToDateTime(reader["dob"]);
+                            _individual.SSN = reader["ssn"].ToString();
                         }
                     }
                 }
@@ -57,8 +59,8 @@ namespace ClinicSupport.DAL
         public int AddIndividual(Individual newIndividual)
         {
             string insertStatement =
-                "INSERT INTO Individual (lname, fname, dob, streetAddress, city, state, zip, phone) " +
-                "VALUES (@LastName, @FirstName, @DOB, @Address, @City, @State, @Zip, @Phone);";
+                "INSERT INTO Individual (lname, fname, dob, streetAddress, city, state, zip, phone, ssn) " +
+                "VALUES (@LastName, @FirstName, @DOB, @Address, @City, @State, @Zip, @Phone, @SSN);";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -73,6 +75,7 @@ namespace ClinicSupport.DAL
                     insertCommand.Parameters.AddWithValue("@State", newIndividual.State);
                     insertCommand.Parameters.AddWithValue("@Zip", newIndividual.ZipCode);
                     insertCommand.Parameters.AddWithValue("@Phone", newIndividual.PhoneNumber);
+                    insertCommand.Parameters.AddWithValue("@SSN", newIndividual.SSN);
 
                     insertCommand.ExecuteNonQuery();
                 }
@@ -82,6 +85,63 @@ namespace ClinicSupport.DAL
                 {
                     int indivdualID = Convert.ToInt32(selectCommand.ExecuteScalar());
                     return indivdualID;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Updates an Individual's information in the DB
+        /// </summary>
+        /// <param name="newIndividual">the individual to be updated</param>
+        /// <returns>true if the DB successfully updates the individual</returns>
+        public bool UpdateIndividual(Individual newIndividual)
+        {
+            string updateStatement = 
+                "UPDATE dbo.Individual " +
+                "SET lname = @lname, fname = @fname, dob = @dob, streetAddress = @address, " +
+                "city = @city, state = @state, zip = @zip, phone = @phone, ssn = @ssn " +
+                "WHERE iid = @iid;";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(updateStatement, connection))
+                {
+                    cmd.Parameters.Add("@lname", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@lname"].Value = newIndividual.LastName;
+
+                    cmd.Parameters.Add("@fname", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@fname"].Value = newIndividual.FirstName;
+
+                    cmd.Parameters.Add("@dob", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@dob"].Value = newIndividual.DateOfBirth;
+
+                    cmd.Parameters.Add("@address", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@address"].Value = newIndividual.StreetAddress;
+
+                    cmd.Parameters.Add("@city", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@city"].Value = newIndividual.City;
+
+                    cmd.Parameters.Add("@state", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@state"].Value = newIndividual.State;
+
+                    cmd.Parameters.Add("@zip", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@zip"].Value = newIndividual.ZipCode;
+
+                    cmd.Parameters.Add("@phone", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@phone"].Value = newIndividual.PhoneNumber;
+
+                    cmd.Parameters.Add("@ssn", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@ssn"].Value = newIndividual.SSN;
+
+                    cmd.Parameters.Add("@iid", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@iid"].Value = newIndividual.IndividualID;
+
+                    int count = cmd.ExecuteNonQuery();
+                    if (count > 0)
+                        return true;
+                    else
+                        return false;
                 }
             }
         }
