@@ -40,8 +40,6 @@ namespace ClinicSupport.UserControls
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.cityLabel = new System.Windows.Forms.Label();
             this.stateLabel = new System.Windows.Forms.Label();
-            this.stateComboBox = new System.Windows.Forms.ComboBox();
-            this.dateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.dobLabel = new System.Windows.Forms.Label();
             this.ssnLabel = new System.Windows.Forms.Label();
             this.ssnTextBox = new System.Windows.Forms.TextBox();
@@ -54,6 +52,8 @@ namespace ClinicSupport.UserControls
             this.deletePatientButton = new System.Windows.Forms.Button();
             this.findPatientButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.stateTextbox = new System.Windows.Forms.TextBox();
+            this.dateTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,8 +75,6 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.Controls.Add(this.cityTextBox, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.cityLabel, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.stateLabel, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.stateComboBox, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.dateOfBirthTimePicker, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.dobLabel, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.ssnLabel, 2, 6);
             this.tableLayoutPanel1.Controls.Add(this.ssnTextBox, 2, 7);
@@ -89,6 +87,8 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.Controls.Add(this.deletePatientButton, 3, 9);
             this.tableLayoutPanel1.Controls.Add(this.findPatientButton, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.errorLabel, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.stateTextbox, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.dateTextBox, 1, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
@@ -197,30 +197,6 @@ namespace ClinicSupport.UserControls
             this.stateLabel.TabIndex = 14;
             this.stateLabel.Text = "State";
             // 
-            // stateComboBox
-            // 
-            this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Location = new System.Drawing.Point(318, 210);
-            this.stateComboBox.Name = "stateComboBox";
-            this.stateComboBox.Size = new System.Drawing.Size(233, 28);
-            this.stateComboBox.TabIndex = 15;
-            this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.TextBox_Changed);
-            // 
-            // dateOfBirthTimePicker
-            // 
-            this.dateOfBirthTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateOfBirthTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateOfBirthTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateOfBirthTimePicker.Location = new System.Drawing.Point(105, 336);
-            this.dateOfBirthTimePicker.MaxDate = new System.DateTime(2060, 9, 25, 0, 0, 0, 0);
-            this.dateOfBirthTimePicker.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
-            this.dateOfBirthTimePicker.Name = "dateOfBirthTimePicker";
-            this.dateOfBirthTimePicker.Size = new System.Drawing.Size(207, 26);
-            this.dateOfBirthTimePicker.TabIndex = 18;
-            this.dateOfBirthTimePicker.Value = new System.DateTime(2021, 4, 15, 0, 0, 0, 0);
-            this.dateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.TextBox_Changed);
-            // 
             // dobLabel
             // 
             this.dobLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -309,6 +285,7 @@ namespace ClinicSupport.UserControls
             this.deletePatientButton.TabIndex = 5;
             this.deletePatientButton.Text = "Delete Patient";
             this.deletePatientButton.UseVisualStyleBackColor = true;
+            this.deletePatientButton.Click += new System.EventHandler(this.DeletePatientButton_Click);
             // 
             // findPatientButton
             // 
@@ -329,6 +306,20 @@ namespace ClinicSupport.UserControls
             this.errorLabel.Size = new System.Drawing.Size(678, 28);
             this.errorLabel.TabIndex = 24;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // stateTextbox
+            // 
+            this.stateTextbox.Location = new System.Drawing.Point(318, 210);
+            this.stateTextbox.Name = "stateTextbox";
+            this.stateTextbox.Size = new System.Drawing.Size(233, 26);
+            this.stateTextbox.TabIndex = 25;
+            // 
+            // dateTextBox
+            // 
+            this.dateTextBox.Location = new System.Drawing.Point(105, 336);
+            this.dateTextBox.Name = "dateTextBox";
+            this.dateTextBox.Size = new System.Drawing.Size(207, 26);
+            this.dateTextBox.TabIndex = 26;
             // 
             // DeletePatientUserControl
             // 
@@ -361,15 +352,15 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.Label stateLabel;
-        private System.Windows.Forms.ComboBox stateComboBox;
         private System.Windows.Forms.Label zipLabel;
         private System.Windows.Forms.TextBox zipTextBox;
-        private System.Windows.Forms.DateTimePicker dateOfBirthTimePicker;
         private System.Windows.Forms.Label dobLabel;
         private System.Windows.Forms.Label ssnLabel;
         private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.Label phoneLabel;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.TextBox stateTextbox;
+        private System.Windows.Forms.TextBox dateTextBox;
     }
 }

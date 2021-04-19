@@ -153,5 +153,27 @@ namespace ClinicSupport.Controller
 
             return individual;
         }
+
+        /// <summary>
+        /// Method to delete Patient information in the DAL
+        /// </summary>
+        /// <param name="pid">The patient id</param>
+        /// <returns>True if individual is successfully deleted</returns>
+        public bool DeletePatientWithoutAppointment(int pid)
+        {
+            if (pid < 0)
+            {
+                throw new Exception("Please use a valid patient id");
+            }
+
+            try
+            {
+                return patientDAL.DeletePatientWithoutAppointment(pid);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
