@@ -101,9 +101,9 @@ namespace ClinicSupport.DAL
                 {
                     // define parameters and their values
                     cmd.Parameters.Add("@docID", SqlDbType.Int).Value = appt.DoctorID;
-                    cmd.Parameters.Add("@patientID", SqlDbType.VarChar, 10).Value = appt.PatientID;
-                    cmd.Parameters.Add("@time", SqlDbType.VarChar, 50).Value = appt.Time;
-                    cmd.Parameters.Add("@reason", SqlDbType.VarChar, 250).Value = appt.Reason;
+                    cmd.Parameters.Add("@patientID", SqlDbType.Int).Value = appt.PatientID;
+                    cmd.Parameters.Add("@time", SqlDbType.DateTime).Value = appt.Time;
+                    cmd.Parameters.Add("@reason", SqlDbType.VarChar, 255).Value = appt.Reason;
                     int count = cmd.ExecuteNonQuery();
                     if (count > 0)
                         return true;

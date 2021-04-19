@@ -16,7 +16,7 @@ namespace ClinicSupport.UserControls
         private readonly DoctorController doctorController;
         private readonly PatientController patientController;
         private readonly IndividualController individualController;
-        private readonly Patient patient;
+        private Patient patient;
 
         public int CurrentPatientID { get; set; }
 
@@ -36,7 +36,7 @@ namespace ClinicSupport.UserControls
             this.timePortionDateTimePicker.Format = DateTimePickerFormat.Custom;
             this.timePortionDateTimePicker.CustomFormat = "hh':'mm tt";
             this.timePortionDateTimePicker.ShowUpDown = true;
-            patient = new Patient();
+            this.patient = new Patient();
         }
 
         /// <summary>
@@ -47,10 +47,10 @@ namespace ClinicSupport.UserControls
         {
             if (_appt.PatientID > 0)
             {
-                Patient _patient = this.patientController.GetPatientByID(_appt.PatientID);
-                if (_patient.IndividualID > 0)
+                this.patient = this.patientController.GetPatientByID(_appt.PatientID);
+                if (this.patient.IndividualID > 0)
                 {
-                    Individual _individual = this.individualController.GetIndividualByID(_patient.IndividualID);
+                    Individual _individual = this.individualController.GetIndividualByID(this.patient.IndividualID);
                     if (_individual != null)
                     {
                         this.lnameTextBox.Text = _individual.LastName;
@@ -106,6 +106,7 @@ namespace ClinicSupport.UserControls
                     var fname = this.fnameTextBox.Text;
                     var lname = this.lnameTextBox.Text;
                     var doctorID = int.Parse(this.docComboBox.SelectedValue.ToString());
+                    var reason = this.reasonTextBox.Text;
                     DateTime apptDateTime = this.datePortionDateTimePicker.Value.Date + this.timePortionDateTimePicker.Value.TimeOfDay;
                     int apptAvailable = this.appointmentController.CheckAvailability(doctorID, apptDateTime);
                     if (apptAvailable == 0)
@@ -114,7 +115,9 @@ namespace ClinicSupport.UserControls
                         newAppointment.PatientID = this.patient.PatientID;
                         newAppointment.DoctorID = doctorID;
                         newAppointment.Time = apptDateTime;
+                        newAppointment.Reason = reason;
                         bool apptAdded = false;
+                        apptAdded = this.appointmentController.InsertNewAppointment(newAppointment);
                         if (apptAdded)
                         {
                             this.ClearForm();
