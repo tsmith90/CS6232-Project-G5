@@ -42,7 +42,7 @@
             this.resultTextArea = new System.Windows.Forms.TextBox();
             this.yesRadioButton = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.ordertestButton = new System.Windows.Forms.Button();
+            this.orderTestButton = new System.Windows.Forms.Button();
             this.updateTestButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -202,7 +202,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Controls.Add(this.ordertestButton, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.orderTestButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.updateTestButton, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.cancelButton, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -213,15 +213,15 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(397, 48);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
-            // ordertestButton
+            // orderTestButton
             // 
-            this.ordertestButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ordertestButton.Location = new System.Drawing.Point(160, 12);
-            this.ordertestButton.Name = "ordertestButton";
-            this.ordertestButton.Size = new System.Drawing.Size(75, 23);
-            this.ordertestButton.TabIndex = 0;
-            this.ordertestButton.Text = "Order";
-            this.ordertestButton.UseVisualStyleBackColor = true;
+            this.orderTestButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.orderTestButton.Location = new System.Drawing.Point(160, 12);
+            this.orderTestButton.Name = "orderTestButton";
+            this.orderTestButton.Size = new System.Drawing.Size(75, 23);
+            this.orderTestButton.TabIndex = 0;
+            this.orderTestButton.Text = "Order";
+            this.orderTestButton.UseVisualStyleBackColor = true;
             // 
             // updateTestButton
             // 
@@ -277,7 +277,7 @@
         private System.Windows.Forms.TextBox resultTextArea;
         private System.Windows.Forms.RadioButton yesRadioButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button ordertestButton;
+        private System.Windows.Forms.Button orderTestButton;
         private System.Windows.Forms.Button updateTestButton;
         private System.Windows.Forms.Button cancelButton;
     }
