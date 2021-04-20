@@ -82,6 +82,12 @@
     <Compile Include="Model\Test.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visit.cs" />
+    <Compile Include="UserControls\AddLabTestUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddLabTestUserControl.Designer.cs">
+      <DependentUpon>AddLabTestUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddNurseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     <Compile Include="UserControls\NewAppointmentUserControl.Designer.cs">
       <DependentUpon>NewAppointmentUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\OrderTestUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\OrderTestUserControl.Designer.cs">
+      <DependentUpon>OrderTestUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PatientInformationUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     </Compile>
     <Compile Include="UserControls\SearchPatientUserControl.Designer.cs">
       <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UpdateLabTestUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UpdateLabTestUserControl.Designer.cs">
+      <DependentUpon>UpdateLabTestUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ViewAppointmentsByPatientIDUserControl.cs">
       <SubType>UserControl</SubType>
@@ -153,6 +171,12 @@
     </Compile>
     <Compile Include="UserControls\VisitInformationUserControl.Designer.cs">
       <DependentUpon>VisitInformationUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddLabTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddLabTestForm.Designer.cs">
+      <DependentUpon>AddLabTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminDashboard.cs">
       <SubType>Form</SubType>
@@ -192,6 +216,12 @@
     <Compile Include="View\NurseDashboard.Designer.cs">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UpdateLabTestView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UpdateLabTestView.Designer.cs">
+      <DependentUpon>UpdateLabTestView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewPatientAppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +243,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AddLabTestUserControl.resx">
+      <DependentUpon>AddLabTestUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddNurseUserControl.resx">
       <DependentUpon>AddNurseUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,11 +261,17 @@
     <EmbeddedResource Include="UserControls\NewAppointmentUserControl.resx">
       <DependentUpon>NewAppointmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\OrderTestUserControl.resx">
+      <DependentUpon>OrderTestUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PatientInformationUserControl.resx">
       <DependentUpon>PatientInformationUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SearchPatientUserControl.resx">
       <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UpdateLabTestUserControl.resx">
+      <DependentUpon>UpdateLabTestUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ViewAppointmentsByPatientIDUserControl.resx">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
@@ -248,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitInformationUserControl.resx">
       <DependentUpon>VisitInformationUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AddLabTestForm.resx">
+      <DependentUpon>AddLabTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
@@ -266,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NurseDashboard.resx">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UpdateLabTestView.resx">
+      <DependentUpon>UpdateLabTestView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ViewPatientAppointmentForm.resx">
       <DependentUpon>ViewPatientAppointmentForm.cs</DependentUpon>
