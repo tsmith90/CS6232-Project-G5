@@ -3,8 +3,14 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl to add lab tests
+    /// </summary>
     public partial class AddLabTestUserControl : UserControl
     {
+        /// <summary>
+        /// 0-parameter constructor for AddLabTestUserControl
+        /// </summary>
         public AddLabTestUserControl()
         {
             InitializeComponent();

@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace ClinicSupport.Controller
 {
+    /// <summary>
+    /// Class to interact with the LabTestDAL
+    /// </summary>
     class LabTestController
     {
         private readonly LabTestsDAL labTestDAL;
@@ -35,7 +38,7 @@ namespace ClinicSupport.Controller
         /// Adds LabTest to the database via the LabTestDAL
         /// </summary>
         /// <param name="newLabTest">Lab Test to be added</param>
-        /// <returns>Returns if addition was successful</returns>
+        /// <returns>returns true if addition was successful</returns>
         public Boolean AddLabTest(LabTests newLabTest)
         {
             if (newLabTest.PatientID == 0 || newLabTest.AppointmentDate == null || newLabTest.Code == 0)

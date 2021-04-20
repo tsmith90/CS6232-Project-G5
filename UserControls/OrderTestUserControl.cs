@@ -6,11 +6,18 @@ using ClinicSupport.Model;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// Usercontrol to add tests which need to be ordered
+    /// </summary>
     public partial class OrderTestUserControl : UserControl
     {
         private LabTestController labTestController;
         private TestController testController;
         private Appointment appointment;
+
+        /// <summary>
+        /// 0-parameter constructor for OrderTestUserControl
+        /// </summary>
         public OrderTestUserControl()
         {
             InitializeComponent();

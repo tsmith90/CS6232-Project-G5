@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl to view lab tests by appointment and patient id
+    /// </summary>
     public partial class ViewLabTestByApptAndPIdUserControl : UserControl
     {
         private Appointment appointment;
@@ -14,6 +17,9 @@ namespace ClinicSupport.UserControls
         private readonly PatientController patientController;
         private readonly IndividualController individualController;
 
+        /// <summary>
+        /// 0-parameter constructor for ViewLabTestByApptAndPIdUserControl
+        /// </summary>
         public ViewLabTestByApptAndPIdUserControl()
         {
             InitializeComponent();
@@ -23,6 +29,10 @@ namespace ClinicSupport.UserControls
             this.appointment = new Appointment();
         }
 
+        /// <summary>
+        /// Method to set appointment tests
+        /// </summary>
+        /// <param name="_appt">The appointment to be set or changed</param>
         public void SetAppointmentTest(Appointment _appt)
         {
             this.appointment = _appt;
@@ -59,7 +69,7 @@ namespace ClinicSupport.UserControls
             }
         }
 
-        private void okButton_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
             this.ParentForm.DialogResult = DialogResult.OK;
         }
