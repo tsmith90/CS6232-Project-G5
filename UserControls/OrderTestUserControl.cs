@@ -8,11 +8,13 @@ namespace ClinicSupport.UserControls
 {
     public partial class OrderTestUserControl : UserControl
     {
+        private LabTestController labTestController;
         private TestController testController;
         public OrderTestUserControl()
         {
             InitializeComponent();
             testController = new TestController();
+            labTestController = new LabTestController();
             SetTests();
         }
 
@@ -50,6 +52,41 @@ namespace ClinicSupport.UserControls
             testComboBox.DataSource = tests;
             testComboBox.DisplayMember = "name";
             testComboBox.SelectedIndex = -1;
+        }
+
+        private void OrderTestButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string message = "";
+                if (this.testComboBox.SelectedIndex == -1)
+                {
+                    message += "Test was not selected";
+                    MessageBox.Show(message, "Missing Information");
+                }
+                else
+                {
+                    LabTests newLabTest = new LabTests();
+                    //newLabTest.PatientID = /*PATIENT ID passed in*/;
+                    //newLabTest.AppointmentDate = /*appointment date passed in*/;
+                    newLabTest.Code = (int)testComboBox.SelectedValue;
+                    var result = this.labTestController.AddLabTest(newLabTest);
+                    if (result)
+                    {
+                        this.messageLabel.Text = "Lab test has been added";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please make sure all of the information is correct" + Environment.NewLine + ex.Message,
+                    "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.DialogResult = DialogResult.Cancel;
         }
     }
 }

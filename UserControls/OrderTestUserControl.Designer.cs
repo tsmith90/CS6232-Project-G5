@@ -45,6 +45,7 @@
             this.orderTestButton = new System.Windows.Forms.Button();
             this.updateTestButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -222,6 +223,7 @@
             this.orderTestButton.TabIndex = 0;
             this.orderTestButton.Text = "Order";
             this.orderTestButton.UseVisualStyleBackColor = true;
+            this.orderTestButton.Click += new System.EventHandler(this.OrderTestButton_Click);
             // 
             // updateTestButton
             // 
@@ -242,11 +244,21 @@
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(48, 345);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 4;
             // 
             // OrderTestUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -258,6 +270,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -280,5 +293,6 @@
         private System.Windows.Forms.Button orderTestButton;
         private System.Windows.Forms.Button updateTestButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label messageLabel;
     }
 }
