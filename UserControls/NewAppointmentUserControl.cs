@@ -163,7 +163,6 @@ namespace ClinicSupport.UserControls
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.ParentForm.DialogResult = DialogResult.Cancel;
-            ((Form)this.TopLevelControl).Close();
         }
 
         private void FillDoctorComboBox()

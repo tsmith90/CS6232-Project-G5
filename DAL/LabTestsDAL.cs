@@ -48,7 +48,7 @@ namespace ClinicSupport.DAL
                             _labTest.DateTaken = Convert.ToDateTime(reader["dateTaken"]);
                             _labTest.DateReturned = Convert.ToDateTime(reader["dateReturned"]);
                             _labTest.Result = (string)reader["result"];
-                            _labTest.Normal = (int)reader["normal"];
+                            _labTest.Normal = (byte)reader["normal"];
                             _lab_tests.Add(_labTest);
                         }
                     }
