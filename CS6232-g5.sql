@@ -1,5 +1,7 @@
 ﻿USE [master]
 GO
+DROP DATABASE [CS6232-g5]
+
 /****** Object:  Database [CS6232-g5]    Script Date: 4/18/2021 6:55:08 PM ******/
 CREATE DATABASE [CS6232-g5]
  CONTAINMENT = NONE
@@ -348,6 +350,12 @@ INSERT [dbo].[Visit] ([pid], [time], [nid], [weight], [systolic], [diastolic], [
 INSERT [dbo].[Visit] ([pid], [time], [nid], [weight], [systolic], [diastolic], [temperature], [pulse], [symptoms], [initialDiagnosis], [finalDiagnosis]) VALUES (12, CAST(N'2020-09-20T12:30:00.000' AS DateTime), 2, CAST(175.00 AS Numeric(5, 2)), 140, 80, CAST(99.90 AS Numeric(5, 2)), 70, N'Fever', N'Possible flu', N'Patient has common cold.')
 INSERT [dbo].[Visit] ([pid], [time], [nid], [weight], [systolic], [diastolic], [temperature], [pulse], [symptoms], [initialDiagnosis], [finalDiagnosis]) VALUES (12, CAST(N'2020-10-01T13:30:00.000' AS DateTime), 2, CAST(175.00 AS Numeric(5, 2)), 140, 80, CAST(98.60 AS Numeric(5, 2)), 70, N'Vomiting', N'Possible food poisoning', N'Patient drank too much nyquil to fix a fever from last week.')
 INSERT [dbo].[Visit] ([pid], [time], [nid], [weight], [systolic], [diastolic], [temperature], [pulse], [symptoms], [initialDiagnosis], [finalDiagnosis]) VALUES (13, CAST(N'2020-12-12T13:30:00.000' AS DateTime), 1, CAST(265.00 AS Numeric(5, 2)), 125, 85, CAST(98.60 AS Numeric(5, 2)), 80, N'Patient is interested in getting a face lift', N'Patient has been referred to another clinic for a follow-up', NULL)
+GO
+
+INSERT INTO [dbo].[LabTests] ([pid],[appointmentDate],[code],[dateTaken],[dateReturned],[result],[normal])VALUES (12,'2020-09-20 12:30:00.000',1,'2020-09-23 12:30:48.877','2020-09-24 15:30:48.877','Negative',1)
+INSERT INTO [dbo].[LabTests] ([pid],[appointmentDate],[code],[dateTaken],[dateReturned],[result],[normal])VALUES (10,'2021-04-18 10:34:00.000',3,'2021-04-19 9:14:00.000','2020-04-20 15:30:48.877','Negative',1)
+INSERT INTO [dbo].[LabTests] ([pid],[appointmentDate],[code],[dateTaken],[dateReturned],[result],[normal])VALUES (11,'2020-12-04 10:30:00.000',5,'2020-12-05 8:30:00.000','2020-12-07 10:30:48.877','Positive',1)
+
 GO
 /****** Object:  Index [IX_Doctor]    Script Date: 4/18/2021 6:55:08 PM ******/
 CREATE NONCLUSTERED INDEX [IX_Doctor] ON [dbo].[Doctor]
