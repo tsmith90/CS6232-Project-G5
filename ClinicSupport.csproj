@@ -136,6 +136,12 @@
     <Compile Include="UserControls\SearchPatientUserControl.Designer.cs">
       <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UpdateLabTestUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UpdateLabTestUserControl.Designer.cs">
+      <DependentUpon>UpdateLabTestUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ViewAppointmentsByPatientIDUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -239,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SearchPatientUserControl.resx">
       <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UpdateLabTestUserControl.resx">
+      <DependentUpon>UpdateLabTestUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ViewAppointmentsByPatientIDUserControl.resx">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>
