@@ -3,6 +3,7 @@ using ClinicSupport.Model;
 using ClinicSupport.View;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -18,6 +19,7 @@ namespace ClinicSupport.UserControls
         private List<Appointment> appointmentList;
         private readonly AppointmentController appointmentController;
         private readonly PatientController patientController;
+        private NewAppointmentForm apptForm;
 
         /// <summary>
         /// 0-parameter constructor for ViewAppointmentsByPatientIDUserControl
@@ -42,20 +44,9 @@ namespace ClinicSupport.UserControls
             }
             try
             {
-                appointmentList = this.appointmentController.GetAppointmentsByPID(patientID);
-                appointmentDataGridView.DataSource = appointmentList;
-
-                DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
-                editButtonColumn.Name = "edit_column";
-                editButtonColumn.HeaderText = "Edit";
-                editButtonColumn.Text = "Edit";
-
-                int columnIndex = 4;
-
-                if (appointmentDataGridView.Columns["edit_column"] == null)
-                {
-                    appointmentDataGridView.Columns.Insert(columnIndex, editButtonColumn);
-                }
+                this.appointmentList = this.appointmentController.GetAppointmentsByPID(patientID);
+                this.appointmentDataGridView.DataSource = this.GetAppointmentTable();
+                this.appointmentDataGridView.ReadOnly = true;
             }
             catch (Exception ex)
             {
@@ -63,40 +54,62 @@ namespace ClinicSupport.UserControls
             }
         }
 
+        private DataTable GetAppointmentTable()
+        {
+            DataTable apptDataTable = new DataTable();
+            apptDataTable.Columns.Add("Patient ID", typeof(string));
+            apptDataTable.Columns.Add("Doctor ID", typeof(string));
+            apptDataTable.Columns.Add("Reason", typeof(string));
+            apptDataTable.Columns.Add("Appointment Time", typeof(DateTime));
+            apptDataTable.Columns.Add("Action", typeof(string));
+
+            foreach (Appointment appt in this.appointmentList)
+            {
+                if (appt.Time > DateTime.Now.AddHours(24))
+                {
+                    apptDataTable.Rows.Add(appt.PatientID, appt.DoctorID, appt.Reason, appt.Time, "Edit");
+                }
+                else
+                    apptDataTable.Rows.Add(appt.PatientID, appt.DoctorID, appt.Reason, appt.Time, "View");
+            }
+            return apptDataTable;
+        }
+
         private void AppointmentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == appointmentDataGridView.Columns["edit_column"].Index)
+            string text = appointmentDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            //edit column 
+            if (text == "Edit" || text == "View")
             {
                 this.messageLabel.Text = "";
                 this.messageLabel.ForeColor = Color.Black;
-                var pid = Convert.ToInt32(appointmentDataGridView.Rows[e.RowIndex].Cells[1].Value);
-                var time = Convert.ToDateTime(appointmentDataGridView.Rows[e.RowIndex].Cells[2].Value);
-                var did = Convert.ToInt32(appointmentDataGridView.Rows[e.RowIndex].Cells[3].Value);
-                var reason = Convert.ToString(appointmentDataGridView.Rows[e.RowIndex].Cells[4].Value);
+                var pid = Convert.ToInt32(appointmentDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                var did = Convert.ToInt32(appointmentDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                var reason = Convert.ToString(appointmentDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                var time = Convert.ToDateTime(appointmentDataGridView.Rows[e.RowIndex].Cells[3].Value);
                 Appointment _appt = new Appointment();
                 _appt.DoctorID = did;
                 _appt.PatientID = pid;
                 _appt.Reason = reason;
                 _appt.Time = time;
-
-                NewAppointmentForm apptForm = new NewAppointmentForm();
-                apptForm.SetAppointment(_appt);
-                if (apptForm.ShowDialog() == DialogResult.OK)
+                
+                this.apptForm = new NewAppointmentForm();
+                this.apptForm.SetAppointment(_appt);
+                DialogResult result = this.apptForm.ShowDialog();
+                if (result == DialogResult.OK)
                 {
-                    string message = "New Appointment have been added!";
-                    this.messageLabel.Text = message;
-                    this.messageLabel.ForeColor = Color.Black;
+                    if (text == "Edit") { 
+                        string message = "The Appointment have been updated!";
+                        this.messageLabel.Text = message;
+                        this.messageLabel.ForeColor = Color.Black;
+                    }
                     this.GetPatientData(this.patient.PatientID);
                 }
-                else if (apptForm.ShowDialog() == DialogResult.Abort)
+                else if (result == DialogResult.Abort)
                 {
                     string message = "Unable to update the Appointment at this time!";
                     this.messageLabel.Text = message;
                     this.messageLabel.ForeColor = Color.Red;
-                }
-                else
-                {
-                    apptForm.Close();
                 }
             }
         }
@@ -136,7 +149,7 @@ namespace ClinicSupport.UserControls
                     MessageBox.Show("Please enter a valid inte!!!!" + Environment.NewLine + ex.Message,
                         "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } 
+            }
         }
 
         private void NewApptButton_Click(object sender, EventArgs e)
@@ -146,25 +159,21 @@ namespace ClinicSupport.UserControls
 
             Appointment _appt = new Appointment();
             _appt.PatientID = this.patient.PatientID;
-            NewAppointmentForm _patientAppointmentForm = new NewAppointmentForm();
-            _patientAppointmentForm.SetAppointment(_appt);
-
-            if (_patientAppointmentForm.ShowDialog() == DialogResult.OK)
+            this.apptForm = new NewAppointmentForm();
+            this.apptForm.SetAppointment(_appt);
+            DialogResult result = this.apptForm.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                string message = "The Appointment have been updated!";
+                string message = "New Appointment have been added!";
                 this.messageLabel.Text = message;
                 this.messageLabel.ForeColor = Color.Black;
                 this.GetPatientData(this.patient.PatientID);
             }
-            else if (_patientAppointmentForm.ShowDialog() == DialogResult.Abort)
+            else if (result == DialogResult.Abort)
             {
                 string message = "Unable to add the Appointment at this time!";
                 this.messageLabel.Text = message;
                 this.messageLabel.ForeColor = Color.Red;
-            }
-            else
-            {
-                _patientAppointmentForm.Close();
             }
         }
 
