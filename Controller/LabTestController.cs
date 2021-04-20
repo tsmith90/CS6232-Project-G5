@@ -22,13 +22,13 @@ namespace ClinicSupport.Controller
         /// </summary>
         /// <param name="patientID">patientID</param>
         /// <returns>list of Appointments</returns>
-        public List<LabTests> GetLabTestsByPatientID(int patientID)
+        public List<LabTests> GetLabTestsByPatientID(int patientID, DateTime appTime)
         {
             if (patientID < 0)
             {
                 throw new ArgumentNullException("patientID cannot be a negative number");
             }
-            return this.labTestDAL.GetLabTestsByPatientID(patientID);
+            return this.labTestDAL.GetLabTestsByPatientID(patientID, appTime);
         }
 
     }

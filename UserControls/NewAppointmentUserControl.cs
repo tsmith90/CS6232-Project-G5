@@ -1,5 +1,6 @@
 ﻿using ClinicSupport.Controller;
 using ClinicSupport.Model;
+using ClinicSupport.View;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -203,6 +204,20 @@ namespace ClinicSupport.UserControls
             else
             {
                 datePortionDateTimePicker.Format = DateTimePickerFormat.Short;
+            }
+        }
+
+        private void visitInfoButton_Click(object sender, EventArgs e)
+        {
+            LabTestForm testForm = new LabTestForm();
+            testForm.SetAppointmentTest(this.appointment);
+            if (testForm.ShowDialog() == DialogResult.OK)
+            {
+               
+            }
+            else
+            {
+                testForm.Close();
             }
         }
     }
