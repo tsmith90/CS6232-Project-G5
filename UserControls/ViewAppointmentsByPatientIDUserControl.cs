@@ -70,7 +70,7 @@ namespace ClinicSupport.UserControls
                     apptDataTable.Rows.Add(appt.PatientID, appt.DoctorID, appt.Reason, appt.Time, "Edit");
                 }
                 else
-                    apptDataTable.Rows.Add(appt.PatientID, appt.DoctorID, appt.Reason, appt.Time, " ");
+                    apptDataTable.Rows.Add(appt.PatientID, appt.DoctorID, appt.Reason, appt.Time, "View");
             }
             return apptDataTable;
         }
@@ -79,7 +79,7 @@ namespace ClinicSupport.UserControls
         {
             string text = appointmentDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             //edit column 
-            if (text == "Edit")
+            if (text == "Edit" || text == "View")
             {
                 this.messageLabel.Text = "";
                 this.messageLabel.ForeColor = Color.Black;
@@ -95,22 +95,21 @@ namespace ClinicSupport.UserControls
                 
                 this.apptForm = new NewAppointmentForm();
                 this.apptForm.SetAppointment(_appt);
-                if (this.apptForm.ShowDialog() == DialogResult.OK)
+                DialogResult result = this.apptForm.ShowDialog();
+                if (result == DialogResult.OK)
                 {
-                    string message = "The Appointment have been updated!";
-                    this.messageLabel.Text = message;
-                    this.messageLabel.ForeColor = Color.Black;
+                    if (text == "Edit") { 
+                        string message = "The Appointment have been updated!";
+                        this.messageLabel.Text = message;
+                        this.messageLabel.ForeColor = Color.Black;
+                    }
                     this.GetPatientData(this.patient.PatientID);
                 }
-                else if (this.apptForm.ShowDialog() == DialogResult.Abort)
+                else if (result == DialogResult.Abort)
                 {
                     string message = "Unable to update the Appointment at this time!";
                     this.messageLabel.Text = message;
                     this.messageLabel.ForeColor = Color.Red;
-                }
-                else
-                {
-                    this.apptForm.Close();
                 }
             }
         }
@@ -162,23 +161,19 @@ namespace ClinicSupport.UserControls
             _appt.PatientID = this.patient.PatientID;
             this.apptForm = new NewAppointmentForm();
             this.apptForm.SetAppointment(_appt);
-
-            if (this.apptForm.ShowDialog() == DialogResult.OK)
+            DialogResult result = this.apptForm.ShowDialog();
+            if (result == DialogResult.OK)
             {
                 string message = "New Appointment have been added!";
                 this.messageLabel.Text = message;
                 this.messageLabel.ForeColor = Color.Black;
                 this.GetPatientData(this.patient.PatientID);
             }
-            else if (this.apptForm.ShowDialog() == DialogResult.Abort)
+            else if (result == DialogResult.Abort)
             {
                 string message = "Unable to add the Appointment at this time!";
                 this.messageLabel.Text = message;
                 this.messageLabel.ForeColor = Color.Red;
-            }
-            else
-            {
-                this.apptForm.Close();
             }
         }
 
