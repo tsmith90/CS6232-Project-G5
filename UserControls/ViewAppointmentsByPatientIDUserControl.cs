@@ -181,6 +181,8 @@ namespace ClinicSupport.UserControls
         {
             this.fnameTextBox.Text = "";
             this.lnameTextBox.Text = "";
+            this.dobDateTimePicker.Value = DateTime.Now;
+            this.dobDateTimePicker.Checked = false;
         }
 
         /// <summary>
