@@ -83,6 +83,9 @@ namespace ClinicSupport.UserControls
                 apptForm.SetAppointment(_appt);
                 if (apptForm.ShowDialog() == DialogResult.OK)
                 {
+                    string message = "New Appointment have been added!";
+                    this.messageLabel.Text = message;
+                    this.messageLabel.ForeColor = Color.Black;
                     this.GetPatientData(this.patient.PatientID);
                 }
                 else if (apptForm.ShowDialog() == DialogResult.Abort)
@@ -148,6 +151,9 @@ namespace ClinicSupport.UserControls
 
             if (_patientAppointmentForm.ShowDialog() == DialogResult.OK)
             {
+                string message = "The Appointment have been updated!";
+                this.messageLabel.Text = message;
+                this.messageLabel.ForeColor = Color.Black;
                 this.GetPatientData(this.patient.PatientID);
             }
             else if (_patientAppointmentForm.ShowDialog() == DialogResult.Abort)
