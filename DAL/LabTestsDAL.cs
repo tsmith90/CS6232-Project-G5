@@ -45,10 +45,22 @@ namespace ClinicSupport.DAL
                             _labTest.PatientID = (int)reader["pid"];
                             _labTest.AppointmentDate = Convert.ToDateTime(reader["appointmentDate"]);
                             _labTest.Code = (int)reader["code"];
-                            _labTest.DateTaken = Convert.ToDateTime(reader["dateTaken"]);
-                            _labTest.DateReturned = Convert.ToDateTime(reader["dateReturned"]);
-                            _labTest.Result = (string)reader["result"];
-                            _labTest.Normal = (byte)reader["normal"];
+                            if (reader["dateTaken"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.DateTaken = Convert.ToDateTime(reader["dateTaken"]);
+                            }
+                            if (reader["dateReturned"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.DateReturned = Convert.ToDateTime(reader["dateReturned"]);
+                            }
+                            if (reader["result"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.Result = (string)reader["result"];
+                            }
+                            if (reader["normal"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.Normal = (byte)reader["normal"];
+                            }
                             _lab_tests.Add(_labTest);
                         }
                     }

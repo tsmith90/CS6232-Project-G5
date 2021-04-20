@@ -89,6 +89,7 @@ namespace ClinicSupport.UserControls
                         this.lnameTextBox.ReadOnly = true;
                         this.reasonTextBox.ReadOnly = true;
                         this.docComboBox.Enabled = false;
+                        this.orderTestButton.Enabled = false;
                         this.viewOnlyAppt = true;
                     }
                 }
