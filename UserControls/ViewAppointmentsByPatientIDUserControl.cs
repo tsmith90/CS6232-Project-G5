@@ -61,7 +61,7 @@ namespace ClinicSupport.UserControls
             apptDataTable.Columns.Add("Doctor ID", typeof(string));
             apptDataTable.Columns.Add("Reason", typeof(string));
             apptDataTable.Columns.Add("Appointment Time", typeof(DateTime));
-            apptDataTable.Columns.Add(" ", typeof(string));
+            apptDataTable.Columns.Add("Action", typeof(string));
 
             foreach (Appointment appt in this.appointmentList)
             {
