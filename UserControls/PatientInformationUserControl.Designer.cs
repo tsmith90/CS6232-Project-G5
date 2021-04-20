@@ -50,11 +50,11 @@
             this.createPatientButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ssnLabel = new System.Windows.Forms.Label();
+            this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.messageLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
-            this.ssnLabel = new System.Windows.Forms.Label();
-            this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -291,6 +291,24 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(446, 205);
             this.tableLayoutPanel2.TabIndex = 13;
             // 
+            // ssnLabel
+            // 
+            this.ssnLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ssnLabel.AutoSize = true;
+            this.ssnLabel.Location = new System.Drawing.Point(3, 167);
+            this.ssnLabel.Name = "ssnLabel";
+            this.ssnLabel.Size = new System.Drawing.Size(32, 13);
+            this.ssnLabel.TabIndex = 11;
+            this.ssnLabel.Text = "SSN:";
+            // 
+            // ssnTextBox
+            // 
+            this.ssnTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ssnTextBox.Location = new System.Drawing.Point(3, 183);
+            this.ssnTextBox.Name = "ssnTextBox";
+            this.ssnTextBox.Size = new System.Drawing.Size(146, 20);
+            this.ssnTextBox.TabIndex = 5;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -325,24 +343,6 @@
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // ssnLabel
-            // 
-            this.ssnLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ssnLabel.AutoSize = true;
-            this.ssnLabel.Location = new System.Drawing.Point(3, 167);
-            this.ssnLabel.Name = "ssnLabel";
-            this.ssnLabel.Size = new System.Drawing.Size(32, 13);
-            this.ssnLabel.TabIndex = 11;
-            this.ssnLabel.Text = "SSN:";
-            // 
-            // ssnTextBox
-            // 
-            this.ssnTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ssnTextBox.Location = new System.Drawing.Point(3, 183);
-            this.ssnTextBox.Name = "ssnTextBox";
-            this.ssnTextBox.Size = new System.Drawing.Size(146, 20);
-            this.ssnTextBox.TabIndex = 5;
             // 
             // PatientInformationUserControl
             // 
