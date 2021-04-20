@@ -82,6 +82,12 @@
     <Compile Include="Model\Test.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visit.cs" />
+    <Compile Include="UserControls\AddLabTestUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddLabTestUserControl.Designer.cs">
+      <DependentUpon>AddLabTestUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddNurseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,6 +213,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AddLabTestUserControl.resx">
+      <DependentUpon>AddLabTestUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddNurseUserControl.resx">
       <DependentUpon>AddNurseUserControl.cs</DependentUpon>
     </EmbeddedResource>
