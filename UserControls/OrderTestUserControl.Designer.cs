@@ -155,6 +155,7 @@
             // testComboBox
             // 
             this.testComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.testComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.testComboBox.FormattingEnabled = true;
             this.testComboBox.Location = new System.Drawing.Point(201, 7);
             this.testComboBox.Name = "testComboBox";

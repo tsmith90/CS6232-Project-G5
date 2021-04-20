@@ -270,15 +270,6 @@ namespace ClinicSupport.UserControls
             this.individual.ZipCode = zip.ToString();
         }
 
-        /// <summary>
-        /// Method to return a Dialog result
-        /// </summary>
-        /// <returns>true</returns>
-        public Boolean ReturnDialogResultOK()
-        {
-            return true;
-        }
-
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.ParentForm.DialogResult = DialogResult.OK;

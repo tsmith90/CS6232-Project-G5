@@ -10,11 +10,15 @@ namespace ClinicSupport.UserControls
     {
         private LabTestController labTestController;
         private TestController testController;
+        private Appointment appointment;
         public OrderTestUserControl()
         {
             InitializeComponent();
             testController = new TestController();
             labTestController = new LabTestController();
+            appointment = new Appointment();
+            normalLabel.Visible = false;
+            yesRadioButton.Visible = false;
             SetTests();
         }
 
@@ -45,6 +49,15 @@ namespace ClinicSupport.UserControls
             orderTestButton.Visible = false;
         }
 
+        /// <summary>
+        /// sets the patient and appointment for ordering a test
+        /// </summary>
+        /// <param name="_appt">Appointment object used to obtain the patientID and apptDate</param>
+        public void SetPatientAndAppointment(Appointment _appt)
+        {
+            this.appointment = _appt;
+        }
+
         private void SetTests()
         {
             List<Test> tests = testController.GetTests();
@@ -67,9 +80,10 @@ namespace ClinicSupport.UserControls
                 else
                 {
                     LabTests newLabTest = new LabTests();
-                    //newLabTest.PatientID = /*PATIENT ID passed in*/;
-                    //newLabTest.AppointmentDate = /*appointment date passed in*/;
-                    newLabTest.Code = (int)testComboBox.SelectedValue;
+                    newLabTest.PatientID = this.appointment.PatientID;
+                    newLabTest.AppointmentDate = this.appointment.Time;
+                    Test selectedTest = (Test)testComboBox.SelectedItem;
+                    newLabTest.Code = selectedTest.Code;
                     var result = this.labTestController.AddLabTest(newLabTest);
                     if (result)
                     {

@@ -220,5 +220,12 @@ namespace ClinicSupport.UserControls
                 testForm.Close();
             }
         }
+
+        private void OrderTestButton_Click(object sender, EventArgs e)
+        {
+            AddLabTestForm orderTest = new AddLabTestForm();
+            orderTest.SetPatientAndAppointment(this.appointment);
+            DialogResult result = orderTest.ShowDialog();
+        }
     }
 }
