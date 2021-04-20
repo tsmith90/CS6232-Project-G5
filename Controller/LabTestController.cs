@@ -31,5 +31,18 @@ namespace ClinicSupport.Controller
             return this.labTestDAL.GetLabTestsByPatientID(patientID, appTime);
         }
 
+        /// <summary>
+        /// Adds LabTest to the database via the LabTestDAL
+        /// </summary>
+        /// <param name="newLabTest">Lab Test to be added</param>
+        /// <returns>Returns if addition was successful</returns>
+        public Boolean AddLabTest(LabTests newLabTest)
+        {
+            if (newLabTest.PatientID == 0 || newLabTest.AppointmentDate == null || newLabTest.Code == 0)
+            {
+                throw new ArgumentNullException("Not all of the required data is set for the Lab Test to be added");
+            }
+            return this.labTestDAL.AddLabTest(newLabTest);
+        }
     }
 }
