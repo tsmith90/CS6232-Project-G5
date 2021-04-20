@@ -1,6 +1,6 @@
 ﻿namespace ClinicSupport.View
 {
-    partial class AddLabTestForm
+    partial class UpdateLabTestView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.addLabTestUserControl1 = new ClinicSupport.UserControls.AddLabTestUserControl();
+            this.updateLabTestUserControl1 = new ClinicSupport.UserControls.UpdateLabTestUserControl();
             this.SuspendLayout();
             // 
-            // addLabTestUserControl1
+            // updateLabTestUserControl1
             // 
-            this.addLabTestUserControl1.Location = new System.Drawing.Point(12, 10);
-            this.addLabTestUserControl1.Name = "addLabTestUserControl1";
-            this.addLabTestUserControl1.Size = new System.Drawing.Size(412, 428);
-            this.addLabTestUserControl1.TabIndex = 0;
+            this.updateLabTestUserControl1.Location = new System.Drawing.Point(12, 9);
+            this.updateLabTestUserControl1.Name = "updateLabTestUserControl1";
+            this.updateLabTestUserControl1.Size = new System.Drawing.Size(400, 429);
+            this.updateLabTestUserControl1.TabIndex = 0;
             // 
-            // AddLabTestForm
+            // UpdateLabTestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 450);
-            this.Controls.Add(this.addLabTestUserControl1);
+            this.ClientSize = new System.Drawing.Size(425, 450);
+            this.Controls.Add(this.updateLabTestUserControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "AddLabTestForm";
+            this.Name = "UpdateLabTestView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Lab Test Form";
+            this.Text = "Update Lab Test";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private UserControls.AddLabTestUserControl addLabTestUserControl1;
+        private UserControls.UpdateLabTestUserControl updateLabTestUserControl1;
     }
 }

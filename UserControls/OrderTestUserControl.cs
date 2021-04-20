@@ -37,6 +37,7 @@ namespace ClinicSupport.UserControls
         /// </summary>
         public void ForUpdatingTests()
         {
+            orderTestTitleLabel.Text = "Edit Lab Test";
             testOrderLabel.Text = "Test ordered:";
             testComboBox.Enabled = false;
             orderTestButton.Visible = false;

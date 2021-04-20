@@ -204,6 +204,12 @@
     <Compile Include="View\NurseDashboard.Designer.cs">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UpdateLabTestView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UpdateLabTestView.Designer.cs">
+      <DependentUpon>UpdateLabTestView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewPatientAppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NurseDashboard.resx">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UpdateLabTestView.resx">
+      <DependentUpon>UpdateLabTestView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ViewPatientAppointmentForm.resx">
       <DependentUpon>ViewPatientAppointmentForm.cs</DependentUpon>
