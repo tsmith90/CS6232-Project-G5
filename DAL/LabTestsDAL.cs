@@ -19,13 +19,13 @@ namespace ClinicSupport.DAL
         /// </summary>
         /// <param name="patient_id">Used to retrieve LabTests for that person</param>
         /// <returns>Returns list of LabTests from the DB</returns>
-        public List<LabTests> GetLabTestsByPatientID(int patient_id)
+        public List<LabTests> GetLabTestsByPatientID(int patient_id, DateTime appTime)
         {
             List<LabTests> _lab_tests = new List<LabTests>();
             string selectStatement = 
                 "SELECT pid, appointmentDate, code, dateTaken, dateReturned, result, normal " +
                 "FROM LabTests " +
-                "WHERE pid = @PatientID";
+                "WHERE pid = @PatientID and appointmentDate = @appTime";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -34,6 +34,9 @@ namespace ClinicSupport.DAL
                 {
                     selectCommand.Parameters.Add("@PatientID", SqlDbType.Int);
                     selectCommand.Parameters["@PatientID"].Value = patient_id;
+                    selectCommand.Parameters.Add("@appTime", SqlDbType.DateTime);
+                    selectCommand.Parameters["@appTime"].Value = appTime;
+
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         while (reader.Read())

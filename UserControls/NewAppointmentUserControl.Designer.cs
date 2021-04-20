@@ -180,6 +180,7 @@ namespace ClinicSupport.UserControls
             this.visitInfoButton.TabIndex = 14;
             this.visitInfoButton.Text = "Visit Information";
             this.visitInfoButton.UseVisualStyleBackColor = true;
+            this.visitInfoButton.Click += new System.EventHandler(this.visitInfoButton_Click);
             // 
             // datePortionDateTimePicker
             // 

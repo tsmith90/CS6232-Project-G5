@@ -154,6 +154,12 @@
     <Compile Include="UserControls\UpdateNurseLoginUserControl.Designer.cs">
       <DependentUpon>UpdateNurseLoginUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ViewLabTestByApptAndPIdUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewLabTestByApptAndPIdUserControl.Designer.cs">
+      <DependentUpon>ViewLabTestByApptAndPIdUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ViewUpdateNurseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -183,6 +189,12 @@
     </Compile>
     <Compile Include="View\CheckupForm.Designer.cs">
       <DependentUpon>CheckupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LabTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LabTestForm.Designer.cs">
+      <DependentUpon>LabTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Login.cs">
       <SubType>Form</SubType>
@@ -267,6 +279,9 @@
     <EmbeddedResource Include="UserControls\UpdateNurseLoginUserControl.resx">
       <DependentUpon>UpdateNurseLoginUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ViewLabTestByApptAndPIdUserControl.resx">
+      <DependentUpon>ViewLabTestByApptAndPIdUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ViewUpdateNurseUserControl.resx">
       <DependentUpon>ViewUpdateNurseUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\CheckupForm.resx">
       <DependentUpon>CheckupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LabTestForm.resx">
+      <DependentUpon>LabTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
