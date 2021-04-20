@@ -53,5 +53,31 @@ namespace ClinicSupport.DAL
             }
             return _lab_tests;
         }
+
+        /// <summary>
+        /// Adds LabTest to the database
+        /// </summary>
+        /// <param name="newLabTest">Lab Test to be added</param>
+        /// <returns>Returns if addition was successful</returns>
+        public Boolean AddLabTest(LabTests newLabTest)
+        {
+            string insertStatement = 
+                "INSERT INTO LabTests (pid, appointmentDate, code) " +
+                "VALUES (@PatientID, @AppointmentDate, @Code)";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                {
+                    insertCommand.Parameters.AddWithValue("@PatientID", newLabTest.PatientID);
+                    insertCommand.Parameters.AddWithValue("@AppointmentDate", newLabTest.AppointmentDate);
+                    insertCommand.Parameters.AddWithValue("@Code", newLabTest.Code);
+
+                    insertCommand.ExecuteNonQuery();
+                    return true;
+                }
+            }
+        }
     }
 }
