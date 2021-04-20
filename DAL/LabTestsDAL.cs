@@ -73,9 +73,12 @@ namespace ClinicSupport.DAL
                 connection.Open();
                 using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                 {
-                    insertCommand.Parameters.AddWithValue("@PatientID", newLabTest.PatientID);
-                    insertCommand.Parameters.AddWithValue("@AppointmentDate", newLabTest.AppointmentDate);
-                    insertCommand.Parameters.AddWithValue("@Code", newLabTest.Code);
+                    insertCommand.Parameters.Add("@PatientID", SqlDbType.Int);
+                    insertCommand.Parameters["@PatientID"].Value = newLabTest.PatientID;
+                    insertCommand.Parameters.Add("@AppointmentDate", SqlDbType.DateTime);
+                    insertCommand.Parameters["@AppointmentDate"].Value = newLabTest.AppointmentDate;
+                    insertCommand.Parameters.Add("@Code", SqlDbType.Int);
+                    insertCommand.Parameters["@Code"].Value = newLabTest.Code;
 
                     insertCommand.ExecuteNonQuery();
                     return true;
