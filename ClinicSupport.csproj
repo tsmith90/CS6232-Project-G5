@@ -55,6 +55,7 @@
     <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\IndividualController.cs" />
+    <Compile Include="Controller\LabTestController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\NurseController.cs" />
     <Compile Include="Controller\PatientController.cs" />
