@@ -3,8 +3,14 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.View
 {
+    /// <summary>
+    /// Form to add lab tests and results
+    /// </summary>
     public partial class AddLabTestForm : Form
     {
+        /// <summary>
+        /// 0-parameter constructor for AddLabTestForm
+        /// </summary>
         public AddLabTestForm()
         {
             InitializeComponent();

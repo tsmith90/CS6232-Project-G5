@@ -91,7 +91,6 @@ namespace ClinicSupport.UserControls
         private void AppointmentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string text = appointmentDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            //edit column 
             if (text == "Edit" || text == "View")
             {
                 this.messageLabel.Text = "";

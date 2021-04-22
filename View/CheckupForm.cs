@@ -170,7 +170,7 @@ namespace ClinicSupport.View
                 }
                 catch (Exception ex)
                 {
-                    errorLabel.Text = ex.Message + " Please try again.";
+                    errorLabel.Text = ex.Message;
                 }
             }
             else
@@ -191,7 +191,7 @@ namespace ClinicSupport.View
                 }
                 catch (Exception ex)
                 {
-                    errorLabel.Text = ex.Message + " Please try again.";
+                    errorLabel.Text = ex.Message;
                 }
             }
         }

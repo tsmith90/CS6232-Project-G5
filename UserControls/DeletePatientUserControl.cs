@@ -37,6 +37,7 @@ namespace ClinicSupport.UserControls
             dateTextBox.ReadOnly = true;
             ssnTextBox.ReadOnly = true;
             phoneTextBox.ReadOnly = true;
+            deletePatientButton.Enabled = false;
         }
 
         private void TextBox_Changed(object sender, EventArgs e)
@@ -63,6 +64,7 @@ namespace ClinicSupport.UserControls
             dateTextBox.Text = "";
             ssnTextBox.Text = "";
             phoneTextBox.Text = "";
+            deletePatientButton.Enabled = false;
         }
 
         private void FindPatientButton_Click(object sender, EventArgs e)
@@ -84,6 +86,7 @@ namespace ClinicSupport.UserControls
                 if (individual.DateOfBirth.CompareTo(DateTime.MinValue) > 0)
                 {
                     dateTextBox.Text = individual.DateOfBirth.ToShortDateString();
+                    deletePatientButton.Enabled = true;
                 }
             }
             catch (FormatException)
