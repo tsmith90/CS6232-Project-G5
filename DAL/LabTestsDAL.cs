@@ -19,7 +19,7 @@ namespace ClinicSupport.DAL
         /// </summary>
         /// <param name="patient_id">Used to retrieve LabTests for that person</param>
         /// <returns>Returns list of LabTests from the DB</returns>
-        public List<LabTests> GetLabTestsByPatientID(int patient_id, DateTime appTime)
+        public List<LabTests> GetLabTestsByPatientIDAndAppt(int patient_id, DateTime appTime)
         {
             List<LabTests> _lab_tests = new List<LabTests>();
             string selectStatement = 
@@ -68,7 +68,52 @@ namespace ClinicSupport.DAL
             }
             return _lab_tests;
         }
+        public List<LabTests> GetLabTestsByPatientID(int patient_id)
+        {
+            List<LabTests> _lab_tests = new List<LabTests>();
+            string selectStatement =
+                "SELECT pid, appointmentDate, code, dateTaken, dateReturned, result, normal " +
+                "FROM LabTests " +
+                "WHERE pid = @PatientID";
 
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.Add("@PatientID", SqlDbType.Int);
+                    selectCommand.Parameters["@PatientID"].Value = patient_id;
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            LabTests _labTest = new LabTests();
+                            _labTest.PatientID = (int)reader["pid"];
+                            _labTest.AppointmentDate = Convert.ToDateTime(reader["appointmentDate"]);
+                            _labTest.Code = (int)reader["code"];
+                            if (reader["dateTaken"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.DateTaken = Convert.ToDateTime(reader["dateTaken"]);
+                            }
+                            if (reader["dateReturned"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.DateReturned = Convert.ToDateTime(reader["dateReturned"]);
+                            }
+                            if (reader["result"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.Result = (string)reader["result"];
+                            }
+                            if (reader["normal"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.Normal = (byte)reader["normal"];
+                            }
+                            _lab_tests.Add(_labTest);
+                        }
+                    }
+                }
+            }
+            return _lab_tests;
+        }
         /// <summary>
         /// Adds LabTest to the database
         /// </summary>

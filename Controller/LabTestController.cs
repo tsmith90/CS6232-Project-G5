@@ -22,14 +22,29 @@ namespace ClinicSupport.Controller
         /// </summary>
         /// <param name="patientID">patientID</param>
         /// <returns>list of Appointments</returns>
-        public List<LabTests> GetLabTestsByPatientID(int patientID, DateTime appTime)
+        public List<LabTests> GetLabTestsByPatientIDAndAppt(int patientID, DateTime appTime)
+        {
+            if (patientID < 0 || appTime == DateTime.MinValue)
+            {
+                throw new ArgumentNullException("patientID cannot be a negative number or Appointment cannot be null");
+            }
+            return this.labTestDAL.GetLabTestsByPatientIDAndAppt(patientID, appTime);
+        }
+
+        /// <summary>
+        /// Getting list of LabTests for given patientID.
+        /// </summary>
+        /// <param name="patientID">patientID</param>
+        /// <returns>list of Appointments</returns>
+        public List<LabTests> GetLabTestsByPatientID(int patientID)
         {
             if (patientID < 0)
             {
                 throw new ArgumentNullException("patientID cannot be a negative number");
             }
-            return this.labTestDAL.GetLabTestsByPatientID(patientID, appTime);
+            return this.labTestDAL.GetLabTestsByPatientID(patientID);
         }
+
 
         /// <summary>
         /// Adds LabTest to the database via the LabTestDAL

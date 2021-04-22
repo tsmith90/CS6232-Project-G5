@@ -11,16 +11,31 @@ namespace ClinicSupport.UserControls
         private LabTestController labTestController;
         private TestController testController;
         private Appointment appointment;
+        private readonly PatientController patientController;
+        private readonly IndividualController individualController;
+        private int pid;
         public OrderTestUserControl()
         {
             InitializeComponent();
             testController = new TestController();
             labTestController = new LabTestController();
+            this.patientController = new PatientController();
+            this.individualController = new IndividualController();
             appointment = new Appointment();
             normalLabel.Visible = false;
             yesRadioButton.Visible = false;
             SetTests();
         }
+        private void OrderTestUserControlOrderTestUserControl_Load(object sender, System.EventArgs e)
+        {
+            if (this.pid > 0)
+            {
+                Patient patient = this.patientController.GetPatientByID(this.pid);
+                Individual indv = this.individualController.GetIndividualByID(patient.IndividualID);
+                this.titleLabel.Text = "Order new Lab Test for " + indv.FirstName + " " + indv.LastName;
+            }
+        }
+
 
         /// <summary>
         /// Hides all the fields that are not needed when adding a test
@@ -56,6 +71,22 @@ namespace ClinicSupport.UserControls
         public void SetPatientAndAppointment(Appointment _appt)
         {
             this.appointment = _appt;
+        }
+
+        /// <summary>
+        /// sets the patient and appointment for ordering a test
+        /// </summary>
+        /// <param name="pid">Patient ID  used to obtain the patientobject</param>
+        public void SetPatient(int pid)
+        {
+            this.pid = pid;
+            if (this.pid > 0)
+            {
+                Patient patient = this.patientController.GetPatientByID(this.pid);
+                Individual indv = this.individualController.GetIndividualByID(patient.IndividualID);
+                this.titleLabel.Text = "Order new Lab Test for " + indv.FirstName + " " + indv.LastName;
+            }
+
         }
 
         private void SetTests()

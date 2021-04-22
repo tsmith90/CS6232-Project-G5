@@ -1,5 +1,6 @@
 ﻿using ClinicSupport.Controller;
 using ClinicSupport.Model;
+using ClinicSupport.View;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,6 +10,7 @@ namespace ClinicSupport.UserControls
     public partial class ViewLabTestByApptAndPIdUserControl : UserControl
     {
         private Appointment appointment;
+        private int pid;
         private List<LabTests> labTestList;
         private readonly LabTestController labTestController;
         private readonly PatientController patientController;
@@ -49,7 +51,7 @@ namespace ClinicSupport.UserControls
                 Individual indv = this.individualController.GetIndividualByID(patient.IndividualID);
                 this.titleLabel.Text = "View LabTest(s) for " + indv.FirstName + " " + indv.LastName + " for appointment date: " + _appt.Time;
 
-                this.labTestList = this.labTestController.GetLabTestsByPatientID(_appt.PatientID, _appt.Time);
+                this.labTestList = this.labTestController.GetLabTestsByPatientIDAndAppt(_appt.PatientID, _appt.Time);
                 labTestsDataGridView.DataSource = this.labTestList;
 
             }
@@ -59,9 +61,48 @@ namespace ClinicSupport.UserControls
             }
         }
 
-        private void okButton_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
-            this.ParentForm.DialogResult = DialogResult.OK;
+            this.pid = ParsePatientID();
+            if(this.pid > 0)
+            {
+                try
+                {
+                    Patient patient = this.patientController.GetPatientByID(this.pid);
+                    Individual indv = this.individualController.GetIndividualByID(patient.IndividualID);
+                    this.titleLabel.Text = "View LabTest(s) for " + indv.FirstName + " " + indv.LastName;
+
+                    this.labTestList = this.labTestController.GetLabTestsByPatientID(this.pid);
+                    this.labTestsDataGridView.DataSource = this.labTestList;
+                    this.orderTestButton.Enabled = true;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+
+        }
+        private int ParsePatientID()
+        {
+            int id = -1;
+            try
+            {
+                id = Int32.Parse(patientIDTextBox.Text);
+            }
+            catch (FormatException)
+            {
+                titleLabel.Text = "Please enter a valid ID";
+            }
+            return id;
+        }
+
+        private void orderTestButton_Click(object sender, EventArgs e)
+        {
+            AddLabTestForm orderTest = new AddLabTestForm();
+            orderTest.SetPatient(this.pid);
+            DialogResult result = orderTest.ShowDialog();
         }
     }
 }

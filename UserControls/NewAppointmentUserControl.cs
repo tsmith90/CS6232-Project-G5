@@ -136,47 +136,64 @@ namespace ClinicSupport.UserControls
                         var lname = this.lnameTextBox.Text;
                         var doctorID = int.Parse(this.docComboBox.SelectedValue.ToString());
                         var reason = this.reasonTextBox.Text;
-                        DateTime apptDateTime = this.datePortionDateTimePicker.Value.Date + this.timePortionDateTimePicker.Value.TimeOfDay;
+                        DateTime apptDateTime = this.datePortionDateTimePicker.Value.Date + DateTime.Parse(this.timePortionDateTimePicker.Value.ToString("HH:mm tt")).TimeOfDay;
                         int apptAvailable = this.appointmentController.CheckAvailability(doctorID, apptDateTime);
-                        if (apptAvailable == 0)
+
+                        Appointment newAppointment = new Appointment();
+                        newAppointment.PatientID = this.patient.PatientID;
+                        newAppointment.DoctorID = doctorID;
+                        newAppointment.Time = apptDateTime;
+                        newAppointment.Reason = reason;
+                        bool apptAdded = false;
+                        string msg = string.Empty;
+                        if (this.appointment.Time != DateTime.MinValue)
                         {
-                            Appointment newAppointment = new Appointment();
-                            newAppointment.PatientID = this.patient.PatientID;
-                            newAppointment.DoctorID = doctorID;
-                            newAppointment.Time = apptDateTime;
-                            newAppointment.Reason = reason;
-                            bool apptAdded = false;
-                            string msg = string.Empty;
-                            if (this.appointment.Time != DateTime.MinValue)
+                            Appointment oldAppt = this.appointmentController.GetAppointmentByID(this.appointment.PatientID, this.appointment.DoctorID, this.appointment.Time);
+                            if (this.appointment.Time != oldAppt.Time)
                             {
-                                Appointment oldAppt = this.appointmentController.GetAppointmentByID(this.appointment.PatientID, this.appointment.DoctorID, this.appointment.Time);
-                                apptAdded = this.appointmentController.UpdateAppointment(oldAppt, newAppointment);
-                                msg = "update";
+                                if (apptAvailable == 0)
+                                {
+                                    apptAdded = this.appointmentController.UpdateAppointment(oldAppt, newAppointment);
+                                }
+                                else
+                                {
+                                    this.messageLabel.Text = "The Appointment is not available at the selected datetime for the doctor";
+                                    this.messageLabel.ForeColor = Color.Red;
+                                }
                             }
                             else
+                            {
+                                apptAdded = this.appointmentController.UpdateAppointment(oldAppt, newAppointment);
+                            }
+                            msg = "update";
+                        }
+                        else
+                        {
+                            if (apptAvailable == 0)
                             {
                                 apptAdded = this.appointmentController.InsertNewAppointment(newAppointment);
                                 msg = "add";
                             }
-                            if (apptAdded)
-                            {
-                                this.ClearForm();
-                                this.messageLabel.Text = "Appointment is " + msg + "d!";
-                                this.messageLabel.ForeColor = Color.Black;
-                                this.ParentForm.DialogResult = DialogResult.OK;
-                            }
                             else
                             {
-                                this.messageLabel.Text = "Unable to  " + msg + " the Appointment at this time!";
+                                this.messageLabel.Text = "The Appointment is not available at the selected datetime for the doctor";
                                 this.messageLabel.ForeColor = Color.Red;
-                                this.ParentForm.DialogResult = DialogResult.Abort;
                             }
+                        }
+                        if (apptAdded)
+                        {
+                            this.ClearForm();
+                            this.messageLabel.Text = "Appointment is " + msg + "d!";
+                            this.messageLabel.ForeColor = Color.Black;
+                            this.ParentForm.DialogResult = DialogResult.OK;
                         }
                         else
                         {
-                            this.messageLabel.Text = "The Appointment is not available at the selected date and time!";
+                            this.messageLabel.Text = "Unable to  " + msg + " the Appointment at this time!";
                             this.messageLabel.ForeColor = Color.Red;
+                            this.ParentForm.DialogResult = DialogResult.Abort;
                         }
+
                     }
                 }
                 catch (Exception ex)

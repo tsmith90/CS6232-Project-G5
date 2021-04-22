@@ -15,7 +15,7 @@ namespace ClinicSupport.UserControls
     /// </summary>
     public partial class ViewAppointmentsByPatientIDUserControl : UserControl
     {
-        private Patient patient;
+        private int patientID;
         private List<Appointment> appointmentList;
         private readonly AppointmentController appointmentController;
         private readonly PatientController patientController;
@@ -33,8 +33,21 @@ namespace ClinicSupport.UserControls
 
         private void ViewAppointmentsByPatientIDUserControl_Load(object sender, System.EventArgs e)
         {
-            this.dobDateTimePicker.Checked = false;
+            
         }
+        /// <summary>
+        /// Sets the patient information to the various input fields of the form
+        /// </summary>
+        /// <param name="patientID">Patient whose information is to be displayed on the user control input fields</param>
+        public void SetAppointment(int patientID)
+        {
+            if(patientID > 0)
+            {
+                this.patientID = patientID;
+                this.GetPatientData(patientID);
+            }
+        }
+
 
         private void GetPatientData(int patientID)
         {
@@ -103,7 +116,7 @@ namespace ClinicSupport.UserControls
                         this.messageLabel.Text = message;
                         this.messageLabel.ForeColor = Color.Black;
                     }
-                    this.GetPatientData(this.patient.PatientID);
+                    this.GetPatientData(this.patientID);
                 }
                 else if (result == DialogResult.Abort)
                 {
@@ -114,89 +127,20 @@ namespace ClinicSupport.UserControls
             }
         }
 
-        private void SearchApptButton_Click(object sender, EventArgs e)
-        {
-            if (this.fnameTextBox.Text == String.Empty || this.lnameTextBox.Text == string.Empty || !this.dobDateTimePicker.Checked)
-            {
-                string message = "Please enter the required values!!";
-                this.messageLabel.Text = message;
-                this.messageLabel.ForeColor = Color.Red;
-            }
-            else
-            {
-                try
-                {
-                    this.messageLabel.Text = "";
-                    this.patient = this.patientController.GetPatientbyNameAndDOB(this.fnameTextBox.Text, this.lnameTextBox.Text, this.dobDateTimePicker.Value);
-                    if (this.patient.PatientID > 0)
-                    {
-                        appointmentDataGridView.DataBindings.Clear();
-                        this.GetPatientData(this.patient.PatientID);
-
-                        this.appointmentDataGridView.Visible = true;
-                        this.newApptButton.Enabled = true;
-                    }
-                    else
-                    {
-                        this.appointmentDataGridView.Visible = false;
-                        this.newApptButton.Enabled = false;
-                        this.messageLabel.Text = "Cannot find the patient by the provided information!";
-                        this.messageLabel.ForeColor = Color.Red;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Please enter a valid inte!!!!" + Environment.NewLine + ex.Message,
-                        "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
         private void NewApptButton_Click(object sender, EventArgs e)
         {
             this.messageLabel.Text = "";
             this.messageLabel.ForeColor = Color.Black;
 
             Appointment _appt = new Appointment();
-            _appt.PatientID = this.patient.PatientID;
+            _appt.PatientID = this.patientID;
             this.apptForm = new NewAppointmentForm();
             this.apptForm.SetAppointment(_appt);
             DialogResult result = this.apptForm.ShowDialog();
             if (result == DialogResult.OK)
             {
-                string message = "New Appointment have been added!";
-                this.messageLabel.Text = message;
-                this.messageLabel.ForeColor = Color.Black;
-                this.GetPatientData(this.patient.PatientID);
+                this.GetPatientData(this.patientID);
             }
-            else if (result == DialogResult.Abort)
-            {
-                string message = "Unable to add the Appointment at this time!";
-                this.messageLabel.Text = message;
-                this.messageLabel.ForeColor = Color.Red;
-            }
-        }
-
-        private void ClearButton_Click(object sender, EventArgs e)
-        {
-            this.fnameTextBox.Text = "";
-            this.lnameTextBox.Text = "";
-            this.dobDateTimePicker.Value = DateTime.Now;
-            this.dobDateTimePicker.Checked = false;
-        }
-
-        /// <summary>
-        /// Method to get current patient by their pid
-        /// </summary>
-        /// <returns>an int of the patient id</returns>
-        public int GetCurrentPatientID()
-        {
-            if (this.patient != null)
-            {
-                return this.patient.PatientID;
-            }
-            else
-                return 0;
         }
     }
 }

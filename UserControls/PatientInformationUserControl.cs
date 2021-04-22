@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ClinicSupport.Controller;
 using ClinicSupport.Model;
+using ClinicSupport.View;
 
 namespace ClinicSupport.UserControls
 {
@@ -17,7 +18,8 @@ namespace ClinicSupport.UserControls
         private readonly States statesList;
         private readonly IndividualController individualController;
         private readonly PatientController patientController;
-        private Individual individual;
+        private Individual _individual;
+        private Patient patient;
 
         /// <summary>
         /// 0 parameter contructor for PatientInformationUserControl
@@ -27,7 +29,7 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
             this.individualController = new IndividualController();
             this.patientController = new PatientController();
-            this.individual = new Individual();
+            this._individual = new Individual();
             statesList = new States();
             states = statesList.SetStates();
             SetStateList();
@@ -58,6 +60,7 @@ namespace ClinicSupport.UserControls
         /// <param name="patient">Patient whose information is to be displayed on the user control input fields</param>
         public void SetPatient(Individual patient)
         {
+            this._individual = patient;
             firstNameTextBox.Text = patient.FirstName;
             lastNameTextBox.Text = patient.LastName;
             dobTextBox.Text = patient.DateOfBirth.ToString("MM-dd-yyyy");
@@ -196,18 +199,18 @@ namespace ClinicSupport.UserControls
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             Individual newIndividual = new Individual();
-            newIndividual.IndividualID = individual.IndividualID;
+            newIndividual.IndividualID = this._individual.IndividualID;
             this.PutIndividualData(newIndividual);
 
             try
             {
-                if (!patientController.UpdatePatient(individual, newIndividual))
+                if (!patientController.UpdatePatient(this._individual, newIndividual))
                 {
                     MessageBox.Show("Cannot update patient", "Database Error");
                 }
                 else
                 {
-                    individual = newIndividual;
+                    this._individual = newIndividual;
                     this.messageLabel.Text = "Patient was successfully updated!";
                 }
             }
@@ -259,20 +262,46 @@ namespace ClinicSupport.UserControls
             var state = this.GetSelectedState(this.stateComboBox.SelectedValue.ToString());
             var zip = int.Parse(this.zipTextBox.Text);
 
-            this.individual.FirstName = fname;
-            this.individual.LastName = lname;
-            this.individual.DateOfBirth = dob;
-            this.individual.PhoneNumber = phone;
-            this.individual.SSN = ssn;
-            this.individual.StreetAddress = address;
-            this.individual.City = city;
-            this.individual.State = state;
-            this.individual.ZipCode = zip.ToString();
+            this._individual.FirstName = fname;
+            this._individual.LastName = lname;
+            this._individual.DateOfBirth = dob;
+            this._individual.PhoneNumber = phone;
+            this._individual.SSN = ssn;
+            this._individual.StreetAddress = address;
+            this._individual.City = city;
+            this._individual.State = state;
+            this._individual.ZipCode = zip.ToString();
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.ParentForm.DialogResult = DialogResult.OK;
+        }
+
+        private void apptButton_Click(object sender, EventArgs e)
+        {
+            int patientID = 0;
+            if (this._individual.IndividualID > 0) {
+                patientID = this.patientController.GetPatientIDByIndividualID(this._individual.IndividualID);
+            }
+            if (patientID > 0)
+            {
+                ViewPatientAppointmentForm apptForm = new ViewPatientAppointmentForm();
+                apptForm.SetAppointment(patientID);
+                DialogResult result = apptForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    string message = "New Appointment have been added!";
+                    this.messageLabel.Text = message;
+                    this.messageLabel.ForeColor = Color.Black;
+                }
+                else if (result == DialogResult.Abort)
+                {
+                    string message = "Unable to add the Appointment at this time!";
+                    this.messageLabel.Text = message;
+                    this.messageLabel.ForeColor = Color.Red;
+                }
+            }
         }
     }
 }

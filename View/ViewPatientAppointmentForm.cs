@@ -7,15 +7,26 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class ViewPatientAppointmentForm : Form
     {
-        public int _currentPatientID { get; set; }
-
         /// <summary>
         /// 0-parameter constructor for the ViewPatientAppointmentForm
         /// </summary>
         public ViewPatientAppointmentForm()
         {
             InitializeComponent();
-            _currentPatientID = this.viewAppointmentsByPatientIDUserControl1.GetCurrentPatientID();
+        }
+
+        /// <summary>
+        /// Sets the patient information to the various input fields of the form
+        /// </summary>
+        /// <param name="patientID">Patient whose information is to be displayed on the user control input fields</param>
+        public void SetAppointment(int patientID)
+        {
+            viewAppointmentsByPatientIDUserControl1.SetAppointment(patientID);
+        }
+
+        private void closeButton_Click(object sender, System.EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }
