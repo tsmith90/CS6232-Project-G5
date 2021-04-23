@@ -14,6 +14,9 @@ namespace ClinicSupport.UserControls
         private LabTestController labTestController;
         private TestController testController;
         private Appointment appointment;
+        private PatientController patientController;
+        private IndividualController individualController;
+        private int pid;
 
         /// <summary>
         /// 0-parameter constructor for OrderTestUserControl
