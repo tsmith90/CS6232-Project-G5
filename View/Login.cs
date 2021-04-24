@@ -59,7 +59,7 @@ namespace ClinicSupport
             }
             else if (privileges.Equals("Admin"))
             {
-                adminDashboard.SetUsername(newUser.Username);
+                adminDashboard.SetUser(newUser.Username);
                 Hide();
                 adminDashboard.ShowDialog();
                 ClearForm();

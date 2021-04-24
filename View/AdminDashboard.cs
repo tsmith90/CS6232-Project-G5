@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using ClinicSupport.Controller;
+using ClinicSupport.Model;
+using System.Windows.Forms;
 
 namespace ClinicSupport.View
 {
@@ -7,21 +9,28 @@ namespace ClinicSupport.View
     /// </summary>
     public partial class AdminDashboard : Form
     {
+        private Administrator administrator;
+        private readonly AdministratorController administratorController;
+
         /// <summary>
         /// 0-parameter constructor for the AdminDashboard class
         /// </summary>
         public AdminDashboard()
         {
             InitializeComponent();
+            administrator = new Administrator();
+            administratorController = new AdministratorController();
         }
 
         /// <summary>
         /// Method to set the userLabel upon login
         /// </summary>
         /// <param name = "user">the name of the user</param> 
-        public void SetUsername(string user)
+        public void SetUser(string user)
         {
-            nameLabel.Text = user;
+            usernameLabel.Text = "Username: " + user;
+            administrator = administratorController.GetAdminByUsername(user);
+            nameLabel.Text = "Welcome " + administrator.FirstName + " " + administrator.LastName + "!";
         }
 
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

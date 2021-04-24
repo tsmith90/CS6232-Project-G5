@@ -28,7 +28,7 @@ namespace ClinicSupport.View
         public void SetUsername(string user)
         {
             nameLabel.Text = "Welcome " + nurse.FirstName + " " + nurse.LastName + "!";
-            usernameLabel.Text = "Username:" + user;
+            usernameLabel.Text = "Username: " + user;
         }
 
         /// <summary>

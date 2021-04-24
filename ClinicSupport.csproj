@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AdministratorController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\IndividualController.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\TestController.cs" />
     <Compile Include="Controller\VisitController.cs" />
+    <Compile Include="DAL\AdministratorDAL.cs" />
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
