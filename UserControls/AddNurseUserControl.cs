@@ -47,6 +47,7 @@ namespace ClinicSupport.UserControls
             cityTextBox.Text = "";
             zipTextBox.Text = "";
             phoneTextBox.Text = "";
+            ssnTextBox.Text = "";
             stateComboBox.SelectedIndex = 0;
             errorLabel.Text = "";
             usernameTextBox.Text = "";

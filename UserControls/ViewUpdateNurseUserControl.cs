@@ -43,6 +43,7 @@ namespace ClinicSupport.UserControls
         private void ClearButton_Click(object sender, EventArgs e)
         {
             ClearControls();
+            SetControls();
         }
 
         /// <summary>
@@ -73,8 +74,6 @@ namespace ClinicSupport.UserControls
 
         private void FindNurseButton_Click(object sender, EventArgs e)
         {
-            ClearControls();
-
             if(string.IsNullOrEmpty(findNurseTextBox.Text))
             {
                 errorLabel.Text = "Please enter a nurse Username";

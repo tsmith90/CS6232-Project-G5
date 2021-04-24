@@ -93,13 +93,19 @@ namespace ClinicSupport.DAL
         public bool AddNurse(Individual individual, string user, string password)
         {
             int counter = 0;
+            int nurseID;
             int inserted;
 
             string selectStatement = "SELECT count(username)as counter FROM Login WHERE username = @username;";
 
+            string selectNurseStatement = "SELECT IDENT_CURRENT('Individual') FROM Individual;";
+
             string insertIndividual =
                 "INSERT INTO Individual (lname, fname, dob, streetAddress, city, state, zip, phone, ssn) " +
                 "VALUES (@LastName, @FirstName, @DOB, @Address, @City, @State, @Zip, @Phone, @SSN);";
+
+            string insertNurse = "Insert into Nurse (username, iid) " +
+                "Values (@username, @iid);";
 
             string insertLogin = 
                 "INSERT INTO Login (username, password, privilege) " +
@@ -143,6 +149,11 @@ namespace ClinicSupport.DAL
                             inserted = insertCommand.ExecuteNonQuery();
                         }
 
+                        using (SqlCommand nurseCMD = new SqlCommand(selectNurseStatement, connection))
+                        {
+                            nurseID = Convert.ToInt32(nurseCMD.ExecuteScalar());
+                        }
+
                         if (inserted > 0)
                         {
                             using (SqlCommand cmd = new SqlCommand(insertLogin, connection))
@@ -161,11 +172,22 @@ namespace ClinicSupport.DAL
 
                         if (inserted > 1)
                         {
+                            using (SqlCommand cmd = new SqlCommand(insertNurse, connection))
+                            {
+                                cmd.Parameters.AddWithValue("@username", user);
+                                cmd.Parameters.AddWithValue("@iid", nurseID);
+
+                                inserted += cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        if (inserted > 2)
+                        {
                             return true;
                         }
                         else
                         {
-                            throw new Exception("New Individual added but login information failed");
+                            throw new Exception("Information failed to be entered into all tables.");
                         }
                     }
                 }

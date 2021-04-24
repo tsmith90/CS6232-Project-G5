@@ -25,7 +25,7 @@ namespace ClinicSupport.View
         /// Method to set the userLabel upon login
         /// </summary>
         /// <param name = "user">the name of the user</param> 
-        public void SetUsername(string user)
+        public void SetUser(string user)
         {
             nameLabel.Text = "Welcome " + nurse.FirstName + " " + nurse.LastName + "!";
             usernameLabel.Text = "Username: " + user;
