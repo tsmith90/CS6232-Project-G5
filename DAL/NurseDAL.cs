@@ -1,7 +1,6 @@
 ﻿using ClinicSupport.Model;
 using System;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace ClinicSupport.DAL
 {
@@ -19,7 +18,11 @@ namespace ClinicSupport.DAL
         {
             Nurse nurse = new Nurse();
 
-            string selectStatement = "SELECT n.nid, n.username, n.iid, l.privilege FROM Nurse n join Login l on l.username = n.username WHERE n.username = @username;";
+            string selectStatement = 
+                "SELECT n.nid, n.username, n.iid, l.privilege, i.lname as last, i.fname as first " +
+                "FROM Nurse n join Login l on l.username = n.username " +
+                "join Individual i on n.iid = i.iid " +
+                "WHERE n.username = @username;";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -38,6 +41,8 @@ namespace ClinicSupport.DAL
                             nurse.Username = reader["username"].ToString();
                             nurse.IndividualID = (int)reader["iid"];
                             nurse.Privilege = reader["privilege"].ToString();
+                            nurse.LastName = reader["last"].ToString();
+                            nurse.FirstName = reader["first"].ToString();
                         }
                     }
                 }
