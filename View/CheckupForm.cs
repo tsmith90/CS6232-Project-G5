@@ -223,7 +223,6 @@ namespace ClinicSupport.View
 
         private Visit ParseVisit()
         {
-
             Visit newVisit = new Visit();
                 newVisit.PatientID = visit.PatientID;
                 newVisit.DateTime = visit.DateTime;
@@ -235,8 +234,6 @@ namespace ClinicSupport.View
                 newVisit.Diastolic = GetInt(diastolicTextBox.Text, "diastolic number");
                 newVisit.Pulse = GetInt(pulseTextBox.Text, "pulse");
  
-
-
             if (symptomsTextBox.Text.Length > 254)
                 {
                     DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for symptoms. Would you like to trim to 254?", 
@@ -323,6 +320,8 @@ namespace ClinicSupport.View
             symptomsTextBox.Text = "";
             initialDiagnosisTextBox.Text = "";
             finalDiagnosisTextBox.Text = "";
+            nurseNameTextbox.Text = "";
+            doctorNameTextbox.Text = "";
             SetControls();
         }
 
@@ -392,6 +391,8 @@ namespace ClinicSupport.View
             symptomsTextBox.Text = visit.Symptoms;
             initialDiagnosisTextBox.Text = visit.InitialDiagnosis;
             finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
+            nurseNameTextbox.Text = visit.NurseFirstName + " " + visit.NurseLastName;
+            doctorNameTextbox.Text = visit.DoctorFirstName + " " +visit.DoctorLastName;
         } 
     }
 }

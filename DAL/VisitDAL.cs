@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace ClinicSupport.DAL
 {
@@ -70,40 +71,58 @@ namespace ClinicSupport.DAL
             Visit visit = new Visit();
 
             string selectStatement =
-            "SELECT time, nid, weight, systolic, diastolic, temperature, pulse,  symptoms,  initialDiagnosis, finalDiagnosis " +
-            "FROM Visit " +
-            "Where pid = @id and time = @time;";
+            "SELECT v.time, v.nid as nid, v.weight as weight, v.systolic as sys, v.diastolic as dia, v.temperature as temp, v.pulse as pulse,  v.symptoms as sym,  " +
+            "v.initialDiagnosis as initD, v.finalDiagnosis as final, i.lname as nlast, i.fname as nfirst,  z.lname as dlast, z.fname as dfirst " +
+            "FROM Visit v " + 
+            "JOIN Nurse n on v.nid = n.nid " +
+            "JOIN Individual i on n.iid = i.iid " +
+            "JOIN Appointment a on (a.pid = @id and a.time = @time) " +
+            "JOIN Doctor d on a.did = d.did " +
+            "JOIN Individual z on d.iid = z.iid " +
+            "Where v.pid = @id and v.time = @time;";
 
-            using (SqlConnection connection = DBConnection.GetConnection())
+            try
             {
-                connection.Open();
-
-                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                using (SqlConnection connection = DBConnection.GetConnection())
                 {
-                    selectCommand.Parameters.Add("@id", System.Data.SqlDbType.Int);
-                    selectCommand.Parameters["@id"].Value = pID;
+                    connection.Open();
 
-                    selectCommand.Parameters.Add("@time", System.Data.SqlDbType.DateTime);
-                    selectCommand.Parameters["@time"].Value = time;
-
-                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                     {
-                        while (reader.Read())
+                        selectCommand.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                        selectCommand.Parameters["@id"].Value = pID;
+
+                        selectCommand.Parameters.Add("@time", System.Data.SqlDbType.DateTime);
+                        selectCommand.Parameters["@time"].Value = time;
+
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
                         {
-                            visit.NurseID = (int)reader["nid"];
-                            visit.Weight = (decimal)reader["weight"];
-                            visit.Systolic = (int)reader["systolic"];
-                            visit.Diastolic = (int)reader["diastolic"];
-                            visit.Temperature = (decimal)reader["temperature"];
-                            visit.Pulse = (int)reader["pulse"];
-                            visit.Symptoms = reader["symptoms"].ToString();
-                            visit.InitialDiagnosis = reader["initialDiagnosis"].ToString();
-                            visit.FinalDiagnosis = reader["finalDiagnosis"].ToString();
+                            while (reader.Read())
+                            {
+                                visit.NurseID = (int)reader["nid"];
+                                visit.Weight = (decimal)reader["weight"];
+                                visit.Systolic = (int)reader["sys"];
+                                visit.Diastolic = (int)reader["dia"];
+                                visit.Temperature = (decimal)reader["temp"];
+                                visit.Pulse = (int)reader["pulse"];
+                                visit.Symptoms = reader["sym"].ToString();
+                                visit.InitialDiagnosis = reader["initD"].ToString();
+                                visit.FinalDiagnosis = reader["final"].ToString();
+                                visit.NurseLastName = reader["nlast"].ToString();
+                                visit.NurseFirstName = reader["nfirst"].ToString();
+                                visit.DoctorLastName = reader["dlast"].ToString();
+                                visit.DoctorFirstName = reader["dfirst"].ToString();
+                            }
                         }
                     }
                 }
             }
-                return visit;
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return visit;
         }
 
         /// <summary>

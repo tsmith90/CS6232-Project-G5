@@ -144,12 +144,6 @@
     <Compile Include="UserControls\UpdateLabTestUserControl.Designer.cs">
       <DependentUpon>UpdateLabTestUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\ViewAppointmentsByPatientIDUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -280,9 +274,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UpdateLabTestUserControl.resx">
       <DependentUpon>UpdateLabTestUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ViewAppointmentsByPatientIDUserControl.resx">
       <DependentUpon>ViewAppointmentsByPatientIDUserControl.cs</DependentUpon>

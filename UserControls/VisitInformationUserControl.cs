@@ -88,7 +88,7 @@ namespace ClinicSupport.UserControls
             }
             else
             {
-                errorLabel.Text = "Please enter a valid ID";
+                errorLabel.Text = "Please enter a patient ID";
             }
         }
 
