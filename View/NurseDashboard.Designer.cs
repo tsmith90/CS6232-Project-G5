@@ -46,7 +46,6 @@ namespace ClinicSupport.View
             this.visitInformationUserControl2 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.visitInformationUserControl1 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.deletePatientUserControl1 = new ClinicSupport.UserControls.DeletePatientUserControl();
-            this.viewLabTestByApptAndPIdUserControl1 = new ClinicSupport.UserControls.ViewLabTestByApptAndPIdUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.nurseDashboardTabControl.SuspendLayout();
             this.searchPatientsTabPage.SuspendLayout();
