@@ -106,7 +106,7 @@ namespace ClinicSupport.UserControls
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.labTestsDataGridView);
             this.Name = "ViewLabTestByApptAndPIdUserControl";
-            this.Size = new System.Drawing.Size(1288, 760);
+            this.Size = new System.Drawing.Size(1354, 758);
             ((System.ComponentModel.ISupportInitialize)(this.labTestsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

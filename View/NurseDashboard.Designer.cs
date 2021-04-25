@@ -46,6 +46,7 @@ namespace ClinicSupport.View
             this.visitInformationUserControl2 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.visitInformationUserControl1 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.deletePatientUserControl1 = new ClinicSupport.UserControls.DeletePatientUserControl();
+            this.viewLabTestByApptAndPIdUserControl1 = new ClinicSupport.UserControls.ViewLabTestByApptAndPIdUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.nurseDashboardTabControl.SuspendLayout();
             this.searchPatientsTabPage.SuspendLayout();
@@ -227,6 +228,14 @@ namespace ClinicSupport.View
             this.deletePatientUserControl1.Name = "deletePatientUserControl1";
             this.deletePatientUserControl1.Size = new System.Drawing.Size(893, 494);
             this.deletePatientUserControl1.TabIndex = 0;
+            // 
+            // viewLabTestByApptAndPIdUserControl1
+            // 
+            this.viewLabTestByApptAndPIdUserControl1.Location = new System.Drawing.Point(19, 29);
+            this.viewLabTestByApptAndPIdUserControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.viewLabTestByApptAndPIdUserControl1.Name = "viewLabTestByApptAndPIdUserControl1";
+            this.viewLabTestByApptAndPIdUserControl1.Size = new System.Drawing.Size(1954, 1080);
+            this.viewLabTestByApptAndPIdUserControl1.TabIndex = 0;
             // 
             // NurseDashboard
             // 
