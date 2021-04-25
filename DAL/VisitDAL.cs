@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace ClinicSupport.DAL
 {
@@ -81,45 +80,39 @@ namespace ClinicSupport.DAL
             "JOIN Individual z on d.iid = z.iid " +
             "Where v.pid = @id and v.time = @time;";
 
-            try
+
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
-                using (SqlConnection connection = DBConnection.GetConnection())
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    connection.Open();
+                    selectCommand.Parameters.Add("@id", System.Data.SqlDbType.Int);
+                    selectCommand.Parameters["@id"].Value = pID;
 
-                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    selectCommand.Parameters.Add("@time", System.Data.SqlDbType.DateTime);
+                    selectCommand.Parameters["@time"].Value = time;
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-                        selectCommand.Parameters.Add("@id", System.Data.SqlDbType.Int);
-                        selectCommand.Parameters["@id"].Value = pID;
-
-                        selectCommand.Parameters.Add("@time", System.Data.SqlDbType.DateTime);
-                        selectCommand.Parameters["@time"].Value = time;
-
-                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                visit.NurseID = (int)reader["nid"];
-                                visit.Weight = (decimal)reader["weight"];
-                                visit.Systolic = (int)reader["sys"];
-                                visit.Diastolic = (int)reader["dia"];
-                                visit.Temperature = (decimal)reader["temp"];
-                                visit.Pulse = (int)reader["pulse"];
-                                visit.Symptoms = reader["sym"].ToString();
-                                visit.InitialDiagnosis = reader["initD"].ToString();
-                                visit.FinalDiagnosis = reader["final"].ToString();
-                                visit.NurseLastName = reader["nlast"].ToString();
-                                visit.NurseFirstName = reader["nfirst"].ToString();
-                                visit.DoctorLastName = reader["dlast"].ToString();
-                                visit.DoctorFirstName = reader["dfirst"].ToString();
-                            }
+                            visit.NurseID = (int)reader["nid"];
+                            visit.Weight = (decimal)reader["weight"];
+                            visit.Systolic = (int)reader["sys"];
+                            visit.Diastolic = (int)reader["dia"];
+                            visit.Temperature = (decimal)reader["temp"];
+                            visit.Pulse = (int)reader["pulse"];
+                            visit.Symptoms = reader["sym"].ToString();
+                            visit.InitialDiagnosis = reader["initD"].ToString();
+                            visit.FinalDiagnosis = reader["final"].ToString();
+                            visit.NurseLastName = reader["nlast"].ToString();
+                            visit.NurseFirstName = reader["nfirst"].ToString();
+                            visit.DoctorLastName = reader["dlast"].ToString();
+                            visit.DoctorFirstName = reader["dfirst"].ToString();
                         }
                     }
                 }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
             }
 
             return visit;
