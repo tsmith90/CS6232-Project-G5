@@ -42,6 +42,7 @@ namespace ClinicSupport.View
             this.usernameLabel = new System.Windows.Forms.Label();
             this.searchPatientUserControl1 = new ClinicSupport.UserControls.SearchPatientUserControl();
             this.addPatientUserControl1 = new ClinicSupport.UserControls.AddPatientUserControl();
+            this.viewLabTestByApptAndPIdUserControl1 = new ClinicSupport.UserControls.ViewLabTestByApptAndPIdUserControl();
             this.visitInformationUserControl2 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.visitInformationUserControl1 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.deletePatientUserControl1 = new ClinicSupport.UserControls.DeletePatientUserControl();
