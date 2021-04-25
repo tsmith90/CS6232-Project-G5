@@ -42,6 +42,7 @@ namespace ClinicSupport.UserControls
         {
             List<Visit> visitsList = new List<Visit>();
             visitListView.Items.Clear();
+            
 
             if (id > 0)
             {
@@ -75,6 +76,9 @@ namespace ClinicSupport.UserControls
                                 visitListView.Items[i].SubItems.Add(visit.FinalDiagnosis);
                             }
                         }
+                        
+                        visitListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                        visitListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                     }
                     else
                     {

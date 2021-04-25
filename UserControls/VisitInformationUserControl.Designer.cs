@@ -109,29 +109,32 @@ namespace ClinicSupport.UserControls
             // nurseColumn
             // 
             this.nurseColumn.Text = "NurseID";
-            this.nurseColumn.Width = 54;
+            this.nurseColumn.Width = 51;
             // 
             // weightColumn
             // 
             this.weightColumn.Text = "Weight";
-            this.weightColumn.Width = 53;
+            this.weightColumn.Width = 46;
             // 
             // systolicColumn
             // 
             this.systolicColumn.Text = "Systolic";
+            this.systolicColumn.Width = 48;
             // 
             // diastolicColumn
             // 
             this.diastolicColumn.Text = "Diastolic";
+            this.diastolicColumn.Width = 52;
             // 
             // temperatureColumn
             // 
             this.temperatureColumn.Text = "Temperature";
-            this.temperatureColumn.Width = 80;
+            this.temperatureColumn.Width = 72;
             // 
             // pulseColumn
             // 
             this.pulseColumn.Text = "Pulse";
+            this.pulseColumn.Width = 38;
             // 
             // symptomsColumn
             // 
@@ -140,12 +143,12 @@ namespace ClinicSupport.UserControls
             // initialDiagnosisColumn
             // 
             this.initialDiagnosisColumn.Text = "Initial Diagnosis";
-            this.initialDiagnosisColumn.Width = 167;
+            this.initialDiagnosisColumn.Width = 100;
             // 
             // finalDiagnosisColumn
             // 
             this.finalDiagnosisColumn.Text = "Final Diagnosis";
-            this.finalDiagnosisColumn.Width = 168;
+            this.finalDiagnosisColumn.Width = 436;
             // 
             // findPatientButton
             // 
