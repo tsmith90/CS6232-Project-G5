@@ -76,6 +76,7 @@ namespace ClinicSupport.UserControls
         {
             if(string.IsNullOrEmpty(findNurseTextBox.Text))
             {
+                SetControls();
                 errorLabel.Text = "Please enter a nurse Username";
             }
             else
@@ -92,6 +93,7 @@ namespace ClinicSupport.UserControls
                 }
                 else
                 {
+                    ClearControls();
                     SetControls();
                     errorLabel.Text = "That username isn't a nurse.";
                 }

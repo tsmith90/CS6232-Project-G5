@@ -40,16 +40,15 @@ namespace ClinicSupport.View
         /// <param name="name">The name of the Nurse</param>
         public void SetNurse(Nurse nurse)
         {
-            if (nurse == null)
-            {
-                throw new ArgumentNullException("Please enter a valid nurse");
-            }
-
-            this.nurse = nurse;
+            this.nurse = nurse ?? throw new ArgumentNullException("Please enter a valid nurse");
         }
 
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
         {
+            patientIDTextBox.Text = "";
+            appointmentComboBox.DataSource = null;
+            ClearControls();
+            SetControls();
             Hide();
         }
 
@@ -196,20 +195,54 @@ namespace ClinicSupport.View
             }
         }
 
+        private int GetInt(string number, string source)
+        {
+
+            try
+            {
+                int id = -1;
+                id = Int32.Parse(number);
+
+                return id;
+            }
+            catch (Exception)
+            {
+                throw new FormatException("Please enter a valid " + source);
+            }
+        }
+
+        private decimal GetDecimal(string numbered, string source)
+        {
+            try
+            {
+                decimal id = -1;
+                id = Decimal.Parse(numbered);
+
+                return id;
+            }
+            catch (Exception)
+            {
+                throw new FormatException("Please enter a valid " + source);
+            }
+        }
+
         private Visit ParseVisit()
         {
-            Visit newVisit = new Visit();
 
+            Visit newVisit = new Visit();
                 newVisit.PatientID = visit.PatientID;
                 newVisit.DateTime = visit.DateTime;
-                newVisit.NurseID = Int32.Parse(nurseTextBox.Text);
-                newVisit.Weight = Decimal.Parse(weightTextBox.Text);
-                newVisit.Temperature = Decimal.Parse(temperatureTextBox.Text);
-                newVisit.Systolic = Int32.Parse(systolicTextBox.Text);
-                newVisit.Diastolic = Int32.Parse(diastolicTextBox.Text);
-                newVisit.Pulse = Int32.Parse(pulseTextBox.Text);
 
-                if (symptomsTextBox.Text.Length > 254)
+                newVisit.NurseID = GetInt(nurseTextBox.Text, "Nurse ID");
+                newVisit.Weight = GetDecimal(weightTextBox.Text, "weight");
+                newVisit.Temperature = GetDecimal(temperatureTextBox.Text, "temperature");
+                newVisit.Systolic = GetInt(systolicTextBox.Text, "systolic number");
+                newVisit.Diastolic = GetInt(diastolicTextBox.Text, "diastolic number");
+                newVisit.Pulse = GetInt(pulseTextBox.Text, "pulse");
+ 
+
+
+            if (symptomsTextBox.Text.Length > 254)
                 {
                     DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for symptoms. Would you like to trim to 254?", 
                         "The symptoms description is too big!", MessageBoxButtons.YesNo);
@@ -280,8 +313,7 @@ namespace ClinicSupport.View
                 {
                     newVisit.FinalDiagnosis = finalDiagnosisTextBox.Text;
                 }
-
-            return newVisit;
+                return newVisit;
         }
 
         private void ClearControls()
