@@ -75,6 +75,8 @@ namespace ClinicSupport.UserControls
                                 visitListView.Items[i].SubItems.Add(visit.FinalDiagnosis);
                             }
                         }
+                        visitListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                        visitListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                     } 
                     else
                     {
