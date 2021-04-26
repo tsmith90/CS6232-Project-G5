@@ -96,8 +96,8 @@ namespace ClinicSupport.View
             // 
             // nurseDashboardTabControl
             // 
-            this.nurseDashboardTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.nurseDashboardTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.nurseDashboardTabControl, 3);
             this.nurseDashboardTabControl.Controls.Add(this.searchPatientsTabPage);
@@ -209,8 +209,8 @@ namespace ClinicSupport.View
             // 
             // visitInformationUserControl1
             // 
-            this.visitInformationUserControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.visitInformationUserControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.visitInformationUserControl1.Location = new System.Drawing.Point(-4, 0);
             this.visitInformationUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

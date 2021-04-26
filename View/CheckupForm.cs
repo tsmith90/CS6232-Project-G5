@@ -40,16 +40,15 @@ namespace ClinicSupport.View
         /// <param name="name">The name of the Nurse</param>
         public void SetNurse(Nurse nurse)
         {
-            if (nurse == null)
-            {
-                throw new ArgumentNullException("Please enter a valid nurse");
-            }
-
-            this.nurse = nurse;
+            this.nurse = nurse ?? throw new ArgumentNullException("Please enter a valid nurse");
         }
 
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
         {
+            patientIDTextBox.Text = "";
+            appointmentComboBox.DataSource = null;
+            ClearControls();
+            SetControls();
             Hide();
         }
 
@@ -86,7 +85,7 @@ namespace ClinicSupport.View
                     appointmentComboBox.DataSource = null;
                     checkupButton.Enabled = false;
                     ClearControls();
-                } 
+                }
                 else
                 {
                     foreach (Appointment a in appointmentsList)
@@ -121,14 +120,14 @@ namespace ClinicSupport.View
         }
 
         private void CheckupButton_Click(object sender, EventArgs e)
-        {    
+        {
             try
             {
                 DateTime dateTime = DateTime.Parse(appointmentComboBox.Text);
                 visit = this.visitController.GetVisitByKeys(dateTime, patientID);
                 visit.PatientID = patientID;
                 visit.DateTime = dateTime;
-                
+
                 PopulateControls();
                 checkupButton.Enabled = true;
             }
@@ -159,7 +158,7 @@ namespace ClinicSupport.View
                 {
                     Visit firstVisit = ParseVisit();
 
-                    if(visitController.EnterVisit(firstVisit))
+                    if (visitController.EnterVisit(firstVisit))
                     {
                         errorLabel.Text = "The checkup has been successfully entered";
                     }
@@ -196,90 +195,115 @@ namespace ClinicSupport.View
             }
         }
 
+        private int GetInt(string number, string source)
+        {
+            try
+            {
+                int id = -1;
+                id = Int32.Parse(number);
+                return id;
+            }
+            catch (Exception)
+            {
+                throw new FormatException("Please enter a valid " + source);
+            }
+        }
+        private decimal GetDecimal(string numbered, string source)
+        {
+            try
+            {
+                decimal id = -1;
+                id = Decimal.Parse(numbered);
+                return id;
+            }
+            catch (Exception)
+            {
+                throw new FormatException("Please enter a valid " + source);
+            }
+        }
         private Visit ParseVisit()
         {
             Visit newVisit = new Visit();
+            newVisit.PatientID = visit.PatientID;
+            newVisit.DateTime = visit.DateTime;
+            newVisit.NurseID = GetInt(nurseTextBox.Text, "Nurse ID");
+            newVisit.Weight = GetDecimal(weightTextBox.Text, "weight");
+            newVisit.Temperature = GetDecimal(temperatureTextBox.Text, "temperature");
+            newVisit.Systolic = GetInt(systolicTextBox.Text, "systolic number");
+            newVisit.Diastolic = GetInt(diastolicTextBox.Text, "diastolic number");
+            newVisit.Pulse = GetInt(pulseTextBox.Text, "pulse");
 
-                newVisit.PatientID = visit.PatientID;
-                newVisit.DateTime = visit.DateTime;
-                newVisit.NurseID = Int32.Parse(nurseTextBox.Text);
-                newVisit.Weight = Decimal.Parse(weightTextBox.Text);
-                newVisit.Temperature = Decimal.Parse(temperatureTextBox.Text);
-                newVisit.Systolic = Int32.Parse(systolicTextBox.Text);
-                newVisit.Diastolic = Int32.Parse(diastolicTextBox.Text);
-                newVisit.Pulse = Int32.Parse(pulseTextBox.Text);
+            if (symptomsTextBox.Text.Length > 254)
+            {
+                DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for symptoms. Would you like to trim to 254?",
+                    "The symptoms description is too big!", MessageBoxButtons.YesNo);
 
-                if (symptomsTextBox.Text.Length > 254)
+                if (dialogResult == DialogResult.Yes)
                 {
-                    DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for symptoms. Would you like to trim to 254?", 
-                        "The symptoms description is too big!", MessageBoxButtons.YesNo);
-
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        newVisit.Symptoms = symptomsTextBox.Text.Substring(0, 253);
-                        symptomsTextBox.Text = symptomsTextBox.Text.Substring(0, 253);
-                    } 
-                    else
-                    {
-                        throw new Exception();
-                    }
-                } 
-                else if (String.IsNullOrEmpty(symptomsTextBox.Text))
-                {
-                    throw new Exception("Please fill out symptoms");
+                    newVisit.Symptoms = symptomsTextBox.Text.Substring(0, 253);
+                    symptomsTextBox.Text = symptomsTextBox.Text.Substring(0, 253);
                 }
                 else
                 {
-                    newVisit.Symptoms = symptomsTextBox.Text;
+                    throw new Exception();
                 }
+            }
+            else if (String.IsNullOrEmpty(symptomsTextBox.Text))
+            {
+                throw new Exception("Please fill out symptoms");
+            }
+            else
+            {
+                newVisit.Symptoms = symptomsTextBox.Text;
+            }
 
-                if (initialDiagnosisTextBox.Text.Length > 254)
-                {
-                    DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for initial diagnosis. Would you like to trim to 254?",
-                        "The symptoms description is too big!", MessageBoxButtons.YesNo);
+            if (initialDiagnosisTextBox.Text.Length > 254)
+            {
+                DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for initial diagnosis. Would you like to trim to 254?",
+                    "The symptoms description is too big!", MessageBoxButtons.YesNo);
 
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        newVisit.InitialDiagnosis = initialDiagnosisTextBox.Text.Substring(0, 253);
-                        initialDiagnosisTextBox.Text = initialDiagnosisTextBox.Text.Substring(0, 253);
-                    }
-                    else
-                    {
-                        throw new Exception();
-                    }
-                }
-                else if (String.IsNullOrEmpty(initialDiagnosisTextBox.Text))
+                if (dialogResult == DialogResult.Yes)
                 {
-                    throw new Exception("Please fill out an initial diagnosis");
+                    newVisit.InitialDiagnosis = initialDiagnosisTextBox.Text.Substring(0, 253);
+                    initialDiagnosisTextBox.Text = initialDiagnosisTextBox.Text.Substring(0, 253);
                 }
                 else
                 {
-                    newVisit.InitialDiagnosis = initialDiagnosisTextBox.Text;
+                    throw new Exception();
                 }
+            }
+            else if (String.IsNullOrEmpty(initialDiagnosisTextBox.Text))
+            {
+                throw new Exception("Please fill out an initial diagnosis");
+            }
+            else
+            {
+                newVisit.InitialDiagnosis = initialDiagnosisTextBox.Text;
+            }
 
-                if (finalDiagnosisTextBox.Text.Length > 254)
-                {
-                    DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for final diagnosis. Would you like to trim to 254?",
-                        "The symptoms description is too big!", MessageBoxButtons.YesNo);
+            if (finalDiagnosisTextBox.Text.Length > 254)
+            {
+                DialogResult dialogResult = MessageBox.Show("only 254 letters are allowed for final diagnosis. Would you like to trim to 254?",
+                    "The symptoms description is too big!", MessageBoxButtons.YesNo);
 
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        newVisit.FinalDiagnosis = finalDiagnosisTextBox.Text.Substring(0, 253);
-                        finalDiagnosisTextBox.Text = finalDiagnosisTextBox.Text.Substring(0, 253);
-                    }
-                    else
-                    {
-                        throw new Exception();
-                    }
-                }
-                else if (String.IsNullOrEmpty(finalDiagnosisTextBox.Text))
+                if (dialogResult == DialogResult.Yes)
                 {
-                    newVisit.FinalDiagnosis = "None currently entered";
+                    newVisit.FinalDiagnosis = finalDiagnosisTextBox.Text.Substring(0, 253);
+                    finalDiagnosisTextBox.Text = finalDiagnosisTextBox.Text.Substring(0, 253);
                 }
                 else
                 {
-                    newVisit.FinalDiagnosis = finalDiagnosisTextBox.Text;
+                    throw new Exception();
                 }
+            }
+            else if (String.IsNullOrEmpty(finalDiagnosisTextBox.Text))
+            {
+                newVisit.FinalDiagnosis = "None currently entered";
+            }
+            else
+            {
+                newVisit.FinalDiagnosis = finalDiagnosisTextBox.Text;
+            }
 
             return newVisit;
         }
@@ -334,7 +358,7 @@ namespace ClinicSupport.View
                 SetTexts();
                 OpenControls();
                 enterButton.Enabled = true;
-            } 
+            }
             else if (visit.NurseID == 0)
             {
                 ClearControls();
@@ -365,6 +389,6 @@ namespace ClinicSupport.View
             symptomsTextBox.Text = visit.Symptoms;
             initialDiagnosisTextBox.Text = visit.InitialDiagnosis;
             finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
-        } 
+        }
     }
 }

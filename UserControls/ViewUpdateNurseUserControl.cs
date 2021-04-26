@@ -74,8 +74,9 @@ namespace ClinicSupport.UserControls
 
         private void FindNurseButton_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(findNurseTextBox.Text))
+            if (string.IsNullOrEmpty(findNurseTextBox.Text))
             {
+                SetControls();
                 errorLabel.Text = "Please enter a nurse Username";
             }
             else
@@ -83,7 +84,7 @@ namespace ClinicSupport.UserControls
                 string getNurse = findNurseTextBox.Text;
                 nurse = nurseController.GetNurseByUsername(getNurse);
 
-                if(nurse.IndividualID != 0)
+                if (nurse.IndividualID != 0)
                 {
                     int id = nurse.IndividualID;
                     individual = individualController.GetIndividualByID(id);
@@ -92,6 +93,7 @@ namespace ClinicSupport.UserControls
                 }
                 else
                 {
+                    ClearControls();
                     SetControls();
                     errorLabel.Text = "That username isn't a nurse.";
                 }
@@ -113,7 +115,7 @@ namespace ClinicSupport.UserControls
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            if(CheckChanges())
+            if (CheckChanges())
             {
                 errorLabel.Text = "Please enter something to update";
             }
@@ -204,7 +206,7 @@ namespace ClinicSupport.UserControls
 
         private bool CheckChanges()
         {
-            if (individual.FirstName.Equals(firstNameTextbox.Text) && individual.LastName.Equals(lastNameTextbox.Text) 
+            if (individual.FirstName.Equals(firstNameTextbox.Text) && individual.LastName.Equals(lastNameTextbox.Text)
                 && individual.StreetAddress.Equals(addressTextbox.Text) && individual.City.Equals(cityTextbox.Text) &&
                 individual.State.Equals(states[stateComboBox.SelectedItem.ToString()]) && individual.ZipCode.Equals(zipTextbox.Text) &&
                 individual.DateOfBirth.Equals(dateOfBirthTimePicker.Value) && individual.SSN.Equals(ssnTextbox.Text) &&
@@ -215,7 +217,7 @@ namespace ClinicSupport.UserControls
             else
             {
                 return false;
-            }  
+            }
         }
 
         private long ParseNumbers(string numbers, string text)
