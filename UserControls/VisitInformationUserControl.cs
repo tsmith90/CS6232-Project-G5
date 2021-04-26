@@ -15,6 +15,7 @@ namespace ClinicSupport.UserControls
         public Nurse Nurse { get; set; }
         private readonly VisitController visitController;
         private readonly CheckupForm checkupForm;
+        private int id;
 
         /// <summary>
         /// 0-parameter constructor for the VisitInformationUserControl
@@ -34,6 +35,11 @@ namespace ClinicSupport.UserControls
         private void FindPatientButton_Click(object sender, EventArgs e)
         {
             int id = ParseID();
+            SetVisits();
+        }
+
+        private void SetVisits()
+        {
             List<Visit> visitsList = new List<Visit>();
             visitListView.Items.Clear();
 
@@ -106,8 +112,8 @@ namespace ClinicSupport.UserControls
         {
             checkupForm.SetNurse(Nurse);
             visitListView.Items.Clear();
-            patientIDTextBox.Text = "";
             checkupForm.ShowDialog();
+            SetVisits();
         }
     }
 }
