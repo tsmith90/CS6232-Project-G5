@@ -54,22 +54,28 @@ namespace ClinicSupport.View
 
         private void GetPatientButton_Click(object sender, EventArgs e)
         {
-            patientID = ParseID();
-
-            if (patientID > -1)
+            try
             {
-                SetControls();
-                ClearControls();
-                checkupButton.Enabled = true;
-                PopulateComboBox();
+                patientID = GetInt(patientIDTextBox.Text, "patient ID");
+                if (patientID > -1)
+                {
+                    SetControls();
+                    ClearControls();
+                    checkupButton.Enabled = true;
+                    PopulateComboBox();
+                }
+                else
+                {
+                    errorLabel.Text = "Please enter a valid ID";
+                    SetControls();
+                    ClearControls();
+                    appointmentComboBox.DataSource = null;
+                    checkupButton.Enabled = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                errorLabel.Text = "Please enter a valid ID";
-                SetControls();
-                ClearControls();
-                appointmentComboBox.DataSource = null;
-                checkupButton.Enabled = false;
+                errorLabel.Text = ex.Message;
             }
         }
 
@@ -103,21 +109,6 @@ namespace ClinicSupport.View
             }
         }
 
-        private int ParseID()
-        {
-            int id = -1;
-
-            try
-            {
-                id = Int32.Parse(patientIDTextBox.Text);
-            }
-            catch (FormatException)
-            {
-                errorLabel.Text = "Please enter a valid ID";
-            }
-
-            return id;
-        }
 
         private void CheckupButton_Click(object sender, EventArgs e)
         {
@@ -201,6 +192,10 @@ namespace ClinicSupport.View
             {
                 int id = -1;
                 id = Int32.Parse(number);
+                if (id < 0)
+                {
+                    throw new FormatException();
+                }
                 return id;
             }
             catch (Exception)
