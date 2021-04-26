@@ -315,6 +315,8 @@ namespace ClinicSupport.View
             symptomsTextBox.Text = "";
             initialDiagnosisTextBox.Text = "";
             finalDiagnosisTextBox.Text = "";
+            nurseNameTextbox.Text = "";
+            doctorNameTextbox.Text = "";
             SetControls();
         }
 
@@ -384,6 +386,8 @@ namespace ClinicSupport.View
             symptomsTextBox.Text = visit.Symptoms;
             initialDiagnosisTextBox.Text = visit.InitialDiagnosis;
             finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
+            nurseNameTextbox.Text = visit.NurseFirstName + " " + visit.NurseLastName;
+            doctorNameTextbox.Text = visit.DoctorFirstName + " " + visit.DoctorLastName;
         }
     }
 }

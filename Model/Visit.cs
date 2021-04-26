@@ -28,5 +28,13 @@ namespace ClinicSupport.Model
         public string InitialDiagnosis { get; set; }
 
         public string FinalDiagnosis { get; set; }
+
+        public string NurseFirstName { get; set; }
+
+        public string NurseLastName { get; set; }
+
+        public string DoctorFirstName { get; set; }
+
+        public string DoctorLastName { get; set; }
     }
 }

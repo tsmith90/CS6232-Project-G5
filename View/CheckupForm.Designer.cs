@@ -59,6 +59,10 @@ namespace ClinicSupport.View
             this.finalDiagnosisTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.enterButton = new System.Windows.Forms.Button();
+            this.doctorLabel = new System.Windows.Forms.Label();
+            this.doctorNameTextbox = new System.Windows.Forms.TextBox();
+            this.nurseNameLabel = new System.Windows.Forms.Label();
+            this.nurseNameTextbox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +94,7 @@ namespace ClinicSupport.View
             this.patientIDLabel.Size = new System.Drawing.Size(85, 29);
             this.patientIDLabel.TabIndex = 2;
             this.patientIDLabel.Text = "Patient ID:";
-            this.patientIDLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.patientIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // bannerLabel
             // 
@@ -386,6 +390,38 @@ namespace ClinicSupport.View
             this.enterButton.Text = "Enter";
             this.enterButton.UseVisualStyleBackColor = true;
             this.enterButton.Click += new System.EventHandler(this.EnterButton_Click);
+            this.doctorLabel.Name = "doctorLabel";
+            this.doctorLabel.Size = new System.Drawing.Size(86, 29);
+            this.doctorLabel.TabIndex = 28;
+            this.doctorLabel.Text = "Doctor:";
+            this.doctorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // doctorNameTextbox
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.doctorNameTextbox, 2);
+            this.doctorNameTextbox.Enabled = false;
+            this.doctorNameTextbox.Location = new System.Drawing.Point(103, 255);
+            this.doctorNameTextbox.Name = "doctorNameTextbox";
+            this.doctorNameTextbox.Size = new System.Drawing.Size(212, 26);
+            this.doctorNameTextbox.TabIndex = 29;
+            // 
+            // nurseNameLabel
+            // 
+            this.nurseNameLabel.Location = new System.Drawing.Point(327, 252);
+            this.nurseNameLabel.Name = "nurseNameLabel";
+            this.nurseNameLabel.Size = new System.Drawing.Size(111, 29);
+            this.nurseNameLabel.TabIndex = 30;
+            this.nurseNameLabel.Text = "Nurse:";
+            this.nurseNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // nurseNameTextbox
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.nurseNameTextbox, 2);
+            this.nurseNameTextbox.Enabled = false;
+            this.nurseNameTextbox.Location = new System.Drawing.Point(444, 255);
+            this.nurseNameTextbox.Name = "nurseNameTextbox";
+            this.nurseNameTextbox.Size = new System.Drawing.Size(260, 26);
+            this.nurseNameTextbox.TabIndex = 31;
             // 
             // CheckupForm
             // 
@@ -439,5 +475,9 @@ namespace ClinicSupport.View
         private System.Windows.Forms.TextBox finalDiagnosisTextBox;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button enterButton;
+        private System.Windows.Forms.Label doctorLabel;
+        private System.Windows.Forms.TextBox doctorNameTextbox;
+        private System.Windows.Forms.Label nurseNameLabel;
+        private System.Windows.Forms.TextBox nurseNameTextbox;
     }
 }

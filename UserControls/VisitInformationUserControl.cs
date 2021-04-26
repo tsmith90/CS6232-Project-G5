@@ -102,7 +102,7 @@ namespace ClinicSupport.UserControls
             }
             catch (FormatException)
             {
-                errorLabel.Text = "Please enter a valid ID";
+                errorLabel.Text = "Please enter a patient ID";
             }
 
             return id;
