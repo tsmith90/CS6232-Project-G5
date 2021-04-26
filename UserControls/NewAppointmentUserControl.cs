@@ -256,16 +256,16 @@ namespace ClinicSupport.UserControls
 
         private void visitInfoButton_Click(object sender, EventArgs e)
         {
-            LabTestForm testForm = new LabTestForm();
-            testForm.SetAppointmentTest(this.appointment);
-            DialogResult result = testForm.ShowDialog();
+            VisitByPatientIDForm vistForm = new VisitByPatientIDForm();
+            vistForm.SetVisit(this.patient.PatientID);
+            DialogResult result = vistForm.ShowDialog();
             if (result == DialogResult.OK)
             {
                
             }
             else
             {
-                testForm.Close();
+                vistForm.Close();
             }
         }
 

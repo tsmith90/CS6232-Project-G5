@@ -35,9 +35,9 @@ namespace ClinicSupport.View
             // 
             // viewAppointmentsByPatientIDUserControl1
             // 
-            this.viewAppointmentsByPatientIDUserControl1.Location = new System.Drawing.Point(-8, -1);
+            this.viewAppointmentsByPatientIDUserControl1.Location = new System.Drawing.Point(12, 12);
             this.viewAppointmentsByPatientIDUserControl1.Name = "viewAppointmentsByPatientIDUserControl1";
-            this.viewAppointmentsByPatientIDUserControl1.Size = new System.Drawing.Size(1324, 867);
+            this.viewAppointmentsByPatientIDUserControl1.Size = new System.Drawing.Size(1357, 895);
             this.viewAppointmentsByPatientIDUserControl1.TabIndex = 0;
             // 
             // closeButton
@@ -55,7 +55,7 @@ namespace ClinicSupport.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1351, 1112);
+            this.ClientSize = new System.Drawing.Size(1407, 1051);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.viewAppointmentsByPatientIDUserControl1);
             this.Name = "ViewPatientAppointmentForm";

@@ -119,7 +119,7 @@ namespace ClinicSupport.UserControls
             // 
             this.findPatientTextbox.Location = new System.Drawing.Point(318, 23);
             this.findPatientTextbox.Name = "findPatientTextbox";
-            this.findPatientTextbox.Size = new System.Drawing.Size(233, 26);
+            this.findPatientTextbox.Size = new System.Drawing.Size(233, 53);
             this.findPatientTextbox.TabIndex = 1;
             this.findPatientTextbox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
@@ -147,9 +147,9 @@ namespace ClinicSupport.UserControls
             // 
             this.firstNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(165, 76);
+            this.firstNameLabel.Location = new System.Drawing.Point(145, 62);
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(86, 20);
+            this.firstNameLabel.Size = new System.Drawing.Size(126, 34);
             this.firstNameLabel.TabIndex = 6;
             this.firstNameLabel.Text = "First Name";
             // 
@@ -157,7 +157,7 @@ namespace ClinicSupport.UserControls
             // 
             this.firstNameTextBox.Location = new System.Drawing.Point(105, 99);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(207, 26);
+            this.firstNameTextBox.Size = new System.Drawing.Size(207, 53);
             this.firstNameTextBox.TabIndex = 9;
             this.firstNameTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
@@ -165,7 +165,7 @@ namespace ClinicSupport.UserControls
             // 
             this.lastNameTextBox.Location = new System.Drawing.Point(318, 99);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(233, 26);
+            this.lastNameTextBox.Size = new System.Drawing.Size(233, 53);
             this.lastNameTextBox.TabIndex = 10;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
@@ -173,7 +173,7 @@ namespace ClinicSupport.UserControls
             // 
             this.cityTextBox.Location = new System.Drawing.Point(105, 210);
             this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(207, 26);
+            this.cityTextBox.Size = new System.Drawing.Size(207, 53);
             this.cityTextBox.TabIndex = 12;
             this.cityTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
@@ -181,9 +181,9 @@ namespace ClinicSupport.UserControls
             // 
             this.cityLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(191, 187);
+            this.cityLabel.Location = new System.Drawing.Point(164, 161);
             this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(35, 20);
+            this.cityLabel.Size = new System.Drawing.Size(89, 46);
             this.cityLabel.TabIndex = 13;
             this.cityLabel.Text = "City";
             // 
@@ -191,9 +191,9 @@ namespace ClinicSupport.UserControls
             // 
             this.stateLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(410, 187);
+            this.stateLabel.Location = new System.Drawing.Point(378, 161);
             this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(48, 20);
+            this.stateLabel.Size = new System.Drawing.Size(113, 46);
             this.stateLabel.TabIndex = 14;
             this.stateLabel.Text = "State";
             // 
@@ -210,9 +210,9 @@ namespace ClinicSupport.UserControls
             // 
             this.ssnLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ssnLabel.AutoSize = true;
-            this.ssnLabel.Location = new System.Drawing.Point(413, 313);
+            this.ssnLabel.Location = new System.Drawing.Point(383, 287);
             this.ssnLabel.Name = "ssnLabel";
-            this.ssnLabel.Size = new System.Drawing.Size(42, 20);
+            this.ssnLabel.Size = new System.Drawing.Size(103, 46);
             this.ssnLabel.TabIndex = 20;
             this.ssnLabel.Text = "SSN";
             // 
@@ -220,7 +220,7 @@ namespace ClinicSupport.UserControls
             // 
             this.ssnTextBox.Location = new System.Drawing.Point(318, 336);
             this.ssnTextBox.Name = "ssnTextBox";
-            this.ssnTextBox.Size = new System.Drawing.Size(233, 26);
+            this.ssnTextBox.Size = new System.Drawing.Size(233, 53);
             this.ssnTextBox.TabIndex = 21;
             this.ssnTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
@@ -228,7 +228,7 @@ namespace ClinicSupport.UserControls
             // 
             this.addressTextBox.Location = new System.Drawing.Point(557, 99);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(226, 26);
+            this.addressTextBox.Size = new System.Drawing.Size(226, 53);
             this.addressTextBox.TabIndex = 11;
             this.addressTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
@@ -236,7 +236,7 @@ namespace ClinicSupport.UserControls
             // 
             this.zipTextBox.Location = new System.Drawing.Point(557, 210);
             this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(226, 26);
+            this.zipTextBox.Size = new System.Drawing.Size(226, 53);
             this.zipTextBox.TabIndex = 17;
             this.zipTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
@@ -244,7 +244,7 @@ namespace ClinicSupport.UserControls
             // 
             this.phoneTextBox.Location = new System.Drawing.Point(557, 336);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(226, 26);
+            this.phoneTextBox.Size = new System.Drawing.Size(226, 53);
             this.phoneTextBox.TabIndex = 22;
             this.phoneTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
@@ -261,9 +261,9 @@ namespace ClinicSupport.UserControls
             // 
             this.zipLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(633, 187);
+            this.zipLabel.Location = new System.Drawing.Point(579, 161);
             this.zipLabel.Name = "zipLabel";
-            this.zipLabel.Size = new System.Drawing.Size(73, 20);
+            this.zipLabel.Size = new System.Drawing.Size(182, 46);
             this.zipLabel.TabIndex = 16;
             this.zipLabel.Text = "Zip Code";
             // 
@@ -271,9 +271,9 @@ namespace ClinicSupport.UserControls
             // 
             this.phoneLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(642, 313);
+            this.phoneLabel.Location = new System.Drawing.Point(602, 287);
             this.phoneLabel.Name = "phoneLabel";
-            this.phoneLabel.Size = new System.Drawing.Size(55, 20);
+            this.phoneLabel.Size = new System.Drawing.Size(136, 46);
             this.phoneLabel.TabIndex = 23;
             this.phoneLabel.Text = "Phone";
             // 
@@ -311,14 +311,14 @@ namespace ClinicSupport.UserControls
             // 
             this.stateTextbox.Location = new System.Drawing.Point(318, 210);
             this.stateTextbox.Name = "stateTextbox";
-            this.stateTextbox.Size = new System.Drawing.Size(233, 26);
+            this.stateTextbox.Size = new System.Drawing.Size(233, 53);
             this.stateTextbox.TabIndex = 25;
             // 
             // dateTextBox
             // 
             this.dateTextBox.Location = new System.Drawing.Point(105, 336);
             this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(207, 26);
+            this.dateTextBox.Size = new System.Drawing.Size(207, 53);
             this.dateTextBox.TabIndex = 26;
             // 
             // DeletePatientUserControl

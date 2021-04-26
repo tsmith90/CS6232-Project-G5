@@ -30,23 +30,23 @@
         {
             this.orderTestTitleLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.testOrderLabel = new System.Windows.Forms.Label();
             this.dateTakenLabel = new System.Windows.Forms.Label();
             this.dateReturnedLabel = new System.Windows.Forms.Label();
-            this.resultLabel = new System.Windows.Forms.Label();
             this.normalLabel = new System.Windows.Forms.Label();
             this.testComboBox = new System.Windows.Forms.ComboBox();
             this.dateTakenTextBox = new System.Windows.Forms.TextBox();
             this.dateReturnedTextBox = new System.Windows.Forms.TextBox();
             this.resultTextArea = new System.Windows.Forms.TextBox();
             this.yesRadioButton = new System.Windows.Forms.RadioButton();
+            this.resultLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.orderTestButton = new System.Windows.Forms.Button();
             this.updateTestButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.titleLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -80,6 +80,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1059, 150);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Location = new System.Drawing.Point(3, 78);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(0, 32);
+            this.titleLabel.TabIndex = 1;
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
@@ -112,7 +121,7 @@
             // 
             this.testOrderLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.testOrderLabel.AutoSize = true;
-            this.testOrderLabel.Location = new System.Drawing.Point(334, 33);
+            this.testOrderLabel.Location = new System.Drawing.Point(333, 33);
             this.testOrderLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.testOrderLabel.Name = "testOrderLabel";
             this.testOrderLabel.Size = new System.Drawing.Size(188, 32);
@@ -123,7 +132,7 @@
             // 
             this.dateTakenLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dateTakenLabel.AutoSize = true;
-            this.dateTakenLabel.Location = new System.Drawing.Point(353, 129);
+            this.dateTakenLabel.Location = new System.Drawing.Point(352, 129);
             this.dateTakenLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.dateTakenLabel.Name = "dateTakenLabel";
             this.dateTakenLabel.Size = new System.Drawing.Size(169, 32);
@@ -134,29 +143,18 @@
             // 
             this.dateReturnedLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dateReturnedLabel.AutoSize = true;
-            this.dateReturnedLabel.Location = new System.Drawing.Point(315, 216);
+            this.dateReturnedLabel.Location = new System.Drawing.Point(314, 216);
             this.dateReturnedLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.dateReturnedLabel.Name = "dateReturnedLabel";
             this.dateReturnedLabel.Size = new System.Drawing.Size(207, 32);
             this.dateReturnedLabel.TabIndex = 2;
             this.dateReturnedLabel.Text = "Date Returned:";
             // 
-            // resultLabel
-            // 
-            this.resultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(418, 272);
-            this.resultLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(104, 32);
-            this.resultLabel.TabIndex = 3;
-            this.resultLabel.Text = "Result:";
-            // 
             // normalLabel
             // 
             this.normalLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.normalLabel.AutoSize = true;
-            this.normalLabel.Location = new System.Drawing.Point(408, 467);
+            this.normalLabel.Location = new System.Drawing.Point(407, 467);
             this.normalLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.normalLabel.Name = "normalLabel";
             this.normalLabel.Size = new System.Drawing.Size(114, 32);
@@ -168,7 +166,7 @@
             this.testComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.testComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.testComboBox.FormattingEnabled = true;
-            this.testComboBox.Location = new System.Drawing.Point(538, 30);
+            this.testComboBox.Location = new System.Drawing.Point(537, 29);
             this.testComboBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.testComboBox.Name = "testComboBox";
             this.testComboBox.Size = new System.Drawing.Size(316, 39);
@@ -177,7 +175,7 @@
             // dateTakenTextBox
             // 
             this.dateTakenTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTakenTextBox.Location = new System.Drawing.Point(538, 126);
+            this.dateTakenTextBox.Location = new System.Drawing.Point(537, 126);
             this.dateTakenTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dateTakenTextBox.Name = "dateTakenTextBox";
             this.dateTakenTextBox.Size = new System.Drawing.Size(316, 38);
@@ -186,7 +184,7 @@
             // dateReturnedTextBox
             // 
             this.dateReturnedTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateReturnedTextBox.Location = new System.Drawing.Point(538, 213);
+            this.dateReturnedTextBox.Location = new System.Drawing.Point(537, 213);
             this.dateReturnedTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dateReturnedTextBox.Name = "dateReturnedTextBox";
             this.dateReturnedTextBox.Size = new System.Drawing.Size(316, 38);
@@ -194,7 +192,7 @@
             // 
             // resultTextArea
             // 
-            this.resultTextArea.Location = new System.Drawing.Point(538, 279);
+            this.resultTextArea.Location = new System.Drawing.Point(537, 279);
             this.resultTextArea.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.resultTextArea.Multiline = true;
             this.resultTextArea.Name = "resultTextArea";
@@ -205,7 +203,7 @@
             // 
             this.yesRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.yesRadioButton.AutoSize = true;
-            this.yesRadioButton.Location = new System.Drawing.Point(538, 465);
+            this.yesRadioButton.Location = new System.Drawing.Point(537, 465);
             this.yesRadioButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.yesRadioButton.Name = "yesRadioButton";
             this.yesRadioButton.Size = new System.Drawing.Size(101, 36);
@@ -213,6 +211,17 @@
             this.yesRadioButton.TabStop = true;
             this.yesRadioButton.Text = "Yes";
             this.yesRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // resultLabel
+            // 
+            this.resultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultLabel.AutoSize = true;
+            this.resultLabel.Location = new System.Drawing.Point(417, 272);
+            this.resultLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(104, 32);
+            this.resultLabel.TabIndex = 3;
+            this.resultLabel.Text = "Result:";
             // 
             // tableLayoutPanel3
             // 
@@ -275,15 +284,6 @@
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(0, 32);
             this.messageLabel.TabIndex = 4;
-            // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Location = new System.Drawing.Point(3, 78);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(0, 32);
-            this.titleLabel.TabIndex = 1;
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // OrderTestUserControl
             // 

@@ -291,15 +291,6 @@ namespace ClinicSupport.UserControls
                 DialogResult result = apptForm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    string message = "New Appointment have been added!";
-                    this.messageLabel.Text = message;
-                    this.messageLabel.ForeColor = Color.Black;
-                }
-                else if (result == DialogResult.Abort)
-                {
-                    string message = "Unable to add the Appointment at this time!";
-                    this.messageLabel.Text = message;
-                    this.messageLabel.ForeColor = Color.Red;
                 }
             }
         }

@@ -31,10 +31,6 @@ namespace ClinicSupport.UserControls
             this.patientController = new PatientController();
         }
 
-        private void ViewAppointmentsByPatientIDUserControl_Load(object sender, System.EventArgs e)
-        {
-            
-        }
         /// <summary>
         /// Sets the patient information to the various input fields of the form
         /// </summary>
