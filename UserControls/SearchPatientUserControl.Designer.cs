@@ -68,9 +68,9 @@
             this.searchPatientLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchPatientLabel.AutoSize = true;
             this.searchPatientLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPatientLabel.Location = new System.Drawing.Point(352, 4);
+            this.searchPatientLabel.Location = new System.Drawing.Point(339, 2);
             this.searchPatientLabel.Name = "searchPatientLabel";
-            this.searchPatientLabel.Size = new System.Drawing.Size(128, 22);
+            this.searchPatientLabel.Size = new System.Drawing.Size(155, 26);
             this.searchPatientLabel.TabIndex = 0;
             this.searchPatientLabel.Text = "Search Patient";
             // 
@@ -97,9 +97,9 @@
             // 
             this.searchByLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchByLabel.AutoSize = true;
-            this.searchByLabel.Location = new System.Drawing.Point(30, 8);
+            this.searchByLabel.Location = new System.Drawing.Point(27, 7);
             this.searchByLabel.Name = "searchByLabel";
-            this.searchByLabel.Size = new System.Drawing.Size(59, 13);
+            this.searchByLabel.Size = new System.Drawing.Size(65, 15);
             this.searchByLabel.TabIndex = 0;
             this.searchByLabel.Text = "Search By:";
             // 
@@ -107,9 +107,9 @@
             // 
             this.searchDOBRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchDOBRadioButton.AutoSize = true;
-            this.searchDOBRadioButton.Location = new System.Drawing.Point(169, 6);
+            this.searchDOBRadioButton.Location = new System.Drawing.Point(166, 5);
             this.searchDOBRadioButton.Name = "searchDOBRadioButton";
-            this.searchDOBRadioButton.Size = new System.Drawing.Size(48, 17);
+            this.searchDOBRadioButton.Size = new System.Drawing.Size(54, 19);
             this.searchDOBRadioButton.TabIndex = 1;
             this.searchDOBRadioButton.TabStop = true;
             this.searchDOBRadioButton.Text = "DOB";
@@ -120,9 +120,9 @@
             // 
             this.searchFirstLastNameRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchFirstLastNameRadioButton.AutoSize = true;
-            this.searchFirstLastNameRadioButton.Location = new System.Drawing.Point(340, 6);
+            this.searchFirstLastNameRadioButton.Location = new System.Drawing.Point(331, 5);
             this.searchFirstLastNameRadioButton.Name = "searchFirstLastNameRadioButton";
-            this.searchFirstLastNameRadioButton.Size = new System.Drawing.Size(119, 17);
+            this.searchFirstLastNameRadioButton.Size = new System.Drawing.Size(138, 19);
             this.searchFirstLastNameRadioButton.TabIndex = 2;
             this.searchFirstLastNameRadioButton.TabStop = true;
             this.searchFirstLastNameRadioButton.Text = "First and Last Name";
@@ -133,9 +133,9 @@
             // 
             this.searchDOBLastNameRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchDOBLastNameRadioButton.AutoSize = true;
-            this.searchDOBLastNameRadioButton.Location = new System.Drawing.Point(621, 6);
+            this.searchDOBLastNameRadioButton.Location = new System.Drawing.Point(612, 5);
             this.searchDOBLastNameRadioButton.Name = "searchDOBLastNameRadioButton";
-            this.searchDOBLastNameRadioButton.Size = new System.Drawing.Size(123, 17);
+            this.searchDOBLastNameRadioButton.Size = new System.Drawing.Size(141, 19);
             this.searchDOBLastNameRadioButton.TabIndex = 3;
             this.searchDOBLastNameRadioButton.TabStop = true;
             this.searchDOBLastNameRadioButton.Text = "Last Name and DOB";
@@ -224,14 +224,11 @@
             // 
             // patientsDataGridView
             // 
-            this.patientsDataGridView.AllowUserToAddRows = false;
-            this.patientsDataGridView.AllowUserToDeleteRows = false;
             this.patientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientsDataGridView.Location = new System.Drawing.Point(7, 136);
             this.patientsDataGridView.Name = "patientsDataGridView";
-            this.patientsDataGridView.ReadOnly = true;
-            this.patientsDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.patientsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.patientsDataGridView.RowHeadersWidth = 51;
+            this.patientsDataGridView.RowTemplate.Height = 25;
             this.patientsDataGridView.Size = new System.Drawing.Size(780, 233);
             this.patientsDataGridView.TabIndex = 3;
             this.patientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsDataGridView_CellContentClick);
