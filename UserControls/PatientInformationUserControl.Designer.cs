@@ -66,9 +66,9 @@
             this.patientInfoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.patientInfoLabel.AutoSize = true;
             this.patientInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientInfoLabel.Location = new System.Drawing.Point(136, 1);
+            this.patientInfoLabel.Location = new System.Drawing.Point(151, 4);
             this.patientInfoLabel.Name = "patientInfoLabel";
-            this.patientInfoLabel.Size = new System.Drawing.Size(173, 25);
+            this.patientInfoLabel.Size = new System.Drawing.Size(144, 20);
             this.patientInfoLabel.TabIndex = 0;
             this.patientInfoLabel.Text = "Patient Information";
             // 
@@ -76,9 +76,9 @@
             // 
             this.firstNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(3, 5);
+            this.firstNameLabel.Location = new System.Drawing.Point(3, 7);
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(70, 15);
+            this.firstNameLabel.Size = new System.Drawing.Size(60, 13);
             this.firstNameLabel.TabIndex = 2;
             this.firstNameLabel.Text = "First Name:";
             // 
@@ -93,9 +93,9 @@
             // 
             this.lastNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(3, 45);
+            this.lastNameLabel.Location = new System.Drawing.Point(3, 47);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(70, 15);
+            this.lastNameLabel.Size = new System.Drawing.Size(61, 13);
             this.lastNameLabel.TabIndex = 4;
             this.lastNameLabel.Text = "Last Name:";
             // 
@@ -103,9 +103,9 @@
             // 
             this.dobLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dobLabel.AutoSize = true;
-            this.dobLabel.Location = new System.Drawing.Point(3, 85);
+            this.dobLabel.Location = new System.Drawing.Point(3, 87);
             this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(164, 15);
+            this.dobLabel.Size = new System.Drawing.Size(146, 13);
             this.dobLabel.TabIndex = 5;
             this.dobLabel.Text = "Date of Birth: (MM-DD-YYYY)";
             // 
@@ -122,9 +122,9 @@
             // 
             this.addressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(226, 5);
+            this.addressLabel.Location = new System.Drawing.Point(226, 7);
             this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(54, 15);
+            this.addressLabel.Size = new System.Drawing.Size(48, 13);
             this.addressLabel.TabIndex = 7;
             this.addressLabel.Text = "Address:";
             // 
@@ -132,9 +132,9 @@
             // 
             this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(226, 45);
+            this.cityLabel.Location = new System.Drawing.Point(226, 47);
             this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(29, 15);
+            this.cityLabel.Size = new System.Drawing.Size(27, 13);
             this.cityLabel.TabIndex = 8;
             this.cityLabel.Text = "City:";
             // 
@@ -142,9 +142,9 @@
             // 
             this.stateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(226, 85);
+            this.stateLabel.Location = new System.Drawing.Point(226, 87);
             this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(38, 15);
+            this.stateLabel.Size = new System.Drawing.Size(35, 13);
             this.stateLabel.TabIndex = 9;
             this.stateLabel.Text = "State:";
             // 
@@ -152,9 +152,9 @@
             // 
             this.zipLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(226, 125);
+            this.zipLabel.Location = new System.Drawing.Point(226, 127);
             this.zipLabel.Name = "zipLabel";
-            this.zipLabel.Size = new System.Drawing.Size(28, 15);
+            this.zipLabel.Size = new System.Drawing.Size(27, 13);
             this.zipLabel.TabIndex = 10;
             this.zipLabel.Text = "ZIP:";
             // 
@@ -296,9 +296,9 @@
             // 
             this.ssnLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ssnLabel.AutoSize = true;
-            this.ssnLabel.Location = new System.Drawing.Point(3, 165);
+            this.ssnLabel.Location = new System.Drawing.Point(3, 167);
             this.ssnLabel.Name = "ssnLabel";
-            this.ssnLabel.Size = new System.Drawing.Size(35, 15);
+            this.ssnLabel.Size = new System.Drawing.Size(32, 13);
             this.ssnLabel.TabIndex = 11;
             this.ssnLabel.Text = "SSN:";
             // 
@@ -332,7 +332,7 @@
             this.messageLabel.AutoSize = true;
             this.messageLabel.Location = new System.Drawing.Point(1, 293);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(0, 15);
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
             this.messageLabel.TabIndex = 15;
             // 
             // closeButton
