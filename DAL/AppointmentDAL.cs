@@ -217,5 +217,35 @@ namespace ClinicSupport.DAL
             }
             return _appointments;
         }
+
+        /// <summary>
+        /// Delete an appointment an appointment if there is no visit associated with it in the data source.
+        /// </summary>
+        /// <param name="appt">given appt to insert a new Appointment</param>
+        public bool DeleteAppointment(Appointment appt)
+        {
+            string deleteStatement =
+            "DELETE FROM dbo.Appointment " +
+            "WHERE pid = @patientID AND time = @time AND did = @docID AND " +
+            "NOT EXISTS(SELECT * FROM dbo.Visit v " +
+            "WHERE v.pid = @patientID and v.time = @time)";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
+                {
+                    // define parameters and their values
+                    cmd.Parameters.Add("@docID", SqlDbType.Int).Value = appt.DoctorID;
+                    cmd.Parameters.Add("@patientID", SqlDbType.Int).Value = appt.PatientID;
+                    cmd.Parameters.Add("@time", SqlDbType.DateTime).Value = appt.Time;
+                    int count = cmd.ExecuteNonQuery();
+                    if (count > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace ClinicSupport.UserControls
             this.docComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.timePortionDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.orderTestButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -180,7 +180,7 @@ namespace ClinicSupport.UserControls
             // 
             this.visitInfoButton.AutoSize = true;
             this.visitInfoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.visitInfoButton.Location = new System.Drawing.Point(557, 780);
+            this.visitInfoButton.Location = new System.Drawing.Point(598, 356);
             this.visitInfoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.visitInfoButton.Name = "visitInfoButton";
             this.visitInfoButton.Size = new System.Drawing.Size(245, 69);
@@ -229,22 +229,21 @@ namespace ClinicSupport.UserControls
             this.timePortionDateTimePicker.Size = new System.Drawing.Size(207, 45);
             this.timePortionDateTimePicker.TabIndex = 18;
             // 
-            // orderTestButton
+            // deleteButton
             // 
-            this.orderTestButton.Location = new System.Drawing.Point(597, 361);
-            this.orderTestButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.orderTestButton.Name = "orderTestButton";
-            this.orderTestButton.Size = new System.Drawing.Size(200, 55);
-            this.orderTestButton.TabIndex = 19;
-            this.orderTestButton.Text = "Order Test";
-            this.orderTestButton.UseVisualStyleBackColor = true;
-            this.orderTestButton.Click += new System.EventHandler(this.OrderTestButton_Click);
+            this.deleteButton.Location = new System.Drawing.Point(585, 780);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(192, 69);
+            this.deleteButton.TabIndex = 19;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // NewAppointmentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.orderTestButton);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.timePortionDateTimePicker);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.docComboBox);
@@ -289,6 +288,6 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.ComboBox docComboBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker timePortionDateTimePicker;
-        private System.Windows.Forms.Button orderTestButton;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

@@ -89,8 +89,8 @@ namespace ClinicSupport.UserControls
                         this.lnameTextBox.ReadOnly = true;
                         this.reasonTextBox.ReadOnly = true;
                         this.docComboBox.Enabled = false;
-                        this.orderTestButton.Enabled = false;
                         this.viewOnlyAppt = true;
+                        this.deleteButton.Enabled = false;
                     }
                 }
                 else
@@ -269,11 +269,28 @@ namespace ClinicSupport.UserControls
             }
         }
 
-        private void OrderTestButton_Click(object sender, EventArgs e)
+        private void deleteButton_Click(object sender, EventArgs e)
         {
-            AddLabTestForm orderTest = new AddLabTestForm();
-            orderTest.SetPatientAndAppointment(this.appointment);
-            DialogResult result = orderTest.ShowDialog();
+            if (!this.viewOnlyAppt)
+            {
+                try
+                {
+                    if(this.appointment != null)
+                    {
+                        bool success = false;
+                        success = this.appointmentController.DeleteAppointment(this.appointment);
+                        if (success)
+                        {
+                            this.messageLabel.Text = "The appointment has been sucessfukky deleted.";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something is wrong with the input!!!!" + Environment.NewLine + ex.Message,
+                        "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

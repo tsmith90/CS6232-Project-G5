@@ -49,6 +49,21 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
+        /// Update an existing appointment for given Appointment.
+        /// </summary>
+        /// <param name="newAppt">newAppt to update</param>
+        /// <param name="oldAppt">oldAppt to compare if has changed</param>
+        /// <returns>true if sucessful, else false</returns>
+        public bool DeleteAppointment(Appointment appt)
+        {
+            if (appt == null)
+            {
+                throw new ArgumentNullException("Appointments cannot be null");
+            }
+            return this.appointmentDAL.DeleteAppointment(appt);
+        }
+
+        /// <summary>
         /// Getting row count from Appointment for given doctorID and apptDateTime.
         /// </summary>
         /// <param name="apptDateTime">apptDateTime</param>
