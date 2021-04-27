@@ -89,13 +89,17 @@ namespace ClinicSupport.UserControls
             }
             catch (FormatException fe)
             {
-                MessageBox.Show(fe.Message);
+                MessageBox.Show(fe.Message, fe.GetType().ToString());
+                this.patients = null;
+                patientsDataGridView.Columns.Clear();
             }
             patientsDataGridView.DataSource = this.patients;
-            patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
-            patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
-
-            AddEditColumnToGV();
+            if (patientsDataGridView.Columns.Count == 10)
+            {
+                patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
+                patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
+                AddEditColumnToGV();
+            }                
         }
 
         private void SearchNameButton_Click(object sender, EventArgs e)
@@ -173,11 +177,16 @@ namespace ClinicSupport.UserControls
             catch (FormatException fe)
             {
                 MessageBox.Show(fe.Message);
+                this.patients = null;
+                patientsDataGridView.Columns.Clear();
             }
             patientsDataGridView.DataSource = this.patients;
-            patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
-            patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
-            AddEditColumnToGV();
+            if (patientsDataGridView.Columns.Count == 10)
+            {
+                patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
+                patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
+                AddEditColumnToGV();
+            }
         }
 
         private void AddEditColumnToGV()
