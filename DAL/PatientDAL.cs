@@ -203,7 +203,7 @@ namespace ClinicSupport.DAL
         {
             List<Individual> _patients = new List<Individual>();
             string selectStatement = 
-                "SELECT p.pid, fname, lname, streetAddress, dob, city, state, zip, phone, ssn " +
+                "SELECT p.pid, i.iid, fname, lname, streetAddress, dob, city, state, zip, phone, ssn " +
                 "FROM Individual i INNER JOIN Patient p ON " +
                 "i.iid = p.iid " +
                 "WHERE dob = @DOB";
@@ -297,7 +297,7 @@ namespace ClinicSupport.DAL
         {
             List<Individual> _patients = new List<Individual>();
             string selectStatement =
-                "SELECT p.pid, fname, lname, streetAddress, dob, city, state, zip, phone, ssn " +
+                "SELECT p.pid, i.iid, fname, lname, streetAddress, dob, city, state, zip, phone, ssn " +
                 "FROM Individual i INNER JOIN Patient p ON " +
                 "i.iid = p.iid " +
                 "WHERE lname = @LastName " +
