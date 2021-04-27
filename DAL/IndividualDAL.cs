@@ -134,7 +134,7 @@ namespace ClinicSupport.DAL
                     cmd.Parameters.Add("@ssn", System.Data.SqlDbType.VarChar);
                     cmd.Parameters["@ssn"].Value = newIndividual.SSN;
 
-                    cmd.Parameters.Add("@iid", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters.Add("@iid", System.Data.SqlDbType.Int);
                     cmd.Parameters["@iid"].Value = newIndividual.IndividualID;
 
                     int count = cmd.ExecuteNonQuery();
