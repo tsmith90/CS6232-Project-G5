@@ -64,5 +64,19 @@ namespace ClinicSupport.Controller
 
             return individualDAL.UpdateIndividual(newIndividual);
         }
+
+        /// <summary>
+        /// Calls to the individual DAL to see if the ssn passed in already exist
+        /// </summary>
+        /// <param name="ssn">SSN in question</param>
+        /// <returns>Returns true if the number of rows returned in the DAL is greater than 0</returns>
+        public Boolean IsDuplicateSSN(string ssn)
+        {
+            if (ssn.Length != 9)
+            {
+                throw new ArgumentException("Please enter a valud SSN. Must be 9 character long");
+            }
+            return individualDAL.IsDuplicateSSN(ssn);
+        }
     }
 }

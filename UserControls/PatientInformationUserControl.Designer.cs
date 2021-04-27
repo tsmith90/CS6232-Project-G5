@@ -66,10 +66,9 @@
             this.patientInfoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.patientInfoLabel.AutoSize = true;
             this.patientInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientInfoLabel.Location = new System.Drawing.Point(417, 10);
-            this.patientInfoLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.patientInfoLabel.Location = new System.Drawing.Point(136, 1);
             this.patientInfoLabel.Name = "patientInfoLabel";
-            this.patientInfoLabel.Size = new System.Drawing.Size(354, 46);
+            this.patientInfoLabel.Size = new System.Drawing.Size(173, 25);
             this.patientInfoLabel.TabIndex = 0;
             this.patientInfoLabel.Text = "Patient Information";
             // 
@@ -77,29 +76,26 @@
             // 
             this.firstNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(8, 16);
-            this.firstNameLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.firstNameLabel.Location = new System.Drawing.Point(3, 5);
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(160, 32);
+            this.firstNameLabel.Size = new System.Drawing.Size(70, 15);
             this.firstNameLabel.TabIndex = 2;
             this.firstNameLabel.Text = "First Name:";
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(8, 55);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.firstNameTextBox.Location = new System.Drawing.Point(3, 23);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(388, 38);
+            this.firstNameTextBox.Size = new System.Drawing.Size(148, 20);
             this.firstNameTextBox.TabIndex = 1;
             // 
             // lastNameLabel
             // 
             this.lastNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(8, 112);
-            this.lastNameLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lastNameLabel.Location = new System.Drawing.Point(3, 45);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(159, 32);
+            this.lastNameLabel.Size = new System.Drawing.Size(70, 15);
             this.lastNameLabel.TabIndex = 4;
             this.lastNameLabel.Text = "Last Name:";
             // 
@@ -107,20 +103,18 @@
             // 
             this.dobLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dobLabel.AutoSize = true;
-            this.dobLabel.Location = new System.Drawing.Point(8, 208);
-            this.dobLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.dobLabel.Location = new System.Drawing.Point(3, 85);
             this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(385, 32);
+            this.dobLabel.Size = new System.Drawing.Size(164, 15);
             this.dobLabel.TabIndex = 5;
             this.dobLabel.Text = "Date of Birth: (MM-DD-YYYY)";
             // 
             // phoneNumLabel
             // 
             this.phoneNumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.phoneNumLabel.Location = new System.Drawing.Point(8, 305);
-            this.phoneNumLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.phoneNumLabel.Location = new System.Drawing.Point(3, 127);
             this.phoneNumLabel.Name = "phoneNumLabel";
-            this.phoneNumLabel.Size = new System.Drawing.Size(395, 31);
+            this.phoneNumLabel.Size = new System.Drawing.Size(148, 13);
             this.phoneNumLabel.TabIndex = 6;
             this.phoneNumLabel.Text = "Phone (XXXXXXXXXX):";
             // 
@@ -128,10 +122,9 @@
             // 
             this.addressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(602, 16);
-            this.addressLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.addressLabel.Location = new System.Drawing.Point(226, 5);
             this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(127, 32);
+            this.addressLabel.Size = new System.Drawing.Size(54, 15);
             this.addressLabel.TabIndex = 7;
             this.addressLabel.Text = "Address:";
             // 
@@ -139,10 +132,9 @@
             // 
             this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(602, 112);
-            this.cityLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.cityLabel.Location = new System.Drawing.Point(226, 45);
             this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(72, 32);
+            this.cityLabel.Size = new System.Drawing.Size(29, 15);
             this.cityLabel.TabIndex = 8;
             this.cityLabel.Text = "City:";
             // 
@@ -150,10 +142,9 @@
             // 
             this.stateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(602, 208);
-            this.stateLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.stateLabel.Location = new System.Drawing.Point(226, 85);
             this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(90, 32);
+            this.stateLabel.Size = new System.Drawing.Size(38, 15);
             this.stateLabel.TabIndex = 9;
             this.stateLabel.Text = "State:";
             // 
@@ -161,77 +152,68 @@
             // 
             this.zipLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(602, 304);
-            this.zipLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.zipLabel.Location = new System.Drawing.Point(226, 125);
             this.zipLabel.Name = "zipLabel";
-            this.zipLabel.Size = new System.Drawing.Size(66, 32);
+            this.zipLabel.Size = new System.Drawing.Size(28, 15);
             this.zipLabel.TabIndex = 10;
             this.zipLabel.Text = "ZIP:";
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(8, 151);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.lastNameTextBox.Location = new System.Drawing.Point(3, 63);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(388, 38);
+            this.lastNameTextBox.Size = new System.Drawing.Size(148, 20);
             this.lastNameTextBox.TabIndex = 2;
             // 
             // dobTextBox
             // 
-            this.dobTextBox.Location = new System.Drawing.Point(8, 247);
-            this.dobTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dobTextBox.Location = new System.Drawing.Point(3, 103);
             this.dobTextBox.Name = "dobTextBox";
-            this.dobTextBox.Size = new System.Drawing.Size(388, 38);
+            this.dobTextBox.Size = new System.Drawing.Size(148, 20);
             this.dobTextBox.TabIndex = 3;
             // 
             // phoneTextBox
             // 
-            this.phoneTextBox.Location = new System.Drawing.Point(8, 343);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.phoneTextBox.Location = new System.Drawing.Point(3, 143);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(388, 38);
+            this.phoneTextBox.Size = new System.Drawing.Size(148, 20);
             this.phoneTextBox.TabIndex = 4;
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(602, 55);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.addressTextBox.Location = new System.Drawing.Point(226, 23);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(396, 38);
+            this.addressTextBox.Size = new System.Drawing.Size(151, 20);
             this.addressTextBox.TabIndex = 6;
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(602, 151);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cityTextBox.Location = new System.Drawing.Point(226, 63);
             this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(396, 38);
+            this.cityTextBox.Size = new System.Drawing.Size(151, 20);
             this.cityTextBox.TabIndex = 7;
             // 
             // stateComboBox
             // 
             this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Location = new System.Drawing.Point(602, 247);
-            this.stateComboBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.stateComboBox.Location = new System.Drawing.Point(226, 103);
             this.stateComboBox.Name = "stateComboBox";
-            this.stateComboBox.Size = new System.Drawing.Size(396, 39);
+            this.stateComboBox.Size = new System.Drawing.Size(151, 21);
             this.stateComboBox.TabIndex = 8;
             // 
             // zipTextBox
             // 
-            this.zipTextBox.Location = new System.Drawing.Point(602, 343);
-            this.zipTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.zipTextBox.Location = new System.Drawing.Point(226, 143);
             this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(396, 38);
+            this.zipTextBox.Size = new System.Drawing.Size(151, 20);
             this.zipTextBox.TabIndex = 9;
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(8, 7);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.clearButton.Location = new System.Drawing.Point(3, 3);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(200, 48);
+            this.clearButton.Size = new System.Drawing.Size(75, 26);
             this.clearButton.TabIndex = 9;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -239,10 +221,9 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(800, 7);
-            this.updateButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.updateButton.Location = new System.Drawing.Point(299, 3);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(200, 48);
+            this.updateButton.Size = new System.Drawing.Size(75, 26);
             this.updateButton.TabIndex = 11;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -250,10 +231,9 @@
             // 
             // createPatientButton
             // 
-            this.createPatientButton.Location = new System.Drawing.Point(404, 7);
-            this.createPatientButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.createPatientButton.Location = new System.Drawing.Point(151, 3);
             this.createPatientButton.Name = "createPatientButton";
-            this.createPatientButton.Size = new System.Drawing.Size(200, 48);
+            this.createPatientButton.Size = new System.Drawing.Size(75, 26);
             this.createPatientButton.TabIndex = 10;
             this.createPatientButton.Text = "Create";
             this.createPatientButton.UseVisualStyleBackColor = true;
@@ -266,11 +246,10 @@
             this.tableLayoutPanel1.Controls.Add(this.patientInfoLabel, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1189, 67);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 28);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // tableLayoutPanel2
@@ -297,41 +276,38 @@
             this.tableLayoutPanel2.Controls.Add(this.ssnLabel, 0, 8);
             this.tableLayoutPanel2.Controls.Add(this.ssnTextBox, 0, 9);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 67);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 10;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1189, 489);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(446, 205);
             this.tableLayoutPanel2.TabIndex = 13;
             // 
             // ssnLabel
             // 
             this.ssnLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ssnLabel.AutoSize = true;
-            this.ssnLabel.Location = new System.Drawing.Point(8, 400);
-            this.ssnLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.ssnLabel.Location = new System.Drawing.Point(3, 165);
             this.ssnLabel.Name = "ssnLabel";
-            this.ssnLabel.Size = new System.Drawing.Size(81, 32);
+            this.ssnLabel.Size = new System.Drawing.Size(35, 15);
             this.ssnLabel.TabIndex = 11;
             this.ssnLabel.Text = "SSN:";
             // 
             // ssnTextBox
             // 
             this.ssnTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ssnTextBox.Location = new System.Drawing.Point(8, 444);
-            this.ssnTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.ssnTextBox.Location = new System.Drawing.Point(3, 183);
             this.ssnTextBox.Name = "ssnTextBox";
-            this.ssnTextBox.Size = new System.Drawing.Size(383, 38);
+            this.ssnTextBox.Size = new System.Drawing.Size(146, 20);
             this.ssnTextBox.TabIndex = 5;
             // 
             // tableLayoutPanel3
@@ -344,29 +320,26 @@
             this.tableLayoutPanel3.Controls.Add(this.createPatientButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.updateButton, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 556);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 233);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1189, 62);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(446, 32);
             this.tableLayoutPanel3.TabIndex = 14;
             // 
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
-            this.messageLabel.Location = new System.Drawing.Point(2, 698);
-            this.messageLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.messageLabel.Location = new System.Drawing.Point(1, 293);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(0, 32);
+            this.messageLabel.Size = new System.Drawing.Size(0, 15);
             this.messageLabel.TabIndex = 15;
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(812, 686);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.closeButton.Location = new System.Drawing.Point(302, 285);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(200, 55);
+            this.closeButton.Size = new System.Drawing.Size(75, 26);
             this.closeButton.TabIndex = 16;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
@@ -375,9 +348,10 @@
             // apptButton
             // 
             this.apptButton.AutoSize = true;
-            this.apptButton.Location = new System.Drawing.Point(375, 637);
+            this.apptButton.Location = new System.Drawing.Point(141, 285);
+            this.apptButton.Margin = new System.Windows.Forms.Padding(1);
             this.apptButton.Name = "apptButton";
-            this.apptButton.Size = new System.Drawing.Size(269, 62);
+            this.apptButton.Size = new System.Drawing.Size(121, 26);
             this.apptButton.TabIndex = 17;
             this.apptButton.Text = "View Appointments";
             this.apptButton.UseVisualStyleBackColor = true;
@@ -385,7 +359,7 @@
             // 
             // PatientInformationUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.apptButton);
             this.Controls.Add(this.closeButton);
@@ -393,9 +367,8 @@
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "PatientInformationUserControl";
-            this.Size = new System.Drawing.Size(1189, 941);
+            this.Size = new System.Drawing.Size(446, 395);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

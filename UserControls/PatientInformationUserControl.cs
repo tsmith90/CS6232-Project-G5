@@ -19,7 +19,6 @@ namespace ClinicSupport.UserControls
         private readonly IndividualController individualController;
         private readonly PatientController patientController;
         private Individual _individual;
-        private Patient patient;
 
         /// <summary>
         /// 0 parameter contructor for PatientInformationUserControl
@@ -43,6 +42,7 @@ namespace ClinicSupport.UserControls
             updateButton.Visible = false;
             closeButton.Visible = false;
             patientInfoLabel.Text = "New Patient";
+            apptButton.Visible = false;
         }
 
         /// <summary>
@@ -143,11 +143,20 @@ namespace ClinicSupport.UserControls
                     this.messageLabel.Text = "";
                     Individual newIndividual = new Individual();
                     this.PutIndividualData(newIndividual);
+                    bool duplicateSSNExists = this.individualController.IsDuplicateSSN(newIndividual.SSN);
 
-                    var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
-                    int patientID = this.patientController.InsertNewPatient(newIndividualID);
-                    this.messageLabel.Text = "Patient has been added!";
-                    this.messageLabel.ForeColor = Color.Black;
+                    if (duplicateSSNExists)
+                    {
+                        MessageBox.Show("The SSN for this individual is already in use.", "Duplicate SSN");
+                    }
+                    else
+                    {
+                        var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
+                        int patientID = this.patientController.InsertNewPatient(newIndividualID);
+                        this.messageLabel.Text = "Patient has been added!";
+                        this.messageLabel.ForeColor = Color.Black;
+                    }
+
                 }
             }
             catch(Exception ex)

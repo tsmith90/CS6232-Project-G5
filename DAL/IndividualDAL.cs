@@ -145,5 +145,45 @@ namespace ClinicSupport.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// Checks to see if the ssn passed in already exists by getting the number of rows that contain the ssn value passed in
+        /// </summary>
+        /// <param name="ssn">SSN in question</param>
+        /// <returns>Returns true if the number of rows returned is greater than 0</returns>
+        public Boolean IsDuplicateSSN(string ssn)
+        {
+            bool duplicateSSNExists = false;
+            string selectStatement =
+                "SELECT COUNT(*) AS Count " +
+                 "FROM Individual " +
+                 "WHERE ssn = @SSN";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@SSN", ssn);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var count = (int)reader["Count"];
+                            if (count > 0)
+                            {
+                                duplicateSSNExists = true;
+                            }
+                            else
+                            {
+                                duplicateSSNExists = false;
+                            }
+                        }
+                    }
+                }
+            }
+            return duplicateSSNExists;
+        }
     }
 }
