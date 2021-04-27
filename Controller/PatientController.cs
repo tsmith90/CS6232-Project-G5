@@ -39,9 +39,9 @@ namespace ClinicSupport.Controller
         /// </summary>
         /// <param name="individualID">ID of individual recently added to Individual table and to be added to the Patient table</param>
         /// <returns>Returns the new patientID for the patient that was just created</returns>
-        public int InsertNewPatient(int individualID)
+        public int InsertNewPatient(Individual newIndividual)
         {
-            int patientID = patientDAL.AddPatient(individualID);
+            int patientID = patientDAL.AddPatient(newIndividual);
             return patientID;
         }
 

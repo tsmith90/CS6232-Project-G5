@@ -80,18 +80,31 @@ namespace ClinicSupport.DAL
         /// </summary>
         /// <param name="individualID">ID of individual recently added to Individual table and to be added to the Patient table</param>
         /// <returns>Returns the new patientID for the patient that was just created</returns>
-        public int AddPatient(int individualID)
+        public int AddPatient(Individual newIndividual)
         {
             string insertStatement =
-                "INSERT INTO Patient (iid) " +
-                "VALUES (@IndividualID);";
+                "BEGIN TRANSACTION " +
+                    "DECLARE @iid int;" +
+                    "INSERT INTO Individual (lname, fname, dob, streetAddress, city, state, zip, phone, ssn) " +
+                    "VALUES (@LastName, @FirstName, @DOB, @Address, @City, @State, @Zip, @Phone, @SSN);" +
+                    "SELECT @iid = scope_identity();" +
+                    "INSERT INTO Patient (iid) VALUES(@iid); " +
+                "COMMIT";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
                 using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                 {
-                    insertCommand.Parameters.AddWithValue("@IndividualID", individualID);
+                    insertCommand.Parameters.AddWithValue("@LastName", newIndividual.LastName);
+                    insertCommand.Parameters.AddWithValue("@FirstName", newIndividual.FirstName);
+                    insertCommand.Parameters.AddWithValue("@DOB", newIndividual.DateOfBirth);
+                    insertCommand.Parameters.AddWithValue("@Address", newIndividual.StreetAddress);
+                    insertCommand.Parameters.AddWithValue("@City", newIndividual.City);
+                    insertCommand.Parameters.AddWithValue("@State", newIndividual.State);
+                    insertCommand.Parameters.AddWithValue("@Zip", newIndividual.ZipCode);
+                    insertCommand.Parameters.AddWithValue("@Phone", newIndividual.PhoneNumber);
+                    insertCommand.Parameters.AddWithValue("@SSN", newIndividual.SSN);
 
                     insertCommand.ExecuteNonQuery();
                 }

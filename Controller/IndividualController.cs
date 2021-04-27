@@ -35,22 +35,6 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Method that adds an individual object to the database via the IndividualDAL
-        /// </summary>
-        /// <param name="newIndividual">New Individual object to be added</param>
-        /// <returns>Returns the new iid of the newly created individual</returns>
-        public int InsertNewIndividual(Individual newIndividual)
-        {
-            if (newIndividual == null)
-            {
-                throw new ArgumentNullException("Please enter a valid individual");
-            }
-
-            int newIndividualID = individualDAL.AddIndividual(newIndividual);
-            return newIndividualID;
-        }
-
-        /// <summary>
         /// Updates an Individual object in the DAL
         /// </summary>
         /// <param name="newIndividual">the individual to be updated</param>

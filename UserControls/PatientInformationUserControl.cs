@@ -151,9 +151,10 @@ namespace ClinicSupport.UserControls
                     }
                     else
                     {
-                        var newIndividualID = this.individualController.InsertNewIndividual(newIndividual);
-                        int patientID = this.patientController.InsertNewPatient(newIndividualID);
-                        this.messageLabel.Text = "Patient has been added!";
+                        int patientID = this.patientController.InsertNewPatient(newIndividual);
+                        Patient myPatient = this.patientController.GetPatientByID(patientID);
+                        Individual myIndividual = this.individualController.GetIndividualByID(myPatient.IndividualID);
+                        this.messageLabel.Text = "Patient " + myIndividual.FirstName + " " + myIndividual.LastName + " has been created!";
                         this.messageLabel.ForeColor = Color.Black;
                     }
 

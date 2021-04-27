@@ -52,44 +52,6 @@ namespace ClinicSupport.DAL
         }
 
         /// <summary>
-        /// Adds passed in individual to the Individual table
-        /// </summary>
-        /// <param name="newIndividual">New indivisual to be added</param>
-        /// <returns>Returns the new individualID for the individual that was just created</returns>
-        public int AddIndividual(Individual newIndividual)
-        {
-            string insertStatement =
-                "INSERT INTO Individual (lname, fname, dob, streetAddress, city, state, zip, phone, ssn) " +
-                "VALUES (@LastName, @FirstName, @DOB, @Address, @City, @State, @Zip, @Phone, @SSN);";
-
-            using (SqlConnection connection = DBConnection.GetConnection())
-            {
-                connection.Open();
-                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
-                {
-                    insertCommand.Parameters.AddWithValue("@LastName", newIndividual.LastName);
-                    insertCommand.Parameters.AddWithValue("@FirstName", newIndividual.FirstName);
-                    insertCommand.Parameters.AddWithValue("@DOB", newIndividual.DateOfBirth);
-                    insertCommand.Parameters.AddWithValue("@Address", newIndividual.StreetAddress);
-                    insertCommand.Parameters.AddWithValue("@City", newIndividual.City);
-                    insertCommand.Parameters.AddWithValue("@State", newIndividual.State);
-                    insertCommand.Parameters.AddWithValue("@Zip", newIndividual.ZipCode);
-                    insertCommand.Parameters.AddWithValue("@Phone", newIndividual.PhoneNumber);
-                    insertCommand.Parameters.AddWithValue("@SSN", newIndividual.SSN);
-
-                    insertCommand.ExecuteNonQuery();
-                }
-
-                string selectStatement = "SELECT IDENT_CURRENT('Individual') FROM Individual;";
-                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
-                {
-                    int indivdualID = Convert.ToInt32(selectCommand.ExecuteScalar());
-                    return indivdualID;
-                }
-            }
-        }
-
-        /// <summary>
         /// Updates an Individual's information in the DB
         /// </summary>
         /// <param name="newIndividual">the individual to be updated</param>
