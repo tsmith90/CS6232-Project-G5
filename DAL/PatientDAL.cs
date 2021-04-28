@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace ClinicSupport.DAL
 {
@@ -126,7 +127,10 @@ namespace ClinicSupport.DAL
         public bool DeletePatientWithoutAppointment(int pid)
         {
             int countAppointments = 0;
+            int individiualID = 0;
             string deletePatient = "DELETE FROM Patient WHERE pid = @pid;";
+            string deleteIndividual = "DELETE FROM Individual WHERE iid = @iid";
+            string selectIndividual = "SELECT iid FROM Patient Where pid = @pid;";
             string checkAppointments = "SELECT count(pid) as counted FROM  Appointment WHERE pid = @pid;";
 
             using (SqlConnection connection = DBConnection.GetConnection())
@@ -152,12 +156,34 @@ namespace ClinicSupport.DAL
                     }
                 }
 
+                using (SqlCommand selectIndividualCommand = new SqlCommand(selectIndividual, connection))
+                {
+                    selectIndividualCommand.Parameters.Add("@pid", SqlDbType.Int);
+                    selectIndividualCommand.Parameters["@pid"].Value = pid;
+
+                    using (SqlDataReader reader = selectIndividualCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            individiualID = (int)reader["iid"];
+                        }
+                    }
+                }
+
                 using (SqlCommand cmd = new SqlCommand(deletePatient, connection))
                 {
                     cmd.Parameters.Add("@pid", SqlDbType.Int);
                     cmd.Parameters["@pid"].Value = pid;
 
-                    int count = cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (SqlCommand deleteCmd = new SqlCommand(deleteIndividual, connection))
+                {
+                    deleteCmd.Parameters.Add("@iid", SqlDbType.Int);
+                    deleteCmd.Parameters["@iid"].Value = individiualID;
+
+                    int count = deleteCmd.ExecuteNonQuery();
                     if (count > 0)
                         return true;
                     else
