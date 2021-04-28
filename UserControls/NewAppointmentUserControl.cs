@@ -49,10 +49,10 @@ namespace ClinicSupport.UserControls
         /// <param name="patient">Patient whose information is to be displayed on the user control input fields</param>
         public void SetAppointment(Appointment _appt)
         {
-            this.fillAppointmentForm(_appt);
+            this.FillAppointmentForm(_appt);
         }
 
-        private void fillAppointmentForm(Appointment _appt)
+        private void FillAppointmentForm(Appointment _appt)
         {
             this.appointment = _appt;
             if (_appt.PatientID > 0)
@@ -97,6 +97,10 @@ namespace ClinicSupport.UserControls
                 {
                     this.titleLabel.Text = "New Appointment";
                     this.addAppointmentButton.Text = "Add";
+                    this.deleteButton.Visible = false;
+                    this.deleteButton.Enabled = false;
+                    this.visitInfoButton.Enabled = false;
+                    this.visitInfoButton.Visible = false;
                 }
             }
         }
@@ -107,7 +111,7 @@ namespace ClinicSupport.UserControls
             {
                 try
                 {
-                    if (this.fnameTextBox.Text == String.Empty || this.lnameTextBox.Text == String.Empty || this.docComboBox.SelectedIndex == 0 || this.datePortionDateTimePicker.Value == null)
+                    if (this.fnameTextBox.Text == String.Empty || this.lnameTextBox.Text == String.Empty || this.reasonTextBox.Text == String.Empty || this.docComboBox.SelectedIndex == 0 || this.datePortionDateTimePicker.Value == null)
                     {
                         string message = "Please enter the required values!!";
                         if (this.fnameTextBox.Text == String.Empty)
@@ -125,6 +129,10 @@ namespace ClinicSupport.UserControls
                         if (datePortionDateTimePicker.Value == null)
                         {
                             message += "\n-DateTime is not selected";
+                        }
+                        if (this.reasonTextBox.Text == string.Empty)
+                        {
+                            message += "\n-Reason for visit is missing";
                         }
                         this.messageLabel.Text = message;
                         this.messageLabel.ForeColor = Color.Red;

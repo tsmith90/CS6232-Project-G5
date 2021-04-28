@@ -36,14 +36,14 @@
             this.patientInformationUserControl1.Location = new System.Drawing.Point(32, 29);
             this.patientInformationUserControl1.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.patientInformationUserControl1.Name = "patientInformationUserControl1";
-            this.patientInformationUserControl1.Size = new System.Drawing.Size(1045, 749);
+            this.patientInformationUserControl1.Size = new System.Drawing.Size(1045, 907);
             this.patientInformationUserControl1.TabIndex = 0;
             // 
             // ViewPatientInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 904);
+            this.ClientSize = new System.Drawing.Size(1157, 991);
             this.Controls.Add(this.patientInformationUserControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);

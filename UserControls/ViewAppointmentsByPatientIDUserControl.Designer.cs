@@ -39,9 +39,6 @@ namespace ClinicSupport.UserControls
             // 
             // appointmentDataGridView
             // 
-            this.appointmentDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.appointmentDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -52,11 +49,12 @@ namespace ClinicSupport.UserControls
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.appointmentDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.appointmentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appointmentDataGridView.Location = new System.Drawing.Point(51, 238);
+            this.appointmentDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.appointmentDataGridView.Location = new System.Drawing.Point(0, 308);
             this.appointmentDataGridView.Name = "appointmentDataGridView";
             this.appointmentDataGridView.RowHeadersWidth = 102;
             this.appointmentDataGridView.RowTemplate.Height = 40;
-            this.appointmentDataGridView.Size = new System.Drawing.Size(1237, 503);
+            this.appointmentDataGridView.Size = new System.Drawing.Size(1344, 578);
             this.appointmentDataGridView.TabIndex = 0;
             this.appointmentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentDataGridView_CellContentClick);
             // 
