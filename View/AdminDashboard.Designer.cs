@@ -31,7 +31,6 @@ namespace ClinicSupport.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.usernameLabel = new System.Windows.Forms.Label();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.nurseInformationTabPage = new System.Windows.Forms.TabPage();
@@ -40,16 +39,19 @@ namespace ClinicSupport.View
             this.nurseLoginTabPage = new System.Windows.Forms.TabPage();
             this.testReportTabPage = new System.Windows.Forms.TabPage();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.usernameLabel = new System.Windows.Forms.Label();
             this.viewUpdateNurseUserControl1 = new ClinicSupport.UserControls.ViewUpdateNurseUserControl();
             this.addNurseUserControl1 = new ClinicSupport.UserControls.AddNurseUserControl();
             this.nursePrivilegesUserControl1 = new ClinicSupport.UserControls.NursePrivilegesUserControl();
             this.viewUpdateNurserUserControl1 = new ClinicSupport.UserControls.UpdateNurseLoginUserControl();
+            this.testReportUserControl1 = new ClinicSupport.UserControls.TestReportUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.adminTabControl.SuspendLayout();
             this.nurseInformationTabPage.SuspendLayout();
             this.addNurseTabPage.SuspendLayout();
             this.privilegeTabPage.SuspendLayout();
             this.nurseLoginTabPage.SuspendLayout();
+            this.testReportTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -70,15 +72,6 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(773, 459);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.Location = new System.Drawing.Point(421, 11);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(271, 35);
-            this.usernameLabel.TabIndex = 0;
-            this.usernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // logoutLinkLabel
             // 
@@ -152,6 +145,7 @@ namespace ClinicSupport.View
             // 
             // testReportTabPage
             // 
+            this.testReportTabPage.Controls.Add(this.testReportUserControl1);
             this.testReportTabPage.Location = new System.Drawing.Point(4, 29);
             this.testReportTabPage.Name = "testReportTabPage";
             this.testReportTabPage.Size = new System.Drawing.Size(759, 374);
@@ -167,6 +161,15 @@ namespace ClinicSupport.View
             this.nameLabel.Size = new System.Drawing.Size(344, 35);
             this.nameLabel.TabIndex = 3;
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.Location = new System.Drawing.Point(421, 11);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(271, 35);
+            this.usernameLabel.TabIndex = 0;
+            this.usernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // viewUpdateNurseUserControl1
             // 
@@ -203,6 +206,15 @@ namespace ClinicSupport.View
             this.viewUpdateNurserUserControl1.Size = new System.Drawing.Size(756, 352);
             this.viewUpdateNurserUserControl1.TabIndex = 0;
             // 
+            // testReportUserControl1
+            // 
+            this.testReportUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testReportUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.testReportUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.testReportUserControl1.Name = "testReportUserControl1";
+            this.testReportUserControl1.Size = new System.Drawing.Size(756, 376);
+            this.testReportUserControl1.TabIndex = 0;
+            // 
             // AdminDashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -224,6 +236,7 @@ namespace ClinicSupport.View
             this.addNurseTabPage.ResumeLayout(false);
             this.privilegeTabPage.ResumeLayout(false);
             this.nurseLoginTabPage.ResumeLayout(false);
+            this.testReportTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -244,5 +257,6 @@ namespace ClinicSupport.View
         private UserControls.ViewUpdateNurseUserControl viewUpdateNurseUserControl1;
         private System.Windows.Forms.TabPage testReportTabPage;
         private System.Windows.Forms.Label nameLabel;
+        private UserControls.TestReportUserControl testReportUserControl1;
     }
 }
