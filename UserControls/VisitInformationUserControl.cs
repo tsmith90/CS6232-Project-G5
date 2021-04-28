@@ -25,6 +25,7 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
             visitController = new VisitController();
             checkupForm = new CheckupForm();
+            id = -1;
         }
 
         private void PatientIDTextBox_TextChanged(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace ClinicSupport.UserControls
 
         private void FindPatientButton_Click(object sender, EventArgs e)
         {
-            int id = ParseID();
+            id = ParseID();
             SetVisits();
         }
 
