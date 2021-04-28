@@ -208,20 +208,77 @@ namespace ClinicSupport.UserControls
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            Individual newIndividual = new Individual();
-            newIndividual.IndividualID = this._individual.IndividualID;
-            this.PutIndividualData(newIndividual);
-
             try
             {
-                if (!patientController.UpdatePatient(this._individual, newIndividual))
+                if (this.firstNameTextBox.Text == String.Empty || this.lastNameTextBox.Text == String.Empty || this.dobTextBox.Text == String.Empty || this.phoneTextBox.Text == String.Empty || this.phoneTextBox.Text.Length < 10 || this.ssnTextBox.Text == String.Empty || this.ssnTextBox.Text.Length > 9 || this.ssnTextBox.Text.Length < 9 ||
+                    this.addressTextBox.Text == String.Empty || this.cityTextBox.Text == String.Empty || this.stateComboBox.SelectedIndex == -1 || this.zipTextBox.Text == String.Empty || this.zipTextBox.Text != String.Empty && !Int32.TryParse(this.zipTextBox.Text, out int number))
                 {
-                    MessageBox.Show("Cannot update patient", "Database Error");
+                    string message = "Please enter the required values:";
+                    if (this.firstNameTextBox.Text == String.Empty)
+                    {
+                        message += "\n-First name is missing";
+                    }
+                    if (this.lastNameTextBox.Text == String.Empty)
+                    {
+                        message += "\n-Last name is missing";
+                    }
+                    if (this.dobTextBox.Text == String.Empty)
+                    {
+                        message += "\n-Date of Birth is missing";
+                    }
+                    if (this.phoneTextBox.Text == String.Empty)
+                    {
+                        message += "\n-Phone number is missing";
+                    }
+                    if (this.phoneTextBox.Text.Length < 10)
+                    {
+                        message += "\n-Phone number must contain 10 numbers (XXXXXXXXXX)";
+                    }
+                    if (this.ssnTextBox.Text == String.Empty)
+                    {
+                        message += "\n-SSN is missing";
+                    }
+                    if (this.ssnTextBox.Text.Length > 9 || this.ssnTextBox.Text.Length < 9)
+                    {
+                        message += "\n-SSN should be exactly 9 numbers in length";
+                    }
+                    if (this.addressTextBox.Text == String.Empty)
+                    {
+                        message += "\n-Address is missing";
+                    }
+                    if (this.cityTextBox.Text == String.Empty)
+                    {
+                        message += "\n-City is missing";
+                    }
+                    if (stateComboBox.SelectedIndex == -1)
+                    {
+                        message += "\n-State is not selected";
+                    }
+                    if (this.zipTextBox.Text == String.Empty)
+                    {
+                        message += "\n-Zip is missing";
+                    }
+                    if (this.zipTextBox.Text != String.Empty && !Int32.TryParse(this.zipTextBox.Text, out int num))
+                    {
+                        message += "\n-Zip must be a number";
+                    }
+                    MessageBox.Show(message, "Missing Information");
                 }
                 else
                 {
-                    this._individual = newIndividual;
-                    this.messageLabel.Text = "Patient was successfully updated!";
+                    Individual newIndividual = new Individual();
+                    newIndividual.IndividualID = this._individual.IndividualID;
+                    this.PutIndividualData(newIndividual);
+
+                    if (!patientController.UpdatePatient(this._individual, newIndividual))
+                    {
+                        MessageBox.Show("Cannot update patient", "Database Error");
+                    }
+                    else
+                    {
+                        this._individual = newIndividual;
+                        this.messageLabel.Text = "Patient was successfully updated!";
+                    }
                 }
             }
             catch (Exception ex)
