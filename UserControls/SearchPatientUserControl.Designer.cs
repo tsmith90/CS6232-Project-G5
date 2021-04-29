@@ -45,6 +45,8 @@
             this.clearSearchesButton = new System.Windows.Forms.Button();
             this.patientsDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.addPatientButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.searchPatientLblTableLayout.SuspendLayout();
             this.radioButtonTableLayout.SuspendLayout();
             this.searchCriteriaTableLayout.SuspendLayout();
@@ -59,10 +61,11 @@
             this.searchPatientLblTableLayout.Controls.Add(this.searchPatientLabel, 0, 0);
             this.searchPatientLblTableLayout.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPatientLblTableLayout.Location = new System.Drawing.Point(0, 0);
+            this.searchPatientLblTableLayout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.searchPatientLblTableLayout.Name = "searchPatientLblTableLayout";
             this.searchPatientLblTableLayout.RowCount = 1;
             this.searchPatientLblTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.searchPatientLblTableLayout.Size = new System.Drawing.Size(833, 30);
+            this.searchPatientLblTableLayout.Size = new System.Drawing.Size(2221, 72);
             this.searchPatientLblTableLayout.TabIndex = 0;
             // 
             // searchPatientLabel
@@ -70,9 +73,10 @@
             this.searchPatientLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchPatientLabel.AutoSize = true;
             this.searchPatientLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPatientLabel.Location = new System.Drawing.Point(352, 4);
+            this.searchPatientLabel.Location = new System.Drawing.Point(956, 10);
+            this.searchPatientLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.searchPatientLabel.Name = "searchPatientLabel";
-            this.searchPatientLabel.Size = new System.Drawing.Size(128, 22);
+            this.searchPatientLabel.Size = new System.Drawing.Size(308, 52);
             this.searchPatientLabel.TabIndex = 0;
             this.searchPatientLabel.Text = "Search Patient";
             // 
@@ -88,20 +92,22 @@
             this.radioButtonTableLayout.Controls.Add(this.searchFirstLastNameRadioButton, 2, 0);
             this.radioButtonTableLayout.Controls.Add(this.searchDOBLastNameRadioButton, 3, 0);
             this.radioButtonTableLayout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radioButtonTableLayout.Location = new System.Drawing.Point(0, 30);
+            this.radioButtonTableLayout.Location = new System.Drawing.Point(0, 72);
+            this.radioButtonTableLayout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.radioButtonTableLayout.Name = "radioButtonTableLayout";
             this.radioButtonTableLayout.RowCount = 1;
             this.radioButtonTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.radioButtonTableLayout.Size = new System.Drawing.Size(833, 30);
+            this.radioButtonTableLayout.Size = new System.Drawing.Size(2221, 72);
             this.radioButtonTableLayout.TabIndex = 1;
             // 
             // searchByLabel
             // 
             this.searchByLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchByLabel.AutoSize = true;
-            this.searchByLabel.Location = new System.Drawing.Point(30, 8);
+            this.searchByLabel.Location = new System.Drawing.Point(82, 20);
+            this.searchByLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.searchByLabel.Name = "searchByLabel";
-            this.searchByLabel.Size = new System.Drawing.Size(59, 13);
+            this.searchByLabel.Size = new System.Drawing.Size(153, 32);
             this.searchByLabel.TabIndex = 0;
             this.searchByLabel.Text = "Search By:";
             // 
@@ -109,9 +115,10 @@
             // 
             this.searchDOBRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchDOBRadioButton.AutoSize = true;
-            this.searchDOBRadioButton.Location = new System.Drawing.Point(169, 6);
+            this.searchDOBRadioButton.Location = new System.Drawing.Point(460, 18);
+            this.searchDOBRadioButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.searchDOBRadioButton.Name = "searchDOBRadioButton";
-            this.searchDOBRadioButton.Size = new System.Drawing.Size(48, 17);
+            this.searchDOBRadioButton.Size = new System.Drawing.Size(113, 36);
             this.searchDOBRadioButton.TabIndex = 1;
             this.searchDOBRadioButton.TabStop = true;
             this.searchDOBRadioButton.Text = "DOB";
@@ -122,9 +129,10 @@
             // 
             this.searchFirstLastNameRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchFirstLastNameRadioButton.AutoSize = true;
-            this.searchFirstLastNameRadioButton.Location = new System.Drawing.Point(340, 6);
+            this.searchFirstLastNameRadioButton.Location = new System.Drawing.Point(915, 18);
+            this.searchFirstLastNameRadioButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.searchFirstLastNameRadioButton.Name = "searchFirstLastNameRadioButton";
-            this.searchFirstLastNameRadioButton.Size = new System.Drawing.Size(119, 17);
+            this.searchFirstLastNameRadioButton.Size = new System.Drawing.Size(305, 36);
             this.searchFirstLastNameRadioButton.TabIndex = 2;
             this.searchFirstLastNameRadioButton.TabStop = true;
             this.searchFirstLastNameRadioButton.Text = "First and Last Name";
@@ -135,9 +143,10 @@
             // 
             this.searchDOBLastNameRadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchDOBLastNameRadioButton.AutoSize = true;
-            this.searchDOBLastNameRadioButton.Location = new System.Drawing.Point(621, 6);
+            this.searchDOBLastNameRadioButton.Location = new System.Drawing.Point(1665, 18);
+            this.searchDOBLastNameRadioButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.searchDOBLastNameRadioButton.Name = "searchDOBLastNameRadioButton";
-            this.searchDOBLastNameRadioButton.Size = new System.Drawing.Size(123, 17);
+            this.searchDOBLastNameRadioButton.Size = new System.Drawing.Size(311, 36);
             this.searchDOBLastNameRadioButton.TabIndex = 3;
             this.searchDOBLastNameRadioButton.TabStop = true;
             this.searchDOBLastNameRadioButton.Text = "Last Name and DOB";
@@ -160,43 +169,48 @@
             this.searchCriteriaTableLayout.Controls.Add(this.searchNameButton, 3, 0);
             this.searchCriteriaTableLayout.Controls.Add(this.searchDOBAndLastNameButton, 5, 0);
             this.searchCriteriaTableLayout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchCriteriaTableLayout.Location = new System.Drawing.Point(0, 60);
+            this.searchCriteriaTableLayout.Location = new System.Drawing.Point(0, 144);
+            this.searchCriteriaTableLayout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.searchCriteriaTableLayout.Name = "searchCriteriaTableLayout";
             this.searchCriteriaTableLayout.RowCount = 1;
             this.searchCriteriaTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchCriteriaTableLayout.Size = new System.Drawing.Size(833, 41);
+            this.searchCriteriaTableLayout.Size = new System.Drawing.Size(2221, 98);
             this.searchCriteriaTableLayout.TabIndex = 2;
             // 
             // dobTextField
             // 
             this.dobTextField.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dobTextField.Location = new System.Drawing.Point(7, 10);
+            this.dobTextField.Location = new System.Drawing.Point(23, 30);
+            this.dobTextField.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dobTextField.Name = "dobTextField";
-            this.dobTextField.Size = new System.Drawing.Size(124, 20);
+            this.dobTextField.Size = new System.Drawing.Size(324, 38);
             this.dobTextField.TabIndex = 0;
             // 
             // firstLastNameTextBox
             // 
             this.firstLastNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.firstLastNameTextBox.Location = new System.Drawing.Point(280, 10);
+            this.firstLastNameTextBox.Location = new System.Drawing.Point(755, 30);
+            this.firstLastNameTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.firstLastNameTextBox.Name = "firstLastNameTextBox";
-            this.firstLastNameTextBox.Size = new System.Drawing.Size(130, 20);
+            this.firstLastNameTextBox.Size = new System.Drawing.Size(340, 38);
             this.firstLastNameTextBox.TabIndex = 1;
             // 
             // dobLastNameTextBox
             // 
             this.dobLastNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dobLastNameTextBox.Location = new System.Drawing.Point(559, 10);
+            this.dobLastNameTextBox.Location = new System.Drawing.Point(1504, 30);
+            this.dobLastNameTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dobLastNameTextBox.Name = "dobLastNameTextBox";
-            this.dobLastNameTextBox.Size = new System.Drawing.Size(123, 20);
+            this.dobLastNameTextBox.Size = new System.Drawing.Size(321, 38);
             this.dobLastNameTextBox.TabIndex = 2;
             // 
             // searchDOBButton
             // 
             this.searchDOBButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchDOBButton.Location = new System.Drawing.Point(161, 9);
+            this.searchDOBButton.Location = new System.Drawing.Point(433, 21);
+            this.searchDOBButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.searchDOBButton.Name = "searchDOBButton";
-            this.searchDOBButton.Size = new System.Drawing.Size(91, 23);
+            this.searchDOBButton.Size = new System.Drawing.Size(243, 55);
             this.searchDOBButton.TabIndex = 3;
             this.searchDOBButton.Text = "Search by DOB";
             this.searchDOBButton.UseVisualStyleBackColor = true;
@@ -205,9 +219,10 @@
             // searchNameButton
             // 
             this.searchNameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchNameButton.Location = new System.Drawing.Point(422, 9);
+            this.searchNameButton.Location = new System.Drawing.Point(1132, 21);
+            this.searchNameButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.searchNameButton.Name = "searchNameButton";
-            this.searchNameButton.Size = new System.Drawing.Size(122, 23);
+            this.searchNameButton.Size = new System.Drawing.Size(325, 55);
             this.searchNameButton.TabIndex = 4;
             this.searchNameButton.Text = "Search by Name";
             this.searchNameButton.UseVisualStyleBackColor = true;
@@ -216,9 +231,10 @@
             // searchDOBAndLastNameButton
             // 
             this.searchDOBAndLastNameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchDOBAndLastNameButton.Location = new System.Drawing.Point(695, 3);
+            this.searchDOBAndLastNameButton.Location = new System.Drawing.Point(1858, 7);
+            this.searchDOBAndLastNameButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.searchDOBAndLastNameButton.Name = "searchDOBAndLastNameButton";
-            this.searchDOBAndLastNameButton.Size = new System.Drawing.Size(133, 35);
+            this.searchDOBAndLastNameButton.Size = new System.Drawing.Size(355, 83);
             this.searchDOBAndLastNameButton.TabIndex = 5;
             this.searchDOBAndLastNameButton.Text = "Search by Last Name and DOB";
             this.searchDOBAndLastNameButton.UseVisualStyleBackColor = true;
@@ -226,9 +242,10 @@
             // 
             // clearSearchesButton
             // 
-            this.clearSearchesButton.Location = new System.Drawing.Point(3, 3);
+            this.clearSearchesButton.Location = new System.Drawing.Point(8, 7);
+            this.clearSearchesButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.clearSearchesButton.Name = "clearSearchesButton";
-            this.clearSearchesButton.Size = new System.Drawing.Size(98, 23);
+            this.clearSearchesButton.Size = new System.Drawing.Size(261, 55);
             this.clearSearchesButton.TabIndex = 4;
             this.clearSearchesButton.Text = "Clear Searches";
             this.clearSearchesButton.UseVisualStyleBackColor = true;
@@ -239,12 +256,13 @@
             this.patientsDataGridView.AllowUserToAddRows = false;
             this.patientsDataGridView.AllowUserToDeleteRows = false;
             this.patientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.patientsDataGridView.Location = new System.Drawing.Point(3, 37);
+            this.patientsDataGridView.Location = new System.Drawing.Point(8, 88);
+            this.patientsDataGridView.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.patientsDataGridView.Name = "patientsDataGridView";
             this.patientsDataGridView.ReadOnly = true;
             this.patientsDataGridView.RowHeadersWidth = 51;
             this.patientsDataGridView.RowTemplate.Height = 25;
-            this.patientsDataGridView.Size = new System.Drawing.Size(825, 144);
+            this.patientsDataGridView.Size = new System.Drawing.Size(2200, 343);
             this.patientsDataGridView.TabIndex = 5;
             this.patientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsDataGridView_CellContentClick);
             // 
@@ -252,27 +270,51 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.clearSearchesButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.patientsDataGridView, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 101);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 242);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(833, 184);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 358F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(2221, 439);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // addPatientButton
+            // 
+            this.addPatientButton.AutoSize = true;
+            this.addPatientButton.Location = new System.Drawing.Point(635, 704);
+            this.addPatientButton.Name = "addPatientButton";
+            this.addPatientButton.Size = new System.Drawing.Size(206, 50);
+            this.addPatientButton.TabIndex = 7;
+            this.addPatientButton.Text = "Add Patient";
+            this.addPatientButton.UseVisualStyleBackColor = true;
+            this.addPatientButton.Click += new System.EventHandler(this.addPatientButton_Click);
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(17, 688);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 32);
+            this.messageLabel.TabIndex = 8;
             // 
             // SearchPatientUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.messageLabel);
+            this.Controls.Add(this.addPatientButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.searchCriteriaTableLayout);
             this.Controls.Add(this.radioButtonTableLayout);
             this.Controls.Add(this.searchPatientLblTableLayout);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "SearchPatientUserControl";
-            this.Size = new System.Drawing.Size(833, 415);
+            this.Size = new System.Drawing.Size(2221, 990);
             this.searchPatientLblTableLayout.ResumeLayout(false);
             this.searchPatientLblTableLayout.PerformLayout();
             this.radioButtonTableLayout.ResumeLayout(false);
@@ -282,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.patientsDataGridView)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -304,5 +347,7 @@
         private System.Windows.Forms.Button clearSearchesButton;
         private System.Windows.Forms.DataGridView patientsDataGridView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button addPatientButton;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

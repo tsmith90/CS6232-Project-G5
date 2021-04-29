@@ -40,7 +40,6 @@ namespace ClinicSupport.UserControls
         public void HideUpdateButton()
         {
             updateButton.Visible = false;
-            closeButton.Visible = false;
             patientInfoLabel.Text = "New Patient";
             apptButton.Visible = false;
         }

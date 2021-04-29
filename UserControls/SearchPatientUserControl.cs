@@ -24,6 +24,7 @@ namespace ClinicSupport.UserControls
             searchCriteriaTableLayout.Hide();
             this.patientController = new PatientController();
             this.patients = new List<Individual>();
+            this.messageLabel.Text = "";
         }
 
         private void SearchDOBRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -99,6 +100,7 @@ namespace ClinicSupport.UserControls
                 patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
                 patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
                 AddEditColumnToGV();
+                AddDeleteColumnToGV();
             }                
         }
 
@@ -133,6 +135,7 @@ namespace ClinicSupport.UserControls
             patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
             patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
             AddEditColumnToGV();
+            AddDeleteColumnToGV();
 
             patientsDataGridView.Columns["IndividualID"].Frozen = false;
             patientsDataGridView.Columns["LastName"].Frozen = false;
@@ -186,6 +189,7 @@ namespace ClinicSupport.UserControls
                 patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
                 patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
                 AddEditColumnToGV();
+                AddDeleteColumnToGV();
             }
         }
 
@@ -198,6 +202,16 @@ namespace ClinicSupport.UserControls
             Editlink.Text = "Edit";
             Editlink.Width = 60;
             patientsDataGridView.Columns.Add(Editlink);
+        }
+        private void AddDeleteColumnToGV()
+        {
+            DataGridViewLinkColumn deletelink = new DataGridViewLinkColumn();
+            deletelink.UseColumnTextForLinkValue = true;
+            deletelink.DataPropertyName = "lnkColumn";
+            deletelink.LinkBehavior = LinkBehavior.SystemDefault;
+            deletelink.Text = "Delete";
+            deletelink.Width = 60;
+            patientsDataGridView.Columns.Add(deletelink);
         }
 
         private void PatientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -257,6 +271,68 @@ namespace ClinicSupport.UserControls
                     }
                     patientsDataGridView.DataSource = this.patients;
                     AddEditColumnToGV();
+                    AddDeleteColumnToGV();
+                }
+            }
+            else if (e.ColumnIndex == 11)
+            {
+                var id = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                var fname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                var lname = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                var dob = Convert.ToDateTime(patientsDataGridView.Rows[e.RowIndex].Cells[3].Value);
+                var address = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[4].Value);
+                var city = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[5].Value);
+                var state = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[6].Value);
+                var zip = Convert.ToInt32(patientsDataGridView.Rows[e.RowIndex].Cells[7].Value);
+                var phone = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[8].Value);
+                var ssn = Convert.ToString(patientsDataGridView.Rows[e.RowIndex].Cells[9].Value);
+
+                Individual patient = new Individual();
+                patient.IndividualID = id;
+                patient.FirstName = fname;
+                patient.LastName = lname;
+                patient.DateOfBirth = dob;
+                patient.PhoneNumber = phone;
+                patient.StreetAddress = address;
+                patient.City = city;
+                patient.State = state;
+                patient.ZipCode = zip.ToString();
+                patient.SSN = ssn;
+                int pid = 0;
+                pid = this.patientController.GetPatientIDByIndividualID(patient.IndividualID);
+                if (pid > 0)
+                {
+                    DeletePatientForm deletePatientForm = new DeletePatientForm();
+                    deletePatientForm.SetPatient(pid);
+                    DialogResult result = deletePatientForm.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        this.messageLabel.Text = "The patient was successfully deleted";
+                        patientsDataGridView.Columns.Clear();
+                        patientsDataGridView.DataSource = null;
+                        // Repulls data after the close button is selected on the update patient information dialog
+                        if (dobTextField.Visible == true)
+                        {
+                            DateTime dateOfBirth = Convert.ToDateTime(dobTextField.Text);
+                            this.patients = this.patientController.GetPatientsByDOB(dateOfBirth);
+                        }
+                        if (firstLastNameTextBox.Visible == true)
+                        {
+                            string firstName = firstLastNameTextBox.Text.Split(' ')[0];
+                            string lastName = firstLastNameTextBox.Text.Split(' ')[1];
+                            this.patients = this.patientController.GetPatientsByFirstAndLastName(firstName, lastName);
+                        }
+                        if (dobLastNameTextBox.Visible == true)
+                        {
+                            string lastName = dobLastNameTextBox.Text.Split(' ')[0];
+                            string dobString = dobLastNameTextBox.Text.Split(' ')[1];
+                            DateTime dateOfBirth = Convert.ToDateTime(dobString);
+                            this.patients = this.patientController.GetPatientsByLastNameAndDOB(lastName, dateOfBirth);
+                        }
+                        patientsDataGridView.DataSource = this.patients;
+                        AddEditColumnToGV();
+                        AddDeleteColumnToGV();
+                    }
                 }
             }
         }
@@ -276,6 +352,12 @@ namespace ClinicSupport.UserControls
         private int GetPatientIDByIndividualID(int iid)
         {
             return this.patientController.GetPatientIDByIndividualID(iid);
+        }
+
+        private void addPatientButton_Click(object sender, EventArgs e)
+        {
+            AddPatientForm addPatient = new AddPatientForm();
+            DialogResult result = addPatient.ShowDialog();
         }
     }
 }

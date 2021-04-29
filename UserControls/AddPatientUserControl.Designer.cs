@@ -35,17 +35,19 @@
             // 
             this.patientInformationUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.patientInformationUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.patientInformationUserControl1.Margin = new System.Windows.Forms.Padding(21, 17, 21, 17);
             this.patientInformationUserControl1.Name = "patientInformationUserControl1";
-            this.patientInformationUserControl1.Size = new System.Drawing.Size(402, 330);
+            this.patientInformationUserControl1.Size = new System.Drawing.Size(1082, 864);
             this.patientInformationUserControl1.TabIndex = 0;
             // 
             // AddPatientUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.patientInformationUserControl1);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "AddPatientUserControl";
-            this.Size = new System.Drawing.Size(402, 354);
+            this.Size = new System.Drawing.Size(1082, 919);
             this.ResumeLayout(false);
 
         }

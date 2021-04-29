@@ -15,7 +15,7 @@ namespace ClinicSupport.UserControls
         public Nurse Nurse { get; set; }
         private readonly VisitController visitController;
         private readonly CheckupForm checkupForm;
-        private int id;
+        private int pid;
 
         /// <summary>
         /// 0-parameter constructor for the VisitInformationUserControl
@@ -25,7 +25,7 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
             visitController = new VisitController();
             checkupForm = new CheckupForm();
-            id = -1;
+            pid = -1;
         }
 
         private void PatientIDTextBox_TextChanged(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace ClinicSupport.UserControls
 
         private void FindPatientButton_Click(object sender, EventArgs e)
         {
-            id = ParseID();
+            pid = ParseID();
             SetVisits();
         }
 
@@ -44,11 +44,11 @@ namespace ClinicSupport.UserControls
             List<Visit> visitsList = new List<Visit>();
             visitListView.Items.Clear();
 
-            if (id > 0)
+            if (pid > 0)
             {
                 try
                 {
-                    visitsList = visitController.GetVisitsByID(id);
+                    visitsList = visitController.GetVisitsByID(pid);
 
                     if (visitsList.Count > 0)
                     {
@@ -117,6 +117,13 @@ namespace ClinicSupport.UserControls
             visitListView.Items.Clear();
             checkupForm.ShowDialog();
             SetVisits();
+        }
+
+        private void orderTestButton_Click(object sender, EventArgs e)
+        {
+            AddLabTestForm orderTest = new AddLabTestForm();
+            orderTest.SetPatient(this.pid);
+            DialogResult result = orderTest.ShowDialog();
         }
     }
 }

@@ -47,6 +47,7 @@ namespace ClinicSupport.UserControls
             this.enterInformationButton = new System.Windows.Forms.Button();
             this.patientIDLabel = new System.Windows.Forms.Label();
             this.patientIDTextBox = new System.Windows.Forms.TextBox();
+            this.orderTestButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +78,8 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(933, 507);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(887, 444);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // visitListView
@@ -97,7 +99,7 @@ namespace ClinicSupport.UserControls
             this.visitListView.HideSelection = false;
             this.visitListView.Location = new System.Drawing.Point(3, 122);
             this.visitListView.Name = "visitListView";
-            this.visitListView.Size = new System.Drawing.Size(927, 376);
+            this.visitListView.Size = new System.Drawing.Size(881, 294);
             this.visitListView.TabIndex = 3;
             this.visitListView.UseCompatibleStateImageBehavior = false;
             this.visitListView.View = System.Windows.Forms.View.Details;
@@ -212,12 +214,23 @@ namespace ClinicSupport.UserControls
             this.patientIDTextBox.TabIndex = 1;
             this.patientIDTextBox.TextChanged += new System.EventHandler(this.PatientIDTextBox_TextChanged);
             // 
+            // orderTestButton
+            // 
+            this.orderTestButton.Location = new System.Drawing.Point(348, 461);
+            this.orderTestButton.Name = "orderTestButton";
+            this.orderTestButton.Size = new System.Drawing.Size(129, 25);
+            this.orderTestButton.TabIndex = 7;
+            this.orderTestButton.Text = "Order Test";
+            this.orderTestButton.UseVisualStyleBackColor = true;
+            this.orderTestButton.Click += new System.EventHandler(this.orderTestButton_Click);
+            // 
             // VisitInformationUserControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.orderTestButton);
             this.Name = "VisitInformationUserControl";
-            this.Size = new System.Drawing.Size(936, 510);
+            this.Size = new System.Drawing.Size(898, 562);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -244,5 +257,6 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.ColumnHeader initialDiagnosisColumn;
         private System.Windows.Forms.ColumnHeader finalDiagnosisColumn;
         private System.Windows.Forms.Button enterInformationButton;
+        private System.Windows.Forms.Button orderTestButton;
     }
 }

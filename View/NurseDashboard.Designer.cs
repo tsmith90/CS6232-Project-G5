@@ -36,23 +36,17 @@ namespace ClinicSupport.View
             this.nurseDashboardTabControl = new System.Windows.Forms.TabControl();
             this.searchPatientsTabPage = new System.Windows.Forms.TabPage();
             this.searchPatientUserControl1 = new ClinicSupport.UserControls.SearchPatientUserControl();
-            this.addPatientTabPage = new System.Windows.Forms.TabPage();
-            this.addPatientUserControl1 = new ClinicSupport.UserControls.AddPatientUserControl();
             this.testsTabPage = new System.Windows.Forms.TabPage();
             this.viewLabTestByApptAndPIdUserControl1 = new ClinicSupport.UserControls.ViewLabTestByApptAndPIdUserControl();
             this.visitInformationTabPage = new System.Windows.Forms.TabPage();
             this.visitInformationUserControl2 = new ClinicSupport.UserControls.VisitInformationUserControl();
             this.visitInformationUserControl1 = new ClinicSupport.UserControls.VisitInformationUserControl();
-            this.deletePatientTabPage = new System.Windows.Forms.TabPage();
-            this.deletePatientUserControl1 = new ClinicSupport.UserControls.DeletePatientUserControl();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.nurseDashboardTabControl.SuspendLayout();
             this.searchPatientsTabPage.SuspendLayout();
-            this.addPatientTabPage.SuspendLayout();
             this.testsTabPage.SuspendLayout();
             this.visitInformationTabPage.SuspendLayout();
-            this.deletePatientTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -101,10 +95,8 @@ namespace ClinicSupport.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.nurseDashboardTabControl, 3);
             this.nurseDashboardTabControl.Controls.Add(this.searchPatientsTabPage);
-            this.nurseDashboardTabControl.Controls.Add(this.addPatientTabPage);
             this.nurseDashboardTabControl.Controls.Add(this.testsTabPage);
             this.nurseDashboardTabControl.Controls.Add(this.visitInformationTabPage);
-            this.nurseDashboardTabControl.Controls.Add(this.deletePatientTabPage);
             this.nurseDashboardTabControl.Location = new System.Drawing.Point(3, 49);
             this.nurseDashboardTabControl.Name = "nurseDashboardTabControl";
             this.nurseDashboardTabControl.SelectedIndex = 0;
@@ -129,25 +121,6 @@ namespace ClinicSupport.View
             this.searchPatientUserControl1.Name = "searchPatientUserControl1";
             this.searchPatientUserControl1.Size = new System.Drawing.Size(914, 521);
             this.searchPatientUserControl1.TabIndex = 0;
-            // 
-            // addPatientTabPage
-            // 
-            this.addPatientTabPage.Controls.Add(this.addPatientUserControl1);
-            this.addPatientTabPage.Location = new System.Drawing.Point(4, 34);
-            this.addPatientTabPage.Name = "addPatientTabPage";
-            this.addPatientTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.addPatientTabPage.Size = new System.Drawing.Size(928, 532);
-            this.addPatientTabPage.TabIndex = 1;
-            this.addPatientTabPage.Text = "Add Patient";
-            this.addPatientTabPage.UseVisualStyleBackColor = true;
-            // 
-            // addPatientUserControl1
-            // 
-            this.addPatientUserControl1.Location = new System.Drawing.Point(204, 23);
-            this.addPatientUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.addPatientUserControl1.Name = "addPatientUserControl1";
-            this.addPatientUserControl1.Size = new System.Drawing.Size(551, 506);
-            this.addPatientUserControl1.TabIndex = 0;
             // 
             // testsTabPage
             // 
@@ -200,25 +173,6 @@ namespace ClinicSupport.View
             this.visitInformationUserControl1.Size = new System.Drawing.Size(0, 0);
             this.visitInformationUserControl1.TabIndex = 0;
             // 
-            // deletePatientTabPage
-            // 
-            this.deletePatientTabPage.Controls.Add(this.deletePatientUserControl1);
-            this.deletePatientTabPage.Location = new System.Drawing.Point(4, 34);
-            this.deletePatientTabPage.Name = "deletePatientTabPage";
-            this.deletePatientTabPage.Size = new System.Drawing.Size(928, 532);
-            this.deletePatientTabPage.TabIndex = 4;
-            this.deletePatientTabPage.Text = "Delete Patient";
-            this.deletePatientTabPage.UseVisualStyleBackColor = true;
-            // 
-            // deletePatientUserControl1
-            // 
-            this.deletePatientUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deletePatientUserControl1.Location = new System.Drawing.Point(17, 24);
-            this.deletePatientUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.deletePatientUserControl1.Name = "deletePatientUserControl1";
-            this.deletePatientUserControl1.Size = new System.Drawing.Size(893, 494);
-            this.deletePatientUserControl1.TabIndex = 0;
-            // 
             // usernameLabel
             // 
             this.usernameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -249,10 +203,8 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.ResumeLayout(false);
             this.nurseDashboardTabControl.ResumeLayout(false);
             this.searchPatientsTabPage.ResumeLayout(false);
-            this.addPatientTabPage.ResumeLayout(false);
             this.testsTabPage.ResumeLayout(false);
             this.visitInformationTabPage.ResumeLayout(false);
-            this.deletePatientTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -264,15 +216,11 @@ namespace ClinicSupport.View
         private System.Windows.Forms.LinkLabel logoutLinkLabel;
         private System.Windows.Forms.TabControl nurseDashboardTabControl;
         private System.Windows.Forms.TabPage searchPatientsTabPage;
-        private System.Windows.Forms.TabPage addPatientTabPage;
         private System.Windows.Forms.TabPage visitInformationTabPage;
         private UserControls.VisitInformationUserControl visitInformationUserControl1;
         private UserControls.VisitInformationUserControl visitInformationUserControl2;
         private UserControls.SearchPatientUserControl searchPatientUserControl1;
         private System.Windows.Forms.TabPage testsTabPage;
-        private System.Windows.Forms.TabPage deletePatientTabPage;
-        private UserControls.DeletePatientUserControl deletePatientUserControl1;
-        private UserControls.AddPatientUserControl addPatientUserControl1;
         private UserControls.ViewLabTestByApptAndPIdUserControl viewLabTestByApptAndPIdUserControl1;
         private System.Windows.Forms.Label usernameLabel;
     }

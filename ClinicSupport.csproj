@@ -192,6 +192,14 @@
     <Compile Include="View\AddLabTestForm.Designer.cs">
       <DependentUpon>AddLabTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AddPatientForm.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="View\AddPatientForm.Designer.cs">
+      <DependentUpon>AddPatientForm.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="View\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +211,12 @@
     </Compile>
     <Compile Include="View\CheckupForm.Designer.cs">
       <DependentUpon>CheckupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeletePatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DeletePatientForm.Designer.cs">
+      <DependentUpon>DeletePatientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LabTestForm.cs">
       <SubType>Form</SubType>
@@ -317,11 +331,18 @@
     <EmbeddedResource Include="View\AddLabTestForm.resx">
       <DependentUpon>AddLabTestForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AddPatientForm.resx">
+      <DependentUpon>AddPatientForm.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CheckupForm.resx">
       <DependentUpon>CheckupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DeletePatientForm.resx">
+      <DependentUpon>DeletePatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LabTestForm.resx">
       <DependentUpon>LabTestForm.cs</DependentUpon>
