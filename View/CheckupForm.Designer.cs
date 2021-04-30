@@ -57,12 +57,12 @@ namespace ClinicSupport.View
             this.initialDiagnosisTextBox = new System.Windows.Forms.TextBox();
             this.finalFiagnosisLabel = new System.Windows.Forms.Label();
             this.finalDiagnosisTextBox = new System.Windows.Forms.TextBox();
-            this.clearButton = new System.Windows.Forms.Button();
             this.enterButton = new System.Windows.Forms.Button();
             this.nurseNameLabel = new System.Windows.Forms.Label();
             this.nurseNameTextbox = new System.Windows.Forms.TextBox();
             this.doctorLabel = new System.Windows.Forms.Label();
             this.doctorNameTextbox = new System.Windows.Forms.TextBox();
+            this.clearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,19 +102,19 @@ namespace ClinicSupport.View
             this.bannerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bannerLabel.Location = new System.Drawing.Point(241, 14);
             this.bannerLabel.Name = "bannerLabel";
-            this.bannerLabel.Size = new System.Drawing.Size(430, 25);
+            this.bannerLabel.Size = new System.Drawing.Size(336, 25);
             this.bannerLabel.TabIndex = 0;
             this.bannerLabel.Text = "Checkup Information";
             this.bannerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // errorLabel
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 4);
+            this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 6);
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(241, 50);
+            this.errorLabel.Location = new System.Drawing.Point(11, 50);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(430, 23);
+            this.errorLabel.Size = new System.Drawing.Size(791, 23);
             this.errorLabel.TabIndex = 1;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -125,8 +125,8 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
             this.tableLayoutPanel1.Controls.Add(this.nurseIDLabel, 1, 6);
@@ -139,7 +139,6 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.Controls.Add(this.weightTextBox, 4, 6);
             this.tableLayoutPanel1.Controls.Add(this.temperatureTextBox, 6, 6);
             this.tableLayoutPanel1.Controls.Add(this.bannerLabel, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.errorLabel, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.systolicTextBox, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.diastolicTextBox, 4, 7);
             this.tableLayoutPanel1.Controls.Add(this.pulseTextBox, 6, 7);
@@ -160,6 +159,7 @@ namespace ClinicSupport.View
             this.tableLayoutPanel1.Controls.Add(this.nurseNameTextbox, 2, 8);
             this.tableLayoutPanel1.Controls.Add(this.doctorLabel, 4, 8);
             this.tableLayoutPanel1.Controls.Add(this.doctorNameTextbox, 5, 8);
+            this.tableLayoutPanel1.Controls.Add(this.errorLabel, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.clearButton, 2, 11);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 2);
@@ -203,7 +203,7 @@ namespace ClinicSupport.View
             // temperatureLabel
             // 
             this.temperatureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.temperatureLabel.Location = new System.Drawing.Point(501, 164);
+            this.temperatureLabel.Location = new System.Drawing.Point(492, 164);
             this.temperatureLabel.Name = "temperatureLabel";
             this.temperatureLabel.Size = new System.Drawing.Size(146, 29);
             this.temperatureLabel.TabIndex = 10;
@@ -233,7 +233,7 @@ namespace ClinicSupport.View
             // pulseLabel
             // 
             this.pulseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pulseLabel.Location = new System.Drawing.Point(501, 209);
+            this.pulseLabel.Location = new System.Drawing.Point(492, 209);
             this.pulseLabel.Name = "pulseLabel";
             this.pulseLabel.Size = new System.Drawing.Size(146, 29);
             this.pulseLabel.TabIndex = 13;
@@ -303,7 +303,7 @@ namespace ClinicSupport.View
             this.appointmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appointmentLabel.Location = new System.Drawing.Point(352, 85);
             this.appointmentLabel.Name = "appointmentLabel";
-            this.appointmentLabel.Size = new System.Drawing.Size(143, 28);
+            this.appointmentLabel.Size = new System.Drawing.Size(134, 28);
             this.appointmentLabel.TabIndex = 5;
             this.appointmentLabel.Text = "Appointment:";
             this.appointmentLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -313,9 +313,9 @@ namespace ClinicSupport.View
             this.appointmentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.appointmentComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appointmentComboBox.FormattingEnabled = true;
-            this.appointmentComboBox.Location = new System.Drawing.Point(501, 88);
+            this.appointmentComboBox.Location = new System.Drawing.Point(492, 88);
             this.appointmentComboBox.Name = "appointmentComboBox";
-            this.appointmentComboBox.Size = new System.Drawing.Size(146, 28);
+            this.appointmentComboBox.Size = new System.Drawing.Size(155, 28);
             this.appointmentComboBox.TabIndex = 6;
             this.appointmentComboBox.SelectedIndexChanged += new System.EventHandler(this.Form_TextChanged);
             // 
@@ -355,13 +355,13 @@ namespace ClinicSupport.View
             this.initialDiagnosisTextBox.Location = new System.Drawing.Point(241, 352);
             this.initialDiagnosisTextBox.Multiline = true;
             this.initialDiagnosisTextBox.Name = "initialDiagnosisTextBox";
-            this.initialDiagnosisTextBox.Size = new System.Drawing.Size(254, 142);
+            this.initialDiagnosisTextBox.Size = new System.Drawing.Size(245, 142);
             this.initialDiagnosisTextBox.TabIndex = 23;
             this.initialDiagnosisTextBox.TextChanged += new System.EventHandler(this.Form_TextChanged);
             // 
             // finalFiagnosisLabel
             // 
-            this.finalFiagnosisLabel.Location = new System.Drawing.Point(501, 323);
+            this.finalFiagnosisLabel.Location = new System.Drawing.Point(492, 323);
             this.finalFiagnosisLabel.Name = "finalFiagnosisLabel";
             this.finalFiagnosisLabel.Size = new System.Drawing.Size(146, 26);
             this.finalFiagnosisLabel.TabIndex = 24;
@@ -370,27 +370,16 @@ namespace ClinicSupport.View
             // finalDiagnosisTextBox
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.finalDiagnosisTextBox, 2);
-            this.finalDiagnosisTextBox.Location = new System.Drawing.Point(501, 352);
+            this.finalDiagnosisTextBox.Location = new System.Drawing.Point(492, 352);
             this.finalDiagnosisTextBox.Multiline = true;
             this.finalDiagnosisTextBox.Name = "finalDiagnosisTextBox";
             this.finalDiagnosisTextBox.Size = new System.Drawing.Size(269, 142);
             this.finalDiagnosisTextBox.TabIndex = 25;
             this.finalDiagnosisTextBox.TextChanged += new System.EventHandler(this.Form_TextChanged);
             // 
-            // clearButton
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.clearButton, 2);
-            this.clearButton.Location = new System.Drawing.Point(132, 508);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(140, 50);
-            this.clearButton.TabIndex = 26;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
-            // 
             // enterButton
             // 
-            this.enterButton.Location = new System.Drawing.Point(501, 508);
+            this.enterButton.Location = new System.Drawing.Point(492, 508);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(140, 50);
             this.enterButton.TabIndex = 27;
@@ -420,7 +409,7 @@ namespace ClinicSupport.View
             // doctorLabel
             // 
             this.doctorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.doctorLabel.Location = new System.Drawing.Point(370, 265);
+            this.doctorLabel.Location = new System.Drawing.Point(361, 265);
             this.doctorLabel.Name = "doctorLabel";
             this.doctorLabel.Size = new System.Drawing.Size(125, 29);
             this.doctorLabel.TabIndex = 30;
@@ -431,10 +420,21 @@ namespace ClinicSupport.View
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.doctorNameTextbox, 2);
             this.doctorNameTextbox.Enabled = false;
-            this.doctorNameTextbox.Location = new System.Drawing.Point(501, 268);
+            this.doctorNameTextbox.Location = new System.Drawing.Point(492, 268);
             this.doctorNameTextbox.Name = "doctorNameTextbox";
             this.doctorNameTextbox.Size = new System.Drawing.Size(215, 26);
             this.doctorNameTextbox.TabIndex = 31;
+            // 
+            // clearButton
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.clearButton, 2);
+            this.clearButton.Location = new System.Drawing.Point(132, 508);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(140, 50);
+            this.clearButton.TabIndex = 26;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // CheckupForm
             // 

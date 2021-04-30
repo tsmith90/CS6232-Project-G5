@@ -35,20 +35,19 @@ namespace ClinicSupport.UserControls
 
         private void FindPatientButton_Click(object sender, EventArgs e)
         {
-            id = ParseID();
             SetVisits();
         }
 
         private void SetVisits()
         {
-            List<Visit> visitsList = new List<Visit>();
+            _ = new List<Visit>();
             visitListView.Items.Clear();
-
+            id = ParseID();
             if (id > 0)
             {
                 try
                 {
-                    visitsList = visitController.GetVisitsByID(id);
+                    List<Visit> visitsList = visitController.GetVisitsByID(id);
 
                     if (visitsList.Count > 0)
                     {
@@ -86,12 +85,12 @@ namespace ClinicSupport.UserControls
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    errorLabel.Text = ex.Message;
                 }
             } 
             else
             {
-                errorLabel.Text = "Please enter a valid ID";
+                errorLabel.Text = "Please enter a valid patient ID";
             }
         }
 
