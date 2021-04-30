@@ -14,7 +14,7 @@ namespace ClinicSupport.UserControls
     {
         public Nurse Nurse { get; set; }
         private readonly VisitController visitController;
-        private readonly CheckupForm checkupForm;
+        private CheckupForm checkupForm;
         private int id;
 
         /// <summary>
@@ -24,7 +24,6 @@ namespace ClinicSupport.UserControls
         {
             InitializeComponent();
             visitController = new VisitController();
-            checkupForm = new CheckupForm();
             id = -1;
         }
 
@@ -112,6 +111,16 @@ namespace ClinicSupport.UserControls
 
         private void EnterInformationButton_Click(object sender, EventArgs e)
         {
+            if(ParseID() > 0)
+            {
+                checkupForm = new CheckupForm(ParseID());
+            }
+            else
+            {
+                errorLabel.Text = "";
+                checkupForm = new CheckupForm();
+            }
+
             checkupForm.SetNurse(Nurse);
             visitListView.Items.Clear();
             checkupForm.ShowDialog();

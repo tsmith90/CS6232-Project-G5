@@ -33,6 +33,24 @@ namespace ClinicSupport.View
         }
 
         /// <summary>
+        /// 1-parameter constructor for the CheckupForm form
+        /// </summary>
+        /// <param name="id">the patient id to be searched</param>
+        public CheckupForm(int id)
+        {
+            InitializeComponent();
+            patientID = -1;
+            patientIDTextBox.Text = id.ToString();
+            appointmentController = new AppointmentController();
+            visitController = new VisitController();
+            visit = new Visit();
+            nurse = new Nurse();
+            checkupButton.Enabled = false;
+            SetControls();
+            GetPatient();
+        }
+
+        /// <summary>
         /// Method to set the Nurse object across forms
         /// </summary>
         /// <param name="name">The name of the Nurse</param>
@@ -51,6 +69,11 @@ namespace ClinicSupport.View
         }
 
         private void GetPatientButton_Click(object sender, EventArgs e)
+        {
+            GetPatient();
+        }
+
+        private void GetPatient()
         {
             try
             {
