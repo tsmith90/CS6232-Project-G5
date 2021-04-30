@@ -66,7 +66,7 @@ namespace ClinicSupport.UserControls
             this.orderTestButton.TabIndex = 3;
             this.orderTestButton.Text = "Order New Test";
             this.orderTestButton.UseVisualStyleBackColor = true;
-            this.orderTestButton.Click += new System.EventHandler(this.orderTestButton_Click);
+            this.orderTestButton.Click += new System.EventHandler(this.OrderTestButton_Click);
             // 
             // patientIDTextBox
             // 
@@ -84,7 +84,7 @@ namespace ClinicSupport.UserControls
             this.searchButton.TabIndex = 5;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // label1
             // 

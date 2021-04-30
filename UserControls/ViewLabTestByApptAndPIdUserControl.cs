@@ -22,6 +22,7 @@ namespace ClinicSupport.UserControls
             this.labTestController = new LabTestController();
             this.patientController = new PatientController();
             this.individualController = new IndividualController();
+            this.labTestList = new List<LabTests>();
             this.appointment = new Appointment();
         }
 
@@ -48,8 +49,8 @@ namespace ClinicSupport.UserControls
             try
             {
                 Patient patient = this.patientController.GetPatientByID(_appt.PatientID);
-                Individual indv = this.individualController.GetIndividualByID(patient.IndividualID);
-                this.titleLabel.Text = "View LabTest(s) for " + indv.FirstName + " " + indv.LastName + " for appointment date: " + _appt.Time;
+                Individual individual = this.individualController.GetIndividualByID(patient.IndividualID);
+                this.titleLabel.Text = "View LabTest(s) for " + individual.FirstName + " " + individual.LastName + " for appointment date: " + _appt.Time;
 
                 this.labTestList = this.labTestController.GetLabTestsByPatientIDAndAppt(_appt.PatientID, _appt.Time);
                 labTestsDataGridView.DataSource = this.labTestList;
@@ -61,7 +62,7 @@ namespace ClinicSupport.UserControls
             }
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             this.pid = ParsePatientID();
             if(this.pid > 0)
@@ -69,10 +70,11 @@ namespace ClinicSupport.UserControls
                 try
                 {
                     Patient patient = this.patientController.GetPatientByID(this.pid);
-                    Individual indv = this.individualController.GetIndividualByID(patient.IndividualID);
-                    this.titleLabel.Text = "View LabTest(s) for " + indv.FirstName + " " + indv.LastName;
+                    Individual individual = this.individualController.GetIndividualByID(patient.IndividualID);
+                    this.titleLabel.Text = "View LabTest(s) for " + individual.FirstName + " " + individual.LastName;
 
                     this.labTestList = this.labTestController.GetLabTestsByPatientID(this.pid);
+
                     this.labTestsDataGridView.DataSource = this.labTestList;
                     this.orderTestButton.Enabled = true;
 
@@ -98,7 +100,7 @@ namespace ClinicSupport.UserControls
             return id;
         }
 
-        private void orderTestButton_Click(object sender, EventArgs e)
+        private void OrderTestButton_Click(object sender, EventArgs e)
         {
             AddLabTestForm orderTest = new AddLabTestForm();
             orderTest.SetPatient(this.pid);

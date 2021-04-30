@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClinicSupport.DAL
 {
@@ -59,7 +56,7 @@ namespace ClinicSupport.DAL
                             }
                             if (reader["normal"].GetType() != typeof(DBNull))
                             {
-                                _labTest.Normal = (byte)reader["normal"];
+                                _labTest.Normal = (Int16)reader["normal"];
                             }
                             _lab_tests.Add(_labTest);
                         }
@@ -91,6 +88,9 @@ namespace ClinicSupport.DAL
                             _labTest.PatientID = (int)reader["pid"];
                             _labTest.AppointmentDate = Convert.ToDateTime(reader["appointmentDate"]);
                             _labTest.Code = (int)reader["code"];
+
+
+
                             if (reader["dateTaken"].GetType() != typeof(DBNull))
                             {
                                 _labTest.DateTaken = Convert.ToDateTime(reader["dateTaken"]);
@@ -99,13 +99,14 @@ namespace ClinicSupport.DAL
                             {
                                 _labTest.DateReturned = Convert.ToDateTime(reader["dateReturned"]);
                             }
+
                             if (reader["result"].GetType() != typeof(DBNull))
                             {
                                 _labTest.Result = (string)reader["result"];
                             }
                             if (reader["normal"].GetType() != typeof(DBNull))
                             {
-                                _labTest.Normal = (byte)reader["normal"];
+                                _labTest.Normal = (Int16)reader["normal"];
                             }
                             _lab_tests.Add(_labTest);
                         }
