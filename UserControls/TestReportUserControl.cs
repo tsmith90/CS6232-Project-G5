@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+
+    /// <summary>
+    /// Usercontrol to generate test reports from LabTests
+    /// </summary>
     public partial class TestReportUserControl : UserControl
     {
+        /// <summary>
+        /// 0-parameter constructor for TestReportUserControl
+        /// </summary>
         public TestReportUserControl()
         {
             InitializeComponent();
@@ -24,13 +24,19 @@ namespace ClinicSupport.UserControls
 
         private void FindReportbutton_Click(object sender, EventArgs e)
         {
-            DateTime start = Convert.ToDateTime("01/01/1999");
-            DateTime end = Convert.ToDateTime("12/01/2021");
+            DateTime start = startDateTimePicker.Value;
+            DateTime end = endDateTimePicker.Value;
 
-            errorLabel.Text = "start";
-
-            this.getMostPerformedTestsDuringDatesTableAdapter.Fill(this.testsPerformedDataSet.getMostPerformedTestsDuringDates, start, end);
-            this.reportViewer1.RefreshReport();
+            if (start <= end)
+            {
+                _ = this.getMostPerformedTestsDuringDatesTableAdapter.Fill(this.testsPerformedDataSet.getMostPerformedTestsDuringDates, start, end);
+                reportViewer1.RefreshReport();
+            }
+            else
+            {
+                errorLabel.Text = "Start date can't be after end date.";
+                reportViewer1.Clear();
+            }
         }
     }
 }

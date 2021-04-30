@@ -4,8 +4,14 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.View
 {
+    /// <summary>
+    /// Form to work with Lab Tests
+    /// </summary>
     public partial class LabTestForm : Form
     {
+        /// <summary>
+        /// 0-parameter constructor for the LabTestForm
+        /// </summary>
         public LabTestForm()
         {
             InitializeComponent();
