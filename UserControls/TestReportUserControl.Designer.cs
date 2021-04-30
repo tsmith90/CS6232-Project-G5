@@ -29,15 +29,23 @@ namespace ClinicSupport.UserControls
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.bannerLabel = new System.Windows.Forms.Label();
-            this.startDateLabel = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.startDateLabel = new System.Windows.Forms.Label();
             this.endDateLabel = new System.Windows.Forms.Label();
             this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.findReportbutton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.getMostPerformedTestsDuringDatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testsPerformedDataSet = new ClinicSupport.TestsPerformedDataSet();
+            this.getMostPerformedTestsDuringDatesTableAdapter = new ClinicSupport.TestsPerformedDataSetTableAdapters.getMostPerformedTestsDuringDatesTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.getMostPerformedTestsDuringDatesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testsPerformedDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -48,7 +56,7 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.tableLayoutPanel1.Controls.Add(this.bannerLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.startDateTimePicker, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.startDateLabel, 0, 1);
@@ -56,6 +64,7 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.Controls.Add(this.endDateTimePicker, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.findReportbutton, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.errorLabel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.reportViewer1, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -77,16 +86,6 @@ namespace ClinicSupport.UserControls
             this.bannerLabel.Text = "Multiple Tests Performed During Given Dates";
             this.bannerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // startDateLabel
-            // 
-            this.startDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.startDateLabel.Location = new System.Drawing.Point(3, 53);
-            this.startDateLabel.Name = "startDateLabel";
-            this.startDateLabel.Size = new System.Drawing.Size(115, 29);
-            this.startDateLabel.TabIndex = 1;
-            this.startDateLabel.Text = "Start Date: ";
-            this.startDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // startDateTimePicker
             // 
             this.startDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -98,6 +97,16 @@ namespace ClinicSupport.UserControls
             this.startDateTimePicker.Size = new System.Drawing.Size(151, 26);
             this.startDateTimePicker.TabIndex = 2;
             this.startDateTimePicker.Value = new System.DateTime(2021, 4, 28, 0, 0, 0, 0);
+            // 
+            // startDateLabel
+            // 
+            this.startDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.startDateLabel.Location = new System.Drawing.Point(3, 53);
+            this.startDateLabel.Name = "startDateLabel";
+            this.startDateLabel.Size = new System.Drawing.Size(115, 29);
+            this.startDateLabel.TabIndex = 1;
+            this.startDateLabel.Text = "Start Date: ";
+            this.startDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // endDateLabel
             // 
@@ -131,6 +140,7 @@ namespace ClinicSupport.UserControls
             this.findReportbutton.TabIndex = 5;
             this.findReportbutton.Text = "Find Tests";
             this.findReportbutton.UseVisualStyleBackColor = true;
+            this.findReportbutton.Click += new System.EventHandler(this.FindReportbutton_Click);
             // 
             // errorLabel
             // 
@@ -142,6 +152,37 @@ namespace ClinicSupport.UserControls
             this.errorLabel.TabIndex = 6;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tableLayoutPanel1.SetColumnSpan(this.reportViewer1, 6);
+            this.reportViewer1.DocumentMapWidth = 22;
+            reportDataSource1.Name = "TestsPerformedDataSet";
+            reportDataSource1.Value = this.getMostPerformedTestsDuringDatesBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "ClinicSupport.TestsPerformedReport.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(3, 125);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(743, 241);
+            this.reportViewer1.TabIndex = 7;
+            this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
+            this.reportViewer1.Load += new System.EventHandler(this.ReportViewer1_Load);
+            // 
+            // getMostPerformedTestsDuringDatesBindingSource
+            // 
+            this.getMostPerformedTestsDuringDatesBindingSource.DataMember = "getMostPerformedTestsDuringDates";
+            this.getMostPerformedTestsDuringDatesBindingSource.DataSource = this.testsPerformedDataSet;
+            // 
+            // testsPerformedDataSet
+            // 
+            this.testsPerformedDataSet.DataSetName = "TestsPerformedDataSet";
+            this.testsPerformedDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // getMostPerformedTestsDuringDatesTableAdapter
+            // 
+            this.getMostPerformedTestsDuringDatesTableAdapter.ClearBeforeFill = true;
+            // 
             // TestReportUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -152,6 +193,8 @@ namespace ClinicSupport.UserControls
             this.Name = "TestReportUserControl";
             this.Size = new System.Drawing.Size(756, 376);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.getMostPerformedTestsDuringDatesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testsPerformedDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,5 +209,9 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.DateTimePicker endDateTimePicker;
         private System.Windows.Forms.Button findReportbutton;
         private System.Windows.Forms.Label errorLabel;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource getMostPerformedTestsDuringDatesBindingSource;
+        private TestsPerformedDataSet testsPerformedDataSet;
+        private TestsPerformedDataSetTableAdapters.getMostPerformedTestsDuringDatesTableAdapter getMostPerformedTestsDuringDatesTableAdapter;
     }
 }

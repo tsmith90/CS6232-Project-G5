@@ -16,5 +16,21 @@ namespace ClinicSupport.UserControls
         {
             InitializeComponent();
         }
+
+        private void ReportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FindReportbutton_Click(object sender, EventArgs e)
+        {
+            DateTime start = Convert.ToDateTime("01/01/1999");
+            DateTime end = Convert.ToDateTime("12/01/2021");
+
+            errorLabel.Text = "start";
+
+            this.getMostPerformedTestsDuringDatesTableAdapter.Fill(this.testsPerformedDataSet.getMostPerformedTestsDuringDates, start, end);
+            this.reportViewer1.RefreshReport();
+        }
     }
 }
