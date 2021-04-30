@@ -125,6 +125,7 @@ namespace ClinicSupport.UserControls
             visitListView.Items.Clear();
             checkupForm.ShowDialog();
             SetVisits();
+            errorLabel.Text = "";
         }
     }
 }
