@@ -12,7 +12,6 @@ namespace ClinicSupport.View
     public partial class CheckupForm : Form
     {
         private readonly AppointmentController appointmentController;
-        private readonly NurseController nurseController;
         private readonly VisitController visitController;
         private Nurse nurse;
         private Visit visit;
@@ -26,7 +25,6 @@ namespace ClinicSupport.View
             InitializeComponent();
             patientID = -1;
             appointmentController = new AppointmentController();
-            nurseController = new NurseController();
             visitController = new VisitController();
             visit = new Visit();
             nurse = new Nurse();
@@ -112,6 +110,11 @@ namespace ClinicSupport.View
 
         private void CheckupButton_Click(object sender, EventArgs e)
         {
+            GetCheckupInformation();
+        }
+
+        private void GetCheckupInformation()
+        {
             try
             {
                 DateTime dateTime = DateTime.Parse(appointmentComboBox.Text);
@@ -151,6 +154,7 @@ namespace ClinicSupport.View
 
                     if (visitController.EnterVisit(firstVisit))
                     {
+                        GetCheckupInformation();
                         errorLabel.Text = "The checkup has been successfully entered";
                     }
                     else
@@ -171,6 +175,7 @@ namespace ClinicSupport.View
 
                     if (visitController.UpdateVisit(updateVisit))
                     {
+                        GetCheckupInformation();
                         errorLabel.Text = "The checkup has been successfully updated";
                     }
                     else
