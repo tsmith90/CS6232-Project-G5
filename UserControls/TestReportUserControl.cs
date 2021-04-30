@@ -17,10 +17,7 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
         }
 
-        private void ReportViewer1_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void ReportViewer1_Load(object sender, EventArgs e) { }
 
         private void FindReportbutton_Click(object sender, EventArgs e)
         {

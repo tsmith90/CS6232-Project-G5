@@ -54,7 +54,7 @@ namespace ClinicSupport.Controller
         /// </summary>
         /// <param name="ssn">SSN in question</param>
         /// <returns>Returns true if the number of rows returned in the DAL is greater than 0</returns>
-        public Boolean IsDuplicateSSN(string ssn)
+        public bool IsDuplicateSSN(string ssn)
         {
             if (ssn.Length != 9)
             {

@@ -1,10 +1,6 @@
 ﻿using ClinicSupport.DAL;
 using ClinicSupport.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClinicSupport.Controller
 {
@@ -15,6 +11,9 @@ namespace ClinicSupport.Controller
     {
         private readonly AdministratorDAL administratorDAL;
 
+        /// <summary>
+        /// 0-parameter constructor for AdministratorController
+        /// </summary>
         public AdministratorController()
         {
             administratorDAL = new AdministratorDAL();

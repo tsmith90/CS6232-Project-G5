@@ -33,6 +33,7 @@ namespace ClinicSupport.UserControls
             yesRadioButton.Visible = false;
             SetTests();
         }
+
         private void OrderTestUserControlOrderTestUserControl_Load(object sender, System.EventArgs e)
         {
             if (this.pid > 0)
@@ -42,7 +43,6 @@ namespace ClinicSupport.UserControls
                 this.titleLabel.Text = "Order new Lab Test for " + indv.FirstName + " " + indv.LastName;
             }
         }
-
 
         /// <summary>
         /// Hides all the fields that are not needed when adding a test

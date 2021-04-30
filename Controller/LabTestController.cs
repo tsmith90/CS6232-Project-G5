@@ -54,7 +54,7 @@ namespace ClinicSupport.Controller
         /// </summary>
         /// <param name="newLabTest">Lab Test to be added</param>
         /// <returns>returns true if addition was successful</returns>
-        public Boolean AddLabTest(LabTests newLabTest)
+        public bool AddLabTest(LabTests newLabTest)
         {
             if (newLabTest.PatientID == 0 || newLabTest.AppointmentDate == null || newLabTest.Code == 0)
             {

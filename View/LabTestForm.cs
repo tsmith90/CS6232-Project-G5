@@ -1,5 +1,4 @@
-﻿
-using ClinicSupport.Model;
+﻿using ClinicSupport.Model;
 using System.Windows.Forms;
 
 namespace ClinicSupport.View

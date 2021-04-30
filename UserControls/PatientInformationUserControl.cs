@@ -345,7 +345,7 @@ namespace ClinicSupport.UserControls
             this.ParentForm.DialogResult = DialogResult.OK;
         }
 
-        private void apptButton_Click(object sender, EventArgs e)
+        private void AppointmentButton_Click(object sender, EventArgs e)
         {
             int patientID = 0;
             if (this._individual.IndividualID > 0) {

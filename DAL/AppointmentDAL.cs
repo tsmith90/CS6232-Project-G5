@@ -155,15 +155,12 @@ namespace ClinicSupport.DAL
                  "WHERE pid = @oldPatientID " +
                  "AND did = @oldDoctorID " +
                  "AND time = @oldTime";
-            //ALTER TABLE dbo.Inventories NOCHECK CONSTRAINT FK__Inventori__Accou__29CC2871
-            //ALTER TABLE dbo.Inventories WITH CHECK CHECK CONSTRAINT FK__Inventori__Accou__29CC2871
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
                 using (SqlCommand cmd = new SqlCommand(updateStatement, connection))
                 {
-                    // define parameters and their values
                     cmd.Parameters.Add("@oldDoctorID", SqlDbType.Int).Value = oldAppointment.DoctorID;
                     cmd.Parameters.Add("@oldPatientID", SqlDbType.Int).Value = oldAppointment.PatientID;
                     cmd.Parameters.Add("@oldTime", SqlDbType.DateTime).Value = oldAppointment.Time;
@@ -197,7 +194,6 @@ namespace ClinicSupport.DAL
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    // define parameters and their values
                     selectCommand.Parameters.Add("@patientID", SqlDbType.Int);
                     selectCommand.Parameters["@patientID"].Value = patientID;
 
@@ -235,7 +231,6 @@ namespace ClinicSupport.DAL
                 connection.Open();
                 using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
                 {
-                    // define parameters and their values
                     cmd.Parameters.Add("@docID", SqlDbType.Int).Value = appt.DoctorID;
                     cmd.Parameters.Add("@patientID", SqlDbType.Int).Value = appt.PatientID;
                     cmd.Parameters.Add("@time", SqlDbType.DateTime).Value = appt.Time;

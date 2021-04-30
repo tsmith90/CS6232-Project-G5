@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// Usercontrol to view lab tests by pid and appointment date
+    /// </summary>
     public partial class ViewLabTestByApptAndPIdUserControl : UserControl
     {
         private Appointment appointment;
@@ -16,6 +19,9 @@ namespace ClinicSupport.UserControls
         private readonly PatientController patientController;
         private readonly IndividualController individualController;
 
+        /// <summary>
+        /// 0-parameter constructor for the ViewLabTestByApptAndPIdUserControl
+        /// </summary>
         public ViewLabTestByApptAndPIdUserControl()
         {
             InitializeComponent();
@@ -26,6 +32,10 @@ namespace ClinicSupport.UserControls
             this.appointment = new Appointment();
         }
 
+        /// <summary>
+        /// Method to set appointment tests
+        /// </summary>
+        /// <param name="_appt">The appointment needed to get the test</param>
         public void SetAppointmentTest(Appointment _appt)
         {
             this.appointment = _appt;
@@ -86,6 +96,7 @@ namespace ClinicSupport.UserControls
             }
 
         }
+
         private int ParsePatientID()
         {
             int id = -1;

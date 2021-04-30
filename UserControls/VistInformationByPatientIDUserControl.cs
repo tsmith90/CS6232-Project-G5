@@ -1,5 +1,4 @@
-﻿
-using ClinicSupport.Controller;
+﻿using ClinicSupport.Controller;
 using ClinicSupport.Model;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,9 @@ using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
+    /// <summary>
+    /// UserControl to find visit information by a patient id
+    /// </summary>
     public partial class VistInformationByPatientIDUserControl : UserControl
     {
         private readonly VisitController visitController;
@@ -14,6 +16,10 @@ namespace ClinicSupport.UserControls
         private readonly PatientController patientController;
         private int patientID;
 
+
+        /// <summary>
+        /// 0-parameter constructor for the VistInformationByPatientIDUserControl
+        /// </summary>
         public VistInformationByPatientIDUserControl()
         {
             InitializeComponent();
@@ -67,7 +73,7 @@ namespace ClinicSupport.UserControls
             }
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             this.ParentForm.DialogResult = DialogResult.OK;
         }

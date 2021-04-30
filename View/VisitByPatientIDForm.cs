@@ -1,10 +1,15 @@
-﻿
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace ClinicSupport.View
 {
+    /// <summary>
+    /// Form to find visits by patient ID
+    /// </summary>
     public partial class VisitByPatientIDForm : Form
     {
+        /// <summary>
+        /// 0-parameter constructor for VisitByPatientIDForm
+        /// </summary>
         public VisitByPatientIDForm()
         {
             InitializeComponent();

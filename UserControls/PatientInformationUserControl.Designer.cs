@@ -382,7 +382,7 @@
             this.apptButton.TabIndex = 17;
             this.apptButton.Text = "View Appointments";
             this.apptButton.UseVisualStyleBackColor = true;
-            this.apptButton.Click += new System.EventHandler(this.apptButton_Click);
+            this.apptButton.Click += new System.EventHandler(this.AppointmentButton_Click);
             // 
             // PatientInformationUserControl
             // 

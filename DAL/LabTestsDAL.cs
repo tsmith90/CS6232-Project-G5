@@ -12,9 +12,10 @@ namespace ClinicSupport.DAL
     class LabTestsDAL
     {
         /// <summary>
-        /// Retrieves list of LabTests from the DB whose patientID equals the one passed in
+        /// Retrieves list of LabTests from the DB whose patientID and appointment equals the one passed in
         /// </summary>
         /// <param name="patient_id">Used to retrieve LabTests for that person</param>
+        /// <param name="appTime">The appointment time</param>
         /// <returns>Returns list of LabTests from the DB</returns>
         public List<LabTests> GetLabTestsByPatientIDAndAppt(int patient_id, DateTime appTime)
         {
@@ -65,6 +66,12 @@ namespace ClinicSupport.DAL
             }
             return _lab_tests;
         }
+
+        /// <summary>
+        /// Retrieves list of LabTests from the DB whose patientID equals the one passed in
+        /// </summary>
+        /// <param name="patient_id">Used to retrieve LabTests for that person</param>
+        /// <returns>Returns list of LabTests from the DB</returns>
         public List<LabTests> GetLabTestsByPatientID(int patient_id)
         {
             List<LabTests> _lab_tests = new List<LabTests>();
@@ -120,7 +127,7 @@ namespace ClinicSupport.DAL
         /// </summary>
         /// <param name="newLabTest">Lab Test to be added</param>
         /// <returns>Returns if addition was successful</returns>
-        public Boolean AddLabTest(LabTests newLabTest)
+        public bool AddLabTest(LabTests newLabTest)
         {
             string insertStatement = 
                 "INSERT INTO LabTests (pid, appointmentDate, code) " +

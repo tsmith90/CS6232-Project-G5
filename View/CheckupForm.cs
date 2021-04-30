@@ -130,7 +130,6 @@ namespace ClinicSupport.View
             }
         }
 
-
         private void CheckupButton_Click(object sender, EventArgs e)
         {
             GetCheckupInformation();
@@ -231,6 +230,7 @@ namespace ClinicSupport.View
                 throw new FormatException("Please enter a valid " + source);
             }
         }
+
         private decimal GetDecimal(string numbered, string source)
         {
             try
@@ -244,6 +244,7 @@ namespace ClinicSupport.View
                 throw new FormatException("Please enter a valid " + source);
             }
         }
+
         private Visit ParseVisit()
         {
             Visit newVisit = new Visit();

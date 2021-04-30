@@ -44,7 +44,6 @@ namespace ClinicSupport.UserControls
             }
         }
 
-
         private void GetPatientData(int patientID)
         {
             if (patientID < 0)

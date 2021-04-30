@@ -236,7 +236,6 @@ namespace ClinicSupport.UserControls
                 {
                     patientsDataGridView.Columns.Clear();
                     patientsDataGridView.DataSource = null;
-                    // Repulls data after the close button is selected on the update patient information dialog
                     if (dobTextField.Visible == true)
                     {
                         DateTime dateOfBirth = Convert.ToDateTime(dobTextField.Text);
@@ -271,11 +270,6 @@ namespace ClinicSupport.UserControls
                 patientsDataGridView.DataSource = null;
                 patientsDataGridView.Columns.Clear();
             }
-        }
-
-        private int GetPatientIDByIndividualID(int iid)
-        {
-            return this.patientController.GetPatientIDByIndividualID(iid);
         }
     }
 }

@@ -103,6 +103,9 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visit.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="TestsPerformedDataSet.cs">
+      <DependentUpon>TestsPerformedDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TestsPerformedDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
