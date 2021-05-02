@@ -90,7 +90,7 @@ namespace ClinicSupport.Controller
         /// </summary>
         /// <param name="oldLabTest">Lab Test to be added</param>
         /// <returns>returns true if addition was successful</returns>
-        public Boolean UpdateLabTest(LabTests labTest, LabTests oldLabTest)
+        public bool UpdateLabTest(LabTests labTest, LabTests oldLabTest)
         {
             if (labTest == null || oldLabTest == null)
             {
