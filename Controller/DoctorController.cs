@@ -12,7 +12,7 @@ namespace ClinicSupport.Controller
         private readonly DoctorDAL doctorDAL;
 
         /// <summary>
-        /// 0 parameter constructor for the DoctorController class
+        /// 0-parameter constructor for the DoctorController class
         /// </summary>
         public DoctorController()
         {

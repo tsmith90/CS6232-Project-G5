@@ -116,6 +116,7 @@ namespace ClinicSupport.UserControls
                     "Error", MessageBoxButtons.OK);
             }
         }
+
         private void PopulateComboBox()
         {
             try

@@ -156,7 +156,7 @@ namespace ClinicSupport.UserControls
                         string msg = string.Empty;
                         if (this.appointment.Time != DateTime.MinValue)
                         {
-                            Appointment oldAppt = this.appointmentController.GetAppointmentByID(this.appointment.PatientID, this.appointment.DoctorID, this.appointment.Time);
+                            Appointment oldAppt = this.appointmentController.GetAppointmentByIDsAndTime(this.appointment.PatientID, this.appointment.DoctorID, this.appointment.Time);
                             if (this.appointment.Time != oldAppt.Time)
                             {
                                 if (apptAvailable == 0)

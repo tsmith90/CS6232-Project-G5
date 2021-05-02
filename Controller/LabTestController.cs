@@ -13,7 +13,7 @@ namespace ClinicSupport.Controller
         private readonly LabTestsDAL labTestDAL;
 
         /// <summary>
-        /// Create a IncidentController object.
+        /// 0-parameter constructor for LabTestController
         /// </summary>
         public LabTestController()
         {
@@ -21,44 +21,50 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Getting list of LabTests for given patientID.
+        /// Gets list of LabTests for a given patientID and appointment time
         /// </summary>
-        /// <param name="patientID">patientID</param>
-        /// <returns>list of Appointments</returns>
-        public List<LabTests> GetLabTestsByPatientIDAndAppt(int patientID, DateTime appTime)
+        /// <param name="patientID">The patient's ID</param>
+        /// <param name="appointmentTime">The time and date of the appointment</param>
+        /// <returns>A list of Appointments</returns>
+        public List<LabTests> GetLabTestsByPatientIDAndAppt(int patientID, DateTime appointmentTime)
         {
-            if (patientID < 0 || appTime == DateTime.MinValue)
+            if (patientID < 0 || appointmentTime == DateTime.MinValue)
             {
                 throw new ArgumentNullException("patientID cannot be a negative number or Appointment cannot be null");
             }
-            return this.labTestDAL.GetLabTestsByPatientIDAndAppt(patientID, appTime);
+
+            return this.labTestDAL.GetLabTestsByPatientIDAndAppt(patientID, appointmentTime);
+        }
+
+        /// <summary>
+        /// Gets list of LabTests for given patientID, code, and appointment time
+        /// </summary>
+        /// <param name="patientID">The patient's ID</param>
+        /// <param name="code">The code of the lab test</param>
+        /// <param name="appointmentTime">The time and date of the appointment</param>
+        /// <returns>list of LabTests</returns>
+        public LabTests GetLabTestsByPidCodeApptTime(int patientID, int code, DateTime appointmentTime)
+        {
+            if (patientID < 0 || appointmentTime == DateTime.MinValue || code < 0)
+            {
+                throw new ArgumentNullException("patientID cannot be a negative number or Appointment cannot be null");
+            }
+
+            return this.labTestDAL.GetLabTestsByPidCodeApptTime(patientID, code, appointmentTime);
         }
 
         /// <summary>
         /// Getting list of LabTests for given patientID.
         /// </summary>
         /// <param name="patientID">patientID</param>
-        /// <returns>list of Appointments</returns>
-        public LabTests GetLabTestsByPidCodeApptTime(int patientID, int code, DateTime appTime)
-        {
-            if (patientID < 0 || appTime == DateTime.MinValue || code < 0)
-            {
-                throw new ArgumentNullException("patientID cannot be a negative number or Appointment cannot be null");
-            }
-            return this.labTestDAL.GetLabTestsByPidCodeApptTime(patientID, code, appTime);
-        }
-
-        /// <summary>
-        /// Getting list of LabTests for given patientID.
-        /// </summary>
-        /// <param name="patientID">patientID</param>
-        /// <returns>list of Appointments</returns>
+        /// <returns>list of LabTests</returns>
         public List<LabTests> GetLabTestsByPatientID(int patientID)
         {
             if (patientID < 0)
             {
                 throw new ArgumentNullException("patientID cannot be a negative number");
             }
+
             return this.labTestDAL.GetLabTestsByPatientID(patientID);
         }
 
@@ -66,15 +72,15 @@ namespace ClinicSupport.Controller
         /// <summary>
         /// Adds LabTest to the database via the LabTestDAL
         /// </summary>
-        /// <param name="newLabTest">Old Lab Test to be added</param>
-        /// <param name="labTest">Lab Test to be added</param>
+        /// <param name="newLabTest">Lab Test to be added</param>
         /// <returns>returns true if addition was successful</returns>
         public bool AddLabTest(LabTests newLabTest)
         {
-            if (newLabTest.PatientID == 0 || newLabTest.AppointmentDate == null || newLabTest.Code == 0)
+            if (newLabTest.PatientID == 0 || newLabTest.AppointmentDate == DateTime.MinValue || newLabTest.Code == 0)
             {
                 throw new ArgumentNullException("Not all of the required data is set for the Lab Test to be added");
             }
+
             return this.labTestDAL.AddLabTest(newLabTest);
         }
 

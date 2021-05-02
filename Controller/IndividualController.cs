@@ -12,7 +12,7 @@ namespace ClinicSupport.Controller
         private readonly IndividualDAL individualDAL;
 
         /// <summary>
-        /// 0 parameter constructor for the IndividualController class
+        /// 0-parameter constructor for the IndividualController class
         /// </summary>
         public IndividualController()
         {
@@ -22,14 +22,15 @@ namespace ClinicSupport.Controller
         /// <summary>
         /// Method that retrieves the indivudal object from the IndividualDAL
         /// </summary>
-        /// <param name="iid">NurseID of the individual to be returned</param>
-        /// <returns>Returns the individual with the specified individualID</returns>
+        /// <param name="iid">ID of the individual to be returned</param>
+        /// <returns>Returns the individual with provided specified individualID</returns>
         public Individual GetIndividualByID(int iid)
         {
             if (iid < 0)
             {
                 throw new Exception("Please enter a valid individual id");
             }
+
             Individual individual = individualDAL.GetIndividualbyID(iid);
             return individual;
         }
@@ -60,6 +61,7 @@ namespace ClinicSupport.Controller
             {
                 throw new ArgumentException("Please enter a valud SSN. Must be 9 character long");
             }
+
             return individualDAL.IsDuplicateSSN(ssn);
         }
     }

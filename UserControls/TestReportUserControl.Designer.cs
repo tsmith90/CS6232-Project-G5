@@ -31,6 +31,8 @@ namespace ClinicSupport.UserControls
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.getMostPerformedTestsDuringDatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testsPerformedDataSet = new ClinicSupport.TestsPerformedDataSet();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.bannerLabel = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -40,13 +42,21 @@ namespace ClinicSupport.UserControls
             this.findReportbutton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.getMostPerformedTestsDuringDatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.testsPerformedDataSet = new ClinicSupport.TestsPerformedDataSet();
             this.getMostPerformedTestsDuringDatesTableAdapter = new ClinicSupport.TestsPerformedDataSetTableAdapters.getMostPerformedTestsDuringDatesTableAdapter();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.getMostPerformedTestsDuringDatesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsPerformedDataSet)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // getMostPerformedTestsDuringDatesBindingSource
+            // 
+            this.getMostPerformedTestsDuringDatesBindingSource.DataMember = "getMostPerformedTestsDuringDates";
+            this.getMostPerformedTestsDuringDatesBindingSource.DataSource = this.testsPerformedDataSet;
+            // 
+            // testsPerformedDataSet
+            // 
+            this.testsPerformedDataSet.DataSetName = "TestsPerformedDataSet";
+            this.testsPerformedDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tableLayoutPanel1
             // 
@@ -70,8 +80,8 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(749, 369);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -83,7 +93,7 @@ namespace ClinicSupport.UserControls
             this.bannerLabel.Name = "bannerLabel";
             this.bannerLabel.Size = new System.Drawing.Size(743, 36);
             this.bannerLabel.TabIndex = 0;
-            this.bannerLabel.Text = "Multiple Tests Performed During Given Dates";
+            this.bannerLabel.Text = "Multiple Tests Performed Between Given Dates Report ";
             this.bannerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // startDateTimePicker
@@ -148,7 +158,7 @@ namespace ClinicSupport.UserControls
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
             this.errorLabel.Location = new System.Drawing.Point(3, 82);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(743, 40);
+            this.errorLabel.Size = new System.Drawing.Size(743, 30);
             this.errorLabel.TabIndex = 6;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -161,23 +171,13 @@ namespace ClinicSupport.UserControls
             reportDataSource1.Value = this.getMostPerformedTestsDuringDatesBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "ClinicSupport.TestsPerformedReport.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(3, 125);
+            this.reportViewer1.Location = new System.Drawing.Point(3, 118);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(743, 241);
+            this.reportViewer1.Size = new System.Drawing.Size(743, 248);
             this.reportViewer1.TabIndex = 7;
             this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             this.reportViewer1.Load += new System.EventHandler(this.ReportViewer1_Load);
-            // 
-            // getMostPerformedTestsDuringDatesBindingSource
-            // 
-            this.getMostPerformedTestsDuringDatesBindingSource.DataMember = "getMostPerformedTestsDuringDates";
-            this.getMostPerformedTestsDuringDatesBindingSource.DataSource = this.testsPerformedDataSet;
-            // 
-            // testsPerformedDataSet
-            // 
-            this.testsPerformedDataSet.DataSetName = "TestsPerformedDataSet";
-            this.testsPerformedDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // getMostPerformedTestsDuringDatesTableAdapter
             // 
@@ -192,9 +192,9 @@ namespace ClinicSupport.UserControls
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TestReportUserControl";
             this.Size = new System.Drawing.Size(756, 376);
-            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.getMostPerformedTestsDuringDatesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsPerformedDataSet)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
