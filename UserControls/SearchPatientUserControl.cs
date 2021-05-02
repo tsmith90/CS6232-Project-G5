@@ -82,10 +82,14 @@ namespace ClinicSupport.UserControls
             catch (ArgumentNullException ane)
             {
                 MessageBox.Show(ane.Message);
+                this.patients = null;
+                patientsDataGridView.Columns.Clear();
             }
             catch (IndexOutOfRangeException ioore)
             {
                 MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
+                this.patients = null;
+                patientsDataGridView.Columns.Clear();
             }
             catch (FormatException fe)
             {
@@ -123,18 +127,24 @@ namespace ClinicSupport.UserControls
             catch (ArgumentNullException ane)
             {
                 MessageBox.Show(ane.Message);
+                this.patients = null;
+                patientsDataGridView.Columns.Clear();
             }
             catch (IndexOutOfRangeException ioore)
             {
                 MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
+                this.patients = null;
+                patientsDataGridView.Columns.Clear();
             }
             patientsDataGridView.DataSource = this.patients;
+            if (patientsDataGridView.Columns.Count == 10)
+            {
+                patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
+                patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
+                AddEditColumnToGV();
+            }
 
-            patientsDataGridView.Columns["LastName"].DisplayIndex = 2;
-            patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
-            AddEditColumnToGV();
-
-            patientsDataGridView.Columns["IndividualID"].Frozen = false;
+            /*patientsDataGridView.Columns["IndividualID"].Frozen = false;
             patientsDataGridView.Columns["LastName"].Frozen = false;
             patientsDataGridView.Columns["FirstName"].Frozen = false;
             patientsDataGridView.Columns["DateOfBirth"].Frozen = false;
@@ -144,7 +154,7 @@ namespace ClinicSupport.UserControls
             patientsDataGridView.Columns["ZipCode"].Frozen = false;
             patientsDataGridView.Columns["PhoneNumber"].Frozen = false;
             patientsDataGridView.Columns["SSN"].Frozen = false;
-            patientsDataGridView.Columns[10].Frozen = false;
+            patientsDataGridView.Columns[10].Frozen = false;*/
         }
 
         private void SearchDOBAndLastNameButton_Click(object sender, EventArgs e)
@@ -169,10 +179,14 @@ namespace ClinicSupport.UserControls
             catch (ArgumentNullException ane)
             {
                 MessageBox.Show(ane.Message);
+                this.patients = null;
+                patientsDataGridView.Columns.Clear();
             }
             catch (IndexOutOfRangeException ioore)
             {
                 MessageBox.Show("Please make sure all values are entered", ioore.GetType().ToString());
+                this.patients = null;
+                patientsDataGridView.Columns.Clear();
             }
             catch (FormatException fe)
             {
