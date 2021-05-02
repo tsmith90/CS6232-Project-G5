@@ -74,8 +74,8 @@ namespace ClinicSupport.UserControls
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 349);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -121,7 +121,7 @@ namespace ClinicSupport.UserControls
             this.newPasswordTextbox.Location = new System.Drawing.Point(269, 137);
             this.newPasswordTextbox.Name = "newPasswordTextbox";
             this.newPasswordTextbox.Size = new System.Drawing.Size(220, 26);
-            this.newPasswordTextbox.TabIndex = 6;
+            this.newPasswordTextbox.TabIndex = 4;
             this.newPasswordTextbox.UseSystemPasswordChar = true;
             this.newPasswordTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
@@ -139,7 +139,7 @@ namespace ClinicSupport.UserControls
             this.confirmPasswordTextbox.Location = new System.Drawing.Point(269, 180);
             this.confirmPasswordTextbox.Name = "confirmPasswordTextbox";
             this.confirmPasswordTextbox.Size = new System.Drawing.Size(220, 26);
-            this.confirmPasswordTextbox.TabIndex = 8;
+            this.confirmPasswordTextbox.TabIndex = 5;
             this.confirmPasswordTextbox.UseSystemPasswordChar = true;
             this.confirmPasswordTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
@@ -147,7 +147,7 @@ namespace ClinicSupport.UserControls
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.errorLabel, 4);
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(23, 239);
+            this.errorLabel.Location = new System.Drawing.Point(23, 229);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(708, 30);
             this.errorLabel.TabIndex = 9;
@@ -158,7 +158,7 @@ namespace ClinicSupport.UserControls
             this.clearButton.Location = new System.Drawing.Point(109, 278);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(154, 51);
-            this.clearButton.TabIndex = 10;
+            this.clearButton.TabIndex = 6;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
@@ -169,7 +169,7 @@ namespace ClinicSupport.UserControls
             this.updateLoginButton.Location = new System.Drawing.Point(334, 278);
             this.updateLoginButton.Name = "updateLoginButton";
             this.updateLoginButton.Size = new System.Drawing.Size(155, 51);
-            this.updateLoginButton.TabIndex = 11;
+            this.updateLoginButton.TabIndex = 7;
             this.updateLoginButton.Text = "Update Login";
             this.updateLoginButton.UseVisualStyleBackColor = true;
             this.updateLoginButton.Click += new System.EventHandler(this.UpdatePasswordButton_Click);
@@ -179,7 +179,7 @@ namespace ClinicSupport.UserControls
             this.newUsernameTextbox.Location = new System.Drawing.Point(269, 96);
             this.newUsernameTextbox.Name = "newUsernameTextbox";
             this.newUsernameTextbox.Size = new System.Drawing.Size(220, 26);
-            this.newUsernameTextbox.TabIndex = 13;
+            this.newUsernameTextbox.TabIndex = 3;
             this.newUsernameTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // newUsernameLabel

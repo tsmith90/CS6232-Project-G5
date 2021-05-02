@@ -65,6 +65,7 @@ namespace ClinicSupport.UserControls
             ssnTextBox.Text = "";
             phoneTextBox.Text = "";
             deletePatientButton.Enabled = false;
+            errorLabel.Text = "";
         }
 
         private void FindPatientButton_Click(object sender, EventArgs e)

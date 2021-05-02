@@ -124,7 +124,7 @@ namespace ClinicSupport.UserControls
             this.clearButton.Location = new System.Drawing.Point(107, 301);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(128, 41);
-            this.clearButton.TabIndex = 4;
+            this.clearButton.TabIndex = 11;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
@@ -156,7 +156,7 @@ namespace ClinicSupport.UserControls
             this.updateButton.Location = new System.Drawing.Point(486, 301);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(135, 41);
-            this.updateButton.TabIndex = 5;
+            this.updateButton.TabIndex = 12;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
@@ -176,7 +176,7 @@ namespace ClinicSupport.UserControls
             this.firstNameTextbox.Location = new System.Drawing.Point(35, 83);
             this.firstNameTextbox.Name = "firstNameTextbox";
             this.firstNameTextbox.Size = new System.Drawing.Size(200, 26);
-            this.firstNameTextbox.TabIndex = 7;
+            this.firstNameTextbox.TabIndex = 2;
             this.firstNameTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // findNurseTextBox
@@ -184,7 +184,7 @@ namespace ClinicSupport.UserControls
             this.findNurseTextBox.Location = new System.Drawing.Point(241, 16);
             this.findNurseTextBox.Name = "findNurseTextBox";
             this.findNurseTextBox.Size = new System.Drawing.Size(239, 26);
-            this.findNurseTextBox.TabIndex = 8;
+            this.findNurseTextBox.TabIndex = 1;
             this.findNurseTextBox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // lastNameLabel
@@ -203,7 +203,7 @@ namespace ClinicSupport.UserControls
             this.lastNameTextbox.Location = new System.Drawing.Point(241, 83);
             this.lastNameTextbox.Name = "lastNameTextbox";
             this.lastNameTextbox.Size = new System.Drawing.Size(239, 26);
-            this.lastNameTextbox.TabIndex = 10;
+            this.lastNameTextbox.TabIndex = 3;
             this.lastNameTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // addressLabel
@@ -221,7 +221,7 @@ namespace ClinicSupport.UserControls
             this.addressTextbox.Location = new System.Drawing.Point(486, 83);
             this.addressTextbox.Name = "addressTextbox";
             this.addressTextbox.Size = new System.Drawing.Size(218, 26);
-            this.addressTextbox.TabIndex = 12;
+            this.addressTextbox.TabIndex = 4;
             this.addressTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // cityLabel
@@ -239,7 +239,7 @@ namespace ClinicSupport.UserControls
             this.cityTextbox.Location = new System.Drawing.Point(35, 152);
             this.cityTextbox.Name = "cityTextbox";
             this.cityTextbox.Size = new System.Drawing.Size(200, 26);
-            this.cityTextbox.TabIndex = 14;
+            this.cityTextbox.TabIndex = 5;
             this.cityTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // stateLabel
@@ -259,7 +259,7 @@ namespace ClinicSupport.UserControls
             this.stateComboBox.Location = new System.Drawing.Point(241, 152);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(239, 28);
-            this.stateComboBox.TabIndex = 16;
+            this.stateComboBox.TabIndex = 6;
             this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // zipLabel
@@ -277,7 +277,7 @@ namespace ClinicSupport.UserControls
             this.zipTextbox.Location = new System.Drawing.Point(486, 152);
             this.zipTextbox.Name = "zipTextbox";
             this.zipTextbox.Size = new System.Drawing.Size(218, 26);
-            this.zipTextbox.TabIndex = 18;
+            this.zipTextbox.TabIndex = 7;
             this.zipTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // dateOfBirthLabel
@@ -296,7 +296,7 @@ namespace ClinicSupport.UserControls
             this.dateOfBirthTimePicker.Location = new System.Drawing.Point(35, 219);
             this.dateOfBirthTimePicker.Name = "dateOfBirthTimePicker";
             this.dateOfBirthTimePicker.Size = new System.Drawing.Size(200, 26);
-            this.dateOfBirthTimePicker.TabIndex = 20;
+            this.dateOfBirthTimePicker.TabIndex = 8;
             this.dateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // ssnLabel
@@ -314,7 +314,7 @@ namespace ClinicSupport.UserControls
             this.ssnTextbox.Location = new System.Drawing.Point(241, 219);
             this.ssnTextbox.Name = "ssnTextbox";
             this.ssnTextbox.Size = new System.Drawing.Size(239, 26);
-            this.ssnTextbox.TabIndex = 22;
+            this.ssnTextbox.TabIndex = 9;
             this.ssnTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // phoneLabel
@@ -332,7 +332,7 @@ namespace ClinicSupport.UserControls
             this.phoneTextbox.Location = new System.Drawing.Point(486, 219);
             this.phoneTextbox.Name = "phoneTextbox";
             this.phoneTextbox.Size = new System.Drawing.Size(218, 26);
-            this.phoneTextbox.TabIndex = 24;
+            this.phoneTextbox.TabIndex = 10;
             this.phoneTextbox.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // ViewUpdateNurseUserControl

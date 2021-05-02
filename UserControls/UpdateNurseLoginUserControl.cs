@@ -95,7 +95,7 @@ namespace ClinicSupport.UserControls
             }
             else if (string.IsNullOrEmpty(newUsernameTextbox.Text) || string.IsNullOrEmpty(newPasswordTextbox.Text) || string.IsNullOrEmpty(confirmPasswordTextbox.Text))
             {
-                errorLabel.Text = "Please enter a valid update";
+                errorLabel.Text = "Please enter all fields to update the login";
             }
             else if (!newPasswordTextbox.Text.Equals(confirmPasswordTextbox.Text))
             {
