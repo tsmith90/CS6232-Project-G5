@@ -149,6 +149,10 @@ namespace ClinicSupport.UserControls
                     this.labTestsDataGridView.DataSource = this.labTestList;
                     this.AddEditColumnToGV();
                 }
+                else
+                {
+                    this.messageLabel.Text = "";
+                }
             }
         }
 

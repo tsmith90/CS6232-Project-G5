@@ -80,9 +80,11 @@ namespace ClinicSupport.UserControls
                 if(test.Normal > 0)
                 {
                     yesRadioButton.Checked = true;
+                    noRadioButton.Checked = false;
                 }
                 else
                 {
+                    noRadioButton.Checked = true;
                     yesRadioButton.Checked = false;
                 }
             }
