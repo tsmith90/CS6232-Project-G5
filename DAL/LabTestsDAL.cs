@@ -113,7 +113,7 @@ namespace ClinicSupport.DAL
                             }
                             if (reader["normal"].GetType() != typeof(DBNull))
                             {
-                                _labTest.Normal = (Int16)reader["normal"];
+                                _labTest.Normal = (byte)reader["normal"];
                             }
                             _lab_tests.Add(_labTest);
                         }
@@ -122,6 +122,60 @@ namespace ClinicSupport.DAL
             }
             return _lab_tests;
         }
+
+        public LabTests GetLabTestsByPidCodeApptTime(int pid, int code, DateTime apptTime)
+        {
+            LabTests _labTest = new LabTests();
+            string selectStatement =
+                "SELECT pid, appointmentDate, code, dateTaken, dateReturned, result, normal " +
+                "FROM LabTests " +
+                "WHERE pid = @PatientID AND code = @code AND appointmentDate = @apptTime";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.Add("@pid", SqlDbType.Int);
+                    selectCommand.Parameters["@pid"].Value = pid;
+                    selectCommand.Parameters.Add("@code", SqlDbType.Int);
+                    selectCommand.Parameters["@code"].Value = code;
+                    selectCommand.Parameters.Add("@apptTime", SqlDbType.DateTime);
+                    selectCommand.Parameters["@apptTime"].Value = apptTime;
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            _labTest.PatientID = (int)reader["pid"];
+                            _labTest.AppointmentDate = Convert.ToDateTime(reader["appointmentDate"]);
+                            _labTest.Code = (int)reader["code"];
+
+
+
+                            if (reader["dateTaken"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.DateTaken = Convert.ToDateTime(reader["dateTaken"]);
+                            }
+                            if (reader["dateReturned"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.DateReturned = Convert.ToDateTime(reader["dateReturned"]);
+                            }
+
+                            if (reader["result"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.Result = (string)reader["result"];
+                            }
+                            if (reader["normal"].GetType() != typeof(DBNull))
+                            {
+                                _labTest.Normal = (byte)reader["normal"];
+                            }
+                        }
+                    }
+                }
+            }
+            return _labTest;
+        }
+
         /// <summary>
         /// Adds LabTest to the database
         /// </summary>
@@ -147,6 +201,57 @@ namespace ClinicSupport.DAL
 
                     insertCommand.ExecuteNonQuery();
                     return true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds LabTest to the database
+        /// </summary>
+        /// <param name="newLabTest">Lab Test to be added</param>
+        /// <returns>Returns if addition was successful</returns>
+        public Boolean UpdateLabTest(LabTests labTest, LabTests oldLabTest)
+        {  
+            string updateStatement =
+                 "UPDATE dbo.LabTests SET pid =  @pid, appointmentDate = @appointmentDate, " +
+                 "code = @code, dateTaken = @dateTaken, dateReturned = @dateReturned, result = @result, normal = @normal " +
+                 "WHERE pid = @oldPatientID " +
+                 "AND appointmentDate = @oldAppointmentDate " +
+                 "AND code = @oldCode";
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(updateStatement, connection))
+                {
+                    // define parameters and their values
+                    cmd.Parameters.Add("@pid", SqlDbType.Int);
+                    cmd.Parameters["@pid"].Value = labTest.PatientID;
+                    cmd.Parameters.Add("@appointmentDate", SqlDbType.DateTime);
+                    cmd.Parameters["@appointmentDate"].Value = labTest.AppointmentDate;
+                    cmd.Parameters.Add("@code", SqlDbType.Int);
+                    cmd.Parameters["@code"].Value = labTest.Code;
+                    cmd.Parameters.Add("@dateTaken", SqlDbType.DateTime);
+                    cmd.Parameters["@dateTaken"].Value = labTest.DateTaken;
+                    cmd.Parameters.Add("@dateReturned", SqlDbType.DateTime);
+                    cmd.Parameters["@dateReturned"].Value = labTest.DateReturned;
+                    cmd.Parameters.Add("@result", SqlDbType.VarChar);
+                    cmd.Parameters["@result"].Value = labTest.Result;
+                    cmd.Parameters.Add("@normal", SqlDbType.TinyInt);
+                    cmd.Parameters["@normal"].Value = labTest.Normal;
+
+                    cmd.Parameters.Add("@oldAppointmentDate", SqlDbType.DateTime);
+                    cmd.Parameters["@oldAppointmentDate"].Value = oldLabTest.AppointmentDate;
+                    cmd.Parameters.Add("@oldPatientID", SqlDbType.Int);
+                    cmd.Parameters["@oldPatientID"].Value = oldLabTest.PatientID;
+                    cmd.Parameters.Add("@oldCode", SqlDbType.Int);
+                    cmd.Parameters["@oldCode"].Value = oldLabTest.Code;
+
+                    int count = cmd.ExecuteNonQuery();
+                    if (count > 0)
+                        return true;
+                    else
+                        return false;
                 }
             }
         }

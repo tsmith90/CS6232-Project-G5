@@ -5,7 +5,7 @@ namespace ClinicSupport.Model
     /// <summary>
     /// Class the represents a LabTest
     /// </summary>
-    class LabTests
+    public class LabTests
     {
         public int PatientID { get; set; }
 

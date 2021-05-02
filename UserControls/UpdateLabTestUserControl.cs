@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using ClinicSupport.Model;
+using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
 {
@@ -13,7 +14,11 @@ namespace ClinicSupport.UserControls
         public UpdateLabTestUserControl()
         {
             InitializeComponent();
-            orderTestUserControl1.ForUpdatingTests();
+        }
+
+        public void SetLabTest(LabTests test)
+        {
+            orderTestUserControl1.ForUpdatingTests(test);
         }
     }
 }

@@ -35,6 +35,7 @@ namespace ClinicSupport.UserControls
             this.patientIDTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.labTestsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@ namespace ClinicSupport.UserControls
             this.labTestsDataGridView.RowTemplate.Height = 40;
             this.labTestsDataGridView.Size = new System.Drawing.Size(1195, 411);
             this.labTestsDataGridView.TabIndex = 0;
+            this.labTestsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LabTestsDataGridView_CellContentClick);
             // 
             // titleLabel
             // 
@@ -60,9 +62,9 @@ namespace ClinicSupport.UserControls
             // 
             this.orderTestButton.AutoSize = true;
             this.orderTestButton.Enabled = false;
-            this.orderTestButton.Location = new System.Drawing.Point(969, 77);
+            this.orderTestButton.Location = new System.Drawing.Point(969, 83);
             this.orderTestButton.Name = "orderTestButton";
-            this.orderTestButton.Size = new System.Drawing.Size(232, 61);
+            this.orderTestButton.Size = new System.Drawing.Size(226, 55);
             this.orderTestButton.TabIndex = 3;
             this.orderTestButton.Text = "Order New Test";
             this.orderTestButton.UseVisualStyleBackColor = true;
@@ -78,9 +80,9 @@ namespace ClinicSupport.UserControls
             // searchButton
             // 
             this.searchButton.AutoSize = true;
-            this.searchButton.Location = new System.Drawing.Point(323, 77);
+            this.searchButton.Location = new System.Drawing.Point(324, 83);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(130, 61);
+            this.searchButton.Size = new System.Drawing.Size(132, 49);
             this.searchButton.TabIndex = 5;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -95,10 +97,19 @@ namespace ClinicSupport.UserControls
             this.label1.TabIndex = 6;
             this.label1.Text = "Search Patient by ID:";
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(36, 644);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 32);
+            this.messageLabel.TabIndex = 7;
+            // 
             // ViewLabTestByApptAndPIdUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.patientIDTextBox);
@@ -106,7 +117,7 @@ namespace ClinicSupport.UserControls
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.labTestsDataGridView);
             this.Name = "ViewLabTestByApptAndPIdUserControl";
-            this.Size = new System.Drawing.Size(1354, 758);
+            this.Size = new System.Drawing.Size(1299, 758);
             ((System.ComponentModel.ISupportInitialize)(this.labTestsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,5 +132,6 @@ namespace ClinicSupport.UserControls
         private System.Windows.Forms.TextBox patientIDTextBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

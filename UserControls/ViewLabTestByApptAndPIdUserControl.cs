@@ -17,6 +17,7 @@ namespace ClinicSupport.UserControls
         private List<LabTests> labTestList;
         private readonly LabTestController labTestController;
         private readonly PatientController patientController;
+        private readonly AppointmentController appointmentController;
         private readonly IndividualController individualController;
 
         /// <summary>
@@ -28,6 +29,7 @@ namespace ClinicSupport.UserControls
             this.labTestController = new LabTestController();
             this.patientController = new PatientController();
             this.individualController = new IndividualController();
+            this.appointmentController = new AppointmentController();
             this.labTestList = new List<LabTests>();
             this.appointment = new Appointment();
         }
@@ -79,6 +81,9 @@ namespace ClinicSupport.UserControls
             {
                 try
                 {
+                    this.messageLabel.Text = string.Empty;
+                    this.labTestsDataGridView.Columns.Clear();
+                    this.labTestsDataGridView.DataSource = null;
                     Patient patient = this.patientController.GetPatientByID(this.pid);
                     Individual individual = this.individualController.GetIndividualByID(patient.IndividualID);
                     this.titleLabel.Text = "View LabTest(s) for " + individual.FirstName + " " + individual.LastName;
@@ -86,6 +91,7 @@ namespace ClinicSupport.UserControls
                     this.labTestList = this.labTestController.GetLabTestsByPatientID(this.pid);
 
                     this.labTestsDataGridView.DataSource = this.labTestList;
+                    this.AddEditColumnToGV();
                     this.orderTestButton.Enabled = true;
 
                 }
@@ -95,6 +101,55 @@ namespace ClinicSupport.UserControls
                 }
             }
 
+        }
+
+        private void AddEditColumnToGV()
+        {
+            DataGridViewLinkColumn Editlink = new DataGridViewLinkColumn();
+            Editlink.UseColumnTextForLinkValue = true;
+            Editlink.DataPropertyName = "lnkColumn";
+            Editlink.LinkBehavior = LinkBehavior.SystemDefault;
+            Editlink.Text = "Edit";
+            Editlink.Width = 60;
+            this.labTestsDataGridView.Columns.Add(Editlink);
+        }
+
+
+        private void LabTestsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string text = this.labTestsDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            if (text == "Edit") {
+                var pid = Convert.ToInt32(labTestsDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                var apptDate = Convert.ToDateTime(labTestsDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                var code = Convert.ToInt32(labTestsDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                var dateTaken = Convert.ToDateTime(labTestsDataGridView.Rows[e.RowIndex].Cells[3].Value);
+                var dateReturn = Convert.ToDateTime(labTestsDataGridView.Rows[e.RowIndex].Cells[4].Value);
+                var testResult = Convert.ToString(labTestsDataGridView.Rows[e.RowIndex].Cells[5].Value);
+                var normal = Convert.ToInt32(labTestsDataGridView.Rows[e.RowIndex].Cells[6].Value);
+
+                LabTests labTest = new LabTests();
+                labTest.PatientID = pid;
+                labTest.AppointmentDate = apptDate;
+                labTest.Code = code;
+                labTest.DateTaken = dateTaken;
+                labTest.DateReturned = dateReturn;
+                labTest.Result = testResult;
+                labTest.Normal = normal;
+
+                UpdateLabTestView updateTestForm = new UpdateLabTestView();
+                updateTestForm.SetLabTest(labTest);
+                DialogResult result = updateTestForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    this.messageLabel.Text = "LabTest successfully updated!";
+                    this.labTestsDataGridView.Columns.Clear();
+                    this.labTestsDataGridView.DataSource = null;
+                    this.labTestList = this.labTestController.GetLabTestsByPatientID(this.pid);
+
+                    this.labTestsDataGridView.DataSource = this.labTestList;
+                    this.AddEditColumnToGV();
+                }
+            }
         }
 
         private int ParsePatientID()

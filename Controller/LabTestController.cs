@@ -39,6 +39,20 @@ namespace ClinicSupport.Controller
         /// </summary>
         /// <param name="patientID">patientID</param>
         /// <returns>list of Appointments</returns>
+        public LabTests GetLabTestsByPidCodeApptTime(int patientID, int code, DateTime appTime)
+        {
+            if (patientID < 0 || appTime == DateTime.MinValue || code < 0)
+            {
+                throw new ArgumentNullException("patientID cannot be a negative number or Appointment cannot be null");
+            }
+            return this.labTestDAL.GetLabTestsByPidCodeApptTime(patientID, code, appTime);
+        }
+
+        /// <summary>
+        /// Getting list of LabTests for given patientID.
+        /// </summary>
+        /// <param name="patientID">patientID</param>
+        /// <returns>list of Appointments</returns>
         public List<LabTests> GetLabTestsByPatientID(int patientID)
         {
             if (patientID < 0)
@@ -52,7 +66,8 @@ namespace ClinicSupport.Controller
         /// <summary>
         /// Adds LabTest to the database via the LabTestDAL
         /// </summary>
-        /// <param name="newLabTest">Lab Test to be added</param>
+        /// <param name="newLabTest">Old Lab Test to be added</param>
+        /// <param name="labTest">Lab Test to be added</param>
         /// <returns>returns true if addition was successful</returns>
         public bool AddLabTest(LabTests newLabTest)
         {
@@ -61,6 +76,21 @@ namespace ClinicSupport.Controller
                 throw new ArgumentNullException("Not all of the required data is set for the Lab Test to be added");
             }
             return this.labTestDAL.AddLabTest(newLabTest);
+        }
+
+
+        /// <summary>
+        /// Adds LabTest to the database via the LabTestDAL
+        /// </summary>
+        /// <param name="oldLabTest">Lab Test to be added</param>
+        /// <returns>returns true if addition was successful</returns>
+        public Boolean UpdateLabTest(LabTests labTest, LabTests oldLabTest)
+        {
+            if (labTest == null || oldLabTest == null)
+            {
+                throw new ArgumentNullException("Not all of the required data is set for the Lab Test to be added");
+            }
+            return this.labTestDAL.UpdateLabTest(labTest, oldLabTest);
         }
     }
 }
