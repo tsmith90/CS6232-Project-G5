@@ -35,32 +35,6 @@ namespace ClinicSupport.UserControls
             SetTests();
         }
 
-        private void OrderTestUserControlOrderTestUserControl_Load(object sender, System.EventArgs e)
-        {
-            if (this.pid > 0)
-            {
-                Patient patient = this.patientController.GetPatientByID(this.pid);
-                this.individual = this.individualController.GetIndividualByID(patient.IndividualID);
-                this.titleLabel.Text = "Order new Lab Test for " + this.individual.FirstName + " " + this.individual.LastName;
-            }
-        }
-
-        /// <summary>
-        /// Hides all the fields that are not needed when adding a test
-        /// </summary>
-        public void ForOrderingTests()
-        {
-            dateTakenLabel.Visible = false;
-            dateTakenTextBox.Visible = false;
-            dateReturnedLabel.Visible = false;
-            dateReturnedTextBox.Visible = false;
-            resultLabel.Visible = false;
-            resultTextArea.Visible = false;
-            normalLabel.Visible = false;
-            normalGroupBox.Visible = false;
-            updateTestButton.Visible = false;
-        }
-
         /// <summary>
         /// Hides the Order button, and set the combo box to read only since those things are needed for updating a test
         /// </summary>
@@ -93,7 +67,6 @@ namespace ClinicSupport.UserControls
             testComboBox.Enabled = false;
             normalLabel.Visible = true;
             normalGroupBox.Visible = true;
-            orderTestButton.Visible = false;
         }
 
         /// <summary>
@@ -118,7 +91,6 @@ namespace ClinicSupport.UserControls
                 Individual indv = this.individualController.GetIndividualByID(patient.IndividualID);
                 this.titleLabel.Text = "Order new Lab Test for " + indv.FirstName + " " + indv.LastName;
             }
-
         }
 
         private void SetTests()
@@ -129,37 +101,6 @@ namespace ClinicSupport.UserControls
             testComboBox.DisplayMember = "name";
             testComboBox.ValueMember = "Code";
             testComboBox.SelectedIndex = -1;
-        }
-
-        private void OrderTestButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string message = "";
-                if (this.testComboBox.SelectedIndex == -1)
-                {
-                    message += "Test was not selected";
-                    MessageBox.Show(message, "Missing Information");
-                }
-                else
-                {
-                    LabTests newLabTest = new LabTests();
-                    newLabTest.PatientID = this.appointment.PatientID;
-                    newLabTest.AppointmentDate = this.appointment.Time;
-                    Test selectedTest = (Test)testComboBox.SelectedItem;
-                    newLabTest.Code = selectedTest.Code;
-                    var result = this.labTestController.AddLabTest(newLabTest);
-                    if (result)
-                    {
-                        this.messageLabel.Text = "Lab test has been added";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Please make sure all of the information is correct" + Environment.NewLine + ex.Message,
-                    "Error", MessageBoxButtons.OK);
-            }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

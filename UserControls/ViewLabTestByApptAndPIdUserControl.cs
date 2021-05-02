@@ -175,6 +175,20 @@ namespace ClinicSupport.UserControls
             AddLabTestForm orderTest = new AddLabTestForm();
             orderTest.SetPatient(this.pid);
             DialogResult result = orderTest.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.messageLabel.Text = "LabTest successfully ordered!";
+                this.labTestsDataGridView.Columns.Clear();
+                this.labTestsDataGridView.DataSource = null;
+                this.labTestList = this.labTestController.GetLabTestsByPatientID(this.pid);
+
+                this.labTestsDataGridView.DataSource = this.labTestList;
+                this.AddEditColumnToGV();
+            }
+            else
+            {
+                this.messageLabel.Text = "";
+            }
         }
     }
 }

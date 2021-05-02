@@ -32,6 +32,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.titleLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.normalGroupBox = new System.Windows.Forms.GroupBox();
+            this.noRadioButton = new System.Windows.Forms.RadioButton();
+            this.yesRadioButton = new System.Windows.Forms.RadioButton();
             this.testOrderLabel = new System.Windows.Forms.Label();
             this.dateTakenLabel = new System.Windows.Forms.Label();
             this.dateReturnedLabel = new System.Windows.Forms.Label();
@@ -40,19 +43,15 @@
             this.dateTakenTextBox = new System.Windows.Forms.TextBox();
             this.dateReturnedTextBox = new System.Windows.Forms.TextBox();
             this.resultTextArea = new System.Windows.Forms.TextBox();
-            this.yesRadioButton = new System.Windows.Forms.RadioButton();
             this.resultLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.orderTestButton = new System.Windows.Forms.Button();
-            this.updateTestButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.updateTestButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.normalGroupBox = new System.Windows.Forms.GroupBox();
-            this.noRadioButton = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.normalGroupBox.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // orderTestTitleLabel
@@ -60,12 +59,12 @@
             this.orderTestTitleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.orderTestTitleLabel.AutoSize = true;
             this.orderTestTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderTestTitleLabel.Location = new System.Drawing.Point(450, 16);
+            this.orderTestTitleLabel.Location = new System.Drawing.Point(436, 16);
             this.orderTestTitleLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.orderTestTitleLabel.Name = "orderTestTitleLabel";
-            this.orderTestTitleLabel.Size = new System.Drawing.Size(286, 46);
+            this.orderTestTitleLabel.Size = new System.Drawing.Size(313, 46);
             this.orderTestTitleLabel.TabIndex = 0;
-            this.orderTestTitleLabel.Text = "Order Lab Test";
+            this.orderTestTitleLabel.Text = "Update Lab Test";
             // 
             // tableLayoutPanel1
             // 
@@ -119,6 +118,40 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1186, 529);
             this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // normalGroupBox
+            // 
+            this.normalGroupBox.Controls.Add(this.noRadioButton);
+            this.normalGroupBox.Controls.Add(this.yesRadioButton);
+            this.normalGroupBox.Location = new System.Drawing.Point(297, 433);
+            this.normalGroupBox.Name = "normalGroupBox";
+            this.normalGroupBox.Size = new System.Drawing.Size(344, 96);
+            this.normalGroupBox.TabIndex = 5;
+            this.normalGroupBox.TabStop = false;
+            // 
+            // noRadioButton
+            // 
+            this.noRadioButton.AutoSize = true;
+            this.noRadioButton.Location = new System.Drawing.Point(171, 27);
+            this.noRadioButton.Name = "noRadioButton";
+            this.noRadioButton.Size = new System.Drawing.Size(88, 36);
+            this.noRadioButton.TabIndex = 10;
+            this.noRadioButton.TabStop = true;
+            this.noRadioButton.Text = "No";
+            this.noRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // yesRadioButton
+            // 
+            this.yesRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.yesRadioButton.AutoSize = true;
+            this.yesRadioButton.Location = new System.Drawing.Point(28, 27);
+            this.yesRadioButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.yesRadioButton.Name = "yesRadioButton";
+            this.yesRadioButton.Size = new System.Drawing.Size(101, 36);
+            this.yesRadioButton.TabIndex = 9;
+            this.yesRadioButton.TabStop = true;
+            this.yesRadioButton.Text = "Yes";
+            this.yesRadioButton.UseVisualStyleBackColor = true;
             // 
             // testOrderLabel
             // 
@@ -202,19 +235,6 @@
             this.resultTextArea.Size = new System.Drawing.Size(636, 144);
             this.resultTextArea.TabIndex = 8;
             // 
-            // yesRadioButton
-            // 
-            this.yesRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.yesRadioButton.AutoSize = true;
-            this.yesRadioButton.Location = new System.Drawing.Point(28, 27);
-            this.yesRadioButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.yesRadioButton.Name = "yesRadioButton";
-            this.yesRadioButton.Size = new System.Drawing.Size(101, 36);
-            this.yesRadioButton.TabIndex = 9;
-            this.yesRadioButton.TabStop = true;
-            this.yesRadioButton.Text = "Yes";
-            this.yesRadioButton.UseVisualStyleBackColor = true;
-            // 
             // resultLabel
             // 
             this.resultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -232,9 +252,8 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Controls.Add(this.orderTestButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.cancelButton, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.updateTestButton, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.updateTestButton, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 679);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -243,30 +262,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1186, 114);
             this.tableLayoutPanel3.TabIndex = 3;
-            // 
-            // orderTestButton
-            // 
-            this.orderTestButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.orderTestButton.Location = new System.Drawing.Point(492, 29);
-            this.orderTestButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.orderTestButton.Name = "orderTestButton";
-            this.orderTestButton.Size = new System.Drawing.Size(200, 55);
-            this.orderTestButton.TabIndex = 0;
-            this.orderTestButton.Text = "Order";
-            this.orderTestButton.UseVisualStyleBackColor = true;
-            this.orderTestButton.Click += new System.EventHandler(this.OrderTestButton_Click);
-            // 
-            // updateTestButton
-            // 
-            this.updateTestButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.updateTestButton.Location = new System.Drawing.Point(97, 29);
-            this.updateTestButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.updateTestButton.Name = "updateTestButton";
-            this.updateTestButton.Size = new System.Drawing.Size(200, 55);
-            this.updateTestButton.TabIndex = 1;
-            this.updateTestButton.Text = "Update";
-            this.updateTestButton.UseVisualStyleBackColor = true;
-            this.updateTestButton.Click += new System.EventHandler(this.UpdateTestButton_Click);
             // 
             // cancelButton
             // 
@@ -280,6 +275,18 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // updateTestButton
+            // 
+            this.updateTestButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.updateTestButton.Location = new System.Drawing.Point(492, 29);
+            this.updateTestButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.updateTestButton.Name = "updateTestButton";
+            this.updateTestButton.Size = new System.Drawing.Size(200, 55);
+            this.updateTestButton.TabIndex = 1;
+            this.updateTestButton.Text = "Update";
+            this.updateTestButton.UseVisualStyleBackColor = true;
+            this.updateTestButton.Click += new System.EventHandler(this.UpdateTestButton_Click);
+            // 
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
@@ -288,27 +295,6 @@
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(0, 32);
             this.messageLabel.TabIndex = 4;
-            // 
-            // normalGroupBox
-            // 
-            this.normalGroupBox.Controls.Add(this.noRadioButton);
-            this.normalGroupBox.Controls.Add(this.yesRadioButton);
-            this.normalGroupBox.Location = new System.Drawing.Point(297, 433);
-            this.normalGroupBox.Name = "normalGroupBox";
-            this.normalGroupBox.Size = new System.Drawing.Size(344, 96);
-            this.normalGroupBox.TabIndex = 5;
-            this.normalGroupBox.TabStop = false;
-            // 
-            // noRadioButton
-            // 
-            this.noRadioButton.AutoSize = true;
-            this.noRadioButton.Location = new System.Drawing.Point(171, 27);
-            this.noRadioButton.Name = "noRadioButton";
-            this.noRadioButton.Size = new System.Drawing.Size(88, 36);
-            this.noRadioButton.TabIndex = 10;
-            this.noRadioButton.TabStop = true;
-            this.noRadioButton.Text = "No";
-            this.noRadioButton.UseVisualStyleBackColor = true;
             // 
             // OrderTestUserControl
             // 
@@ -325,9 +311,9 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
             this.normalGroupBox.ResumeLayout(false);
             this.normalGroupBox.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,7 +335,6 @@
         private System.Windows.Forms.TextBox resultTextArea;
         private System.Windows.Forms.RadioButton yesRadioButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button orderTestButton;
         private System.Windows.Forms.Button updateTestButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label messageLabel;

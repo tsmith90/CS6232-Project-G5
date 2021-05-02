@@ -33,21 +33,23 @@
             // 
             // addLabTestUserControl1
             // 
-            this.addLabTestUserControl1.Location = new System.Drawing.Point(12, 10);
+            this.addLabTestUserControl1.Location = new System.Drawing.Point(103, 36);
+            this.addLabTestUserControl1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.addLabTestUserControl1.Name = "addLabTestUserControl1";
-            this.addLabTestUserControl1.Size = new System.Drawing.Size(412, 428);
+            this.addLabTestUserControl1.Size = new System.Drawing.Size(1099, 1021);
             this.addLabTestUserControl1.TabIndex = 0;
             // 
             // AddLabTestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 450);
+            this.ClientSize = new System.Drawing.Size(1328, 1073);
             this.Controls.Add(this.addLabTestUserControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "AddLabTestForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Lab Test Form";
+            this.Text = "Order LabTest Form";
             this.ResumeLayout(false);
 
         }
