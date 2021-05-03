@@ -231,7 +231,7 @@ namespace ClinicSupport.DAL
 
                     cmd.Parameters.Add("@finalDiagnosis", System.Data.SqlDbType.VarChar);
 
-                    if (String.IsNullOrEmpty(visit.FinalDiagnosis))
+                    if (String.IsNullOrEmpty(visit.FinalDiagnosis) || visit.FinalDiagnosis.Equals("None currently entered"))
                     {
                         cmd.Parameters["@finalDiagnosis"].Value = DBNull.Value;
                     }
