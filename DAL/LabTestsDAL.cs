@@ -57,7 +57,7 @@ namespace ClinicSupport.DAL
                             }
                             if (reader["normal"].GetType() != typeof(DBNull))
                             {
-                                _labTest.Normal = (Int16)reader["normal"];
+                                _labTest.Normal = (byte)reader["normal"];
                             }
                             _lab_tests.Add(_labTest);
                         }
@@ -113,7 +113,7 @@ namespace ClinicSupport.DAL
                             }
                             if (reader["normal"].GetType() != typeof(DBNull))
                             {
-                                _labTest.Normal = (Int16)reader["normal"];
+                                _labTest.Normal = (byte)reader["normal"];
                             }
                             _lab_tests.Add(_labTest);
                         }
@@ -167,7 +167,7 @@ namespace ClinicSupport.DAL
                             }
                             if (reader["normal"].GetType() != typeof(DBNull))
                             {
-                                _labTest.Normal = (Int16)reader["normal"];
+                                _labTest.Normal = (byte)reader["normal"];
                             }
                         }
                     }
