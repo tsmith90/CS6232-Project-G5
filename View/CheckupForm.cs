@@ -382,8 +382,16 @@ namespace ClinicSupport.View
             {
                 ClearControls();
                 SetTexts();
-                OpenControls();
-                enterButton.Enabled = true;
+
+                if(string.IsNullOrEmpty(finalDiagnosisTextBox.Text) || finalDiagnosisTextBox.Text.Equals("None currently entered"))
+                {
+                    OpenControls();
+                    enterButton.Enabled = true;
+                }
+                else
+                {
+                    errorLabel.Text = "Visit information is closed to further changes";
+                }
             }
             else if (visit.NurseID == 0)
             {
