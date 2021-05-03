@@ -93,29 +93,46 @@ namespace ClinicSupport.UserControls
                 }
                 else
                 {
-                    LabTests newLabTest = new LabTests();
-                    newLabTest.PatientID = this.pid;
-                    newLabTest.AppointmentDate = Convert.ToDateTime(this.apptComboBox.SelectedItem);
-                    Visit visit = this.visitController.GetVisitByKeys(newLabTest.AppointmentDate, this.pid);
+                    var visitDate = Convert.ToDateTime(this.apptComboBox.SelectedItem);
+                    Visit visit = this.visitController.GetVisitByKeys(visitDate, this.pid);
                     if (visit.FinalDiagnosis == string.Empty)
                     {
+                        string confirmMessage = string.Empty;
                         foreach (ListViewItem item in this.testListView.Items)
                         {
                             if (item.Checked)
                             {
-                                newLabTest.Code = Convert.ToInt32(item.Name);
-                                LabTests testExisted = this.labTestController.GetLabTestsByPidCodeApptTime(newLabTest.PatientID, newLabTest.Code, newLabTest.AppointmentDate);
-                                if (testExisted.PatientID > 0)
+                                confirmMessage += item.Text + Environment.NewLine;
+                            }
+                        }
+                        var confirmResult = MessageBox.Show("Are you sure you want to order test(s): " + Environment.NewLine + confirmMessage,
+                                     "Confirm Test Order!!",
+                                     MessageBoxButtons.YesNo);
+                        if (confirmResult == DialogResult.Yes)
+                        {
+                            foreach (ListViewItem item in this.testListView.Items)
+                            {
+                                if (item.Checked)
                                 {
-                                    result = this.labTestController.AddLabTest(newLabTest);
-                                }
-                                else
-                                {
-                                    message += "Test " + item.Name + " for the selected vist date already ordered!";
-                                    MessageBox.Show(message, "Duplicate Test");
+                                    message = string.Empty;
+                                    LabTests newLabTest = new LabTests();
+                                    newLabTest.PatientID = this.pid;
+                                    newLabTest.AppointmentDate = Convert.ToDateTime(this.apptComboBox.SelectedItem);
+                                    newLabTest.Code = Convert.ToInt32(item.Name);
+                                    LabTests testExisted = this.labTestController.GetLabTestsByPidCodeApptTime(newLabTest.PatientID, newLabTest.Code, newLabTest.AppointmentDate);
+                                    if (testExisted.PatientID > 0)
+                                    {
+                                        message += "Test " + item.Text + " for the selected vist date already ordered!";
+                                        MessageBox.Show(message, "Duplicate Test");
+                                    }
+                                    else
+                                    {
+                                        result = this.labTestController.AddLabTest(newLabTest);
+                                    }
                                 }
                             }
                         }
+                        
                         if (result)
                         {
                             this.ParentForm.DialogResult = DialogResult.OK;
