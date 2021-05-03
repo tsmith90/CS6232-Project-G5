@@ -113,7 +113,7 @@ namespace ClinicSupport.DAL
                             }
                             if (reader["normal"].GetType() != typeof(DBNull))
                             {
-                                _labTest.Normal = (byte)reader["normal"];
+                                _labTest.Normal = (Byte)reader["normal"];
                             }
                             _lab_tests.Add(_labTest);
                         }
@@ -129,7 +129,7 @@ namespace ClinicSupport.DAL
             string selectStatement =
                 "SELECT pid, appointmentDate, code, dateTaken, dateReturned, result, normal " +
                 "FROM LabTests " +
-                "WHERE pid = @PatientID AND code = @code AND appointmentDate = @apptTime";
+                "WHERE pid = @pid AND code = @code AND appointmentDate = @apptTime";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {

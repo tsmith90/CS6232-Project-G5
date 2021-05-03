@@ -51,6 +51,7 @@ namespace ClinicSupport.UserControls
                 dateTakenTextBox.Text = test.DateTaken.ToString();
                 dateReturnedTextBox.Text = test.DateReturned.ToString();
                 resultTextArea.Text = test.Result;
+                this.visitDateTextBox.Text = test.AppointmentDate.ToString();
                 if(test.Normal > 0)
                 {
                     yesRadioButton.Checked = true;
@@ -122,11 +123,28 @@ namespace ClinicSupport.UserControls
                     newLabTest.Normal = Convert.ToInt32(this.yesRadioButton.Checked);
                     newLabTest.DateTaken = Convert.ToDateTime(this.dateTakenTextBox.Text);
                     newLabTest.DateReturned = Convert.ToDateTime(this.dateReturnedTextBox.Text);
-
-                    bool success = this.labTestController.UpdateLabTest(newLabTest, this.labTest);
-                    if (success)
+                    if (newLabTest.DateTaken < newLabTest.AppointmentDate || newLabTest.DateReturned < newLabTest.AppointmentDate)
                     {
-                        this.ParentForm.DialogResult = DialogResult.OK;
+                        string message = "";
+                        message += "Test's DateTaken or DateReturned cannot be before visit date!";
+                        MessageBox.Show(message, "Incorrect Information");
+                    }
+                    else
+                    {
+                        if (newLabTest.DateTaken > newLabTest.DateReturned)
+                        {
+                            string message = "";
+                            message += "Test's DateReturned cannot be before DateTaken!";
+                            MessageBox.Show(message, "Incorrect Information");
+                        }
+                        else
+                        {
+                            bool success = this.labTestController.UpdateLabTest(newLabTest, this.labTest);
+                            if (success)
+                            {
+                                this.ParentForm.DialogResult = DialogResult.OK;
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)

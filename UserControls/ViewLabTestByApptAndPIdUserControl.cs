@@ -3,6 +3,7 @@ using ClinicSupport.Model;
 using ClinicSupport.View;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ClinicSupport.UserControls
@@ -82,17 +83,26 @@ namespace ClinicSupport.UserControls
                 try
                 {
                     this.messageLabel.Text = string.Empty;
+                    this.messageLabel.ForeColor = Color.Black;
                     this.labTestsDataGridView.Columns.Clear();
                     this.labTestsDataGridView.DataSource = null;
                     Patient patient = this.patientController.GetPatientByID(this.pid);
-                    Individual individual = this.individualController.GetIndividualByID(patient.IndividualID);
-                    this.titleLabel.Text = "View LabTest(s) for " + individual.FirstName + " " + individual.LastName;
+                    if (patient.PatientID > 0)
+                    {
+                        Individual individual = this.individualController.GetIndividualByID(patient.IndividualID);
+                        this.titleLabel.Text = "View LabTest(s) for " + individual.FirstName + " " + individual.LastName;
 
-                    this.labTestList = this.labTestController.GetLabTestsByPatientID(this.pid);
+                        this.labTestList = this.labTestController.GetLabTestsByPatientID(this.pid);
 
-                    this.labTestsDataGridView.DataSource = this.labTestList;
-                    this.AddEditColumnToGV();
-                    this.orderTestButton.Enabled = true;
+                        this.labTestsDataGridView.DataSource = this.labTestList;
+                        this.AddEditColumnToGV();
+                        this.orderTestButton.Enabled = true;
+                    }
+                    else
+                    {
+                        this.messageLabel.Text = "Patient with ID: " + this.pid + " does not exist.";
+                        this.messageLabel.ForeColor = Color.Red;
+                    }
 
                 }
                 catch (Exception ex)

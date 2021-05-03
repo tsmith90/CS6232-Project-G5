@@ -84,7 +84,6 @@ namespace ClinicSupport.Controller
             return this.labTestDAL.AddLabTest(newLabTest);
         }
 
-
         /// <summary>
         /// Adds LabTest to the database via the LabTestDAL
         /// </summary>

@@ -93,20 +93,38 @@ namespace ClinicSupport.UserControls
                 }
                 else
                 {
-                    foreach (ListViewItem item in this.testListView.Items)
+                    LabTests newLabTest = new LabTests();
+                    newLabTest.PatientID = this.pid;
+                    newLabTest.AppointmentDate = Convert.ToDateTime(this.apptComboBox.SelectedItem);
+                    Visit visit = this.visitController.GetVisitByKeys(newLabTest.AppointmentDate, this.pid);
+                    if (visit.FinalDiagnosis == string.Empty)
                     {
-                        if (item.Checked)
+                        foreach (ListViewItem item in this.testListView.Items)
                         {
-                            LabTests newLabTest = new LabTests();
-                            newLabTest.PatientID = this.pid;
-                            newLabTest.AppointmentDate = Convert.ToDateTime(this.apptComboBox.SelectedItem);
-                            newLabTest.Code = Convert.ToInt32(item.Name);
-                            result = this.labTestController.AddLabTest(newLabTest);
+                            if (item.Checked)
+                            {
+                                newLabTest.Code = Convert.ToInt32(item.Name);
+                                LabTests testExisted = this.labTestController.GetLabTestsByPidCodeApptTime(newLabTest.PatientID, newLabTest.Code, newLabTest.AppointmentDate);
+                                if (testExisted.PatientID > 0)
+                                {
+                                    result = this.labTestController.AddLabTest(newLabTest);
+                                }
+                                else
+                                {
+                                    message += "Test " + item.Name + " for the selected vist date already ordered!";
+                                    MessageBox.Show(message, "Duplicate Test");
+                                }
+                            }
+                        }
+                        if (result)
+                        {
+                            this.ParentForm.DialogResult = DialogResult.OK;
                         }
                     }
-                    if (result)
+                    else
                     {
-                        this.ParentForm.DialogResult = DialogResult.OK;
+                        message += "Cannot order Test because the final diagnosis is entered!";
+                        MessageBox.Show(message, "Cannot Order Test");
                     }
                 }
             }
@@ -156,7 +174,8 @@ namespace ClinicSupport.UserControls
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (testComboBox.SelectedIndex != 0)
+            string message = string.Empty;
+            if (testComboBox.SelectedIndex != -1)
             {
                 this.testListView.CheckBoxes = true;
                 Test selectedTest = (Test)testComboBox.SelectedItem;
@@ -167,6 +186,17 @@ namespace ClinicSupport.UserControls
                     item.Checked = true;
                     this.testListView.Items.Add(item);
                 }
+                else
+                {
+                    message += "The selected Test already added to the list";
+                    MessageBox.Show(message, "Duplicate Information");
+                }
+            }
+            else
+            {
+                message += "Test and/or appointment date was not selected";
+                MessageBox.Show(message, "Missing Information");
+
             }
         }
 
