@@ -143,6 +143,10 @@ namespace ClinicSupport.UserControls
             {
                 errorLabel.Text = "Please provide a valid SSN";
             }
+            else if (dateOfBirthTimePicker.Value > DateTime.Now)
+            {
+                errorLabel.Text = "Please provide a valid birthday";
+            }
             else if (string.IsNullOrEmpty(phoneTextbox.Text) || phoneTextbox.Text.Length != 10)
             {
                 errorLabel.Text = "Please provide a valid phone number";
