@@ -12,7 +12,7 @@ namespace ClinicSupport.DAL
     class AppointmentDAL
     {
         /// <summary>
-        /// Get all the Appointment objects from the data source.
+        /// Gets all the Appointment objects from the DB
         /// </summary>
         /// <returns>a list of Appointment objects</returns>
         public List<Appointment> GetAllAppointments()
@@ -45,19 +45,19 @@ namespace ClinicSupport.DAL
         }
 
         /// <summary>
-        /// Get the Appointment object from the data source.
+        /// Gets a specific Appointment object from the DB
         /// </summary>
-        /// <param name="pid">pid</param>
-        /// <param name="apptTime">apptTime</param>
-        /// <param name="did">did</param>
+        /// <param name="pid">the patient's id</param>
+        /// <param name="did">the doctor's id</param>
+        /// <param name="appointmentTime">the appointment time and date</param>
         /// <returns>the Appointment object</returns>
-        public Appointment GetAppointmentByID(int pid, int did, DateTime apptTime)
+        public Appointment GetAppointmentByID(int pid, int did, DateTime appointmentTime)
         {
             Appointment _appointment = new Appointment();
             string selectStatement =
                 "SELECT pid, did, time, reason " +
                  "FROM Appointment " +
-                 "WHERE pid = @pid AND did = @did AND time = @apptTime";
+                 "WHERE pid = @pid AND did = @did AND time = @appointmentTime";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -68,8 +68,8 @@ namespace ClinicSupport.DAL
                     selectCommand.Parameters["@pid"].Value = pid;
                     selectCommand.Parameters.Add("@did", SqlDbType.Int);
                     selectCommand.Parameters["@did"].Value = did;
-                    selectCommand.Parameters.Add("@apptTime", SqlDbType.DateTime);
-                    selectCommand.Parameters["@apptTime"].Value = apptTime;
+                    selectCommand.Parameters.Add("@appointmentTime", SqlDbType.DateTime);
+                    selectCommand.Parameters["@appointmentTime"].Value = appointmentTime;
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         while (reader.Read())
@@ -86,10 +86,10 @@ namespace ClinicSupport.DAL
         }
 
         /// <summary>
-        /// insert a new appointment for the given Appointment into the data source.
+        /// Inserts a new appointment for the given Appointment into the DB
         /// </summary>
-        /// <param name="appt">given appt to insert a new Appointment</param>
-        public bool InsertNewAppointment(Appointment appt)
+        /// <param name="appointment">given appointment to insert a into the DB</param>
+        public bool InsertNewAppointment(Appointment appointment)
         {
             string insertStatement =
                  "INSERT INTO dbo.Appointment (did, pid, time, reason) " +
@@ -101,10 +101,10 @@ namespace ClinicSupport.DAL
                 using (SqlCommand cmd = new SqlCommand(insertStatement, connection))
                 {
                     // define parameters and their values
-                    cmd.Parameters.Add("@docID", SqlDbType.Int).Value = appt.DoctorID;
-                    cmd.Parameters.Add("@patientID", SqlDbType.Int).Value = appt.PatientID;
-                    cmd.Parameters.Add("@time", SqlDbType.DateTime).Value = appt.Time;
-                    cmd.Parameters.Add("@reason", SqlDbType.VarChar, 255).Value = appt.Reason;
+                    cmd.Parameters.Add("@docID", SqlDbType.Int).Value = appointment.DoctorID;
+                    cmd.Parameters.Add("@patientID", SqlDbType.Int).Value = appointment.PatientID;
+                    cmd.Parameters.Add("@time", SqlDbType.DateTime).Value = appointment.Time;
+                    cmd.Parameters.Add("@reason", SqlDbType.VarChar, 255).Value = appointment.Reason;
                     int count = cmd.ExecuteNonQuery();
                     if (count > 0)
                         return true;
@@ -115,17 +115,17 @@ namespace ClinicSupport.DAL
         }
 
         /// <summary>
-        /// Get row count if found availability for the given doctorID and apptTime from the data source.
+        /// Gets count if found availability for the given doctorID and appointmentTime from the data source.
         /// </summary>
         /// <param name="doctorID">given doctorID to query Appointment</param>
-        /// <param name="apptDateTime">given apptDateTime to query Appointment</param>
+        /// <param name="appointmentDateTime">given appointmentDateTime to query Appointment</param>
         /// <returns>a row count of matching query</returns>
-        public int CheckAvailability(int doctorID, DateTime apptDateTime)
+        public int CheckAvailability(int doctorID, DateTime appointmentDateTime)
         {
-            int apptAvailable = 0;
+            int available = 0;
             string selectStatement =
                  "SELECT COUNT(*) FROM Appointment " +
-                 "WHERE ([did] = @docID and [time] = @apptTime)";
+                 "WHERE ([did] = @docID and [time] = @appointmentTime)";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -134,12 +134,13 @@ namespace ClinicSupport.DAL
                 {
                     selectCommand.Parameters.Add("@docID", SqlDbType.Int);
                     selectCommand.Parameters["@docID"].Value = doctorID;
-                    selectCommand.Parameters.Add("@apptTime", SqlDbType.DateTime);
-                    selectCommand.Parameters["@apptTime"].Value = apptDateTime;
-                    apptAvailable = (int)selectCommand.ExecuteScalar();
+                    selectCommand.Parameters.Add("@appointmentTime", SqlDbType.DateTime);
+                    selectCommand.Parameters["@appointmentTime"].Value = appointmentDateTime;
+                    available = (int)selectCommand.ExecuteScalar();
                 }
             }
-            return apptAvailable;
+
+            return available;
         }
 
         /// <summary>
@@ -217,8 +218,8 @@ namespace ClinicSupport.DAL
         /// <summary>
         /// Delete an appointment an appointment if there is no visit associated with it in the data source.
         /// </summary>
-        /// <param name="appt">given appt to insert a new Appointment</param>
-        public bool DeleteAppointment(Appointment appt)
+        /// <param name="appointment">given appointment to insert a new Appointment</param>
+        public bool DeleteAppointment(Appointment appointment)
         {
             string deleteStatement =
             "DELETE FROM dbo.Appointment " +
@@ -231,9 +232,9 @@ namespace ClinicSupport.DAL
                 connection.Open();
                 using (SqlCommand cmd = new SqlCommand(deleteStatement, connection))
                 {
-                    cmd.Parameters.Add("@docID", SqlDbType.Int).Value = appt.DoctorID;
-                    cmd.Parameters.Add("@patientID", SqlDbType.Int).Value = appt.PatientID;
-                    cmd.Parameters.Add("@time", SqlDbType.DateTime).Value = appt.Time;
+                    cmd.Parameters.Add("@docID", SqlDbType.Int).Value = appointment.DoctorID;
+                    cmd.Parameters.Add("@patientID", SqlDbType.Int).Value = appointment.PatientID;
+                    cmd.Parameters.Add("@time", SqlDbType.DateTime).Value = appointment.Time;
                     int count = cmd.ExecuteNonQuery();
                     if (count > 0)
                         return true;

@@ -54,7 +54,7 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Getting list of LabTests for given patientID.
+        /// Gets a list of LabTests for given a patientID.
         /// </summary>
         /// <param name="patientID">patientID</param>
         /// <returns>list of LabTests</returns>
@@ -85,9 +85,10 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Adds LabTest to the database via the LabTestDAL
+        /// Updates a LabTest to the database via the LabTestDAL
         /// </summary>
-        /// <param name="oldLabTest">Lab Test to be added</param>
+        /// <param name="labTest">Lab Test to be update</param>
+        /// <param name="oldLabTest">Lab Test to be checked before updating a lab test</param>
         /// <returns>returns true if addition was successful</returns>
         public bool UpdateLabTest(LabTests labTest, LabTests oldLabTest)
         {
@@ -95,6 +96,7 @@ namespace ClinicSupport.Controller
             {
                 throw new ArgumentNullException("Not all of the required data is set for the Lab Test to be added");
             }
+
             return this.labTestDAL.UpdateLabTest(labTest, oldLabTest);
         }
     }

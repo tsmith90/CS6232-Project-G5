@@ -21,7 +21,7 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Inserts a new appointment for given Appointment.
+        /// Inserts a new appointment using the DAL method
         /// </summary>
         /// <returns>true if sucessful, else false</returns>
         public bool InsertNewAppointment(Appointment appointment)
@@ -34,7 +34,7 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Update an existing appointment for given Appointment.
+        /// Update an existing appointment using the DAL method
         /// </summary>
         /// <param name="newAppointment">newAppointment to update</param>
         /// <param name="oldAppointment">oldAppointment to compare if has changed</param>
@@ -49,7 +49,7 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Deletes an existing appointment from given Appointment parameter.
+        /// Deletes an existing appointment from given Appointment parameter
         /// </summary>
         /// <param name="appointment">the appointment to be deleted</param>
         /// <returns>true if sucessful, else false</returns>
@@ -63,7 +63,7 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Gets row count from Appointment for a given doctorID and appointmentDateTime.
+        /// Gets row count from Appointment for a given doctorID and appointmentDateTime
         /// </summary>
         /// <param name="appointmentDateTime">The appointment reference time and date</param>
         /// <param name="doctorID">the doctor's ID</param>
@@ -78,7 +78,7 @@ namespace ClinicSupport.Controller
         }
 
         /// <summary>
-        /// Gets list of Appointments for a given patientID.
+        /// Gets list of Appointments for a given patientID
         /// </summary>
         /// <param name="patientID">patientID</param>
         /// <returns>list of Appointments</returns>

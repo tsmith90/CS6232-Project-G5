@@ -12,18 +12,18 @@ namespace ClinicSupport.DAL
     class LabTestsDAL
     {
         /// <summary>
-        /// Retrieves list of LabTests from the DB whose patientID and appointment equals the one passed in
+        /// Retrieves list of LabTests from the DB whose patientID and appointment equals the given parameters
         /// </summary>
-        /// <param name="patient_id">Used to retrieve LabTests for that person</param>
-        /// <param name="appTime">The appointment time</param>
+        /// <param name="patient_id">The patient's ID</param>
+        /// <param name="appointmentTime">The appointment time</param>
         /// <returns>Returns list of LabTests from the DB</returns>
-        public List<LabTests> GetLabTestsByPatientIDAndAppt(int patient_id, DateTime appTime)
+        public List<LabTests> GetLabTestsByPatientIDAndAppt(int patient_id, DateTime appointmentTime)
         {
             List<LabTests> _lab_tests = new List<LabTests>();
             string selectStatement = 
                 "SELECT pid, appointmentDate, code, dateTaken, dateReturned, result, normal " +
                 "FROM LabTests " +
-                "WHERE pid = @PatientID and appointmentDate = @appTime";
+                "WHERE pid = @PatientID and appointmentDate = @appointmentTime";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -32,8 +32,8 @@ namespace ClinicSupport.DAL
                 {
                     selectCommand.Parameters.Add("@PatientID", SqlDbType.Int);
                     selectCommand.Parameters["@PatientID"].Value = patient_id;
-                    selectCommand.Parameters.Add("@appTime", SqlDbType.DateTime);
-                    selectCommand.Parameters["@appTime"].Value = appTime;
+                    selectCommand.Parameters.Add("@appointmentTime", SqlDbType.DateTime);
+                    selectCommand.Parameters["@appointmentTime"].Value = appointmentTime;
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
@@ -68,11 +68,11 @@ namespace ClinicSupport.DAL
         }
 
         /// <summary>
-        /// Retrieves list of LabTests from the DB whose patientID equals the one passed in
+        /// Retrieves list of LabTests from the DB whose patientID equals the parameter
         /// </summary>
-        /// <param name="patient_id">Used to retrieve LabTests for that person</param>
+        /// <param name="pid">The patient's ID</param>
         /// <returns>Returns list of LabTests from the DB</returns>
-        public List<LabTests> GetLabTestsByPatientID(int patient_id)
+        public List<LabTests> GetLabTestsByPatientID(int pid)
         {
             List<LabTests> _lab_tests = new List<LabTests>();
             string selectStatement =
@@ -86,7 +86,7 @@ namespace ClinicSupport.DAL
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
                     selectCommand.Parameters.Add("@PatientID", SqlDbType.Int);
-                    selectCommand.Parameters["@PatientID"].Value = patient_id;
+                    selectCommand.Parameters["@PatientID"].Value = pid;
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         while (reader.Read())
@@ -123,13 +123,20 @@ namespace ClinicSupport.DAL
             return _lab_tests;
         }
 
-        public LabTests GetLabTestsByPidCodeApptTime(int pid, int code, DateTime apptTime)
+        /// <summary>
+        /// Retrieves LabTests from the DB for a given pid, code, and time
+        /// </summary>
+        /// <param name="pid">The patient's ID</param>
+        /// <param name="code">The test code</param>
+        /// <param name="appointmentTime">The time for the appointment</param>
+        /// <returns>Returns a specific LabTests from the DB</returns>
+        public LabTests GetLabTestsByPidCodeApptTime(int pid, int code, DateTime appointmentTime)
         {
             LabTests _labTest = new LabTests();
             string selectStatement =
                 "SELECT pid, appointmentDate, code, dateTaken, dateReturned, result, normal " +
                 "FROM LabTests " +
-                "WHERE pid = @pid AND code = @code AND appointmentDate = @apptTime";
+                "WHERE pid = @pid AND code = @code AND appointmentDate = @appointmentTime";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -140,8 +147,8 @@ namespace ClinicSupport.DAL
                     selectCommand.Parameters["@pid"].Value = pid;
                     selectCommand.Parameters.Add("@code", SqlDbType.Int);
                     selectCommand.Parameters["@code"].Value = code;
-                    selectCommand.Parameters.Add("@apptTime", SqlDbType.DateTime);
-                    selectCommand.Parameters["@apptTime"].Value = apptTime;
+                    selectCommand.Parameters.Add("@appointmentTime", SqlDbType.DateTime);
+                    selectCommand.Parameters["@appointmentTime"].Value = appointmentTime;
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         while (reader.Read())
@@ -177,10 +184,10 @@ namespace ClinicSupport.DAL
         }
 
         /// <summary>
-        /// Adds LabTest to the database
+        /// Adds a LabTest to the database
         /// </summary>
         /// <param name="newLabTest">Lab Test to be added</param>
-        /// <returns>Returns if addition was successful</returns>
+        /// <returns>true if addition was successful</returns>
         public bool AddLabTest(LabTests newLabTest)
         {
             string insertStatement = 
@@ -206,11 +213,12 @@ namespace ClinicSupport.DAL
         }
 
         /// <summary>
-        /// Adds LabTest to the database
+        /// Updates a LabTest in the database
         /// </summary>
-        /// <param name="newLabTest">Lab Test to be added</param>
-        /// <returns>Returns if addition was successful</returns>
-        public Boolean UpdateLabTest(LabTests labTest, LabTests oldLabTest)
+        /// <param name="labTest">Lab Test to be used for updating</param>
+        /// <param name="oldLabTest">Lab Test to be checked before updating begins</param>
+        /// <returns>true if addition was successful</returns>
+        public bool UpdateLabTest(LabTests labTest, LabTests oldLabTest)
         {  
             string updateStatement =
                  "UPDATE dbo.LabTests SET pid =  @pid, appointmentDate = @appointmentDate, " +

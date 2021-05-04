@@ -44,7 +44,7 @@ namespace ClinicSupport.Controller
         {
             if (newIndividual == null)
             {
-                throw new ArgumentNullException("Please enter a valid individual");
+                throw new ArgumentNullException("Please enter a valid individual object");
             }
 
             return individualDAL.UpdateIndividual(newIndividual);
@@ -59,7 +59,7 @@ namespace ClinicSupport.Controller
         {
             if (ssn.Length != 9)
             {
-                throw new ArgumentException("Please enter a valud SSN. Must be 9 character long");
+                throw new ArgumentException("Please enter a valid SSN. It must be 9 character long");
             }
 
             return individualDAL.IsDuplicateSSN(ssn);
