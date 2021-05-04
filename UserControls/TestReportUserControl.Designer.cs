@@ -107,6 +107,7 @@ namespace ClinicSupport.UserControls
             this.startDateTimePicker.Size = new System.Drawing.Size(151, 26);
             this.startDateTimePicker.TabIndex = 2;
             this.startDateTimePicker.Value = new System.DateTime(2021, 4, 28, 0, 0, 0, 0);
+            this.startDateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
             // 
             // startDateLabel
             // 
@@ -139,6 +140,7 @@ namespace ClinicSupport.UserControls
             this.endDateTimePicker.Size = new System.Drawing.Size(155, 26);
             this.endDateTimePicker.TabIndex = 4;
             this.endDateTimePicker.Value = new System.DateTime(2021, 4, 28, 0, 0, 0, 0);
+            this.endDateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
             // 
             // findReportbutton
             // 

@@ -2,6 +2,8 @@
 
 DB Name: CS6232-g5 
 
+Please update the DB. It has changed since the last iteration.
+
 Login Information:
 
 Admin Logins:
