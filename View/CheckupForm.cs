@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace ClinicSupport.View
 {
     /// <summary>
-    /// Form class to retrieve and fill out check up information
+    /// Form to retrieve and fill out check up information
     /// </summary>
     public partial class CheckupForm : Form
     {
@@ -53,7 +53,7 @@ namespace ClinicSupport.View
         /// <summary>
         /// Method to set the Nurse object across forms
         /// </summary>
-        /// <param name="name">The name of the Nurse</param>
+        /// <param name="nurse">The name of the Nurse</param>
         public void SetNurse(Nurse nurse)
         {
             this.nurse = nurse ?? throw new ArgumentNullException("Please enter a valid nurse");
@@ -247,15 +247,17 @@ namespace ClinicSupport.View
 
         private Visit ParseVisit()
         {
-            Visit newVisit = new Visit();
-            newVisit.PatientID = visit.PatientID;
-            newVisit.DateTime = visit.DateTime;
-            newVisit.NurseID = GetInt(nurseTextBox.Text, "Nurse ID");
-            newVisit.Weight = GetDecimal(weightTextBox.Text, "weight");
-            newVisit.Temperature = GetDecimal(temperatureTextBox.Text, "temperature");
-            newVisit.Systolic = GetInt(systolicTextBox.Text, "systolic number");
-            newVisit.Diastolic = GetInt(diastolicTextBox.Text, "diastolic number");
-            newVisit.Pulse = GetInt(pulseTextBox.Text, "pulse");
+            Visit newVisit = new Visit
+            {
+                PatientID = visit.PatientID,
+                DateTime = visit.DateTime,
+                NurseID = GetInt(nurseTextBox.Text, "Nurse ID"),
+                Weight = GetDecimal(weightTextBox.Text, "weight"),
+                Temperature = GetDecimal(temperatureTextBox.Text, "temperature"),
+                Systolic = GetInt(systolicTextBox.Text, "systolic number"),
+                Diastolic = GetInt(diastolicTextBox.Text, "diastolic number"),
+                Pulse = GetInt(pulseTextBox.Text, "pulse")
+            };
 
             if (symptomsTextBox.Text.Length > 254)
             {

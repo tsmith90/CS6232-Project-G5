@@ -21,7 +21,7 @@ namespace ClinicSupport.UserControls
         private Individual _individual;
 
         /// <summary>
-        /// 0 parameter contructor for PatientInformationUserControl
+        /// 0-parameter contructor for PatientInformationUserControl
         /// </summary>
         public PatientInformationUserControl()
         {

@@ -16,6 +16,9 @@ namespace ClinicSupport.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Sets the Lab test to be used in the order test user control
+        /// </summary>
         public void SetLabTest(LabTests test)
         {
             orderTestUserControl1.ForUpdatingTests(test);

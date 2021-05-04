@@ -143,18 +143,6 @@ namespace ClinicSupport.UserControls
                 patientsDataGridView.Columns["FirstName"].DisplayIndex = 1;
                 AddEditColumnToGV();
             }
-
-            /*patientsDataGridView.Columns["IndividualID"].Frozen = false;
-            patientsDataGridView.Columns["LastName"].Frozen = false;
-            patientsDataGridView.Columns["FirstName"].Frozen = false;
-            patientsDataGridView.Columns["DateOfBirth"].Frozen = false;
-            patientsDataGridView.Columns["StreetAddress"].Frozen = false;
-            patientsDataGridView.Columns["City"].Frozen = false;
-            patientsDataGridView.Columns["State"].Frozen = false;
-            patientsDataGridView.Columns["ZipCode"].Frozen = false;
-            patientsDataGridView.Columns["PhoneNumber"].Frozen = false;
-            patientsDataGridView.Columns["SSN"].Frozen = false;
-            patientsDataGridView.Columns[10].Frozen = false;*/
         }
 
         private void SearchDOBAndLastNameButton_Click(object sender, EventArgs e)

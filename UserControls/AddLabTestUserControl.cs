@@ -80,6 +80,7 @@ namespace ClinicSupport.UserControls
             testComboBox.ValueMember = "Code";
             testComboBox.SelectedIndex = -1;
         }
+
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
             try
@@ -213,9 +214,7 @@ namespace ClinicSupport.UserControls
             {
                 message += "Test and/or appointment date was not selected";
                 MessageBox.Show(message, "Missing Information");
-
             }
         }
-
     }
 }

@@ -13,6 +13,8 @@ namespace ClinicSupport.UserControls
     /// </summary>
     public partial class NewAppointmentUserControl : UserControl
     {
+
+        public int CurrentPatientID { get; set; }
         private readonly AppointmentController appointmentController;
         private readonly DoctorController doctorController;
         private readonly PatientController patientController;
@@ -20,8 +22,6 @@ namespace ClinicSupport.UserControls
         private Patient patient;
         private Appointment appointment;
         private bool viewOnlyAppt;
-
-        public int CurrentPatientID { get; set; }
 
         /// <summary>
         /// 0-parameter constructor for NewAppointmentUserControl
@@ -261,7 +261,7 @@ namespace ClinicSupport.UserControls
             this.datePortionDateTimePicker.Value = DateTimePicker.MinimumDateTime;
         }
 
-        private void ApptDateTimePicker_ValueChanged(object sender, EventArgs e)
+        private void AppointmentDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             var diff = this.timePortionDateTimePicker.Value.TimeOfDay.Minutes % 15;
             if (diff != 0)
@@ -280,7 +280,7 @@ namespace ClinicSupport.UserControls
             }
         }
 
-        private void visitInfoButton_Click(object sender, EventArgs e)
+        private void VisitInfoButton_Click(object sender, EventArgs e)
         {
             VisitByPatientIDForm vistForm = new VisitByPatientIDForm();
             vistForm.SetVisit(this.patient.PatientID);
@@ -295,7 +295,7 @@ namespace ClinicSupport.UserControls
             }
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (!this.viewOnlyAppt)
             {

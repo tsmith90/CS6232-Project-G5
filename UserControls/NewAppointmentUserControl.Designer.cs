@@ -187,7 +187,7 @@ namespace ClinicSupport.UserControls
             this.visitInfoButton.TabIndex = 14;
             this.visitInfoButton.Text = "Visit Information";
             this.visitInfoButton.UseVisualStyleBackColor = true;
-            this.visitInfoButton.Click += new System.EventHandler(this.visitInfoButton_Click);
+            this.visitInfoButton.Click += new System.EventHandler(this.VisitInfoButton_Click);
             // 
             // datePortionDateTimePicker
             // 
@@ -198,7 +198,7 @@ namespace ClinicSupport.UserControls
             this.datePortionDateTimePicker.Name = "datePortionDateTimePicker";
             this.datePortionDateTimePicker.Size = new System.Drawing.Size(255, 45);
             this.datePortionDateTimePicker.TabIndex = 15;
-            this.datePortionDateTimePicker.ValueChanged += new System.EventHandler(this.ApptDateTimePicker_ValueChanged);
+            this.datePortionDateTimePicker.ValueChanged += new System.EventHandler(this.AppointmentDateTimePicker_ValueChanged);
             // 
             // docComboBox
             // 
@@ -237,7 +237,7 @@ namespace ClinicSupport.UserControls
             this.deleteButton.TabIndex = 19;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // NewAppointmentUserControl
             // 

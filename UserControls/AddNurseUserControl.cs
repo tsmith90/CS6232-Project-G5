@@ -17,7 +17,6 @@ namespace ClinicSupport.UserControls
         private readonly NurseController nurseController;
         private readonly States statesList;
 
-
         /// <summary>
         /// 0-parameter constructor for the AddNurseUserControl
         /// </summary>

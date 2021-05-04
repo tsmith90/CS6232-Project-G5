@@ -44,6 +44,7 @@ namespace ClinicSupport.UserControls
         private void GetVisitInfo(int patientID)
         {
             List<Visit> visitsList = new List<Visit>();
+
             try
             {
                 Patient _patient = this.patientController.GetPatientByID(patientID);
