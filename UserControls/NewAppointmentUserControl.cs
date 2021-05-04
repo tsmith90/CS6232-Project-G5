@@ -156,28 +156,40 @@ namespace ClinicSupport.UserControls
                         if (this.appointment.Time != DateTime.MinValue)
                         {
                             Appointment oldAppt = this.appointmentController.GetAppointmentByIDsAndTime(this.appointment.PatientID, this.appointment.DoctorID, this.appointment.Time);
-                            if (apptAvailable == 0)
+                            if (newAppointment.Time != oldAppt.Time || newAppointment.DoctorID != oldAppt.DoctorID)
+                            {
+                                if (apptAvailable == 0)
+                                {
+                                    apptAdded = this.appointmentController.UpdateAppointment(oldAppt, newAppointment);
+                                    if (apptAdded)
+                                    {
+                                        this.ClearForm();
+                                        this.ParentForm.DialogResult = DialogResult.OK;
+                                    }
+                                    else
+                                    {
+                                        this.ParentForm.DialogResult = DialogResult.Abort;
+                                    }
+                                }
+                                else
+                                {
+                                    string message = "";
+                                    message += "Unable to update appointment.  Conflict with the appointment of the same doctor at the same time";
+                                    MessageBox.Show(message, "Conflict Information");
+                                }
+                            }
+                            else
                             {
                                 apptAdded = this.appointmentController.UpdateAppointment(oldAppt, newAppointment);
                                 if (apptAdded)
                                 {
                                     this.ClearForm();
-                                    this.messageLabel.Text = "Appointment is updated!";
-                                    this.messageLabel.ForeColor = Color.Black;
                                     this.ParentForm.DialogResult = DialogResult.OK;
                                 }
                                 else
                                 {
-                                    this.messageLabel.Text = "Unable to update the Appointment at this time!";
-                                    this.messageLabel.ForeColor = Color.Red;
                                     this.ParentForm.DialogResult = DialogResult.Abort;
                                 }
-                            }
-                            else
-                            {
-                                string message = "";
-                                message += "Unable to update appointment.  Conflict with the appointment of the same doctor at the same time";
-                                MessageBox.Show(message, "Conflict Information");
                             }
                         }
                         else
@@ -295,7 +307,7 @@ namespace ClinicSupport.UserControls
                         success = this.appointmentController.DeleteAppointment(this.appointment);
                         if (success)
                         {
-                            this.messageLabel.Text = "The appointment has been sucessfukky deleted.";
+                            this.ParentForm.DialogResult = DialogResult.Yes;
                         }
                     }
                 }
