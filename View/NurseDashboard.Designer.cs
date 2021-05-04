@@ -157,7 +157,7 @@ namespace ClinicSupport.View
             this.testsTabPage.Name = "testsTabPage";
             this.testsTabPage.Size = new System.Drawing.Size(928, 537);
             this.testsTabPage.TabIndex = 3;
-            this.testsTabPage.Text = "LabTests Info";
+            this.testsTabPage.Text = "Lab Tests";
             this.testsTabPage.UseVisualStyleBackColor = true;
             // 
             // viewLabTestByApptAndPIdUserControl1
