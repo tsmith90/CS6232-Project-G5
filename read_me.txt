@@ -25,6 +25,3 @@ You can view appointments and update information in this form.
 
 Lab Tests tab in Nurse dashboard requires a user to scroll 
 horizontally to find the "edit" link to find the "edit lab tests" form.
-
-The stored procedure birthdays aren't correct. 
-The team member assigned to the problem was unable to finish due to a power failure.
