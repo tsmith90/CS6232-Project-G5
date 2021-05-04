@@ -118,6 +118,13 @@ namespace ClinicSupport.UserControls
                     this.messageLabel.Text = message;
                     this.messageLabel.ForeColor = Color.Red;
                 }
+                else if (result == DialogResult.Yes)
+                {
+                    this.GetPatientData(this.patientID);
+                    string message = "The Appointment have been Deleted!";
+                    this.messageLabel.Text = message;
+                    this.messageLabel.ForeColor = Color.Black;
+                }
             }
         }
 
@@ -134,6 +141,16 @@ namespace ClinicSupport.UserControls
             if (result == DialogResult.OK)
             {
                 this.GetPatientData(this.patientID);
+                string message = "The Appointment have been Added!";
+                this.messageLabel.Text = message;
+                this.messageLabel.ForeColor = Color.Black;
+            }
+            else if (result == DialogResult.Abort)
+            {
+                this.GetPatientData(this.patientID);
+                string message = "The Appointment have not been Added!";
+                this.messageLabel.Text = message;
+                this.messageLabel.ForeColor = Color.Red;
             }
         }
     }
