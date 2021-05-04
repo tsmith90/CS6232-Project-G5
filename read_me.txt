@@ -13,7 +13,5 @@ Nurse Logins:
 2. Username: Joe / Password: Dirt
 
 Notes:
-Search for a patient's test results if the patient has visited the clinic for that appointment is on the Appointment form.
-if you click on "Edit" appointment, and the click on "Visit Info" you can view the tests
-
-Generate reports tab has been added to admin dashboard, but it's empty this iteration
+Nurse Update Login info allows you to enter the same information as before. 
+It's done on purpose for security purposes. You aren't supposed to give people a chance to figure out your old passwords.
