@@ -1,6 +1,7 @@
 ﻿using ClinicSupport.DAL;
 using ClinicSupport.Model;
 using System;
+using System.Data.SqlClient;
 
 namespace ClinicSupport.Controller
 {
@@ -69,6 +70,10 @@ namespace ClinicSupport.Controller
             {
                 string hashedPassword = loginController.HashPassword(user, password);
                 return nurseDAL.AddNurse(individual, user, hashedPassword);
+            }
+            catch (SqlException)
+            {
+                throw new Exception("That SSN is already logged to someone");
             }
             catch(Exception ex)
             {
