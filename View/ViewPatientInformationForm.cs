@@ -27,7 +27,7 @@ namespace ClinicSupport.View
         }
 
         /// <summary>
-        /// Sets the patient information to the various input fields of the form
+        /// Sets the individual information to the various input fields of the user control
         /// </summary>
         /// <param name="patient">Patient whose information is to be displayed on the user control input fields</param>
         public void PutIndividualData(Individual patient)
@@ -36,9 +36,8 @@ namespace ClinicSupport.View
         }
 
         /// <summary>
-        /// Sets the patient information to the various input fields of the form
+        /// Sets the individual information user control
         /// </summary>
-        /// <param name="patient">Patient whose information is to be displayed on the user control input fields</param>
         public void SetIndividualData()
         {
             patientInformationUserControl1.SetIndividualData();

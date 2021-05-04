@@ -18,12 +18,12 @@ namespace ClinicSupport.View
         }
 
         /// <summary>
-        /// Sets the patient information to the various input fields of the form
+        /// Sets the appointment information to the various input fields of the new appointment user control
         /// </summary>
-        /// <param name="patient">Patient whose information is to be displayed on the user control input fields</param>
-        public void SetAppointment(Appointment appt)
+        /// <param name="appointment">appointment information to be displayed on the user control input fields</param>
+        public void SetAppointment(Appointment appointment)
         {
-            newAppointmentUserControl1.SetAppointment(appt);
+            newAppointmentUserControl1.SetAppointment(appointment);
         }
     }
 }

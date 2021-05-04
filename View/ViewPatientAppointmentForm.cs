@@ -16,7 +16,7 @@ namespace ClinicSupport.View
         }
 
         /// <summary>
-        /// Sets the patient information to the various input fields of the form
+        /// Sets the appointment information to the various input fields of the form
         /// </summary>
         /// <param name="patientID">Patient whose information is to be displayed on the user control input fields</param>
         public void SetAppointment(int patientID)
@@ -24,7 +24,7 @@ namespace ClinicSupport.View
             viewAppointmentsByPatientIDUserControl1.SetAppointment(patientID);
         }
 
-        private void closeButton_Click(object sender, System.EventArgs e)
+        private void CloseButton_Click(object sender, System.EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }

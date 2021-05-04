@@ -17,13 +17,12 @@ namespace ClinicSupport.View
         }
 
         /// <summary>
-        /// Sets the patient appointment LabTests for input fields of the form
+        /// Sets the appointment test time and user control information
         /// </summary>
-        /// <param name="patientID">PatientID whose information is to be displayed on the user control input fields</param>
-        /// <param name="apptTime">The apptTime for getting the labtests</param>
-        public void SetAppointmentTest(Appointment _appt)
+        /// <param name="appointment">The appointment time for getting the labtests</param>
+        public void SetAppointmentTest(Appointment appointment)
         {
-            viewLabTestByApptAndPIdUserControl1.SetAppointmentTest(_appt);
+            viewLabTestByApptAndPIdUserControl1.SetAppointmentTest(appointment);
         }
     }
 }

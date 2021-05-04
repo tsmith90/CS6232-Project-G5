@@ -17,9 +17,9 @@ namespace ClinicSupport.View
         }
 
         /// <summary>
-        /// Sets the patient ID for Visit information
+        /// Sets the Lab test information
         /// </summary>
-        /// <param name="patientID">Patient whose information is to be displayed on the user control input fields</param>
+        /// <param name="test">the test information used to set a new lab test</param>
         public void SetLabTest(LabTests test)
         {
             if (test != null)
