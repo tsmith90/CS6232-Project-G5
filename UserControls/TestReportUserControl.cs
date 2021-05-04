@@ -35,5 +35,10 @@ namespace ClinicSupport.UserControls
                 reportViewer1.Clear();
             }
         }
+
+        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            errorLabel.Text = "";
+        }
     }
 }
