@@ -10,7 +10,7 @@ Admin Logins:
 
 Nurse Logins:
 1. Username: jane / Password: test1234
-2. Username: Joe / Password: Dirt
+2. Username: Joe01 / Password: Dirt
 
 Notes:
 Nurse Update Login info allows you to enter the same information as before. 
