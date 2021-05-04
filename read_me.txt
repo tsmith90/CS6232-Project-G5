@@ -8,7 +8,7 @@ Login Information:
 
 Admin Logins:
 1. Username: doe / Password: test1234
-2. Username: Bruce / Password: Wayne
+2. Username: Bruce01 / Password: Wayne
 
 Nurse Logins:
 1. Username: jane / Password: test1234
