@@ -1,10 +1,6 @@
-# CS6232-Project
+Clinic Management System
 
-DB Name: CS6232-g5 
-
-Please update the DB. It has changed since the last iteration.
-
-Login Information:
+Login Information For Testing:
 
 Admin Logins:
 1. Username: doe / Password: test1234
